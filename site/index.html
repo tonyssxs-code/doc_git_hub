@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="None" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>Mon site</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Home";
+        var mkdocs_page_input_path = "index.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="." class="icon icon-home"> Mon site
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Home</a>
+    <ul class="current">
+    </ul>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href=".">Mon site</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Home</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h2 id="tuto-injecter-des-metadonnees-exifs-dans-des-photos-pour-quelles-soient-georeferencees">TUTO: injecter des métadonnées exifs dans des photos pour qu'elles soient géoreferencées.</h2>
+<p><img alt="" src="img/cap.jpg" /></p>
+<p>Prérequis : 
+Installer Visual code et Python.
+Pour injecter les données de géoréférencement à des photos non géoréférencées, il faut : 
+Créer une couche de point sur qgis avec les champs suivants : fid ; chemin ; x ; y
+Pointer sur gis l’endroit où la photo a été prise et mettre dans le champ chemin, le chemin complet de la photo comme ci-dessous. Ne pas mettre des guillemets dans le chemin des photos. <br />
+Mettre à jour les champs x et y dans la calculatrice de champ sur Qgis </p>
+<p>Une fois toutes les photos pointer, exporter la table attributaire en csv dans le même dossier où se trouve les photos. Le csv ne doit pas contenir la colonne géométrique
+Enregistrer le script suivant dans Visual code avec l’extension python
+Fichier ; 
+Nouveau fichier texte ;
+ Puis coller le script ci-dessous
+Ensuite enregistrer le script dans le même dossier que les photos en allant dans Fichier – Enregistrer sous. Nommer votre fichier et choisir Python dans Type 
+ATTENTION : les parties base_dir ; test_dir et csv_file du script souligné en vert doivent être modifier.
+Base_dir : c’est le dossier mère/racine : dans mon exemple j’ai plusieurs sous-dossiers dont le dossier contenant mes photos dans mon dossier 06_prospection 
+base_dir = r"C:\photos\06_Prospection"</p>
+<p>Test_dir : c’est le nom du sous-dossier contenant mes photos dans 06_prospection ici c’est Fenioux
+test_dir = os.path.join(base_dir, "Fenioux")</p>
+<p>Csv_file : c’est le nom de mon csv se trouvant dans le même dossier que mes photos. N’oubliez pas l’extension.csv à la fin du nom de votre fichier dans le script
+csv_file = os.path.join(test_dir, "fenioux.csv")  </p>
+<p>import os
+import pandas as pd</p>
+<p>from pyproj import Transformer
+import piexif
+from PIL import Image</p>
+<p>CODE: </p>
+<h1 id="-1-dossier-de-travail-">---- 1. Dossier de travail ----</h1>
+<p>base_dir = r"C:photos\06_Prospection"
+test_dir = os.path.join(base_dir, "Fenioux")
+csv_file = os.path.join(test_dir, "fenioux.csv")  # nom de ton CSV</p>
+<h1 id="-2-charger-le-csv-utf-8-avec-points-virgules-et-nettoyage-">---- 2. Charger le CSV UTF-8 avec points-virgules et nettoyage ----</h1>
+<p>df = pd.read_csv(csv_file, sep=";", encoding="utf-8-sig")  # point-virgule comme séparateur
+df = df.rename(columns=lambda c: c.strip())  # supprime les espaces autour des noms de colonnes</p>
+<h1 id="verification-rapide-des-colonnes">Vérification rapide des colonnes</h1>
+<p>print("Colonnes détectées dans le CSV :", df.columns.tolist())</p>
+<h1 id="-3-convertir-lambert93-wgs84-">---- 3. Convertir Lambert93 -&gt; WGS84 ----</h1>
+<p>transformer = Transformer.from_crs("EPSG:2154", "EPSG:4326", always_xy=True)
+df["lon"], df["lat"] = transformer.transform(df["x"].values, df["y"].values)</p>
+<h1 id="-4-fonction-pour-convertir-en-format-dms-rationnel-">---- 4. Fonction pour convertir en format DMS rationnel ----</h1>
+<p>def deg_to_dms_rational(deg):
+    d = int(abs(deg))
+    m = int((abs(deg) - d) * 60)
+    s = round((abs(deg) - d - m/60) * 3600 * 100)
+    return ((d, 1), (m, 1), (s, 100))</p>
+<h1 id="-5-nouveau-dossier-exf-au-meme-niveau-que-test-">---- 5. Nouveau dossier EXF (au même niveau que TEST) ----</h1>
+<p>output_dir = os.path.join(base_dir, "EXF")
+os.makedirs(output_dir, exist_ok=True)</p>
+<h1 id="-6-injection-des-coordonnees-gps-dans-chaque-photo-">---- 6. Injection des coordonnées GPS dans chaque photo ----</h1>
+<p>for _, row in df.iterrows():
+    # Nettoyage du chemin pour supprimer espaces et caractères invisibles
+    chemin = row["chemin"].strip().replace("\u202a", "")</p>
+<pre><code>lat, lon = row["lat"], row["lon"]
+
+lat_ref = "N" if lat &gt;= 0 else "S"
+lon_ref = "E" if lon &gt;= 0 else "W"
+
+gps_ifd = {
+    piexif.GPSIFD.GPSLatitudeRef: lat_ref,
+    piexif.GPSIFD.GPSLatitude: deg_to_dms_rational(lat),
+    piexif.GPSIFD.GPSLongitudeRef: lon_ref,
+    piexif.GPSIFD.GPSLongitude: deg_to_dms_rational(lon),
+}
+
+exif_dict = {"GPS": gps_ifd}
+exif_bytes = piexif.dump(exif_dict)
+
+try:
+    im = Image.open(chemin)
+    nom_fichier = os.path.basename(chemin)
+    sortie = os.path.join(output_dir, nom_fichier)
+    im.save(sortie, exif=exif_bytes)
+    print(f"✅ Coordonnées ajoutées et sauvegardées dans {sortie}")
+except Exception as e:
+    print(f"❌ Erreur pour {chemin} : {e}")
+</code></pre>
+<p>Une fois le script enregistrer, clic droit, ouvrir avec Python une fois le traitement terminer, un nouveau dossier nommer EXF contenant les photos avec des données EXIF sera créer au même niveau que les dossiers.</p>
+<p>Importation et visualisation des photos géoréférencés sur Qgis
+Sur qgis, vous avez la possibilité d’importer des photos sur l’interface et de les visualiser comme une couche. </p>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="js/theme_extra.js"></script>
+    <script src="js/theme.js"></script>
+      <script src="search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.6.1
+Build Date UTC : 2026-02-19 14:33:13.282377+00:00
+-->
