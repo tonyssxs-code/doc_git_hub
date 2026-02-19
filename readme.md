@@ -1,11 +1,11 @@
-
 # Mon repo de doc
 
-Objectif : 
+Objectif :
 
-Generer un site github pages découvrir l'environnement github 
+Generer un site github pages découvrir l'environnement github
 
-## Prérequis 
+## Prérequis
 - Arborescence (locale)
     - un repertoire *github*
-        - ce fichier re
+        - ce fichier readme.md
+
