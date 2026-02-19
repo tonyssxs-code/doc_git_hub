@@ -1,5 +1,8 @@
 
 ##  TUTO: injecter des métadonnées exifs dans des photos pour qu'elles soient géoreferencées.
+
+![](img/cap.jpg)
+
 Prérequis : 
 Installer Visual code et Python.
 Pour injecter les données de géoréférencement à des photos non géoréférencées, il faut : 
