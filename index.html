@@ -42,6 +42,16 @@
               <ul class="current">
                 <li class="toctree-l1 current"><a class="reference internal current" href="#">Home</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#i-prerequis-preparation-qgis">I. PRÉREQUIS &amp; PRÉPARATION QGIS</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#1-preparation-des-donnees-sur-qgis">1. Préparation des données sur QGIS</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2-exportation">2. Exportation</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ii-configuration-du-script-python">II. CONFIGURATION DU SCRIPT PYTHON</a>
+    </li>
     </ul>
                 </li>
               </ul>
@@ -76,63 +86,99 @@
   body {
     font-family: "Times New Roman", Times, serif;
     text-align: justify;
+    line-height: 1.7;
+    color: #333;
+    max-width: 900px;
+    margin: auto;
+  }
+  h1, h2 {
+    color: #1a5276;
+    border-bottom: 2px solid #1a5276;
+    padding-bottom: 8px;
+    text-transform: uppercase;
+  }
+  h3 {
+    color: #2e86c1;
+    background: #f2f4f4;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  .warning {
+    background-color: #fcf3cf;
+    border-left: 5px solid #f1c40f;
+    padding: 15px;
+    margin: 20px 0;
+  }
+  .step {
+    font-weight: bold;
+    color: #1a5276;
+  }
+  code {
+    background-color: #f8f9f9;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-family: "Courier New", Courier, monospace;
   }
 </style>
 
-<h2 id="tuto-injecter-des-metadonnees-exifs-dans-des-photos-pour-quelles-soient-georeferencees">TUTO: injecter des métadonnées exifs dans des photos pour qu'elles soient géoreferencées.</h2>
-<p><img alt="" src="img/cap.jpg" /></p>
-<h2 id="prerequis-installer-visual-code-et-python">Prérequis : Installer Visual code et Python.</h2>
-<p>Pour injecter les données de géoréférencement à des photos non géoréférencées, il faut : 
-Créer une couche de point sur qgis avec les champs suivants : fid ; chemin ; x ; y
-Pointer sur gis l’endroit où la photo a été prise et mettre dans le champ chemin, le chemin complet de la photo comme ci-dessous. Ne pas mettre des guillemets dans le chemin des photos. <br />
-Mettre à jour les champs x et y dans la calculatrice de champ sur Qgis </p>
-<p>Une fois toutes les photos pointer, exporter la table attributaire en csv dans le même dossier où se trouve les photos. Le csv ne doit pas contenir la colonne géométrique
-Enregistrer le script suivant dans Visual code avec l’extension python
-Fichier ; 
-Nouveau fichier texte ;
- Puis coller le script ci-dessous
-Ensuite enregistrer le script dans le même dossier que les photos en allant dans Fichier – Enregistrer sous. Nommer votre fichier et choisir Python dans Type 
-ATTENTION : les parties base_dir ; test_dir et csv_file du script souligné en vert doivent être modifier.
-Base_dir : c’est le dossier mère/racine : dans mon exemple j’ai plusieurs sous-dossiers dont le dossier contenant mes photos dans mon dossier 06_prospection 
-base_dir = r"C:\photos\06_Prospection"</p>
-<p>Test_dir : c’est le nom du sous-dossier contenant mes photos dans 06_prospection ici c’est Fenioux
-test_dir = os.path.join(base_dir, "Fenioux")</p>
-<p>Csv_file : c’est le nom de mon csv se trouvant dans le même dossier que mes photos. N’oubliez pas l’extension.csv à la fin du nom de votre fichier dans le script
-csv_file = os.path.join(test_dir, "fenioux.csv")  </p>
-<p>import os
-import pandas as pd</p>
-<p>from pyproj import Transformer
+<h1 id="tutoriel-injection-de-metadonnees-exif">TUTORIEL : Injection de métadonnées EXIF</h1>
+<p><strong>Objectif :</strong> Géoréférencer des photographies à partir d'une table de coordonnées CSV.</p>
+<p><img alt="Aperçu du projet" src="img/cap.jpg" /></p>
+<hr />
+<h2 id="i-prerequis-preparation-qgis">I. PRÉREQUIS &amp; PRÉPARATION QGIS</h2>
+<p>Avant de lancer le script, assurez-vous d'avoir installé <strong>Visual Studio Code</strong> et <strong>Python</strong>.</p>
+<h3 id="1-preparation-des-donnees-sur-qgis">1. Préparation des données sur QGIS</h3>
+<p>Pour faire le lien entre vos clichés et le terrain, suivez ces étapes :
+* <strong>Création de la couche :</strong> Créez une couche de points (GPKG ou Shapefile) avec les champs : <code>fid</code>, <code>chemin</code>, <code>x</code>, <code>y</code>.
+* <strong>Saisie des données :</strong> Pointez sur la carte l'emplacement exact de la prise de vue. 
+* <strong>Champ Chemin :</strong> Renseignez le chemin complet du fichier (ex: <code>C:\Photos\P1010.jpg</code>). 
+    &gt;  <strong>Important :</strong> Ne pas mettre de guillemets dans les chemins.
+* <strong>Calculatrice de champ :</strong> Mettez à jour les champs <code>x</code> et <code>y</code> (en Lambert 93 - EPSG:2154).</p>
+<h3 id="2-exportation">2. Exportation</h3>
+<p>Exportez la table attributaire en <strong>CSV</strong> dans le même dossier que vos photos. 
+* <strong>Format :</strong> UTF-8.
+* <strong>Séparateur :</strong> Point-virgule (<code>;</code>).
+* <strong>Géométrie :</strong> Choisissez "Pas de géométrie" lors de l'export.</p>
+<hr />
+<h2 id="ii-configuration-du-script-python">II. CONFIGURATION DU SCRIPT PYTHON</h2>
+<p>Ouvrez Visual Studio Code, créez un nouveau fichier <code>.py</code> et collez-y le code ci-dessous.</p>
+<div class="warning">
+  <strong>ATTENTION :</strong> Vous devez modifier les variables suivantes dans le script :
+  <ul>
+    <li><code>base_dir</code> : Le dossier racine (ex: <code>06_prospection</code>).</li>
+    <li><code>test_dir</code> : Le sous-dossier contenant les images (ex: <code>Fenioux</code>).</li>
+    <li><code>csv_file</code> : Le nom de votre fichier CSV (ex: <code>fenioux.csv</code>).</li>
+  </ul>
+</div>
+
+<p>```python
+import os
+import pandas as pd
+from pyproj import Transformer
 import piexif
 from PIL import Image</p>
-<p>CODE: </p>
-<h1 id="-1-dossier-de-travail-">---- 1. Dossier de travail ----</h1>
-<p>base_dir = r"C:photos\06_Prospection"
+<h1 id="-1-configuration-des-chemins-">---- 1. CONFIGURATION DES CHEMINS ----</h1>
+<p>base_dir = r"C:\photos\06_Prospection"
 test_dir = os.path.join(base_dir, "Fenioux")
-csv_file = os.path.join(test_dir, "fenioux.csv")  # nom de ton CSV</p>
-<h1 id="-2-charger-le-csv-utf-8-avec-points-virgules-et-nettoyage-">---- 2. Charger le CSV UTF-8 avec points-virgules et nettoyage ----</h1>
-<p>df = pd.read_csv(csv_file, sep=";", encoding="utf-8-sig")  # point-virgule comme séparateur
-df = df.rename(columns=lambda c: c.strip())  # supprime les espaces autour des noms de colonnes</p>
-<h1 id="verification-rapide-des-colonnes">Vérification rapide des colonnes</h1>
-<p>print("Colonnes détectées dans le CSV :", df.columns.tolist())</p>
-<h1 id="-3-convertir-lambert93-wgs84-">---- 3. Convertir Lambert93 -&gt; WGS84 ----</h1>
+csv_file = os.path.join(test_dir, "fenioux.csv")</p>
+<h1 id="-2-chargement-et-nettoyage-">---- 2. CHARGEMENT ET NETTOYAGE ----</h1>
+<p>df = pd.read_csv(csv_file, sep=";", encoding="utf-8-sig")
+df = df.rename(columns=lambda c: c.strip())</p>
+<h1 id="-3-conversion-coordonnees-lambert93-wgs84-">---- 3. CONVERSION COORDONNÉES (Lambert93 -&gt; WGS84) ----</h1>
 <p>transformer = Transformer.from_crs("EPSG:2154", "EPSG:4326", always_xy=True)
 df["lon"], df["lat"] = transformer.transform(df["x"].values, df["y"].values)</p>
-<h1 id="-4-fonction-pour-convertir-en-format-dms-rationnel-">---- 4. Fonction pour convertir en format DMS rationnel ----</h1>
 <p>def deg_to_dms_rational(deg):
     d = int(abs(deg))
     m = int((abs(deg) - d) * 60)
     s = round((abs(deg) - d - m/60) * 3600 * 100)
     return ((d, 1), (m, 1), (s, 100))</p>
-<h1 id="-5-nouveau-dossier-exf-au-meme-niveau-que-test-">---- 5. Nouveau dossier EXF (au même niveau que TEST) ----</h1>
+<h1 id="-4-traitement-des-images-">---- 4. TRAITEMENT DES IMAGES ----</h1>
 <p>output_dir = os.path.join(base_dir, "EXF")
 os.makedirs(output_dir, exist_ok=True)</p>
-<h1 id="-6-injection-des-coordonnees-gps-dans-chaque-photo-">---- 6. Injection des coordonnées GPS dans chaque photo ----</h1>
 <p>for _, row in df.iterrows():
-    # Nettoyage du chemin pour supprimer espaces et caractères invisibles
-    chemin = row["chemin"].strip().replace("\u202a", "")</p>
-<pre><code>lat, lon = row["lat"], row["lon"]
-
-lat_ref = "N" if lat &gt;= 0 else "S"
+    chemin = row["chemin"].strip().replace("\u202a", "")
+    lat, lon = row["lat"], row["lon"]</p>
+<pre><code>lat_ref = "N" if lat &gt;= 0 else "S"
 lon_ref = "E" if lon &gt;= 0 else "W"
 
 gps_ifd = {
@@ -150,13 +196,10 @@ try:
     nom_fichier = os.path.basename(chemin)
     sortie = os.path.join(output_dir, nom_fichier)
     im.save(sortie, exif=exif_bytes)
-    print(f"✅ Coordonnées ajoutées et sauvegardées dans {sortie}")
+    print(f"✅ Succès : {nom_fichier}")
 except Exception as e:
     print(f"❌ Erreur pour {chemin} : {e}")
 </code></pre>
-<p>Une fois le script enregistrer, clic droit, ouvrir avec Python une fois le traitement terminer, un nouveau dossier nommer EXF contenant les photos avec des données EXIF sera créer au même niveau que les dossiers.</p>
-<p>Importation et visualisation des photos géoréférencés sur Qgis
-Sur qgis, vous avez la possibilité d’importer des photos sur l’interface et de les visualiser comme une couche. </p>
               
             </div>
           </div><footer>
@@ -205,5 +248,5 @@ Sur qgis, vous avez la possibilité d’importer des photos sur l’interface et
 
 <!--
 MkDocs version : 1.6.1
-Build Date UTC : 2026-02-20 09:16:28.764468+00:00
+Build Date UTC : 2026-02-20 09:34:44.348742+00:00
 -->
