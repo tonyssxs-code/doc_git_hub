@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>Formats - Mon Portefeuille Géomatique</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Formats";
+        var mkdocs_page_input_path = "format.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="index.html" class="icon icon-home"> Mon Portefeuille Géomatique
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="index.html">Accueil</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="note.html">Intéropérabilité</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="source.html">Sources de données</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Formats</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#1-les-formats-de-source-acquisition">1. Les Formats de Source (Acquisition)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2-les-formats-de-travail-gestion-et-analyse">2. Les Formats de Travail (Gestion et Analyse)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3-les-formats-de-diffusion-echange-et-web">3. Les Formats de Diffusion (Échange et Web)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#tableau-synthetique">Tableau Synthétique</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Mon Portefeuille Géomatique</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Formats</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <style>
+.wy-nav-content-wrap {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+.wy-nav-content {
+max-width: 900px !important;
+margin: 0 auto !important;
+float: none !important;
+}
+body {
+font-family: "Times New Roman", Times, serif;
+text-align: justify;
+line-height: 1.6;
+}
+h3 {
+color: #194df7;
+border-left: 4px solid #1b4f72;
+padding-left: 10px;
+margin-top: 50px;
+}
+.tech-term {
+font-weight: bold;
+color: #2e86c1;
+}
+</style>
+
+<h1 id="formats">FORMATS<a class="headerlink" href="#formats" title="Permanent link">&para;</a></h1>
+<p>Détail des Formats en Géomatique : De la Source à l'Usage
+Le choix d'un format dépend de l'étape du projet : on ne travaille pas avec le même fichier selon qu'on acquiert de la donnée sur le terrain ou qu'on la diffuse sur Internet.</p>
+<h3 id="1-les-formats-de-source-acquisition">1. Les Formats de Source (Acquisition)<a class="headerlink" href="#1-les-formats-de-source-acquisition" title="Permanent link">&para;</a></h3>
+<p>Ces formats sont générés par les capteurs ou les logiciels de conception. Ils sont souvent "bruts" et nécessitent un traitement pour être intégrés dans un SIG.</p>
+<p><span class="tech-term">CAO/DAO (Architecture/BTP) :</span> .dwg (AutoCAD), .dxf (format d'échange).</p>
+<p><strong>Usage</strong> : Plans de réseaux, bâtiments ou cadastre technique.</p>
+<p><span class="tech-term">Levés de terrain :</span> .csv ou .txt (coordonnées GPS), .rinx (données satellites).</p>
+<p><strong>Usage</strong>: Importation de points d'intérêt ou de bornes géodésiques.</p>
+<p><span class="tech-term">Lidar (Scan 3D) :</span> .las, .laz (compressé).</p>
+<p><strong>Usage</strong> : Nuages de points bruts pour la création de modèles d'altitude.</p>
+<p><span class="tech-term">Imagerie brute :</span> .raw, .tiff (sans géoréférencement).</p>
+<p><strong>Usage</strong> : Photographies aériennes ou satellites avant traitement.</p>
+<h3 id="2-les-formats-de-travail-gestion-et-analyse">2. Les Formats de Travail (Gestion et Analyse)<a class="headerlink" href="#2-les-formats-de-travail-gestion-et-analyse" title="Permanent link">&para;</a></h3>
+<p>Ce sont les formats optimisés pour les logiciels comme QGIS ou ArcGIS. Ils permettent de croiser les données et d'effectuer des calculs.</p>
+<p><span class="tech-term">GeoPackage (.gpkg) :</span> Le standard moderne de l'OGC.</p>
+<p><strong>Usage</strong> : Format de prédilection actuel. Il contient dans un seul fichier SQLite des couches vecteurs, des rasters et des tables attributaires.</p>
+<p><span class="tech-term">Shapefile (.shp) :</span> Le format historique d'Esri.</p>
+<p><strong>Usage</strong> : Encore très utilisé pour l'archivage simple, malgré ses limitations (nom de colonnes limité à 10 caractères, limite de 2 Go).</p>
+<p><span class="tech-term">PostGIS :</span> Extension spatiale de la base de données PostgreSQL.</p>
+<p><strong>Usage</strong> : Stockage massif et travail collaboratif multi-utilisateurs sur serveur.</p>
+<p><span class="tech-term">GeoTIFF (.tif) :</span> Image raster contenant des informations de projection.</p>
+<p><strong>Usage</strong> : Analyse d'occupation du sol, modèles numériques de terrain (MNT).</p>
+<h3 id="3-les-formats-de-diffusion-echange-et-web">3. Les Formats de Diffusion (Échange et Web)<a class="headerlink" href="#3-les-formats-de-diffusion-echange-et-web" title="Permanent link">&para;</a></h3>
+<p>Formats conçus pour être légers, lisibles par des navigateurs web ou des outils grand public.</p>
+<p><span class="tech-term">GeoJSON (.geojson) :</span> Format texte basé sur le JSON.</p>
+<p><strong>Usage</strong> : Webmapping (OpenLayers, Leaflet). Très simple à intégrer dans du code informatique.</p>
+<p><span class="tech-term">KML / KMZ (.kml) :</span> Format basé sur le XML.</p>
+<p><strong>Usage</strong> : Grand public (Google Earth). Permet de visualiser des données sans logiciel SIG spécialisé.</p>
+<p><span class="tech-term">GML (.gml) :</span> Format d'échange officiel (ISO/OGC).</p>
+<p><strong>Usage</strong> : Utilisé pour les échanges administratifs et la directive européenne INSPIRE.</p>
+<p><span class="tech-term">COG (Cloud Optimized GeoTIFF) :</span></p>
+<p><strong>Usage</strong>: Consultation d'images satellites très lourdes directement via le cloud sans téléchargement complet.</p>
+<h3 id="tableau-synthetique">Tableau Synthétique<a class="headerlink" href="#tableau-synthetique" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Famille</th>
+<th style="text-align: left;">Format</th>
+<th style="text-align: left;">Source Type</th>
+<th style="text-align: left;">Usage Principal</th>
+<th style="text-align: left;">Outil de conversion conseillé</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Vecteur</strong></td>
+<td style="text-align: left;"><strong>DXF / DWG</strong></td>
+<td style="text-align: left;">Bureau d'étude (CAO)</td>
+<td style="text-align: left;">Conception / Plan technique</td>
+<td style="text-align: left;"><code>ogr2ogr</code> ou Import QGIS</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Vecteur</strong></td>
+<td style="text-align: left;"><strong>GeoPackage</strong></td>
+<td style="text-align: left;">Création SIG / Export</td>
+<td style="text-align: left;">Analyse et stockage de projet</td>
+<td style="text-align: left;">Natif dans QGIS</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Vecteur</strong></td>
+<td style="text-align: left;"><strong>GeoJSON</strong></td>
+<td style="text-align: left;">Export SIG</td>
+<td style="text-align: left;">Développement Web / API</td>
+<td style="text-align: left;"><code>ogr2ogr</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Vecteur</strong></td>
+<td style="text-align: left;"><strong>KML</strong></td>
+<td style="text-align: left;">GPS / Google Earth</td>
+<td style="text-align: left;">Partage grand public</td>
+<td style="text-align: left;">Export QGIS</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Raster</strong></td>
+<td style="text-align: left;"><strong>GeoTIFF</strong></td>
+<td style="text-align: left;">Satellite / Drone</td>
+<td style="text-align: left;">Fond de plan et analyse</td>
+<td style="text-align: left;"><code>gdal_translate</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Raster</strong></td>
+<td style="text-align: left;"><strong>ECW</strong></td>
+<td style="text-align: left;">Orthophoto avion</td>
+<td style="text-align: left;">Visualisation rapide d'images</td>
+<td style="text-align: left;">Extensions propriétaires</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Points</strong></td>
+<td style="text-align: left;"><strong>LAS / LAZ</strong></td>
+<td style="text-align: left;">Scanner Laser</td>
+<td style="text-align: left;">Topographie / MNT / MNS</td>
+<td style="text-align: left;">PDAL ou CloudCompare</td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="source.html" class="btn btn-neutral float-left" title="Sources de données"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="source.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="js/theme_extra.js"></script>
+    <script src="js/theme.js"></script>
+      <script src="search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
