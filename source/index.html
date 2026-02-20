@@ -43,12 +43,16 @@
                 <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
                 </li>
               </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../note/">Note</a>
+                </li>
+              </ul>
               <ul class="current">
                 <li class="toctree-l1 current"><a class="reference internal current" href="#">Source</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#dans-le-cadre-de-mes-missions-jutilise-regulierement-des-donnees-publiques-issues-de-referentiels-de-precision">Dans le cadre de mes missions, j'utilise régulièrement des données publiques issues de référentiels de précision.</a>
-    </li>
     <li class="toctree-l2"><a class="reference internal" href="#rge-referentiel-a-grande-echelle">RGE – Référentiel à Grande Échelle</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#production-de-donnees-propres-lidar-drone">Production de données propres (Lidar &amp; Drone)</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#methodologie-du-nuage-de-points-au-mnt">MÉTHODOLOGIE : DU NUAGE DE POINTS AU MNT</a>
     </li>
@@ -90,42 +94,79 @@
     padding-bottom: 5px;
     text-transform: uppercase;
   }
-  .highlight-box {
-    background-color: #727776;
-    border-left: 5px solid #127fc7;
-    padding: 15px;
+  /* Style pour les images cliquables */
+  .img-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 30px 0;
+  }
+  .img-container img {
+    height: 60px; /* Aligne la hauteur des logos pour plus de propreté */
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+  .img-container img:hover {
+    transform: scale(1.1); /* Petit effet de zoom au survol */
+  }
+</style>
+<style>
+  body {
+    font-family: "Times New Roman", Times, serif;
+    text-align: justify;
+    line-height: 1.8;
+  }
+  h2 {
+    color: #0379ee;
+    border-bottom: 2px solid #2c3e50;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+  }
+  /* Conteneur pour aligner les logos proprement */
+  .logo-gallery {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
     margin: 20px 0;
-    font-style: italic;
+    flex-wrap: wrap;
+  }
+  .logo-gallery img {
+    height: 50px; /* Force une taille homogène */
+    transition: transform 0.2s;
+  }
+  .logo-gallery img:hover {
+    transform: scale(1.1);
   }
 </style>
 
 <h2 id="les-sources-de-donnees">LES SOURCES DE DONNÉES</h2>
-<h4 id="dans-le-cadre-de-mes-missions-jutilise-regulierement-des-donnees-publiques-issues-de-referentiels-de-precision">Dans le cadre de mes missions, j'utilise régulièrement des <strong>données publiques</strong> issues de référentiels de précision.</h4>
-<h4 id="rge-referentiel-a-grande-echelle">RGE – Référentiel à Grande Échelle</h4>
+<div class="logo-gallery">
+  <a href="https://www.ign.fr/" target="_blank"><img src="img/ign.png" alt="IGN"></a>
+  <a href="https://www.brgm.fr/" target="_blank"><img src="img/brgm.png" alt="BRGM"></a>
+  <a href="https://www.statistiques.developpement-durable.gouv.fr/corine-land-cover-0" target="_blank"><img src="img/clc.jpg" alt="CLC"></a>
+  <a href="https://www.geoportail.gouv.fr/" target="_blank"><img src="img/geoportail.jpg" alt="Géoportail"></a>
+</div>
+
+<p>Dans le cadre de mes missions, j'utilise régulièrement des <strong>données publiques</strong> issues de référentiels de précision.</p>
+<h3 id="rge-referentiel-a-grande-echelle">RGE – Référentiel à Grande Échelle</h3>
 <blockquote>
 <p>Le RGE constitue un ensemble cohérent de données référentielles de l'<strong>IGN</strong> (vecteurs, orthophotographies, altimétrie, parcellaire). Il se décline en plusieurs composantes clés :</p>
 </blockquote>
 <ul>
-<li>
-<p><strong>BD ORTHO</strong> : Orthophotographies géoréférencées à haute résolution (imagerie aérienne).</p>
-</li>
-<li>
-<p><strong>BD TOPO</strong> : Base topographique vecteur décrivant le territoire et ses infrastructures en 2D/3D.</p>
-</li>
-<li>
-<p><strong>RGE ALTI</strong> : Modèle Numérique de Terrain (MNT) offrant une couverture nationale précise.</p>
-</li>
-<li>
-<p><strong>Parcellaire Express / PCI</strong> : Référence parcellaire géoréférencée, indispensable pour l'interopérabilité avec le cadastre.</p>
-</li>
-<li>
-<p><strong>Plan IGN</strong> : Fonds de carte généralisé optimisé pour les usages SIG et la cartographie thématique.</p>
-</li>
-<li>
-<p><strong>Flux WMS, WMTS, WFS</strong></p>
-</li>
+<li><strong>BD ORTHO</strong> : Orthophotographies géoréférencées à haute résolution (imagerie aérienne).</li>
+<li><strong>BD TOPO</strong> : Base topographique vecteur décrivant le territoire et ses infrastructures en 2D/3D.</li>
+<li><strong>RGE ALTI</strong> : Modèle Numérique de Terrain (MNT) offrant une couverture nationale précise.</li>
+<li><strong>Parcellaire Express / PCI</strong> : Référence parcellaire géoréférencée, indispensable pour l'interopérabilité avec le cadastre.</li>
+<li><strong>Plan IGN</strong> : Fonds de carte généralisé optimisé pour les usages SIG et la cartographie thématique.</li>
+<li><strong>Flux WMS, WMTS, WFS</strong> : Accès aux flux de données en temps réel pour l'intégration directe en SIG.</li>
 </ul>
+<hr />
+<h3 id="production-de-donnees-propres-lidar-drone">Production de données propres (Lidar &amp; Drone)</h3>
 <p>Pour certains clients, je construis moi-même la donnée technique. C'est notamment le cas lors de missions de <strong>suivi du trait de côte</strong>. Je réalise des relevés sur le terrain par <strong>Lidar aéroporté (drone)</strong>, me permettant de générer mes propres Modèles Numériques de Terrain (MNT) avec une résolution centimétrique.</p>
+<blockquote>
+<p><strong>Production propre :</strong> Pour certains clients, je construis moi-même la donnée technique. C'est notamment le cas lors de missions de <strong>suivi du trait de côte</strong>. Je réalise des relevés sur le terrain par <strong>Lidar aéroporté (drone)</strong>, me permettant de générer mes propres Modèles Numériques de Terrain (MNT) avec une résolution centimétrique.</p>
+</blockquote>
 <style>
   body {
     font-family: "Times New Roman", Times, serif;
@@ -167,7 +208,7 @@
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href=".." class="btn btn-neutral float-left" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../note/" class="btn btn-neutral float-left" title="Note"><span class="icon icon-circle-arrow-left"></span> Previous</a>
     </div>
 
   <hr/>
@@ -190,7 +231,7 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../note/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
   </span>

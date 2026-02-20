@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Note - Mon site</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Note";
+        var mkdocs_page_input_path = "note.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Mon site
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Note</a>
+    <ul class="current">
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../source/">Source</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Mon site</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Note</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <style>
+  body {
+    font-family: "Times New Roman", Times, serif;
+    text-align: justify;
+    line-height: 1.6;
+  }
+  h3 {
+    color: #194df7;
+    border-left: 4px solid #1b4f72;
+    padding-left: 10px;
+    margin-top: 50px;
+  }
+  .step-list {
+    margin-left: 20px;
+  }
+  .tech-term {
+    font-weight: bold;
+    color: #2e86c1;
+  }
+</style>
+
+<h3 id="interoperabilite">Interoperabilité</h3>
+<h2 id="quest-ce-que-cest">Qu'est ce que c'est :</h2>
+<h3 id="generalite">GENERALITE</h3>
+<p>L'interopérabilité en géomatique, c'est un peu comme s'assurer que tout le monde parle la même langue dans une pièce remplie de gens venant du monde entier. Dans notre cas, les "gens" sont des logiciels, des bases de données et des capteurs.</p>
+<ol>
+<li>
+<p>Pourquoi est-ce crucial ?Imaginez que vous travaillez sur un projet d'urbanisme. Vous avez :Le cadastre en format Shapefile (Esri).Le réseau d'eau en AutoCAD (DWG).Des photos satellites en GeoTIFF.Sans interopérabilité, vous passeriez 80 % de votre temps à convertir des fichiers au lieu de les analyser. L'interopérabilité permet de superposer ces couches instantanément.</p>
+</li>
+<li>
+<p>Les différents niveaux d'interopérabilité Pour que la magie opère, il faut que l'entente se fasse à plusieurs étages </p>
+</li>
+<li>
+<p>Le rôle des standards (OGC)</p>
+</li>
+</ol>
+<p>C'est ici qu'intervient l'OGC (Open Geospatial Consortium). C'est l'organisme qui définit les "règles du jeu". Grâce à lui, nous utilisons des services web standardisés qui permettent d'afficher des cartes sans même télécharger le fichier source :
+- WMS (Web Map Service) : Pour afficher une image de la carte.
+- WFS (Web Feature Service) : Pour récupérer les données vectorielles (on peut modifier les points/lignes).
+- WMTS (Web Map Tile Service) : Pour un affichage rapide par tuiles (comme Google Maps).</p>
+<ol>
+<li>
+<p>Le rôle du Comité ISO/TC 211 : Le "Cerveau" de la GéomatiqueLe comité technique 211 est celui qui définit le modèle conceptuel de l'information géographique. Sans lui, chaque pays définirait une "latitude" ou une "altitude" de manière différente.Son travail permet de répondre à trois questions fondamentales pour l'interopérabilité :Quoi ? (Le contenu : ISO 19110 pour le catalogage des objets).Où ? (La localisation : ISO 19111 pour les systèmes de coordonnées).Quand ? (Le temps : ISO 19108 pour le schéma temporel).</p>
+</li>
+<li>
+<p>Les Normes Clés de la série 19100Pour bien comprendre l'impact du TC 211, voici les normes les plus utilisées qui garantissent que les données sont exploitables partout :ISO 19115 (Métadonnées) : C'est la "carte d'identité" de la donnée. Elle dit qui a fait la donnée, quand, et quelle est sa précision. Sans métadonnées, on a de la donnée, mais on ne peut pas lui faire confiance.ISO 19111 (Référencement spatial) : Elle définit comment on projette la Terre (ronde) sur une carte (plate). C'est grâce à elle qu'un point GPS tombe exactement au bon endroit sur votre fond de carte.ISO 19136 (GML) : Elle définit le langage de balisage géographique. C'est le format de transfert standard pour échanger des objets géographiques sur le web.</p>
+</li>
+<li>
+<p>Le Processus d'élaboration : Un gage de robustesseLe processus que vous avez cité (Proposition $\rightarrow$ Approbation) est lent (souvent plusieurs années), mais il garantit que la norme est :Consensuelle : Acceptée par les 165 pays membres.Universelle : Utilisable aussi bien par un logiciel libre (QGIS) que propriétaire (ArcGIS).</p>
+</li>
+</ol>
+<h1 id="i-les-trois-piliers-de-linteroperabilite">I. Les Trois Piliers de l'Interopérabilité</h1>
+<p>Pour qu'un système soit réellement interopérable, il doit répondre à trois paliers :</p>
+<p>Interopérabilité Technique : Capacité des systèmes à communiquer physiquement (protocoles réseaux, formats de fichiers comme le GeoJSON ou le GML).</p>
+<p>Interopérabilité Sémantique : Garantie que le contenu est compris de la même façon par l'émetteur et le récepteur.</p>
+<p>Exemple : Définir précisément si une "surface boisée" commence à partir de 10% ou 30% de couvert arboré.</p>
+<p>Interopérabilité Organisationnelle : Mise en place de cadres juridiques et de partenariats pour que les administrations et entreprises acceptent de partager leurs données.</p>
+<h1 id="ii-liso-tc-211-le-cadre-theorique-la-loi">II. L'ISO / TC 211 : Le Cadre Théorique (La "Loi")</h1>
+<p>Le Comité Technique 211 de l'ISO est l'instance qui définit les modèles conceptuels de l'information géographique (série 19100).</p>
+<h3 id="1-le-processus-de-normalisation">1. Le Processus de Normalisation</h3>
+<p>L'ISO suit un cycle rigoureux pour garantir un consensus mondial :</p>
+<p>Proposition &amp; Préparation : Définition du besoin.</p>
+<p>Comité &amp; Enquête : Soumission aux experts des 165 pays membres pour vote et modifications.</p>
+<p>Approbation &amp; Publication : La norme devient une référence internationale officielle.</p>
+<h3 id="2-les-normes-cles-a-connaitre">2. Les Normes Clés à connaître</h3>
+<p>ISO 19111 (Référencement Spatial) : Définit comment décrire la position d'un objet sur Terre (systèmes de coordonnées, projections).</p>
+<p>ISO 19115 (Métadonnées) : La norme la plus célèbre. Elle définit comment documenter une donnée (auteur, date, précision, emprise géographique). C'est le "CV" de la donnée.</p>
+<p>ISO 19110 (Méthodologie du catalogage) : Définit comment décrire les types d'objets (ex: qu'est-ce qu'une "rivière" dans ma base de données ?).</p>
+<h1 id="iii-logc-le-bras-arme-technique-l-outil">III. L'OGC : Le Bras Armé Technique (L' "Outil")</h1>
+<p>Fondé en 1994, l'Open Geospatial Consortium transforme les concepts théoriques de l'ISO en standards d'implémentation informatique.</p>
+<h3 id="1-les-services-web-geospatiaux-architecture-client-serveur">1. Les Services Web Géospatiaux (Architecture Client-Serveur)</h3>
+<p>L'OGC a révolutionné la géomatique en créant des protocoles permettant de consulter des données à distance sans les télécharger :</p>
+<p>WMS (Web Map Service) : Le serveur envoie une image (raster) de la carte. Idéal pour les fonds de plan.</p>
+<p>WFS (Web Feature Service) : Le serveur envoie les vecteurs (points, lignes, polygones) avec leurs attributs. Permet l'édition et l'analyse.</p>
+<p>WMTS (Web Map Tile Service) : Version optimisée du WMS découpée en "tuiles" pré-calculées pour une rapidité maximale (type Google Maps).</p>
+<h3 id="2-les-formats-de-donnees-ouverts">2. Les Formats de Données Ouverts</h3>
+<p>L'OGC promeut des formats qui ne sont pas liés à un éditeur de logiciel :</p>
+<p>GML (Geography Markup Language) : Format XML pour le transfert d'objets (très complet mais lourd).</p>
+<p>GeoPackage (.gpkg) : Le standard moderne. Une base de données SQLite légère, capable de stocker vecteurs et rasters dans un seul fichier.</p>
+<p>KML : Standardisé par l'OGC pour l'affichage dans des globes virtuels (Google Earth).</p>
+<h1 id="iv-la-mise-en-application-la-directive-inspire">IV. La Mise en Application : La Directive INSPIRE</h1>
+<p>La directive européenne INSPIRE est l'application politique de tout ce qui précède.</p>
+<p>Objectif : Créer une Infrastructure de Données Géographiques (IDG) à l'échelle de l'Europe pour les politiques environnementales.</p>
+<p>Obligation : Les pays membres doivent publier leurs données selon les normes ISO (pour la structure) et les standards OGC (pour la diffusion).</p>
+<p>Résultat : Un expert français peut croiser des données d'inondations espagnoles avec des données d'occupation du sol allemandes sans aucune manipulation technique complexe.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href=".." class="btn btn-neutral float-left" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../source/" class="btn btn-neutral float-right" title="Source">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../source/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
