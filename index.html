@@ -51,12 +51,22 @@
         </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#ii-configuration-du-script-python">II. CONFIGURATION DU SCRIPT PYTHON</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#-1-configuration-des-chemins-">---- 1. CONFIGURATION DES CHEMINS ----</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#-2-chargement-et-nettoyage-">---- 2. CHARGEMENT ET NETTOYAGE ----</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#-3-conversion-coordonnees-lambert93-wgs84-">---- 3. CONVERSION COORDONNÉES (Lambert93 -&gt; WGS84) ----</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#-4-traitement-des-images-">---- 4. TRAITEMENT DES IMAGES ----</a>
+    </li>
+        </ul>
     </li>
     </ul>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="note.html">Note Technique</a>
+                <li class="toctree-l1"><a class="reference internal" href="note.html">Intéropérabilité</a>
                 </li>
               </ul>
               <ul>
@@ -161,14 +171,14 @@ import pandas as pd
 from pyproj import Transformer
 import piexif
 from PIL import Image</p>
-<h1 id="-1-configuration-des-chemins-">---- 1. CONFIGURATION DES CHEMINS ----<a class="headerlink" href="#-1-configuration-des-chemins-" title="Permanent link">&para;</a></h1>
+<h6 id="-1-configuration-des-chemins-">---- 1. CONFIGURATION DES CHEMINS ----<a class="headerlink" href="#-1-configuration-des-chemins-" title="Permanent link">&para;</a></h6>
 <p>base_dir = r"C:\photos\06_Prospection"
 test_dir = os.path.join(base_dir, "Fenioux")
 csv_file = os.path.join(test_dir, "fenioux.csv")</p>
-<h1 id="-2-chargement-et-nettoyage-">---- 2. CHARGEMENT ET NETTOYAGE ----<a class="headerlink" href="#-2-chargement-et-nettoyage-" title="Permanent link">&para;</a></h1>
+<h6 id="-2-chargement-et-nettoyage-">---- 2. CHARGEMENT ET NETTOYAGE ----<a class="headerlink" href="#-2-chargement-et-nettoyage-" title="Permanent link">&para;</a></h6>
 <p>df = pd.read_csv(csv_file, sep=";", encoding="utf-8-sig")
 df = df.rename(columns=lambda c: c.strip())</p>
-<h1 id="-3-conversion-coordonnees-lambert93-wgs84-">---- 3. CONVERSION COORDONNÉES (Lambert93 -&gt; WGS84) ----<a class="headerlink" href="#-3-conversion-coordonnees-lambert93-wgs84-" title="Permanent link">&para;</a></h1>
+<h6 id="-3-conversion-coordonnees-lambert93-wgs84-">---- 3. CONVERSION COORDONNÉES (Lambert93 -&gt; WGS84) ----<a class="headerlink" href="#-3-conversion-coordonnees-lambert93-wgs84-" title="Permanent link">&para;</a></h6>
 <p>transformer = Transformer.from_crs("EPSG:2154", "EPSG:4326", always_xy=True)
 df["lon"], df["lat"] = transformer.transform(df["x"].values, df["y"].values)</p>
 <p>def deg_to_dms_rational(deg):
@@ -176,7 +186,7 @@ df["lon"], df["lat"] = transformer.transform(df["x"].values, df["y"].values)</p>
     m = int((abs(deg) - d) * 60)
     s = round((abs(deg) - d - m/60) * 3600 * 100)
     return ((d, 1), (m, 1), (s, 100))</p>
-<h1 id="-4-traitement-des-images-">---- 4. TRAITEMENT DES IMAGES ----<a class="headerlink" href="#-4-traitement-des-images-" title="Permanent link">&para;</a></h1>
+<h6 id="-4-traitement-des-images-">---- 4. TRAITEMENT DES IMAGES ----<a class="headerlink" href="#-4-traitement-des-images-" title="Permanent link">&para;</a></h6>
 <p>output_dir = os.path.join(base_dir, "EXF")
 os.makedirs(output_dir, exist_ok=True)</p>
 <p>for _, row in df.iterrows():
@@ -208,7 +218,7 @@ except Exception as e:
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="note.html" class="btn btn-neutral float-right" title="Note Technique">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="note.html" class="btn btn-neutral float-right" title="Intéropérabilité">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -252,5 +262,5 @@ except Exception as e:
 
 <!--
 MkDocs version : 1.6.1
-Build Date UTC : 2026-02-20 14:00:30.268638+00:00
+Build Date UTC : 2026-02-20 14:46:31.343250+00:00
 -->
