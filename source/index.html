@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Source - Mon site</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Source";
+        var mkdocs_page_input_path = "source.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Mon site
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Source</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#dans-le-cadre-de-mes-missions-jutilise-regulierement-des-donnees-publiques-issues-de-referentiels-de-precision">Dans le cadre de mes missions, j'utilise régulièrement des données publiques issues de référentiels de précision.</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#rge-referentiel-a-grande-echelle">RGE – Référentiel à Grande Échelle</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#methodologie-du-nuage-de-points-au-mnt">MÉTHODOLOGIE : DU NUAGE DE POINTS AU MNT</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Mon site</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Source</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <style>
+  body {
+    font-family: "Times New Roman", Times, serif;
+    text-align: justify;
+    line-height: 2;
+  }
+  h2 {
+    color: #0379ee;
+    border-bottom: 2px solid #2c3e50;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+  }
+  .highlight-box {
+    background-color: #727776;
+    border-left: 5px solid #127fc7;
+    padding: 15px;
+    margin: 20px 0;
+    font-style: italic;
+  }
+</style>
+
+<h2 id="les-sources-de-donnees">LES SOURCES DE DONNÉES</h2>
+<h4 id="dans-le-cadre-de-mes-missions-jutilise-regulierement-des-donnees-publiques-issues-de-referentiels-de-precision">Dans le cadre de mes missions, j'utilise régulièrement des <strong>données publiques</strong> issues de référentiels de précision.</h4>
+<h4 id="rge-referentiel-a-grande-echelle">RGE – Référentiel à Grande Échelle</h4>
+<blockquote>
+<p>Le RGE constitue un ensemble cohérent de données référentielles de l'<strong>IGN</strong> (vecteurs, orthophotographies, altimétrie, parcellaire). Il se décline en plusieurs composantes clés :</p>
+</blockquote>
+<ul>
+<li>
+<p><strong>BD ORTHO</strong> : Orthophotographies géoréférencées à haute résolution (imagerie aérienne).</p>
+</li>
+<li>
+<p><strong>BD TOPO</strong> : Base topographique vecteur décrivant le territoire et ses infrastructures en 2D/3D.</p>
+</li>
+<li>
+<p><strong>RGE ALTI</strong> : Modèle Numérique de Terrain (MNT) offrant une couverture nationale précise.</p>
+</li>
+<li>
+<p><strong>Parcellaire Express / PCI</strong> : Référence parcellaire géoréférencée, indispensable pour l'interopérabilité avec le cadastre.</p>
+</li>
+<li>
+<p><strong>Plan IGN</strong> : Fonds de carte généralisé optimisé pour les usages SIG et la cartographie thématique.</p>
+</li>
+<li>
+<p><strong>Flux WMS, WMTS, WFS</strong></p>
+</li>
+</ul>
+<p>Pour certains clients, je construis moi-même la donnée technique. C'est notamment le cas lors de missions de <strong>suivi du trait de côte</strong>. Je réalise des relevés sur le terrain par <strong>Lidar aéroporté (drone)</strong>, me permettant de générer mes propres Modèles Numériques de Terrain (MNT) avec une résolution centimétrique.</p>
+<style>
+  body {
+    font-family: "Times New Roman", Times, serif;
+    text-align: justify;
+    line-height: 1.6;
+  }
+  h3 {
+    color: #d5d80a;
+    border-left: 4px solid #1b4f72;
+    padding-left: 10px;
+    margin-top: 30px;
+  }
+  .step-list {
+    margin-left: 20px;
+  }
+  .tech-term {
+    font-weight: bold;
+    color: #2e86c1;
+  }
+</style>
+
+<h3 id="methodologie-du-nuage-de-points-au-mnt">MÉTHODOLOGIE : DU NUAGE DE POINTS AU MNT</h3>
+<p>Le traitement des données issues de capteurs Lidar embarqués sur drone suit un workflow rigoureux pour garantir une précision centimétrique, indispensable au suivi de l'érosion côtière :</p>
+<ol>
+<li>
+<p><span class="tech-term">Acquisition et Géoréférencement</span> : Capture des données brutes synchronisées par GNSS RTK. L'utilisation de stations au sol permet de corriger les trajectoires pour obtenir un nuage de points d'une grande fidélité géométrique.</p>
+</li>
+<li>
+<p><span class="tech-term">Prétraitement et Nettoyage</span> : Élimination du "bruit" électromagnétique et des points aberrants (réflexions parasites sur l'eau ou poussières).</p>
+</li>
+<li>
+<p><span class="tech-term">Classification du Nuage de Points</span> : C'est l'étape cruciale. Via des algorithmes de filtrage, je sépare les points appartenant au <strong>sursol</strong> (végétation, bâtiments, infrastructures) des points touchant le <strong>sol nu</strong>.</p>
+</li>
+<li>
+<p><span class="tech-term">Génération du MNT (Modèle Numérique de Terrain)</span> : Par interpolation des points classés comme "sol", je génère une surface continue. Ce modèle permet de calculer précisément les volumes de sable déplacés ou le recul effectif du trait de côte d'une année sur l'autre.</p>
+</li>
+</ol>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href=".." class="btn btn-neutral float-left" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
