@@ -147,7 +147,7 @@ pourquoi et comment</p>
 <p><strong>Les métadonnées pour l'exploitation</strong></p>
 </li>
 </ul>
-<p>### La forme des metadonnées</p>
+<p>### La forme des metadonnées ###</p>
 <ul>
 <li>
 <p>Elles doivent repondre à des standards</p>
@@ -170,6 +170,341 @@ pourquoi et comment</p>
 <li>Partenaires</li>
 <li>Etat, union européenne</li>
 </ul>
+<h1 id="la-norme-a-connaitre-pour-les-metadonnees-est-la-norme-iso-19115">La norme à connaitre pour les metadonnées est la NORME ISO 19115<a class="headerlink" href="#la-norme-a-connaitre-pour-les-metadonnees-est-la-norme-iso-19115" title="Permanent link">&para;</a></h1>
+<p>Trois standards principaux pour les métadonnées </p>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examen Certifiant : Métadonnées et Gouvernance SIG</title>
+    <style>
+        :root { --primary: #1e3a8a; --secondary: #3b82f6; --success: #10b981; --error: #ef4444; --bg: #f8fafc; }
+        body { font-family: 'Inter', system-ui, sans-serif; background-color: var(--bg); color: #1e293b; padding: 20px; line-height: 1.5; }
+        .container { max-width: 850px; margin: 40px auto; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1); }
+        h1 { color: var(--primary); text-align: center; font-size: 1.8rem; border-bottom: 2px solid #e2e8f0; padding-bottom: 20px; margin-bottom: 30px; }
+        .progress-bar { height: 8px; background: #e2e8f0; border-radius: 4px; margin-bottom: 30px; overflow: hidden; }
+        #progress-fill { height: 100%; background: var(--secondary); width: 2%; transition: width 0.3s; }
+        .question-container { display: none; animation: fadeIn 0.4s; }
+        .question-container.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .question-text { font-size: 1.2rem; font-weight: 700; margin-bottom: 25px; color: #0f172a; }
+        .options-list { list-style: none; padding: 0; }
+        .option-item { background: #fff; border: 2px solid #e2e8f0; margin-bottom: 12px; padding: 16px; border-radius: 8px; cursor: pointer; transition: all 0.2s; }
+        .option-item:hover { border-color: var(--secondary); background: #f0f7ff; }
+        .option-item.correct { border-color: var(--success); background: #ecfdf5; color: #065f46; font-weight: 600; }
+        .option-item.wrong { border-color: var(--error); background: #fef2f2; color: #991b1b; }
+        .explanation-box { margin-top: 25px; padding: 20px; border-radius: 8px; background: #f1f5f9; border-left: 6px solid var(--secondary); display: none; font-size: 0.95rem; }
+        .explanation-title { font-weight: 800; color: var(--primary); margin-bottom: 8px; text-transform: uppercase; font-size: 0.8rem; }
+        .nav-footer { margin-top: 40px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #e2e8f0; padding-top: 25px; }
+        button { background: var(--primary); color: white; border: none; padding: 12px 24px; border-radius: 6px; cursor: pointer; font-weight: 600; transition: opacity 0.2s; }
+        button:hover { opacity: 0.9; }
+        button:disabled { background: #cbd5e1; cursor: not-allowed; }
+        #final-screen { display: none; text-align: center; }
+        .score-circle { width: 150px; height: 150px; border-radius: 50%; border: 10px solid var(--primary); margin: 30px auto; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; font-weight: 900; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div id="quiz-ui">
+        <h1>Examen de Synthèse : Métadonnées Géographiques</h1>
+        <div class="progress-bar"><div id="progress-fill"></div></div>
+        <div id="questions-wrapper"></div>
+        <div class="nav-footer">
+            <button id="prev-btn" onclick="move(-1)" disabled>Précédent</button>
+            <span id="counter" style="font-weight: 600; color: #64748b;">Question 1 / 50</span>
+            <button id="next-btn" onclick="move(1)">Suivant</button>
+        </div>
+    </div>
+
+    <div id="final-screen">
+        <h1>Résultats de l'évaluation</h1>
+        <div class="score-circle" id="score-display">0%</div>
+        <p id="feedback-msg" style="font-size: 1.1rem; margin-bottom: 30px;"></p>
+        <button onclick="location.reload()">Recommencer l'examen</button>
+    </div>
+</div>
+
+<script>
+    const examData = [
+        {
+            q: "Quelle est l'utilité fondamentale du préfixe 'meta' lorsqu'on l'associe au concept de donnée ?",
+            o: ["Il désigne la transformation d'un format vers un autre", "Il indique une auto-référence : une donnée qui sert à documenter une autre donnée", "Il définit la précision géométrique d'un objet", "Il s'agit d'un protocole de transfert"],
+            a: 1,
+            e: "Le cours précise que 'meta' vient du grec signifiant 'après, avec, au-delà'. Dans notre contexte, il s'agit d'une auto-référence. Les métadonnées sont essentielles car elles sont les seules à pouvoir donner du sens à la donnée brute."
+        },
+        {
+            q: "Selon la méthodologie descriptive standard, à quel ensemble de questions minimales une métadonnée doit-elle répondre pour être jugée pertinente ?",
+            o: ["Uniquement le Titre et l'Emprise spatiale", "La règle des 5W : Qui, Quoi, Où, Quand, Pourquoi (et le Comment)", "Le volume de stockage et le coût d'acquisition", "Le nom du serveur et le type de base de données"],
+            a: 1,
+            e: "C'est la base de l'identification : Qui (producteur), Quoi (sujet), Où (emprise), Quand (validité), Pourquoi (but) et Comment (généalogie). Sans ces réponses, une ressource est inexploitable à long terme."
+        },
+        {
+            q: "Le cycle de vie de la métadonnée prévoit trois rôles majeurs. Lequel permet spécifiquement à un utilisateur de confirmer que la ressource répond exactement à ses besoins métiers ?",
+            o: ["Le rôle de Découverte (existence)", "Le rôle d'Exploration (choix précis)", "Le rôle d'Exploitation (utilisation)", "Le rôle d'Archivage (historique)"],
+            a: 1,
+            e: "L'exploration permet d'aller au-delà de la simple existence (découverte). Elle fournit les détails nécessaires (qualité, attributs) pour que l'utilisateur décide si la donnée est compatible avec son projet avant de la télécharger."
+        },
+        {
+            q: "Quelle est la plus-value stratégique pour un producteur de données de consacrer du temps à la saisie des métadonnées ?",
+            o: ["Cela permet de vendre les données plus cher sur le marché", "Cela assure la pérennité de la valeur de la donnée en documentant le patrimoine informationnel", "Cela réduit automatiquement les erreurs géométriques", "C'est une obligation informatique sans impact métier"],
+            a: 1,
+            e: "Le cours souligne que 'la donnée a une valeur, et la métadonnée assure la pérennité de cette valeur'. Elle évite la perte de connaissance lors du départ d'un agent et empêche de collecter deux fois la même information."
+        },
+        {
+            q: "Dans le paysage normatif, quelle différence majeure existe-t-il entre un standard et une norme ISO ?",
+            o: ["Il n'y a aucune différence technique", "Le standard est souvent industriel (ex: Shapefile), tandis que la norme est validée par un organisme officiel international", "Une norme est toujours gratuite, un standard est payant", "Les normes ne concernent que le matériel (hardware)"],
+            a: 1,
+            e: "Une norme (comme l'ISO) est issue d'un consensus international et suit une procédure stricte de validation. Un standard peut être de fait (adopté par l'usage comme le .shp) sans être une norme officielle."
+        },
+        {
+            q: "Concernant le catalogue 'REPORTS' développé par le CERTU dans les années 90, quel était son objectif principal ?",
+            o: ["Créer un nouveau format de fichier géographique", "Proposer un outil libre pour implémenter le profil français des métadonnées", "Remplacer le logiciel ArcGIS", "Indexer les pages web mondiales"],
+            a: 1,
+            e: "REPORTS a été l'un des pionniers en France pour structurer les métadonnées selon les préconisations nationales, avant l'arrivée massive de l'ISO 19115."
+        },
+        {
+            q: "La directive européenne INSPIRE (2007) repose sur plusieurs piliers. Quel est son impact direct sur les services publics ?",
+            o: ["Elle interdit l'utilisation de logiciels propriétaires", "Elle impose une obligation légale de documenter et diffuser les données environnementales via des métadonnées harmonisées", "Elle centralise toutes les données à Bruxelles", "Elle impose la gratuité totale de toutes les données privées"],
+            a: 1,
+            e: "INSPIRE vise à créer une infrastructure d'information géographique en Europe. Pour cela, elle impose des métadonnées standardisées pour faciliter le partage entre États membres."
+        },
+        {
+            q: "Pourquoi le standard ISO 19115 est-il jugé complexe par les praticiens du SIG ?",
+            o: ["Parce qu'il ne supporte pas le français", "Parce qu'il comporte plus de 300 entrées possibles pour décrire une seule ressource", "Parce qu'il nécessite un super-calculateur", "Parce qu'il est obsolète depuis 2010"],
+            a: 1,
+            e: "C'est une norme extrêmement exhaustive. C'est pourquoi on utilise souvent des 'profils' (comme le profil français ou le Core ISO) pour ne sélectionner que les éléments les plus utiles (environ 22 éléments)."
+        },
+        {
+            q: "Que désigne le 'Core ISO' dans la norme ISO 19115 ?",
+            o: ["Le processeur nécessaire pour lire la donnée", "Le noyau minimal d'éléments (22) indispensables pour l'interopérabilité", "Un logiciel de saisie spécifique", "La base de données centrale de l'ISO"],
+            a: 1,
+            e: "Pour éviter la saisie des 300 champs, le Core ISO définit 22 éléments essentiels qui permettent une recherche et une identification efficaces dans n'importe quel système mondial."
+        },
+        {
+            q: "Le standard DCAT (Data Catalog Vocabulary) du W3C a été conçu pour répondre à quel besoin ?",
+            o: ["Optimiser le rendu des cartes sur mobile", "Faciliter l'interopérabilité entre les catalogues sur le web de manière 'machine-friendly'", "Remplacer le protocole HTTP", "Gérer les droits d'accès aux serveurs"],
+            a: 1,
+            e: "DCAT permet d'exposer les catalogues de données sur le web afin qu'ils soient moissonnables par des moteurs de recherche globaux, en utilisant les technologies du web sémantique."
+        },
+        {
+            q: "Quelle est la fonction du 'GeoDCAT-AP' dans l'écosystème européen des données ?",
+            o: ["Un logiciel de visualisation de données 3D", "Un profil d'application permettant de traduire les métadonnées ISO en format DCAT pour le web", "Une directive remplaçant INSPIRE", "Un format d'image satellite"],
+            a: 1,
+            e: "C'est le pont entre deux mondes : il permet de transformer des fiches ISO (complexes, monde SIG) en triplets RDF (simples, monde Web) pour que les données géographiques soient visibles dans les portails Open Data généralistes."
+        },
+        {
+            q: "Dans le modèle RDF utilisé par GeoDCAT-AP, comment est structurée l'information ?",
+            o: ["En colonnes et en lignes (Tableau)", "Sous forme de triplets : Sujet, Prédicat, Objet", "En fichiers texte simples séparés par des virgules", "En dossiers et sous-dossiers"],
+            a: 1,
+            e: "Le triplet est l'unité de base : [La donnée X] (Sujet) [a pour auteur] (Prédicat) [L'organisme Y] (Objet). C'est ce qui permet aux machines de comprendre les relations sémantiques."
+        },
+        {
+            q: "Concernant l'élément 1.1 'Titre de la ressource' de l'ISO 19115, quelle recommandation est faite ?",
+            o: ["Utiliser un code interne court (ex: BD_TOPO_01)", "Donner un nom intelligible et complet pour un utilisateur externe", "Ne pas mettre de majuscules", "Le titre doit être en anglais obligatoirement"],
+            a: 1,
+            e: "Le titre est le premier élément de découverte. Il doit être explicite. Un code interne n'a aucun sens pour un utilisateur qui découvre votre catalogue."
+        },
+        {
+            q: "L'élément 'Résumé de la ressource' (1.2) doit impérativement contenir :", o: ["Le prix de la donnée", "La description du contenu, la finalité et les limites d'usage", "Le nom de tous les techniciens ayant travaillé dessus", "La liste des coordonnées X,Y"], a: 1, e: "Un bon résumé permet à l'utilisateur de comprendre pourquoi la donnée a été créée et si elle est adaptée à son besoin sans avoir à ouvrir le fichier."
+        },
+        {
+            q: "Qu'est-ce qu'un 'Localisateur de la ressource' (élément 1.4) ?", o: ["L'adresse GPS du bureau du producteur", "Un lien URL vers la donnée, un service de visualisation ou une documentation", "Le numéro de série du disque dur", "Le chemin C:\\Documents\\..."], a: 1, e: "C'est l'adresse réseau (URL) qui permet de consommer la ressource. Sans localisateur, la métadonnée informe mais ne permet pas d'accéder à l'information."
+        },
+        {
+            q: "Pourquoi l'élément 'Identificateur de ressource unique' (1.5) est-il crucial dans un catalogue ?", o: ["Pour faire joli dans la fiche", "Pour permettre aux systèmes informatiques de distinguer deux ressources sans ambiguïté", "Pour coder la donnée", "C'est le mot de passe du fichier"], a: 1, e: "Un identifiant unique (comme un code namespace + code local) garantit qu'il n'y a pas de confusion entre deux versions ou deux jeux de données similaires."
+        },
+        {
+            q: "Dans quel contexte précis utilise-t-on l'élément 'Ressource couplée' (1.6) ?", o: ["Pour lier un PDF à un Word", "Pour lier un service (ex: WMS) aux séries de données qu'il diffuse", "Pour indiquer le nom du logiciel SIG utilisé", "Pour fusionner deux tables"], a: 1, e: "Cet élément est spécifique aux métadonnées de services. Il permet de savoir quelles données sont 'derrière' un flux de visualisation."
+        },
+        {
+            q: "Quelle est la règle pour l'élément 'Langue de la ressource' (1.7) ?", o: ["Elle est facultative", "Elle doit être indiquée si la ressource contient du texte (attributs, étiquettes)", "Elle correspond à la langue de l'ordinateur", "Elle doit être le Latin"], a: 1, e: "Si votre table attributaire contient des noms de communes ou des descriptions, vous devez préciser la langue pour que l'utilisateur sache s'il pourra comprendre les données."
+        },
+        {
+            q: "À quoi sert la 'Catégorie thématique' (2.1) dans le standard ISO 19115 ?", o: ["À choisir les symboles sur la carte", "À classer la ressource dans un thésaurus mondial prédéfini (ex: Biota, Farming, Oceans)", "À définir le niveau de sécurité", "À trier par ordre alphabétique"], a: 1, e: "C'est une liste fermée de 19 thèmes (ISO) qui permet une recherche transversale efficace entre tous les catalogues du monde."
+        },
+        {
+            q: "Concernant le 'Mot-clé' (3.1), quelle est la valeur ajoutée d'utiliser un 'Thésaurus' ?", o: ["Cela permet d'utiliser n'importe quel mot", "Cela garantit l'usage de termes normalisés et partagés par toute une communauté", "Cela réduit la taille du fichier XML", "C'est une obligation du logiciel Excel"], a: 1, e: "L'usage d'un thésaurus (comme GEMET) évite que chacun utilise des synonymes différents (ex: 'Forêt' vs 'Espace boisé'), ce qui améliorerait la précision des recherches."
+        },
+        {
+            q: "Comment définit-on l'élément 'Type de service' (2.2) pour un flux WFS ?", o: ["Service de consultation", "Service de téléchargement", "Service de recherche", "Service de transformation"], a: 1, e: "Un WFS (Web Feature Service) permet de récupérer les données vectorielles brutes, il est donc classé comme service de téléchargement selon INSPIRE."
+        },
+        {
+            q: "Pour l'élément 'Rectangle de délimitation géographique' (4.1), quelle est la contrainte de précision ?", o: ["Précision au millimètre près", "Coordonnées en degrés décimaux avec au moins 2 chiffres après la virgule", "Le nom de la région administrative suffit", "Un dessin à main levée"], a: 1, e: "Le standard exige les longitudes et latitudes (WGS84) avec deux décimales pour permettre un positionnement automatique sur une carte de prévisualisation."
+        },
+        {
+            q: "Dans la référence temporelle, quelle est la différence entre 'Étendue temporelle' et 'Date de publication' ?", o: ["C'est la même chose", "L'étendue définit la période couverte par la donnée, la publication est la mise à disposition", "L'étendue est l'heure de création", "La publication est la date de fin de validité"], a: 1, e: "Exemple : Une photo aérienne prise en 1945 (Étendue) peut être publiée sous forme numérique en 2024 (Publication)."
+        },
+        {
+            q: "Quelle est la particularité de la 'Date de dernière révision' (5.3) ?", o: ["Elle est mise à jour par l'ordinateur chaque jour", "Il ne doit y avoir qu'une seule occurrence de cette date", "Elle doit être antérieure à la date de création", "Elle est interdite si la donnée est Open Data"], a: 1, e: "Le standard limite ce champ à une seule date : celle de la mise à jour la plus récente de la ressource."
+        },
+        {
+            q: "Que décrit l'élément 'Généalogie' (6.1) ?", o: ["L'arbre généalogique du créateur de la donnée", "Le processus de production et l'historique des transformations appliquées à la donnée", "La liste des versions logicielles", "La hiérarchie des dossiers"], a: 1, e: "C'est un champ 'qualité'. Il explique comment on est passé de la source brute au résultat final (ex: 'Numérisation sur fond IGN au 1/25000')."
+        },
+        {
+            q: "Comment exprime-t-on la 'Résolution spatiale' (6.2) pour une donnée vecteur ?", o: ["En nombre de points", "Par l'échelle équivalente (ex: 1/25000)", "En mégaoctets", "En vitesse de rafraîchissement"], a: 1, e: "Pour le vecteur, on parle d'échelle. Pour le raster (image), on parle généralement de la taille du pixel au sol (ex: 20 cm)."
+        },
+        {
+            q: "Quelle est l'importance de l'élément 'Conformité' (7.1) ?", o: ["Vérifier si le producteur a payé sa licence", "Indiquer si la donnée respecte les spécifications techniques (ex: INSPIRE)", "Savoir si le fichier est un .zip", "C'est une note de satisfaction client"], a: 1, e: "Il indique si la ressource est conforme ou non aux règlements européens. C'est un indicateur de confiance pour l'utilisateur."
+        },
+        {
+            q: "L'élément 'Conditions d'accès et d'usage' (8.1) est obligatoire. Que faire si l'accès est totalement libre ?", o: ["Laisser vide", "Mentionner explicitement 'aucune condition ne s'applique'", "Mettre un mot de passe", "Indiquer 'Usage interdit'"], a: 1, e: "Le standard interdit de laisser ce champ vide. Il faut affirmer la liberté d'usage pour que l'utilisateur soit sécurisé juridiquement."
+        },
+        {
+            q: "Quelles sont les 'Limitations d'utilisation' (8.2) ?", o: ["La taille maximale de l'écran", "Les restrictions légales ou mises en garde sur la fiabilité de la donnée", "Le nombre de copies autorisées", "La durée de téléchargement"], a: 1, e: "Exemple : 'Donnée non exploitable à une échelle supérieure au 1/5000'. Cela prévient les mauvais usages."
+        },
+        {
+            q: "Concernant la 'Partie responsable', quel est le rôle du 'Maître d'œuvre' ?", o: ["Celui qui paye", "Le producteur technique qui a réalisé la donnée", "L'hébergeur du site", "Le citoyen qui télécharge"], a: 1, e: "Le Maître d'œuvre est celui qui fabrique. Le Maître d'ouvrage (Commanditaire) est celui qui décide et finance."
+        },
+        {
+            q: "Pourquoi l'élément 'Point de contact pour les métadonnées' (10.1) est-il distinct du producteur de la donnée ?", o: ["Parce que le producteur est souvent anonyme", "Parce que la personne gérant la fiche catalogue peut être différente de celle ayant créé la donnée", "Pour doubler les chances d'avoir une réponse", "C'est une erreur du standard"], a: 1, e: "On peut avoir une direction métier qui produit la donnée, mais un service SIG centralisé qui gère le catalogue et les fiches."
+        },
+        {
+            q: "Que précise l'élément 'Date des métadonnées' (10.2) ?", o: ["La date de création de la donnée", "La date à laquelle la fiche de métadonnée a été créée ou mise à jour", "La date du jour", "La date de fin du projet"], a: 1, e: "C'est la date de validité de l'information sur l'information. Si la fiche date de 10 ans, l'utilisateur doutera de sa pertinence."
+        },
+        {
+            q: "Pourquoi dit-on que le format XML est 'structuré' ?", o: ["Parce qu'il utilise des images", "Parce qu'il utilise des balises imbriquées définissant la sémantique de chaque champ", "Parce qu'il est écrit en colonnes", "Parce qu'il ne peut pas être lu par un humain"], a: 1, e: "Chaque donnée est entourée de balises (ex: <titre>Ma carte</titre>), ce qui permet à un logiciel de savoir exactement quel champ correspond au titre."
+        },
+        {
+            q: "Quel est le rôle de la norme ISO 19139 ?", o: ["Définir les couleurs des cartes", "Définir comment implémenter concrètement l'ISO 19115 en langage XML", "Remplacer les fichiers Shapefile", "Gérer les bases de données SQL"], a: 1, e: "L'ISO 19115 dit ce qu'il faut mettre dans la fiche (le fond), l'ISO 19139 dit comment l'écrire informatiquement (la forme)."
+        },
+        {
+            q: "Le format 'Dublin Core' est souvent utilisé car :", o: ["Il est le plus complexe au monde", "Il est extrêmement simple (15 éléments) et adapté aux documents web classiques", "Il est obligatoire en France", "Il permet de stocker de la vidéo 4K"], a: 1, e: "Il est idéal pour des ressources non géographiques ou pour une première approche simplifiée de l'Open Data."
+        },
+        {
+            q: "Quelle est la fonction principale d'un 'Catalogue d'attributs' (ISO 19110) ?", o: ["Lister les noms des serveurs", "Décrire la structure des données : définition des colonnes, unités, codes employés", "Calculer la surface des polygones", "Stocker les photos"], a: 1, e: "C'est le 'dictionnaire' de la donnée. Il explique par exemple que la colonne 'TYPE_01' signifie 'Nature du bâtiment'."
+        },
+        {
+            q: "Qu'impose INSPIRE concernant les 'Services de recherche' (CSW) ?", o: ["Ils doivent être payants", "Ils doivent permettre de rechercher et d'afficher les métadonnées", "Ils doivent être fermés au public", "Ils doivent utiliser Google Search"], a: 1, e: "C'est la première étape d'INSPIRE : si on ne peut pas chercher la donnée via un service standardisé, l'infrastructure européenne ne fonctionne pas."
+        },
+        {
+            q: "Concernant la qualité de service d'un flux WMS sous INSPIRE, que signifie la contrainte de temps ?", o: ["La carte doit s'afficher en moins de 5 secondes", "La carte doit s'afficher en moins d'une heure", "Le serveur doit répondre rapidement pour garantir un usage fluide", "Il n'y a pas de contrainte de temps"], a: 1, e: "INSPIRE exige une performance minimale (ex: temps de réponse court pour les requêtes de consultation) pour que le réseau européen soit exploitable."
+        },
+        {
+            q: "Pourquoi le 'Moissonnage' est-il essentiel pour un portail national comme le Géocatalogue ?", o: ["Pour supprimer les doublons", "Pour collecter automatiquement les fiches des portails locaux sans saisie manuelle", "Pour vérifier les virus", "Pour limiter le nombre d'utilisateurs"], a: 1, e: "Le moissonnage permet de décentraliser la saisie : chaque département gère son catalogue, et l'État vient 'récolter' automatiquement les infos pour le portail national."
+        },
+        {
+            q: "Quelle est la philosophie des portails 'Open Data' généralistes (ex: data.gouv.fr) ?", o: ["La complexité technique maximale", "La simplicité d'accès, la réutilisabilité et la dataviz pour le grand public", "Le secret administratif", "La vente de fichiers"], a: 1, e: "Contrairement aux portails experts (SIG), l'Open Data vise une appropriation large par des citoyens ou des entreprises, d'où des métadonnées plus légères."
+        },
+        {
+            q: "Le logiciel 'GeoNetwork' est réputé pour :", o: ["Être le seul logiciel de dessin au monde", "Être la plateforme Open Source de référence pour gérer des catalogues de métadonnées ISO", "Être un système d'exploitation", "Être un format de fichier"], a: 1, e: "C'est l'outil moteur de nombreux portails (dont Géosource). Il gère nativement l'ISO, INSPIRE et le moissonnage."
+        },
+        {
+            q: "À quoi sert le site 'opendatarchives.fr' cité dans le cours ?", o: ["À commander du matériel", "À retrouver des archives de données ouvertes qui auraient pu disparaître", "À créer des cartes météo", "À discuter sur un forum"], a: 1, e: "C'est une ressource de secours qui stocke l'historique des données ouvertes en France."
+        },
+        {
+            q: "Où peut-on consulter le catalogue national des producteurs de données en France ?", o: ["Sur Amazon", "Sur le portail Geoportail.gouv.fr", "Uniquement à la préfecture", "Dans les journaux"], a: 1, e: "Le Géocatalogue (lié au Géoportail) centralise les fiches de métadonnées moissonnées sur tout le territoire."
+        },
+        {
+            q: "Quel est l'avantage du format .qmd dans QGIS ?", o: ["Il permet de stocker des photos", "Il permet d'enregistrer les métadonnées de la couche dans un fichier XML lisible par QGIS", "Il rend la donnée invisible", "Il compresse le Shapefile"], a: 1, e: "C'est le format natif de QGIS pour transporter les métadonnées avec la donnée sans avoir besoin d'un serveur de catalogue."
+        },
+        {
+            q: "Comment QGIS aide-t-il à la conformité INSPIRE ?", o: ["En interdisant les erreurs", "En proposant des champs d'édition compatibles avec les standards ISO et INSPIRE dans les propriétés", "En envoyant un rapport à Bruxelles", "Il ne permet pas d'être conforme"], a: 1, e: "Depuis les versions récentes, QGIS intègre des formulaires de saisie de métadonnées alignés sur les exigences européennes."
+        },
+        {
+            q: "Le plugin 'PgMetadata' permet de stocker les fiches :", o: ["Dans un dossier partagé", "Directement dans les tables de la base de données PostgreSQL/PostGIS", "Sur une clé USB", "Dans le Cloud Google"], a: 1, e: "Cela permet de lier intimement la donnée et sa métadonnée au sein du même serveur de base de données."
+        },
+        {
+            q: "Pourquoi le moissonnage par 'data.gouv.fr' est-il important pour un portail SIG ?", o: ["Pour saturer le serveur", "Pour que les données géographiques soient trouvables par des non-spécialistes via le portail national Open Data", "Pour vérifier les licences logicielles", "C'est une option sans intérêt"], a: 1, e: "Cela offre une visibilité maximale. Un développeur d'applications trouvera votre donnée sur data.gouv.fr sans forcément connaître votre portail SIG spécialisé."
+        },
+        {
+            q: "Qu'est-ce qu'une métadonnée 'interopérable' ?", o: ["Une donnée qui ne change jamais", "Une donnée capable d'être lue et comprise par des systèmes informatiques différents", "Une donnée protégée par un mot de passe", "Une donnée qui fonctionne sans électricité"], a: 1, e: "L'interopérabilité est le but ultime : grâce aux normes (ISO, XML), un catalogue français peut être lu par un logiciel américain ou une plateforme européenne."
+        },
+        {
+            q: "Quelle est l'évolution future des métadonnées évoquée en fin de cours ?", o: ["La suppression des métadonnées", "L'intégration croissante du Web sémantique et de l'Intelligence Artificielle pour la découverte automatique", "Le retour au papier", "La limitation aux experts"], a: 1, e: "On s'éloigne des fiches statiques pour aller vers des données liées (Linked Data) où les machines comprennent seules le contexte de l'information."
+        },
+        {
+            q: "En une phrase, quel est l'objectif global d'une bonne gestion des métadonnées ?", o: ["Respecter une contrainte informatique pénible", "Organiser la connaissance pour offrir une vision numérique fiable et partageable du monde", "Remplir les serveurs", "Cacher les erreurs de mesure"], a: 1, e: "C'est la conclusion du cours : les métadonnées sont le socle de la confiance et du partage dans la société numérique actuelle."
+        }
+    ];
+
+    let current = 0;
+    let score = 0;
+    const userAnswers = new Array(examData.length).fill(null);
+
+    function init() {
+        const wrapper = document.getElementById('questions-wrapper');
+        examData.forEach((item, idx) => {
+            const div = document.createElement('div');
+            div.className = `question-container ${idx === 0 ? 'active' : ''}`;
+            div.id = `q-${idx}`;
+            div.innerHTML = `
+                <div class="question-text">${idx + 1}. ${item.q}</div>
+                <div class="options-list">
+                    ${item.o.map((opt, i) => `
+                        <div class="option-item" onclick="handleSelect(${idx}, ${i}, this)">${opt}</div>
+                    `).join('')}
+                </div>
+                <div class="explanation-box" id="exp-${idx}">
+                    <div class="explanation-title">💡 Analyse pédagogique</div>
+                    <div id="exp-text-${idx}">${item.e}</div>
+                </div>
+            `;
+            wrapper.appendChild(div);
+        });
+        updateProgress();
+    }
+
+    function handleSelect(qIdx, oIdx, el) {
+        if (userAnswers[qIdx] !== null) return;
+
+        userAnswers[qIdx] = oIdx;
+        const options = document.querySelectorAll(`#q-${qIdx} .option-item`);
+        const correct = examData[qIdx].a;
+
+        if (oIdx === correct) {
+            el.classList.add('correct');
+            score++;
+        } else {
+            el.classList.add('wrong');
+            options[correct].classList.add('correct');
+        }
+
+        document.getElementById(`exp-${qIdx}`).style.display = 'block';
+    }
+
+    function move(dir) {
+        document.querySelectorAll('.question-container')[current].classList.remove('active');
+        current += dir;
+
+        if (current >= examData.length) {
+            finish();
+        } else {
+            document.querySelectorAll('.question-container')[current].classList.add('active');
+            updateUI();
+        }
+    }
+
+    function updateUI() {
+        document.getElementById('counter').innerText = `Question ${current + 1} / ${examData.length}`;
+        document.getElementById('prev-btn').disabled = current === 0;
+        document.getElementById('next-btn').innerText = (current === examData.length - 1) ? "Terminer" : "Suivant";
+        updateProgress();
+    }
+
+    function updateProgress() {
+        const fill = document.getElementById('progress-fill');
+        fill.style.width = `${((current + 1) / examData.length) * 100}%`;
+    }
+
+    function finish() {
+        document.getElementById('quiz-ui').style.display = 'none';
+        const screen = document.getElementById('final-screen');
+        screen.style.display = 'block';
+        const pct = Math.round((score / examData.length) * 100);
+        document.getElementById('score-display').innerText = `${pct}%`;
+
+        const msg = document.getElementById('feedback-msg');
+        if(pct >= 90) msg.innerText = "Parfait ! Vous avez une expertise complète des normes ISO et INSPIRE.";
+        else if(pct >= 70) msg.innerText = "Très bien. Vous maîtrisez les concepts clés de la gouvernance de données.";
+        else msg.innerText = "Révisions conseillées : concentrez-vous sur les éléments de la norme ISO 19115 et la directive INSPIRE.";
+    }
+
+    init();
+</script>
+</body>
+</html>
               
             </div>
           </div><footer>
