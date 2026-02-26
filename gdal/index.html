@@ -100,7 +100,7 @@
 <h1 id="anti-seche-commandes-gdalogr">🛠️ ANTI-SÈCHE COMMANDES GDAL/OGR<a class="headerlink" href="#anti-seche-commandes-gdalogr" title="Permanent link">&para;</a></h1>
 <p>Ce guide regroupe les commandes essentielles utilisées lors du traitement des données du département 31 (Haute-Garonne). Elles permettent de naviguer dans le système, de préparer l'arborescence et de manipuler des données Raster et Vecteur.</p>
 <hr />
-<h2 id="1-navigation-et-systeme">📂 1. Navigation et Système<a class="headerlink" href="#1-navigation-et-systeme" title="Permanent link">&para;</a></h2>
+<h3 id="1-navigation-et-systeme">📂 1. Navigation et Système<a class="headerlink" href="#1-navigation-et-systeme" title="Permanent link">&para;</a></h3>
 <p>Commandes de base pour se déplacer dans les répertoires WSL (Windows Subsystem for Linux) et vérifier l'installation.</p>
 <table>
 <thead>
@@ -131,7 +131,7 @@
 <pre><code class="language-bash">cd /mnt/c/Users/ag/Documents/gdal 
 </code></pre>
 <hr />
-<h2 id="2-preparation-de-lenvironnement">🏗️ 2. Préparation de l'Environnement<a class="headerlink" href="#2-preparation-de-lenvironnement" title="Permanent link">&para;</a></h2>
+<h3 id="2-preparation-de-lenvironnement">🏗️ 2. Préparation de l'Environnement<a class="headerlink" href="#2-preparation-de-lenvironnement" title="Permanent link">&para;</a></h3>
 <p>Création de l'arborescence de dossiers pour organiser proprement les données sources et les sorties.</p>
 <h4 id="creer-les-dossiers-de-travail">Créer les dossiers de travail<a class="headerlink" href="#creer-les-dossiers-de-travail" title="Permanent link">&para;</a></h4>
 <pre><code class="language-bash">mkdir raster
@@ -142,34 +142,35 @@ mkdir -p raster/mnt # -p crée les dossiers parents si nécessaire
 <pre><code class="language-bash">touch readme.md
 </code></pre>
 <hr />
-<h2 id="3-traitement-raster-mnt">🛰️ 3. Traitement Raster (MNT)<a class="headerlink" href="#3-traitement-raster-mnt" title="Permanent link">&para;</a></h2>
+<h3 id="3-traitement-raster-mnt">🛰️ 3. Traitement Raster (MNT)<a class="headerlink" href="#3-traitement-raster-mnt" title="Permanent link">&para;</a></h3>
 <p>Utilisation des outils GDAL pour télécharger, extraire et assembler des dalles de la BD ALTI.</p>
-<p>Installation de 7zip et Extraction
-Bash</p>
-<h4 id="installer-loutil-de-decompression">Installer l'outil de décompression<a class="headerlink" href="#installer-loutil-de-decompression" title="Permanent link">&para;</a></h4>
-<pre><code class="language-bash">sudo apt install 7zip
+<p>Installation de 7zip et Extraction</p>
+<pre><code class="language-bash">
+# Installer l'outil de décompression
+sudo apt install 7zip
 </code></pre>
-<h4 id="telecharger-une-archive-ex-bd-alti-25m">Télécharger une archive (Ex: BD ALTI 25m)<a class="headerlink" href="#telecharger-une-archive-ex-bd-alti-25m" title="Permanent link">&para;</a></h4>
-<pre><code class="language-bash">wget [https://data.geopf.fr/telechargement/download/BDALTI/](https://data.geopf.fr/telechargement/download/BDALTI/)...
+<pre><code class="language-bash">wget [https://data.geopf.fr/telechargement/download/BDALTI/](https://data.geopf.fr/telechargement/download/BDALTI/)... # Télécharger une archive (Ex: BD ALTI 25m)
 </code></pre>
-<h1 id="extraire-larchive">Extraire l'archive<a class="headerlink" href="#extraire-larchive" title="Permanent link">&para;</a></h1>
-<pre><code class="language-bash">7z x nom_du_fichier.7z
+<pre><code class="language-bash"># Extraire l'archive
+7z x nom_du_fichier.7z
 </code></pre>
 <p>Création d'une Mosaïque Virtuelle (VRT)
 Le VRT est crucial car il fusionne virtuellement toutes les dalles .asc sans dupliquer les données sur le disque.</p>
 <pre><code class="language-bash"># Création du VRT optimisé
 gdalbuildvrt -srcnodata 0 -a_srs EPSG:2154 mnt31.vrt path/to/files/*.asc
 </code></pre>
-<p>🗺️ 4. Traitement Vecteur (OGR)
-Utilisation de l'outil ogrinfo pour inspecter la structure des fichiers Shapefile avant leur intégration.</p>
-<p>Shutterstock</p>
-<p>Bash</p>
-<h1 id="inspecter-un-fichier-shapefile-resume-global">Inspecter un fichier Shapefile (Résumé global)<a class="headerlink" href="#inspecter-un-fichier-shapefile-resume-global" title="Permanent link">&para;</a></h1>
-<p>ogrinfo -so DEPARTEMENT.shp</p>
-<h1 id="inspecter-une-couche-specifique-du-fichier">Inspecter une couche spécifique du fichier<a class="headerlink" href="#inspecter-une-couche-specifique-du-fichier" title="Permanent link">&para;</a></h1>
-<p>ogrinfo -so DEPARTEMENT.shp DEPARTEMENT</p>
-<h1 id="exporter-les-metadonnees-dans-un-fichier-texte-pour-archivage">Exporter les métadonnées dans un fichier texte pour archivage<a class="headerlink" href="#exporter-les-metadonnees-dans-un-fichier-texte-pour-archivage" title="Permanent link">&para;</a></h1>
-<p>ogrinfo -so DEPARTEMENT.shp DEPARTEMENT &gt;&gt; def_dept.txt</p>
+<hr />
+<h3 id="4-traitement-vecteur-ogr">🗺️ 4. Traitement Vecteur (OGR)<a class="headerlink" href="#4-traitement-vecteur-ogr" title="Permanent link">&para;</a></h3>
+<p>Utilisation de l'outil ogrinfo pour inspecter la structure des fichiers Shapefile avant leur intégration.</p>
+<pre><code class="language-bash"># Inspecter un fichier Shapefile (Résumé global)
+ogrinfo -so DEPARTEMENT.shp
+
+# Inspecter une couche spécifique du fichier
+ogrinfo -so DEPARTEMENT.shp DEPARTEMENT
+
+# Exporter les métadonnées dans un fichier texte pour archivage
+ogrinfo -so DEPARTEMENT.shp DEPARTEMENT &gt;&gt; def_dept.txt
+</code></pre>
               
 
             </div>
