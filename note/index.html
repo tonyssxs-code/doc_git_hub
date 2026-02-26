@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Notes - Mon Portefeuille Géomatique</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../overrides/style.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Notes";
+        var mkdocs_page_input_path = "note.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Mon Portefeuille Géomatique
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Accueil</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../format/">Formats</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../gdal/">GDAL</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../metadonnee/">Métadonnées</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../vrt/">VRT</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../source/">Sources</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Notes</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#pourquoi-est-ce-crucial">Pourquoi est-ce crucial ?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#i-les-trois-piliers-de-linteroperabilite">I. Les Trois Piliers de l'Interopérabilité</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ii-liso-tc-211-le-cadre-theorique">II. L'ISO / TC 211 : Le Cadre Théorique</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#les-normes-cles-a-connaitre">Les Normes Clés à connaître :</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#iii-logc-le-bras-arme-technique">III. L'OGC : Le Bras Armé Technique</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#1-les-services-web-geospatiaux">1. Les Services Web Géospatiaux</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2-les-formats-de-donnees-ouverts">2. Les Formats de Données Ouverts</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#iv-la-mise-en-application-la-directive-inspire">IV. La Mise en Application : La Directive INSPIRE</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Mon Portefeuille Géomatique</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Notes</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+<div class="progress-container"><div class="progress-bar" id="myBar"></div></div>
+
+                <h1 id="linteroperabilite-en-geomatique">L'INTEROPÉRABILITÉ EN GÉOMATIQUE</h1>
+<p>L'interopérabilité, c'est s'assurer que tout le monde parle la même langue dans une pièce remplie de gens venant du monde entier. En géomatique, ces "gens" sont des logiciels (QGIS, ArcGIS), des bases de données (PostGIS) et des capteurs.</p>
+<h3 id="pourquoi-est-ce-crucial">Pourquoi est-ce crucial ?</h3>
+<p>Imaginez un projet d'urbanisme mélangeant :
+* Le cadastre en format <strong>Shapefile</strong> (Esri).
+* Le réseau d'eau en <strong>AutoCAD</strong> (DWG).
+* Des photos satellites en <strong>GeoTIFF</strong>.</p>
+<p>Sans interopérabilité, vous passeriez 80 % de votre temps à convertir des fichiers. Elle permet de superposer ces couches instantanément.</p>
+<hr />
+<h2 id="i-les-trois-piliers-de-linteroperabilite">I. Les Trois Piliers de l'Interopérabilité</h2>
+<p>Pour qu'un système soit réellement interopérable, il doit répondre à trois paliers :</p>
+<ol>
+<li><strong>Interopérabilité Technique</strong> : Capacité des systèmes à communiquer physiquement (protocoles réseaux, formats comme le <span class="tech-term">GeoJSON</span> ou le <span class="tech-term">GML</span>).</li>
+<li><strong>Interopérabilité Sémantique</strong> : Garantie que le contenu est compris de la même façon (ex: définir si une "forêt" commence à 10% ou 30% de couvert).</li>
+<li><strong>Interopérabilité Organisationnelle</strong> : Cadres juridiques et partenariats pour le partage entre administrations.</li>
+</ol>
+<hr />
+<h2 id="ii-liso-tc-211-le-cadre-theorique">II. L'ISO / TC 211 : Le Cadre Théorique</h2>
+<p>Le Comité Technique 211 de l'ISO définit les modèles conceptuels (série 19100). C'est la "Loi" de la géomatique.</p>
+<h3 id="les-normes-cles-a-connaitre">Les Normes Clés à connaître :</h3>
+<ul>
+<li><span class="tech-term">ISO 19111</span> (Référencement Spatial) : Définit comment décrire la position sur Terre (projections).</li>
+<li><span class="tech-term">ISO 19115</span> (Métadonnées) : Le "CV" de la donnée (auteur, date, précision).</li>
+<li><span class="tech-term">ISO 19110</span> (Catalogage) : Définit ce qu'est un objet (ex: la définition d'une "rivière").</li>
+</ul>
+<hr />
+<h2 id="iii-logc-le-bras-arme-technique">III. L'OGC : Le Bras Armé Technique</h2>
+<p>L'<strong>Open Geospatial Consortium</strong> transforme les concepts de l'ISO en outils informatiques concrets.</p>
+<h3 id="1-les-services-web-geospatiaux">1. Les Services Web Géospatiaux</h3>
+<p>L'OGC permet de consulter des données à distance sans les télécharger :
+* <strong>WMS (Web Map Service)</strong> : Le serveur envoie une <strong>image</strong> (raster). Idéal pour les fonds de plan.
+* <strong>WFS (Web Feature Service)</strong> : Le serveur envoie les <strong>vecteurs</strong> (points, lignes). Permet l'édition.
+* <strong>WMTS (Web Map Tile Service)</strong> : Version optimisée par "tuiles" pour une rapidité maximale (type Google Maps).</p>
+<h3 id="2-les-formats-de-donnees-ouverts">2. Les Formats de Données Ouverts</h3>
+<ul>
+<li><span class="tech-term">GeoPackage (.gpkg)</span> : Le standard moderne, léger et universel.</li>
+<li><span class="tech-term">GML</span> : Format XML complet pour le transfert d'objets.</li>
+<li><span class="tech-term">KML</span> : Standardisé pour l'affichage dans des globes virtuels (Google Earth).</li>
+</ul>
+<hr />
+<h2 id="iv-la-mise-en-application-la-directive-inspire">IV. La Mise en Application : La Directive INSPIRE</h2>
+<p>La directive européenne <strong>INSPIRE</strong> est l'application politique de ces standards.</p>
+<p><strong>Objectif :</strong> Créer une Infrastructure de Données Géographiques (IDG) européenne. 
+<strong>Obligation :</strong> Les pays membres doivent publier leurs données selon les normes ISO et les standards OGC.</p>
+<blockquote>
+<p><strong>Résultat :</strong> Un expert français peut croiser des données d'inondations espagnoles avec des données allemandes sans aucune manipulation technique complexe.</p>
+</blockquote>
+              
+
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../source/" class="btn btn-neutral float-left" title="Sources"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../source/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../overrides/script.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

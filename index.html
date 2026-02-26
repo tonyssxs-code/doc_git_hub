@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/theme.css" />
     <link rel="stylesheet" href="css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="overrides/style.css" rel="stylesheet" />
     
       <script>
         // Current page data
@@ -30,7 +31,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-          <a href="index.html" class="icon icon-home"> Mon Portefeuille Géomatique
+          <a href="." class="icon icon-home"> Mon Portefeuille Géomatique
         </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
@@ -66,23 +67,27 @@
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="note.html">Intéropérabilité</a>
+                <li class="toctree-l1"><a class="reference internal" href="format/">Formats</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="source.html">Sources de données</a>
+                <li class="toctree-l1"><a class="reference internal" href="gdal/">GDAL</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="format.html">Formats</a>
+                <li class="toctree-l1"><a class="reference internal" href="metadonnee/">Métadonnées</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="metadonnee.html">Métadonnées</a>
+                <li class="toctree-l1"><a class="reference internal" href="vrt/">VRT</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="vrt.html">VRT</a>
+                <li class="toctree-l1"><a class="reference internal" href="source/">Sources</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="note/">Notes</a>
                 </li>
               </ul>
       </div>
@@ -92,13 +97,13 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
       <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">Mon Portefeuille Géomatique</a>
+          <a href=".">Mon Portefeuille Géomatique</a>
         
       </nav>
       <div class="wy-nav-content">
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="index.html" class="icon icon-home" aria-label="Docs"></a></li>
+    <li><a href="." class="icon icon-home" aria-label="Docs"></a></li>
       <li class="breadcrumb-item active">Accueil</li>
     <li class="wy-breadcrumbs-aside">
     </li>
@@ -108,89 +113,53 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <style>
-  body {
-    font-family: "Times New Roman", Times, serif;
-    text-align: justify;
-    line-height: 1.7;
-    color: #333;
-    max-width: 900px;
-    margin: auto;
-  }
-  h1, h2 {
-    color: #1a5276;
-    border-bottom: 2px solid #1a5276;
-    padding-bottom: 8px;
-    text-transform: uppercase;
-  }
-  h3 {
-    color: #2e86c1;
-    background: #f2f4f4;
-    padding: 10px;
-    border-radius: 5px;
-  }
-  .warning {
-    background-color: #fcf3cf;
-    border-left: 5px solid #f1c40f;
-    padding: 15px;
-    margin: 20px 0;
-  }
-  .step {
-    font-weight: bold;
-    color: #1a5276;
-  }
-  code {
-    background-color: #f8f9f9;
-    padding: 2px 5px;
-    border-radius: 3px;
-    font-family: "Courier New", Courier, monospace;
-  }
-</style>
+<div class="progress-container"><div class="progress-bar" id="myBar"></div></div>
 
-<h1 id="tutoriel-injection-de-metadonnees-exif">TUTORIEL : Injection de métadonnées EXIF<a class="headerlink" href="#tutoriel-injection-de-metadonnees-exif" title="Permanent link">&para;</a></h1>
+                <h1 id="injection-de-metadonnees-exif">Injection de métadonnées EXIF</h1>
 <p><strong>Objectif :</strong> Géoréférencer des photographies à partir d'une table de coordonnées CSV.</p>
-<p><img alt="Aperçu du projet" src="img/cap.jpg" /></p>
+<div class="logo-gallery">
+    <img src="img/cap.jpg" alt="Aperçu du projet">
+</div>
+
 <hr />
-<h2 id="i-prerequis-preparation-qgis">I. PRÉREQUIS &amp; PRÉPARATION QGIS<a class="headerlink" href="#i-prerequis-preparation-qgis" title="Permanent link">&para;</a></h2>
+<h2 id="i-prerequis-preparation-qgis">I. PRÉREQUIS &amp; PRÉPARATION QGIS</h2>
 <p>Avant de lancer le script, assurez-vous d'avoir installé <strong>Visual Studio Code</strong> et <strong>Python</strong>.</p>
-<h3 id="1-preparation-des-donnees-sur-qgis">1. Préparation des données sur QGIS<a class="headerlink" href="#1-preparation-des-donnees-sur-qgis" title="Permanent link">&para;</a></h3>
-<p>Pour faire le lien entre vos clichés et le terrain, suivez ces étapes :
-* <strong>Création de la couche :</strong> Créez une couche de points (GPKG ou Shapefile) avec les champs : <code>fid</code>, <code>chemin</code>, <code>x</code>, <code>y</code>.
-* <strong>Saisie des données :</strong> Pointez sur la carte l'emplacement exact de la prise de vue. 
-* <strong>Champ Chemin :</strong> Renseignez le chemin complet du fichier (ex: <code>C:\Photos\P1010.jpg</code>). 
-    &gt;  <strong>Important :</strong> Ne pas mettre de guillemets dans les chemins.
-* <strong>Calculatrice de champ :</strong> Mettez à jour les champs <code>x</code> et <code>y</code> (en Lambert 93 - EPSG:2154).</p>
-<h3 id="2-exportation">2. Exportation<a class="headerlink" href="#2-exportation" title="Permanent link">&para;</a></h3>
+<h3 id="1-preparation-des-donnees-sur-qgis">1. Préparation des données sur QGIS</h3>
+<p>Pour faire le lien entre vos clichés et le terrain, suivez ces étapes :</p>
+<ul>
+<li><strong>Création de la couche :</strong> Créez une couche de points (GPKG ou Shapefile) avec les champs : <code>fid</code>, <code>chemin</code>, <code>x</code>, <code>y</code>.</li>
+<li><strong>Saisie des données :</strong> Pointez sur la carte l'emplacement exact de la prise de vue. </li>
+<li><strong>Champ Chemin :</strong> Renseignez le chemin complet du fichier (ex: <code>C:\Photos\P1010.jpg</code>). 
+    &gt; <strong>Important :</strong> Ne pas mettre de guillemets dans les chemins.</li>
+<li><strong>Calculatrice de champ :</strong> Mettez à jour les champs <code>x</code> et <code>y</code> (en <span class="tech-term">Lambert 93</span> - EPSG:2154).</li>
+</ul>
+<h3 id="2-exportation">2. Exportation</h3>
 <p>Exportez la table attributaire en <strong>CSV</strong> dans le même dossier que vos photos. 
 * <strong>Format :</strong> UTF-8.
 * <strong>Séparateur :</strong> Point-virgule (<code>;</code>).
 * <strong>Géométrie :</strong> Choisissez "Pas de géométrie" lors de l'export.</p>
 <hr />
-<h2 id="ii-configuration-du-script-python">II. CONFIGURATION DU SCRIPT PYTHON<a class="headerlink" href="#ii-configuration-du-script-python" title="Permanent link">&para;</a></h2>
+<h2 id="ii-configuration-du-script-python">II. CONFIGURATION DU SCRIPT PYTHON</h2>
 <p>Ouvrez Visual Studio Code, créez un nouveau fichier <code>.py</code> et collez-y le code ci-dessous.</p>
-<div class="warning">
-  <strong>ATTENTION :</strong> Vous devez modifier les variables suivantes dans le script :
-  <ul>
-    <li><code>base_dir</code> : Le dossier racine (ex: <code>06_prospection</code>).</li>
-    <li><code>test_dir</code> : Le sous-dossier contenant les images (ex: <code>Fenioux</code>).</li>
-    <li><code>csv_file</code> : Le nom de votre fichier CSV (ex: <code>fenioux.csv</code>).</li>
-  </ul>
-</div>
-
+<p>!!! warning "Attention : Variables à modifier"
+    Vous devez modifier les variables suivantes dans le script :
+    * <code>base_dir</code> : Le dossier racine (ex: <code>06_prospection</code>).
+    * <code>test_dir</code> : Le sous-dossier contenant les images (ex: <code>Fenioux</code>).
+    * <code>csv_file</code> : Le nom de votre fichier CSV (ex: <code>fenioux.csv</code>).</p>
 <p>```python
 import os
 import pandas as pd
 from pyproj import Transformer
 import piexif
 from PIL import Image</p>
-<h6 id="-1-configuration-des-chemins-">---- 1. CONFIGURATION DES CHEMINS ----<a class="headerlink" href="#-1-configuration-des-chemins-" title="Permanent link">&para;</a></h6>
+<h6 id="-1-configuration-des-chemins-">---- 1. CONFIGURATION DES CHEMINS ----</h6>
 <p>base_dir = r"C:\photos\06_Prospection"
 test_dir = os.path.join(base_dir, "Fenioux")
 csv_file = os.path.join(test_dir, "fenioux.csv")</p>
-<h6 id="-2-chargement-et-nettoyage-">---- 2. CHARGEMENT ET NETTOYAGE ----<a class="headerlink" href="#-2-chargement-et-nettoyage-" title="Permanent link">&para;</a></h6>
+<h6 id="-2-chargement-et-nettoyage-">---- 2. CHARGEMENT ET NETTOYAGE ----</h6>
 <p>df = pd.read_csv(csv_file, sep=";", encoding="utf-8-sig")
 df = df.rename(columns=lambda c: c.strip())</p>
-<h6 id="-3-conversion-coordonnees-lambert93-wgs84-">---- 3. CONVERSION COORDONNÉES (Lambert93 -&gt; WGS84) ----<a class="headerlink" href="#-3-conversion-coordonnees-lambert93-wgs84-" title="Permanent link">&para;</a></h6>
+<h6 id="-3-conversion-coordonnees-lambert93-wgs84-">---- 3. CONVERSION COORDONNÉES (Lambert93 -&gt; WGS84) ----</h6>
 <p>transformer = Transformer.from_crs("EPSG:2154", "EPSG:4326", always_xy=True)
 df["lon"], df["lat"] = transformer.transform(df["x"].values, df["y"].values)</p>
 <p>def deg_to_dms_rational(deg):
@@ -198,7 +167,7 @@ df["lon"], df["lat"] = transformer.transform(df["x"].values, df["y"].values)</p>
     m = int((abs(deg) - d) * 60)
     s = round((abs(deg) - d - m/60) * 3600 * 100)
     return ((d, 1), (m, 1), (s, 100))</p>
-<h6 id="-4-traitement-des-images-">---- 4. TRAITEMENT DES IMAGES ----<a class="headerlink" href="#-4-traitement-des-images-" title="Permanent link">&para;</a></h6>
+<h6 id="-4-traitement-des-images-">---- 4. TRAITEMENT DES IMAGES ----</h6>
 <p>output_dir = os.path.join(base_dir, "EXF")
 os.makedirs(output_dir, exist_ok=True)</p>
 <p>for _, row in df.iterrows():
@@ -227,10 +196,11 @@ except Exception as e:
     print(f"❌ Erreur pour {chemin} : {e}")
 </code></pre>
               
+
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="note.html" class="btn btn-neutral float-right" title="Intéropérabilité">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="format/" class="btn btn-neutral float-right" title="Formats">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -254,7 +224,7 @@ except Exception as e:
     
     
     
-      <span><a href="note.html" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="format/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
@@ -262,6 +232,7 @@ except Exception as e:
     <script>var base_url = ".";</script>
     <script src="js/theme_extra.js"></script>
     <script src="js/theme.js"></script>
+      <script src="overrides/script.js"></script>
       <script src="search/main.js"></script>
     <script>
         jQuery(function () {
@@ -274,5 +245,5 @@ except Exception as e:
 
 <!--
 MkDocs version : 1.6.1
-Build Date UTC : 2026-02-25 11:45:05.828929+00:00
+Build Date UTC : 2026-02-26 09:53:48.055633+00:00
 -->

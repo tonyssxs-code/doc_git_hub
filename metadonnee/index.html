@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Métadonnées - Mon Portefeuille Géomatique</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../overrides/style.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "M\u00e9tadonn\u00e9es";
+        var mkdocs_page_input_path = "metadonnee.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Mon Portefeuille Géomatique
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Accueil</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../format/">Formats</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../gdal/">GDAL</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Métadonnées</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#contexte-des-metadonnees">Contexte des métadonnées</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#pourquoi-faire-de-la-metadonnee">Pourquoi faire de la métadonnée ?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#la-forme-et-les-standards">La forme et les standards</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pour-qui">Pour qui ?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#outils-qgis-recommandes">Outils QGIS recommandés</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#quiz-metadonnees">🎓 QUIZ MÉTADONNÉES !</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../vrt/">VRT</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../source/">Sources</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../note/">Notes</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Mon Portefeuille Géomatique</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Métadonnées</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+<div class="progress-container"><div class="progress-bar" id="myBar"></div></div>
+
+                <h1 id="les-metadonnees">LES MÉTADONNÉES</h1>
+<h2 id="contexte-des-metadonnees">Contexte des métadonnées</h2>
+<p>Les métadonnées sont essentielles dans l'information géographique : elles sont "la donnée sur la donnée". Elles permettent de donner du sens à la donnée brute.</p>
+<p>Les questions basiques auxquelles doivent répondre une métadonnée sont : <strong>Quoi, Qui, Où, Quand, Pourquoi et Comment.</strong></p>
+<h3 id="pourquoi-faire-de-la-metadonnee">Pourquoi faire de la métadonnée ?</h3>
+<p>On distingue trois niveaux de contenu :
+* <strong>Les métadonnées pour la découverte</strong> (savoir que la donnée existe).
+* <strong>Les métadonnées pour l'exploration</strong> (vérifier si elle répond au besoin).
+* <strong>Les métadonnées pour l'exploitation</strong> (comprendre comment l'utiliser).</p>
+<h3 id="la-forme-et-les-standards">La forme et les standards</h3>
+<ul>
+<li>Elles doivent répondre à des standards développés par des experts.</li>
+<li>La norme incontournable est la <strong>NORME ISO 19115</strong>.</li>
+<li>Pour le web, on utilise souvent le standard <strong>DCAT</strong> ou <strong>GeoDCAT-AP</strong>.</li>
+</ul>
+<h3 id="pour-qui">Pour qui ?</h3>
+<ul>
+<li><strong>Soi-même</strong> : Pour retrouver ses propres données plus tard.</li>
+<li><strong>Collègues</strong> : Éviter de refaire le travail deux fois.</li>
+<li><strong>Partenaires &amp; État</strong> : Obligations légales (Directive INSPIRE).</li>
+</ul>
+<h3 id="outils-qgis-recommandes">Outils QGIS recommandés</h3>
+<ul>
+<li><span class="tech-term">PgMetadata</span></li>
+<li><span class="tech-term">Plume</span></li>
+<li><span class="tech-term">Geocatbridge</span></li>
+</ul>
+<hr />
+<h2 id="quiz-metadonnees">🎓 QUIZ MÉTADONNÉES !</h2>
+<div class="container-quiz">
+    <div id="quiz-ui">
+        <h1>Examen de Synthèse : Métadonnées Géographiques</h1>
+        <div class="progress-bar-quiz"><div id="progress-fill-quiz"></div></div>
+        <div id="questions-wrapper"></div>
+        <div class="nav-footer">
+            <button id="prev-btn" onclick="move(-1)" disabled>Précédent</button>
+            <span id="counter" style="font-weight: 600; color: #64748b;">Question 1 / 50</span>
+            <button id="next-btn" onclick="move(1)">Suivant</button>
+        </div>
+    </div>
+
+    <div id="final-screen">
+        <h1>Résultats de l'évaluation</h1>
+        <div class="score-circle" id="score-display">0%</div>
+        <p id="feedback-msg" style="font-size: 1.1rem; margin-bottom: 30px;"></p>
+        <button onclick="location.reload()">Recommencer l'examen</button>
+    </div>
+</div>
+
+<style>
+    .container-quiz { max-width: 100%; margin: 20px auto; background: white; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0; }
+    #quiz-ui h1 { color: #1e3a8a; text-align: center; font-size: 1.5rem; border: none; }
+    .progress-bar-quiz { height: 8px; background: #e2e8f0; border-radius: 4px; margin-bottom: 30px; overflow: hidden; }
+    #progress-fill-quiz { height: 100%; background: #3b82f6; width: 2%; transition: width 0.3s; }
+    .question-container { display: none; }
+    .question-container.active { display: block; animation: fadeIn 0.4s; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    .question-text { font-size: 1.1rem; font-weight: 700; margin-bottom: 20px; color: #0f172a; }
+    .option-item { background: #fff; border: 2px solid #e2e8f0; margin-bottom: 10px; padding: 12px; border-radius: 8px; cursor: pointer; }
+    .option-item:hover { border-color: #3b82f6; background: #f0f7ff; }
+    .option-item.correct { border-color: #10b981; background: #ecfdf5; color: #065f46; font-weight: 600; }
+    .option-item.wrong { border-color: #ef4444; background: #fef2f2; color: #991b1b; }
+    .explanation-box { margin-top: 20px; padding: 15px; border-radius: 8px; background: #f1f5f9; border-left: 6px solid #3b82f6; display: none; }
+    .nav-footer { margin-top: 30px; display: flex; justify-content: space-between; align-items: center; }
+    #final-screen { display: none; text-align: center; }
+    .score-circle { width: 100px; height: 100px; border-radius: 50%; border: 5px solid #1e3a8a; margin: 20px auto; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 900; }
+</style>
+
+<script>
+    const examData = [
+        { q: "Quelle est l'utilité fondamentale du préfixe 'meta' lorsqu'on l'associe au concept de donnée ?", o: ["Il désigne la transformation d'un format vers un autre", "Il indique une auto-référence : une donnée qui sert à documenter une autre donnée", "Il définit la précision géométrique d'un objet", "Il s'agit d'un protocole de transfert"], a: 1, e: "Le cours précise que 'meta' vient du grec signifiant 'après, avec, au-delà'. Il s'agit d'une auto-référence." },
+        { q: "Selon la méthodologie descriptive standard, à quel ensemble de questions minimales une métadonnée doit-elle répondre ?", o: ["Uniquement le Titre et l'Emprise spatiale", "La règle des 5W : Qui, Quoi, Où, Quand, Pourquoi (et le Comment)", "Le volume de stockage et le coût d'acquisition", "Le nom du serveur et le type de base de données"], a: 1, e: "C'est la base de l'identification : Qui, Quoi, Où, Quand, Pourquoi et Comment." },
+        { q: "Le cycle de vie de la métadonnée prévoit trois rôles majeurs. Lequel permet spécifiquement à un utilisateur de confirmer que la ressource répond exactement à ses besoins ?", o: ["Le rôle de Découverte (existence)", "Le rôle d'Exploration (choix précis)", "Le rôle d'Exploitation (utilisation)", "Le rôle d'Archivage (historique)"], a: 1, e: "L'exploration fournit les détails nécessaires (qualité, attributs) pour décider si la donnée est compatible." },
+        { q: "Quelle est la plus-value stratégique pour un producteur de données de consacrer du temps à la saisie des métadonnées ?", o: ["Cela permet de vendre les données plus cher", "Cela assure la pérennité de la valeur de la donnée", "Cela réduit automatiquement les erreurs géométriques", "C'est une obligation informatique sans impact métier"], a: 1, e: "La métadonnée assure la pérennité de la valeur en évitant la perte de connaissance." },
+        { q: "Dans le paysage normatif, quelle différence majeure existe-t-il entre un standard et une norme ISO ?", o: ["Il n'y a aucune différence technique", "Le standard est souvent industriel (ex: Shapefile), tandis que la norme est validée par un organisme officiel", "Une norme est toujours gratuite", "Les normes ne concernent que le matériel"], a: 1, e: "Une norme (ISO) est issue d'un consensus international officiel." },
+        { q: "La directive européenne INSPIRE (2007) repose sur plusieurs piliers. Quel est son impact direct sur les services publics ?", o: ["Elle interdit les logiciels propriétaires", "Elle impose une obligation légale de documenter et diffuser les données environnementales", "Elle centralise tout à Bruxelles", "Elle impose la gratuité totale"], a: 1, e: "INSPIRE impose des métadonnées harmonisées pour faciliter le partage entre États membres." },
+        { q: "Pourquoi le standard ISO 19115 est-il jugé complexe par les praticiens du SIG ?", o: ["Il ne supporte pas le français", "Il comporte plus de 300 entrées possibles", "Il nécessite un super-calculateur", "Il est obsolète"], a: 1, e: "C'est une norme exhaustive. On utilise souvent des 'profils' pour ne sélectionner que l'essentiel." },
+        { q: "Que désigne le 'Core ISO' dans la norme ISO 19115 ?", o: ["Le processeur nécessaire", "Le noyau minimal d'éléments (22) indispensables", "Un logiciel de saisie spécifique", "La base de données centrale"], a: 1, e: "Le Core ISO définit les 22 éléments essentiels pour l'interopérabilité mondiale." },
+        { q: "Le standard DCAT (Data Catalog Vocabulary) du W3C a été conçu pour répondre à quel besoin ?", o: ["Optimiser le rendu mobile", "Faciliter l'interopérabilité entre catalogues sur le web (machine-friendly)", "Remplacer le protocole HTTP", "Gérer les droits d'accès"], a: 1, e: "DCAT permet d'exposer les catalogues pour qu'ils soient moissonnables par les moteurs de recherche." },
+        { q: "Quelle est la fonction du 'GeoDCAT-AP' ?", o: ["Un logiciel 3D", "Un profil pour traduire les métadonnées ISO en format DCAT pour le web", "Une directive remplaçant INSPIRE", "Un format d'image satellite"], a: 1, e: "C'est le pont entre le monde SIG (ISO) et le monde Web (DCAT)." },
+        { q: "Concernant l'élément 1.1 'Titre de la ressource', quelle recommandation est faite ?", o: ["Utiliser un code interne court", "Donner un nom intelligible et complet pour un utilisateur externe", "Ne pas mettre de majuscules", "Le titre doit être en anglais"], a: 1, e: "Le titre est le premier élément de découverte. Il doit être explicite pour quelqu'un qui ne connaît pas votre service." },
+        { q: "L'élément 'Résumé de la ressource' (1.2) doit impérativement contenir :", o: ["Le prix de la donnée", "La description du contenu, la finalité et les limites d'usage", "Le nom des techniciens", "La liste des coordonnées X,Y"], a: 1, e: "Un bon résumé permet de comprendre pourquoi la donnée a été créée et si elle est adaptée au besoin." },
+        { q: "Qu'est-ce qu'un 'Localisateur de la ressource' (élément 1.4) ?", o: ["L'adresse GPS du bureau", "Un lien URL vers la donnée ou un service", "Le numéro de série du disque dur", "Le chemin C:\\Documents\\..."], a: 1, e: "C'est l'URL qui permet de consommer la ressource (flux ou téléchargement)." },
+        { q: "Pourquoi l'élément 'Identificateur de ressource unique' (1.5) est-il crucial ?", o: ["Pour faire joli", "Pour permettre aux systèmes de distinguer deux ressources sans ambiguïté", "Pour coder la donnée", "C'est le mot de passe"], a: 1, e: "Un identifiant unique garantit qu'il n'y a pas de confusion entre deux versions de jeux de données." },
+        { q: "Dans quel contexte utilise-t-on l'élément 'Ressource couplée' (1.6) ?", o: ["Lier un PDF à un Word", "Lier un service (WMS) aux données qu'il diffuse", "Indiquer le logiciel SIG utilisé", "Fusionner deux tables"], a: 1, e: "Il permet de savoir quelles données sont derrière un flux de visualisation." },
+        { q: "Quelle est la règle pour l'élément 'Langue de la ressource' (1.7) ?", o: ["Elle est facultative", "Elle doit être indiquée si la ressource contient du texte", "Elle correspond à la langue de l'ordinateur", "Elle doit être le Latin"], a: 1, e: "Si la table contient des noms ou descriptions, précisez la langue pour l'utilisateur." },
+        { q: "À quoi sert la 'Catégorie thématique' (2.1) ?", o: ["Choisir les symboles", "Classer la ressource dans un thésaurus mondial (ex: Biota, Oceans)", "Définir la sécurité", "Trier par ordre alphabétique"], a: 1, e: "C'est une liste fermée de 19 thèmes ISO pour une recherche mondiale efficace." },
+        { q: "Concernant le 'Mot-clé' (3.1), quelle est la valeur ajoutée d'utiliser un 'Thésaurus' ?", o: ["Utiliser n'importe quel mot", "Garantir l'usage de termes normalisés et partagés (ex: GEMET)", "Réduire la taille du XML", "Obligation Excel"], a: 1, e: "L'usage d'un thésaurus évite les synonymes divergents (Forêt vs Espace boisé)." },
+        { q: "Comment définit-on l'élément 'Type de service' (2.2) pour un flux WFS ?", o: ["Service de consultation", "Service de téléchargement", "Service de recherche", "Service de transformation"], a: 1, e: "Un WFS permet de récupérer les données vectorielles brutes, c'est donc un service de téléchargement." },
+        { q: "Pour le 'Rectangle de délimitation' (4.1), quelle est la contrainte ?", o: ["Précision au millimètre", "Coordonnées en degrés décimaux (WGS84)", "Le nom de la région suffit", "Dessin à main levée"], a: 1, e: "Le standard exige les longitudes/latitudes pour un positionnement automatique." },
+        { q: "Quelle est la différence entre 'Étendue temporelle' et 'Date de publication' ?", o: ["Aucune", "L'étendue définit la période couverte, la publication est la mise à disposition", "L'heure de création", "La date de fin de validité"], a: 1, e: "Une photo de 1945 (étendue) peut être publiée en 2024 (publication)." },
+        { q: "Quelle est la particularité de la 'Date de dernière révision' (5.3) ?", o: ["Mise à jour quotidienne automatique", "Il ne doit y avoir qu'une seule occurrence de cette date", "Antérieure à la création", "Interdite en Open Data"], a: 1, e: "Le standard limite ce champ à une seule occurrence : la mise à jour la plus récente." },
+        { q: "Que décrit l'élément 'Généalogie' (6.1) ?", o: ["L'arbre généalogique du créateur", "Le processus de production et l'historique des transformations", "Les versions logicielles", "La hiérarchie des dossiers"], a: 1, e: "Il explique comment on est passé de la source brute au résultat final." },
+        { q: "Comment exprime-t-on la 'Résolution spatiale' (6.2) pour une donnée vecteur ?", o: ["Nombre de points", "Par l'échelle équivalente (ex: 1/25000)", "En mégaoctets", "Vitesse de rafraîchissement"], a: 1, e: "Pour le vecteur on parle d'échelle, pour le raster on parle de taille de pixel au sol." },
+        { q: "Quelle est l'importance de l'élément 'Conformité' (7.1) ?", o: ["Vérifier le paiement", "Indiquer si la donnée respecte les spécifications (ex: INSPIRE)", "Savoir si c'est un .zip", "Note de satisfaction"], a: 1, e: "C'est un indicateur de confiance sur le respect des règlements européens." },
+        { q: "Que faire si l'accès à la donnée est totalement libre (8.1) ?", o: ["Laisser vide", "Mentionner explicitement 'aucune condition ne s'applique'", "Mettre un mot de passe", "Indiquer 'Interdit'"], a: 1, e: "Le champ ne doit jamais être vide pour sécuriser juridiquement l'utilisateur." },
+        { q: "Quelles sont les 'Limitations d'utilisation' (8.2) ?", o: ["Taille de l'écran", "Restrictions légales ou mises en garde sur la fiabilité", "Nombre de copies", "Durée de téléchargement"], a: 1, e: "Ex: 'Donnée non exploitable à une échelle supérieure au 1/5000'." },
+        { q: "Concernant la 'Partie responsable', quel est le rôle du 'Maître d'œuvre' ?", o: ["Celui qui paye", "Le producteur technique qui a réalisé la donnée", "L'hébergeur", "Le citoyen"], a: 1, e: "Le Maître d'œuvre fabrique, le Maître d'ouvrage commande et finance." },
+        { q: "Pourquoi le 'Point de contact métadonnées' (10.1) est-il parfois distinct du producteur ?", o: ["Anonymat", "La gestion du catalogue peut être centralisée ailleurs que la production", "Doubler les chances", "Erreur standard"], a: 1, e: "Un service SIG peut gérer les fiches pour plusieurs directions métiers." },
+        { q: "Que précise l'élément 'Date des métadonnées' (10.2) ?", o: ["Date de la donnée", "Date de création ou mise à jour de la fiche elle-même", "Date du jour", "Date de fin"], a: 1, e: "C'est l'indicateur de fraîcheur de l'information descriptive." },
+        { q: "Pourquoi le format XML est-il dit 'structuré' ?", o: ["Utilise des images", "Utilise des balises imbriquées définissant la sémantique", "Écrit en colonnes", "Illisible par l'humain"], a: 1, e: "Les balises (ex: <titre>) permettent aux logiciels d'identifier chaque champ." },
+        { q: "Quel est le rôle de la norme ISO 19139 ?", o: ["Couleurs des cartes", "Définir l'implémentation XML de l'ISO 19115", "Remplacer le .shp", "Gérer le SQL"], a: 1, e: "L'ISO 19115 définit le fond, l'ISO 19139 définit la forme informatique." },
+        { q: "Le format 'Dublin Core' est réputé car :", o: ["Plus complexe au monde", "Très simple (15 éléments) pour le web classique", "Obligatoire en France", "Stocke de la vidéo"], a: 1, e: "Idéal pour une approche simplifiée de l'Open Data non-géographique." },
+        { q: "Fonction principale d'un 'Catalogue d'attributs' (ISO 19110) ?", o: ["Lister les serveurs", "Décrire la structure : colonnes, unités et codes", "Calculer les surfaces", "Stocker les photos"], a: 1, e: "C'est le dictionnaire qui explique le sens des données tabulaires." },
+        { q: "Qu'impose INSPIRE concernant les 'Services de recherche' (CSW) ?", o: ["Paiement obligatoire", "Rechercher et afficher les métadonnées de façon standardisée", "Fermeture au public", "Utiliser Google"], a: 1, e: "Le service de recherche est le premier pilier pour l'interopérabilité européenne." },
+        { q: "Sous INSPIRE, quel est le critère de performance d'un flux WMS ?", o: ["Moins de 5 sec", "Moins d'une heure", "Réponse rapide pour un usage fluide", "Aucun"], a: 2, e: "INSPIRE exige une performance minimale pour que le réseau soit exploitable." },
+        { q: "Pourquoi le 'Moissonnage' est-il essentiel ?", o: ["Supprimer les doublons", "Collecter automatiquement les fiches des portails locaux", "Vérifier les virus", "Limiter les accès"], a: 1, e: "Il permet une remontée automatique des infos vers les portails nationaux." },
+        { q: "Philosophie des portails 'Open Data' généralistes ?", o: ["Complexité technique", "Simplicité, réutilisation et dataviz grand public", "Secret administratif", "Vente de fichiers"], a: 1, e: "L'Open Data vise l'appropriation par les non-spécialistes." },
+        { q: "Le logiciel 'GeoNetwork' est réputé pour :", o: ["Dessin vectoriel", "Être la plateforme Open Source de référence pour les catalogues ISO", "Être un OS", "Être un format"], a: 1, e: "C'est l'outil moteur de portails comme Géosource." },
+        { q: "À quoi sert 'opendatarchives.fr' ?", o: ["Commander du matériel", "Retrouver des archives de données ouvertes disparues", "Météo", "Forum"], a: 1, e: "C'est une ressource de secours pour l'historique des données ouvertes." },
+        { q: "Où consulter le catalogue national des données en France ?", o: ["Amazon", "Géocatalogue (lié au Géoportail)", "Préfecture", "Journaux"], a: 1, e: "Le Géocatalogue centralise les métadonnées moissonnées sur le territoire." },
+        { q: "Avantage du format .qmd dans QGIS ?", o: ["Stocker des photos", "Enregistrer les métadonnées dans un XML lisible par QGIS", "Invisibilité", "Compresse le .shp"], a: 1, e: "C'est le format natif pour transporter les métadonnées avec la couche." },
+        { q: "Comment QGIS aide-t-il à la conformité INSPIRE ?", o: ["Interdire les erreurs", "Proposer des champs de saisie compatibles ISO/INSPIRE", "Rapport à Bruxelles", "Incompatible"], a: 1, e: "QGIS intègre des formulaires de saisie alignés sur les standards européens." },
+        { q: "Le plugin 'PgMetadata' permet de stocker les fiches :", o: ["Dossier partagé", "Directement dans les tables PostGIS", "Clé USB", "Cloud Google"], a: 1, e: "Il lie intimement la donnée et sa description au sein de la base." },
+        { q: "Pourquoi le moissonnage par data.gouv.fr est-il important ?", o: ["Saturer le serveur", "Rendre les données trouvables par les non-spécialistes", "Vérifier les licences", "Sans intérêt"], a: 1, e: "Cela offre une visibilité maximale auprès des développeurs web." },
+        { q: "Qu'est-ce qu'une métadonnée 'interopérable' ?", o: ["Immuable", "Capable d'être lue et comprise par des systèmes différents", "Protégée", "Fonctionne sans électricité"], a: 1, e: "Grâce aux normes, un catalogue peut être lu par n'importe quel logiciel standardisé." },
+        { q: "Évolution future des métadonnées ?", o: ["Suppression", "Intégration du Web sémantique (Linked Data) et IA", "Retour au papier", "Experts uniquement"], a: 1, e: "On va vers des données où les machines comprennent seules le contexte." },
+        { q: "Objectif global d'une bonne gestion des métadonnées ?", o: ["Contrainte pénible", "Organiser la connaissance pour une vision fiable du monde", "Remplir les serveurs", "Cacher les erreurs"], a: 1, e: "C'est le socle de la confiance et du partage dans la société numérique." },
+        { q: "Quelle est l'unité de base du modèle RDF (GeoDCAT-AP) ?", o: ["Le tableau", "Le triplet (Sujet, Prédicat, Objet)", "Le pixel", "Le dossier"], a: 1, e: "Le triplet permet de définir des relations sémantiques compréhensibles par les machines." },
+        { q: "Dans INSPIRE, qu'est-ce que le 'moissonnage' ?", o: ["La vente de données", "La récolte automatique de métadonnées de portails distants", "La suppression de fichiers", "Le nettoyage de la base"], a: 1, e: "Le moissonnage permet de créer des catalogues nationaux sans ressaisie manuelle." }
+    ];
+
+    let current = 0;
+    let score = 0;
+    const userAnswers = new Array(examData.length).fill(null);
+
+    function initQuiz() {
+        const wrapper = document.getElementById('questions-wrapper');
+        examData.forEach((item, idx) => {
+            const div = document.createElement('div');
+            div.className = `question-container ${idx === 0 ? 'active' : ''}`;
+            div.id = `q-${idx}`;
+            div.innerHTML = `
+                <div class="question-text">${idx + 1}. ${item.q}</div>
+                <div class="options-list">
+                    ${item.o.map((opt, i) => `<div class="option-item" onclick="handleSelect(${idx}, ${i}, this)">${opt}</div>`).join('')}
+                </div>
+                <div class="explanation-box" id="exp-${idx}">
+                    <div style="font-weight:bold; color:#1e3a8a; font-size:0.8rem;">💡 ANALYSE</div>
+                    <div id="exp-text-${idx}">${item.e}</div>
+                </div>
+            `;
+            wrapper.appendChild(div);
+        });
+    }
+
+    window.handleSelect = function(qIdx, oIdx, el) {
+        if (userAnswers[qIdx] !== null) return;
+        userAnswers[qIdx] = oIdx;
+        const options = document.querySelectorAll(`#q-${qIdx} .option-item`);
+        const correct = examData[qIdx].a;
+        if (oIdx === correct) { el.classList.add('correct'); score++; } 
+        else { el.classList.add('wrong'); options[correct].classList.add('correct'); }
+        document.getElementById(`exp-${qIdx}`).style.display = 'block';
+    }
+
+    window.move = function(dir) {
+        const containers = document.querySelectorAll('.question-container');
+        containers[current].classList.remove('active');
+        current += dir;
+        if (current >= examData.length) { finish(); } 
+        else { containers[current].classList.add('active'); updateUI(); }
+    }
+
+    function updateUI() {
+        document.getElementById('counter').innerText = `Question ${current + 1} / ${examData.length}`;
+        document.getElementById('prev-btn').disabled = current === 0;
+        document.getElementById('next-btn').innerText = (current === examData.length - 1) ? "Terminer" : "Suivant";
+        document.getElementById('progress-fill-quiz').style.width = `${((current + 1) / examData.length) * 100}%`;
+    }
+
+    function finish() {
+        document.getElementById('quiz-ui').style.display = 'none';
+        document.getElementById('final-screen').style.display = 'block';
+        const pct = Math.round((score / examData.length) * 100);
+        document.getElementById('score-display').innerText = `${pct}%`;
+        document.getElementById('feedback-msg').innerText = pct >= 70 ? "Félicitations ! Expert en métadonnées !" : "Pas mal, encore un peu de révision sur l'ISO 19115.";
+    }
+
+    initQuiz();
+</script>
+              
+
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../gdal/" class="btn btn-neutral float-left" title="GDAL"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../vrt/" class="btn btn-neutral float-right" title="VRT">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../gdal/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../vrt/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../overrides/script.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
