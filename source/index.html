@@ -109,8 +109,8 @@
               
 <div class="progress-container"><div class="progress-bar" id="myBar"></div></div>
 
-                <h1 id="les-sources-de-donnees">LES SOURCES DE DONNÉES</h1>
-<h2 id="sommaire">SOMMAIRE</h2>
+                <h1 id="les-sources-de-donnees">LES SOURCES DE DONNÉES<a class="headerlink" href="#les-sources-de-donnees" title="Permanent link">&para;</a></h1>
+<h2 id="sommaire">SOMMAIRE<a class="headerlink" href="#sommaire" title="Permanent link">&para;</a></h2>
 <div class="toc">
 <ul>
 <li><a href="#les-sources-de-donnees">LES SOURCES DE DONNÉES</a><ul>
@@ -128,34 +128,41 @@
 </ul>
 </div>
 <hr />
-<h2 id="les-referentiels-institutionnels">Les Référentiels Institutionnels</h2>
+<h2 id="les-referentiels-institutionnels">Les Référentiels Institutionnels<a class="headerlink" href="#les-referentiels-institutionnels" title="Permanent link">&para;</a></h2>
 <div class="logo-gallery">
-  <a href="https://www.ign.fr/" target="_blank"><img src="img/ign.png" alt="IGN"></a>
-  <a href="https://www.brgm.fr/" target="_blank"><img src="img/brgm.png" alt="BRGM"></a>
-  <a href="https://www.statistiques.developpement-durable.gouv.fr/corine-land-cover-0" target="_blank"><img src="img/clc.jpg" alt="CLC"></a>
-  <a href="https://www.geoportail.gouv.fr/" target="_blank"><img src="img/geoportail.jpg" alt="Géoportail"></a>
+  <a href="https://www.ign.fr/" target="_blank">
+    <img src="img/ign.png" alt="IGN">
+  </a>
+  <a href="https://www.brgm.fr/" target="_blank">
+    <img src="img/brgm.png" alt="BRGM">
+  </a>
+  <a href="https://www.statistiques.developpement-durable.gouv.fr/corine-land-cover-0" target="_blank">
+    <img src="img/clc.jpg" alt="CLC">
+  </a>
+  <a href="https://www.geoportail.gouv.fr/" target="_blank">
+    <img src="img/geoportail.jpg" alt="Géoportail">
+  </a>
 </div>
 
 <p>Dans le cadre de mes missions, j'utilise régulièrement des <strong>données publiques</strong> issues de référentiels de précision.</p>
-<h3 id="rge-referentiel-a-grande-echelle">RGE – Référentiel à Grande Échelle</h3>
+<h3 id="rge-referentiel-a-grande-echelle">RGE – Référentiel à Grande Échelle<a class="headerlink" href="#rge-referentiel-a-grande-echelle" title="Permanent link">&para;</a></h3>
 <p>Le <span class="tech-term">RGE</span> constitue un ensemble cohérent de données référentielles de l'<strong>IGN</strong> (vecteurs, orthophotographies, altimétrie, parcellaire).</p>
 <ul>
 <li><strong>BD ORTHO</strong> : Orthophotographies géoréférencées à haute résolution.</li>
-<li><strong>BD TOPO</strong> : Base topographique vecteur 2D/3D (bâtiments, routes, hydrographie).</li>
-<li><strong>RGE ALTI</strong> : Modèle Numérique de Terrain (MNT) national haute résolution.</li>
-<li><strong>Parcellaire Express / PCI</strong> : Référence parcellaire cadastrale.</li>
-<li><strong>Flux OGC</strong> : Intégration directe via services WMS, WMTS et WFS.</li>
+<li><strong>BD TOPO</strong> : Base topographique vecteur 2D/3D.</li>
+<li><strong>RGE ALTI</strong> : Modèle Numérique de Terrain (MNT) national.</li>
+<li><strong>Parcellaire Express / PCI</strong> : Référence parcellaire (cadastre).</li>
 </ul>
 <hr />
-<h2 id="production-de-donnees-propres-lidar-drone">Production de données propres (Lidar &amp; Drone)</h2>
-<p>Pour des besoins spécifiques, je produis moi-même la donnée technique, notamment pour le <strong>suivi du trait de côte</strong>. L'utilisation du <strong>Lidar aéroporté par drone</strong> permet de générer des Modèles Numériques de Terrain (MNT) avec une résolution centimétrique.</p>
-<h3 id="methodologie-du-nuage-de-points-au-mnt">MÉTHODOLOGIE : DU NUAGE DE POINTS AU MNT</h3>
-<p>Le traitement des données Lidar suit un workflow rigoureux pour garantir la précision scientifique des livrables :</p>
+<h2 id="production-de-donnees-propres-lidar-drone">Production de données propres (Lidar &amp; Drone)<a class="headerlink" href="#production-de-donnees-propres-lidar-drone" title="Permanent link">&para;</a></h2>
+<p>Pour certains besoins techniques, notamment le <strong>suivi du trait de côte</strong>, je réalise des relevés par <strong>Lidar aéroporté (drone)</strong>. </p>
+<h3 id="methodologie-du-nuage-de-points-au-mnt">MÉTHODOLOGIE : DU NUAGE DE POINTS AU MNT<a class="headerlink" href="#methodologie-du-nuage-de-points-au-mnt" title="Permanent link">&para;</a></h3>
+<p>Le traitement des données Lidar suit un workflow rigoureux :</p>
 <ol>
-<li><span class="tech-term">Acquisition GNSS RTK</span> : Capture synchronisée avec une base au sol pour une précision géométrique maximale.</li>
-<li><span class="tech-term">Nettoyage</span> : Élimination du "bruit" électromagnétique et des points aberrants.</li>
-<li><span class="tech-term">Classification</span> : Algorithmes de séparation du <strong>sursol</strong> (végétation, bâti, infrastructures) et du <strong>sol nu</strong>.</li>
-<li><span class="tech-term">Génération du MNT</span> : Interpolation des points classés "sol" pour modéliser la topographie réelle.</li>
+<li><span class="tech-term">Acquisition GNSS RTK</span> : Capture synchronisée pour une précision maximale.</li>
+<li><span class="tech-term">Nettoyage</span> : Élimination du bruit et des points aberrants.</li>
+<li><span class="tech-term">Classification</span> : Séparation du <strong>sursol</strong> (végétation, bâti) et du <strong>sol nu</strong>.</li>
+<li><span class="tech-term">Génération du MNT</span> : Interpolation des points "sol".</li>
 </ol>
               
 

@@ -115,16 +115,16 @@
               
 <div class="progress-container"><div class="progress-bar" id="myBar"></div></div>
 
-                <h1 id="injection-de-metadonnees-exif">Injection de métadonnées EXIF</h1>
+                <h1 id="injection-de-metadonnees-exif">Injection de métadonnées EXIF<a class="headerlink" href="#injection-de-metadonnees-exif" title="Permanent link">&para;</a></h1>
 <p><strong>Objectif :</strong> Géoréférencer des photographies à partir d'une table de coordonnées CSV.</p>
 <div class="logo-gallery">
     <img src="img/cap.jpg" alt="Aperçu du projet">
 </div>
 
 <hr />
-<h2 id="i-prerequis-preparation-qgis">I. PRÉREQUIS &amp; PRÉPARATION QGIS</h2>
+<h2 id="i-prerequis-preparation-qgis">I. PRÉREQUIS &amp; PRÉPARATION QGIS<a class="headerlink" href="#i-prerequis-preparation-qgis" title="Permanent link">&para;</a></h2>
 <p>Avant de lancer le script, assurez-vous d'avoir installé <strong>Visual Studio Code</strong> et <strong>Python</strong>.</p>
-<h3 id="1-preparation-des-donnees-sur-qgis">1. Préparation des données sur QGIS</h3>
+<h3 id="1-preparation-des-donnees-sur-qgis">1. Préparation des données sur QGIS<a class="headerlink" href="#1-preparation-des-donnees-sur-qgis" title="Permanent link">&para;</a></h3>
 <p>Pour faire le lien entre vos clichés et le terrain, suivez ces étapes :</p>
 <ul>
 <li><strong>Création de la couche :</strong> Créez une couche de points (GPKG ou Shapefile) avec les champs : <code>fid</code>, <code>chemin</code>, <code>x</code>, <code>y</code>.</li>
@@ -133,13 +133,13 @@
     &gt; <strong>Important :</strong> Ne pas mettre de guillemets dans les chemins.</li>
 <li><strong>Calculatrice de champ :</strong> Mettez à jour les champs <code>x</code> et <code>y</code> (en <span class="tech-term">Lambert 93</span> - EPSG:2154).</li>
 </ul>
-<h3 id="2-exportation">2. Exportation</h3>
+<h3 id="2-exportation">2. Exportation<a class="headerlink" href="#2-exportation" title="Permanent link">&para;</a></h3>
 <p>Exportez la table attributaire en <strong>CSV</strong> dans le même dossier que vos photos. 
 * <strong>Format :</strong> UTF-8.
 * <strong>Séparateur :</strong> Point-virgule (<code>;</code>).
 * <strong>Géométrie :</strong> Choisissez "Pas de géométrie" lors de l'export.</p>
 <hr />
-<h2 id="ii-configuration-du-script-python">II. CONFIGURATION DU SCRIPT PYTHON</h2>
+<h2 id="ii-configuration-du-script-python">II. CONFIGURATION DU SCRIPT PYTHON<a class="headerlink" href="#ii-configuration-du-script-python" title="Permanent link">&para;</a></h2>
 <p>Ouvrez Visual Studio Code, créez un nouveau fichier <code>.py</code> et collez-y le code ci-dessous.</p>
 <p>!!! warning "Attention : Variables à modifier"
     Vous devez modifier les variables suivantes dans le script :
@@ -152,14 +152,14 @@ import pandas as pd
 from pyproj import Transformer
 import piexif
 from PIL import Image</p>
-<h6 id="-1-configuration-des-chemins-">---- 1. CONFIGURATION DES CHEMINS ----</h6>
+<h6 id="-1-configuration-des-chemins-">---- 1. CONFIGURATION DES CHEMINS ----<a class="headerlink" href="#-1-configuration-des-chemins-" title="Permanent link">&para;</a></h6>
 <p>base_dir = r"C:\photos\06_Prospection"
 test_dir = os.path.join(base_dir, "Fenioux")
 csv_file = os.path.join(test_dir, "fenioux.csv")</p>
-<h6 id="-2-chargement-et-nettoyage-">---- 2. CHARGEMENT ET NETTOYAGE ----</h6>
+<h6 id="-2-chargement-et-nettoyage-">---- 2. CHARGEMENT ET NETTOYAGE ----<a class="headerlink" href="#-2-chargement-et-nettoyage-" title="Permanent link">&para;</a></h6>
 <p>df = pd.read_csv(csv_file, sep=";", encoding="utf-8-sig")
 df = df.rename(columns=lambda c: c.strip())</p>
-<h6 id="-3-conversion-coordonnees-lambert93-wgs84-">---- 3. CONVERSION COORDONNÉES (Lambert93 -&gt; WGS84) ----</h6>
+<h6 id="-3-conversion-coordonnees-lambert93-wgs84-">---- 3. CONVERSION COORDONNÉES (Lambert93 -&gt; WGS84) ----<a class="headerlink" href="#-3-conversion-coordonnees-lambert93-wgs84-" title="Permanent link">&para;</a></h6>
 <p>transformer = Transformer.from_crs("EPSG:2154", "EPSG:4326", always_xy=True)
 df["lon"], df["lat"] = transformer.transform(df["x"].values, df["y"].values)</p>
 <p>def deg_to_dms_rational(deg):
@@ -167,7 +167,7 @@ df["lon"], df["lat"] = transformer.transform(df["x"].values, df["y"].values)</p>
     m = int((abs(deg) - d) * 60)
     s = round((abs(deg) - d - m/60) * 3600 * 100)
     return ((d, 1), (m, 1), (s, 100))</p>
-<h6 id="-4-traitement-des-images-">---- 4. TRAITEMENT DES IMAGES ----</h6>
+<h6 id="-4-traitement-des-images-">---- 4. TRAITEMENT DES IMAGES ----<a class="headerlink" href="#-4-traitement-des-images-" title="Permanent link">&para;</a></h6>
 <p>output_dir = os.path.join(base_dir, "EXF")
 os.makedirs(output_dir, exist_ok=True)</p>
 <p>for _, row in df.iterrows():
@@ -245,5 +245,5 @@ except Exception as e:
 
 <!--
 MkDocs version : 1.6.1
-Build Date UTC : 2026-02-26 09:53:48.055633+00:00
+Build Date UTC : 2026-02-26 14:42:45.877336+00:00
 -->

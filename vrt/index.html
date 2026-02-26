@@ -107,28 +107,28 @@
               
 <div class="progress-container"><div class="progress-bar" id="myBar"></div></div>
 
-                <h1 id="le-format-vrt-virtual-format">LE FORMAT VRT (VIRTUAL FORMAT)</h1>
+                <h1 id="le-format-vrt-virtual-format">LE FORMAT VRT (VIRTUAL FORMAT)<a class="headerlink" href="#le-format-vrt-virtual-format" title="Permanent link">&para;</a></h1>
 <p>Le format <strong>VRT</strong> est un fichier XML qui définit une "vue" sur une ou plusieurs sources de données. Sa grande force réside dans le fait qu'il ne duplique pas les données sources : il se contente de les référencer et d'appliquer des instructions de lecture.</p>
 <hr />
-<h2 id="les-avantages-cles">🚀 Les Avantages Clés</h2>
+<h2 id="les-avantages-cles">🚀 Les Avantages Clés<a class="headerlink" href="#les-avantages-cles" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Pas de duplication</strong> : Économie massive d'espace disque.</li>
 <li><strong>Flexibilité</strong> : Permet de mosaïquer plusieurs images ou de changer la projection "à la volée".</li>
 <li><strong>Interopérabilité</strong> : Parfaitement lisible par <span class="tech-term">GDAL/OGR</span>, <strong>QGIS</strong>, <strong>FME</strong> et la plupart des logiciels SIG modernes.</li>
 </ul>
 <hr />
-<h2 id="utilisation-et-outils">🛠️ Utilisation et Outils</h2>
-<h3 id="1-documentation-officielle">1. Documentation Officielle</h3>
+<h2 id="utilisation-et-outils">🛠️ Utilisation et Outils<a class="headerlink" href="#utilisation-et-outils" title="Permanent link">&para;</a></h2>
+<h3 id="1-documentation-officielle">1. Documentation Officielle<a class="headerlink" href="#1-documentation-officielle" title="Permanent link">&para;</a></h3>
 <p>Pour maîtriser les subtilités du XML de GDAL, référez-vous à la source :</p>
 <blockquote>
 <p>🔗 <a href="https://gdal.org/en/stable/drivers/raster/vrt.html">Documentation GDAL VRT</a></p>
 </blockquote>
-<h3 id="2-astuce-qgis-extension-spreadsheet-layers">2. Astuce QGIS : Extension Spreadsheet Layers</h3>
+<h3 id="2-astuce-qgis-extension-spreadsheet-layers">2. Astuce QGIS : Extension Spreadsheet Layers<a class="headerlink" href="#2-astuce-qgis-extension-spreadsheet-layers" title="Permanent link">&para;</a></h3>
 <p>Si vous travaillez avec des fichiers Excel ou LibreOffice, l'extension <strong>Spreadsheet Layers</strong> est indispensable. 
 * Elle crée automatiquement un fichier VRT invisible pour charger vos données <code>.ods</code>, <code>.xls</code>, <code>.xlsx</code>.
 * Elle permet de gérer les types de colonnes (Entier, Texte, Date) bien mieux que le simple CSV.</p>
 <hr />
-<h2 id="exemple-de-structure-vrt-vecteur">💻 Exemple de structure VRT (Vecteur)</h2>
+<h2 id="exemple-de-structure-vrt-vecteur">💻 Exemple de structure VRT (Vecteur)<a class="headerlink" href="#exemple-de-structure-vrt-vecteur" title="Permanent link">&para;</a></h2>
 <p>Voici à quoi ressemble l'intérieur d'un fichier <code>.vrt</code> qui transforme un simple CSV en couche spatiale :</p>
 <p>```xml
 <OGRVRTDataSource>

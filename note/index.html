@@ -115,16 +115,16 @@
               
 <div class="progress-container"><div class="progress-bar" id="myBar"></div></div>
 
-                <h1 id="linteroperabilite-en-geomatique">L'INTEROPÉRABILITÉ EN GÉOMATIQUE</h1>
+                <h1 id="linteroperabilite-en-geomatique">L'INTEROPÉRABILITÉ EN GÉOMATIQUE<a class="headerlink" href="#linteroperabilite-en-geomatique" title="Permanent link">&para;</a></h1>
 <p>L'interopérabilité, c'est s'assurer que tout le monde parle la même langue dans une pièce remplie de gens venant du monde entier. En géomatique, ces "gens" sont des logiciels (QGIS, ArcGIS), des bases de données (PostGIS) et des capteurs.</p>
-<h3 id="pourquoi-est-ce-crucial">Pourquoi est-ce crucial ?</h3>
+<h3 id="pourquoi-est-ce-crucial">Pourquoi est-ce crucial ?<a class="headerlink" href="#pourquoi-est-ce-crucial" title="Permanent link">&para;</a></h3>
 <p>Imaginez un projet d'urbanisme mélangeant :
 * Le cadastre en format <strong>Shapefile</strong> (Esri).
 * Le réseau d'eau en <strong>AutoCAD</strong> (DWG).
 * Des photos satellites en <strong>GeoTIFF</strong>.</p>
 <p>Sans interopérabilité, vous passeriez 80 % de votre temps à convertir des fichiers. Elle permet de superposer ces couches instantanément.</p>
 <hr />
-<h2 id="i-les-trois-piliers-de-linteroperabilite">I. Les Trois Piliers de l'Interopérabilité</h2>
+<h2 id="i-les-trois-piliers-de-linteroperabilite">I. Les Trois Piliers de l'Interopérabilité<a class="headerlink" href="#i-les-trois-piliers-de-linteroperabilite" title="Permanent link">&para;</a></h2>
 <p>Pour qu'un système soit réellement interopérable, il doit répondre à trois paliers :</p>
 <ol>
 <li><strong>Interopérabilité Technique</strong> : Capacité des systèmes à communiquer physiquement (protocoles réseaux, formats comme le <span class="tech-term">GeoJSON</span> ou le <span class="tech-term">GML</span>).</li>
@@ -132,30 +132,30 @@
 <li><strong>Interopérabilité Organisationnelle</strong> : Cadres juridiques et partenariats pour le partage entre administrations.</li>
 </ol>
 <hr />
-<h2 id="ii-liso-tc-211-le-cadre-theorique">II. L'ISO / TC 211 : Le Cadre Théorique</h2>
+<h2 id="ii-liso-tc-211-le-cadre-theorique">II. L'ISO / TC 211 : Le Cadre Théorique<a class="headerlink" href="#ii-liso-tc-211-le-cadre-theorique" title="Permanent link">&para;</a></h2>
 <p>Le Comité Technique 211 de l'ISO définit les modèles conceptuels (série 19100). C'est la "Loi" de la géomatique.</p>
-<h3 id="les-normes-cles-a-connaitre">Les Normes Clés à connaître :</h3>
+<h3 id="les-normes-cles-a-connaitre">Les Normes Clés à connaître :<a class="headerlink" href="#les-normes-cles-a-connaitre" title="Permanent link">&para;</a></h3>
 <ul>
 <li><span class="tech-term">ISO 19111</span> (Référencement Spatial) : Définit comment décrire la position sur Terre (projections).</li>
 <li><span class="tech-term">ISO 19115</span> (Métadonnées) : Le "CV" de la donnée (auteur, date, précision).</li>
 <li><span class="tech-term">ISO 19110</span> (Catalogage) : Définit ce qu'est un objet (ex: la définition d'une "rivière").</li>
 </ul>
 <hr />
-<h2 id="iii-logc-le-bras-arme-technique">III. L'OGC : Le Bras Armé Technique</h2>
+<h2 id="iii-logc-le-bras-arme-technique">III. L'OGC : Le Bras Armé Technique<a class="headerlink" href="#iii-logc-le-bras-arme-technique" title="Permanent link">&para;</a></h2>
 <p>L'<strong>Open Geospatial Consortium</strong> transforme les concepts de l'ISO en outils informatiques concrets.</p>
-<h3 id="1-les-services-web-geospatiaux">1. Les Services Web Géospatiaux</h3>
+<h3 id="1-les-services-web-geospatiaux">1. Les Services Web Géospatiaux<a class="headerlink" href="#1-les-services-web-geospatiaux" title="Permanent link">&para;</a></h3>
 <p>L'OGC permet de consulter des données à distance sans les télécharger :
 * <strong>WMS (Web Map Service)</strong> : Le serveur envoie une <strong>image</strong> (raster). Idéal pour les fonds de plan.
 * <strong>WFS (Web Feature Service)</strong> : Le serveur envoie les <strong>vecteurs</strong> (points, lignes). Permet l'édition.
 * <strong>WMTS (Web Map Tile Service)</strong> : Version optimisée par "tuiles" pour une rapidité maximale (type Google Maps).</p>
-<h3 id="2-les-formats-de-donnees-ouverts">2. Les Formats de Données Ouverts</h3>
+<h3 id="2-les-formats-de-donnees-ouverts">2. Les Formats de Données Ouverts<a class="headerlink" href="#2-les-formats-de-donnees-ouverts" title="Permanent link">&para;</a></h3>
 <ul>
 <li><span class="tech-term">GeoPackage (.gpkg)</span> : Le standard moderne, léger et universel.</li>
 <li><span class="tech-term">GML</span> : Format XML complet pour le transfert d'objets.</li>
 <li><span class="tech-term">KML</span> : Standardisé pour l'affichage dans des globes virtuels (Google Earth).</li>
 </ul>
 <hr />
-<h2 id="iv-la-mise-en-application-la-directive-inspire">IV. La Mise en Application : La Directive INSPIRE</h2>
+<h2 id="iv-la-mise-en-application-la-directive-inspire">IV. La Mise en Application : La Directive INSPIRE<a class="headerlink" href="#iv-la-mise-en-application-la-directive-inspire" title="Permanent link">&para;</a></h2>
 <p>La directive européenne <strong>INSPIRE</strong> est l'application politique de ces standards.</p>
 <p><strong>Objectif :</strong> Créer une Infrastructure de Données Géographiques (IDG) européenne. 
 <strong>Obligation :</strong> Les pays membres doivent publier leurs données selon les normes ISO et les standards OGC.</p>
