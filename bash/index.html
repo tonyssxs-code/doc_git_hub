@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>VRT - Mon Portefeuille Géomatique</title>
+    <title>Code bash - Mon Portefeuille Géomatique</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -13,8 +13,8 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "VRT";
-        var mkdocs_page_input_path = "vrt.md";
+        var mkdocs_page_name = "Code bash";
+        var mkdocs_page_input_path = "bash.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -56,22 +56,8 @@
                 <li class="toctree-l1"><a class="reference internal" href="../metadonnee/">Métadonnées</a>
                 </li>
               </ul>
-              <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="#">VRT</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#les-avantages-cles">🚀 Les Avantages Clés</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#utilisation-et-outils">🛠️ Utilisation et Outils</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#1-documentation-officielle">1. Documentation Officielle</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#2-astuce-qgis-extension-spreadsheet-layers">2. Astuce QGIS : Extension Spreadsheet Layers</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#exemple-de-structure-vrt-vecteur">💻 Exemple de structure VRT (Vecteur)</a>
-    </li>
-    </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../vrt/">VRT</a>
                 </li>
               </ul>
               <ul>
@@ -82,8 +68,10 @@
                 <li class="toctree-l1"><a class="reference internal" href="../note/">Intéropérabilité</a>
                 </li>
               </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../bash/">Code bash</a>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Code bash</a>
+    <ul class="current">
+    </ul>
                 </li>
               </ul>
       </div>
@@ -100,7 +88,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">VRT</li>
+      <li class="breadcrumb-item active">Code bash</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -111,45 +99,96 @@
               
 <div class="progress-container"><div class="progress-bar" id="myBar"></div></div>
 
-                <h1 id="le-format-vrt-virtual-format">LE FORMAT VRT (VIRTUAL FORMAT)<a class="headerlink" href="#le-format-vrt-virtual-format" title="Permanent link">&para;</a></h1>
-<p>Le format <strong>VRT</strong> est un fichier XML qui définit une "vue" sur une ou plusieurs sources de données. Sa grande force réside dans le fait qu'il ne duplique pas les données sources : il se contente de les référencer et d'appliquer des instructions de lecture.</p>
-<hr />
-<h2 id="les-avantages-cles">🚀 Les Avantages Clés<a class="headerlink" href="#les-avantages-cles" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Pas de duplication</strong> : Économie massive d'espace disque.</li>
-<li><strong>Flexibilité</strong> : Permet de mosaïquer plusieurs images ou de changer la projection "à la volée".</li>
-<li><strong>Interopérabilité</strong> : Parfaitement lisible par <span class="tech-term">GDAL/OGR</span>, <strong>QGIS</strong>, <strong>FME</strong> et la plupart des logiciels SIG modernes.</li>
-</ul>
-<hr />
-<h2 id="utilisation-et-outils">🛠️ Utilisation et Outils<a class="headerlink" href="#utilisation-et-outils" title="Permanent link">&para;</a></h2>
-<h3 id="1-documentation-officielle">1. Documentation Officielle<a class="headerlink" href="#1-documentation-officielle" title="Permanent link">&para;</a></h3>
-<p>Pour maîtriser les subtilités du XML de GDAL, référez-vous à la source :</p>
-<blockquote>
-<p>🔗 <a href="https://gdal.org/en/stable/drivers/raster/vrt.html">Documentation GDAL VRT</a></p>
-</blockquote>
-<h3 id="2-astuce-qgis-extension-spreadsheet-layers">2. Astuce QGIS : Extension Spreadsheet Layers<a class="headerlink" href="#2-astuce-qgis-extension-spreadsheet-layers" title="Permanent link">&para;</a></h3>
-<p>Si vous travaillez avec des fichiers Excel ou LibreOffice, l'extension <strong>Spreadsheet Layers</strong> est indispensable. 
-* Elle crée automatiquement un fichier VRT invisible pour charger vos données <code>.ods</code>, <code>.xls</code>, <code>.xlsx</code>.
-* Elle permet de gérer les types de colonnes (Entier, Texte, Date) bien mieux que le simple CSV.</p>
-<hr />
-<h2 id="exemple-de-structure-vrt-vecteur">💻 Exemple de structure VRT (Vecteur)<a class="headerlink" href="#exemple-de-structure-vrt-vecteur" title="Permanent link">&para;</a></h2>
-<p>Voici à quoi ressemble l'intérieur d'un fichier <code>.vrt</code> qui transforme un simple CSV en couche spatiale :</p>
-<p>```xml
-<OGRVRTDataSource>
-    <OGRVRTLayer name="points_interet">
-        <SrcDataSource>donnees.csv</SrcDataSource>
-        <GeometryType>wkbPoint</GeometryType>
-        <LayerSRS>EPSG:2154</LayerSRS>
-        <GeometryField encoding="PointFromColumns" x="X_L93" y="Y_L93"/>
-    </OGRVRTLayer>
-</OGRVRTDataSource></p>
+                <h1 id="bash">BASH<a class="headerlink" href="#bash" title="Permanent link">&para;</a></h1>
+<p>un fichier d'estension <em>sh</em> qui commence par une premiere ligne </p>
+<pre><code class="language-bash">#!/bin/bash
+mkdir mon_dossier #créé moi un dossier nommé mon_dossier
+echo &quot;Le dossier a été crée&quot; # quand le dossier est créé en voie moi ce message
+echo &quot;j'écris du contenue dans mon fichier&quot; &gt;&gt; mon_dossier/readme.md # dans mon_dossier crée un fichier markdown dans le quel tu mets cette phrase 'j'écris du contenue dans mon fichier'
+echo &quot;Terminé bravo tony&quot; # dès que tout est bon tu m'envoies ce message
+</code></pre>
+<h1 id="exercice-pratique">Exercice pratique<a class="headerlink" href="#exercice-pratique" title="Permanent link">&para;</a></h1>
+<p>L'idée est d'automatisé de la création d'u dossier jusq'u découpage d'un mnt en vrt sur l'emprise du département de l'ariège</p>
+<pre><code class="language-bash">#!/bin/bash
+
+
+mkdir -p ariege/mnt ariege/vecteur
+echo &quot;Structure de dossiers créée avec succès&quot;
+
+
+cd ariege/mnt
+wget -O bd_alti.7z &quot;https://data.geopf.fr/telechargement/download/BDALTI/BDALTIV2_2-0_25M_ASC_LAMB93-IGN69_D009_2023-10-04/BDALTIV2_2-0_25M_ASC_LAMB93-IGN69_D009_2023-10-04.7z&quot;
+echo &quot;Fichier téléchargé avec succès&quot;
+
+
+7z x bd_alti.7z
+echo &quot;Décompression terminée&quot;
+
+
+echo &quot;Création du VRT...&quot;
+
+gdalbuildvrt -srcnodata 0 -a_srs EPSG:2154 mnt_ariege.vrt BDALTIV2_2-0_25M_ASC_LAMB93-IGN69_D009_2023-10-04/BDALTIV2/1_DONNEES_LIVRAISON_2024-02-00018/BDALTIV2_MNT_25M_ASC_LAMB93_IGN69_D009/*.asc
+echo &quot;VRT créé avec succès&quot;
+
+
+cd ../..
+
+echo &quot;Téléchargement du contour de l'Ariège via WFS...&quot;
+e
+ogr2ogr -f &quot;GPKG&quot; ariege/vecteur/ariege_contour.gpkg \
+  &quot;WFS:https://data.geopf.fr/wfs/ows?SERVICE=WFS&amp;VERSION=2.0.0&amp;REQUEST=GetCapabilities&quot; \
+  -sql &quot;SELECT * FROM \&quot;ADMINEXPRESS-COG.2024:departement\&quot; WHERE insee_dep='09'&quot; \
+  -nln ariege_contour
+
+
+echo &quot;Conversion des géométries...&quot;
+ogr2ogr ariege/vecteur/ariege_dep.gpkg ariege/vecteur/ariege_contour.gpkg \
+  -nln ariege_dep -nlt POLYGON -explodecollections
+echo &quot;Conversion terminée&quot;
+
+echo &quot;Début du découpage du VRT...&quot;
+gdalwarp -overwrite \
+  -s_srs EPSG:2154 -t_srs EPSG:2154 \
+  -of VRT \
+  -cutline ariege/vecteur/ariege_dep.gpkg \
+  -crop_to_cutline \
+  ariege/mnt/mnt_ariege.vrt ariege/mnt/mnt_ariege_decoup.vrt
+echo &quot;Découpage terminé&quot;
+
+
+echo &quot;Construction des courbes de niveau...&quot;
+gdal_contour -a elev ariege/mnt/mnt_ariege_decoup.vrt ariege/vecteur/courbe_niveau.shp -i 30
+echo &quot;Construction terminée&quot;
+
+
+echo &quot;Construction de l'ombrage...&quot;
+gdaldem hillshade ariege/mnt/mnt_ariege_decoup.vrt ariege/mnt/ariege_ombrage.tif
+echo &quot;Script terminé avec succès !&quot;
+touch colorie.txt
+Création automatique du fichier de configuration des couleurs
+echo &quot;Génération du fichier de couleurs...&quot;
+cat &lt;&lt; EOF &gt; colorie.txt
+nv 0 0 0 0
+0%   38 115 0
+20%  120 170 50
+40%  220 220 150
+60%  160 110 50
+80%  100 70 30
+90%  180 180 180
+100% 255 255 255
+EOF
+
+echo &quot;Fichier colorie.txt créé avec succès.&quot;
+
+gdaldem color-relief ariege/mnt/mnt_ariege_decoup.vrt colorie.txt ariege/mnt/ariege_colorie.tif -alpha
+echo &quot;coloriage terminé&quot;
+</code></pre>
               
 
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../metadonnee/" class="btn btn-neutral float-left" title="Métadonnées"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../source/" class="btn btn-neutral float-right" title="Sources">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../note/" class="btn btn-neutral float-left" title="Intéropérabilité"><span class="icon icon-circle-arrow-left"></span> Previous</a>
     </div>
 
   <hr/>
@@ -172,10 +211,8 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../metadonnee/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../note/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
-    
-      <span><a href="../source/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
