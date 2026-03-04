@@ -145,9 +145,23 @@
 <li>
 <p>Créer et ouvrir la base de données</p>
 </li>
-<li>
-<p>Sauvegarde de la ou des bases de données</p>
-</li>
+</ul>
+<p>Création d'un groupe de base de données, appelé CLUSTER =&gt; il s'agit en premier lieu d'initialiser un emplacement de stockage pour la base de données .</p>
+<p>Cluster ou Instance est egale à une groupe de base de donnée.</p>
+<p>Les TABLESPACES : L'organisation physique
+C'est ici que l'administration devient stratégique. Un Tablespace permet de dire à PostgreSQL : "Stocke ces tables précises à cet endroit précis du disque"</p>
+<ul>
+<li>Sauvegarde de la ou des bases de données</li>
+</ul>
+<p><img alt="alt text" src="../sauvegarde.png" /></p>
+<p>a. La Sauvegarde Logique (Le "Cliché") C'est l'extraction de la structure et des données à un instant $T$ sous forme de script SQL ou d'archive propriétaire.Manuel (pg_dump) : Idéal pour sauvegarder une base précise ou une table spécifique. C'est un fichier texte (souvent compressé) contenant les commandes CREATE TABLE et INSERT.Automatisé (Scripts) : Généralement une tâche Cron (Linux) ou un Tâche Planifiée (Windows) qui lance pg_dumpall (pour tout le cluster) chaque nuit.</p>
+<p><strong>Avantage</strong> : Facile à restaurer sur une version différente de PostgreSQL ou une autre architecture.</p>
+<p><strong>Inconvénient</strong> : Toute donnée modifiée entre deux sauvegardes (ex: entre 2h du matin et 14h) est perdue si le disque lâche à 14h.</p>
+<p>b. La Sauvegarde Physique et les WAL (Le "Film")Pour éviter la perte de données entre deux dumps, on utilise les Write Ahead Logs (WAL).
+Le concept : Avant d'écrire une donnée dans les fichiers de la base, PostgreSQL l'écrit d'abord dans un journal (WAL). C'est le journal de bord de toutes les transactions.Taille et Rotation : Par défaut à 16 Mo (souvent configuré à 32 Mo ou plus sur de gros serveurs), ils tournent en boucle.Archivage : En copiant ces fichiers au fur et à mesure qu'ils sont remplis vers un stockage distant, on peut faire du Point-In-Time Recovery (PITR). On peut ainsi "rejouer" le film des transactions jusqu'à la seconde précédant un crash.</p>
+<p>c. Fiabilité : Les Transactions (ACID)Les transactions sont le bouclier de vos données. Elles garantissent qu'un traitement est soit entièrement validé (COMMIT), soit entièrement annulé (ROLLBACK).Accès concurrents : Grâce au verrouillage, deux utilisateurs ne peuvent pas modifier la même ligne de manière incohérente au même instant.Panne système : Si le serveur s'éteint brutalement pendant une écriture, au redémarrage, PostgreSQL lira les WAL pour finaliser ce qui était validé et annuler ce qui était corrompu.</p>
+<p>d. Vigilance : La saturation du disqueC'est le "piège" classique du DBA :Grosse mise à jour : Si vous faites un UPDATE sur 10 millions de lignes, PostgreSQL va générer une quantité massive de WAL très rapidement.Saturation : Si le dossier pg_wal sature le disque, le serveur s'arrête immédiatement par sécurité (car il ne peut plus garantir la cohérence).Solution : Surveiller l'espace disque et configurer correctement max_wal_size et min_wal_size.</p>
+<ul>
 <li>
 <p>Créer et gérer les utilisateurs et leur droits d'accès (stratégie de sécurité dédiée)</p>
 </li>
@@ -159,16 +173,21 @@
 </li>
 </ul>
 <h2 id="3-architecture-et-arborescence">3. Architecture et arborescence<a class="headerlink" href="#3-architecture-et-arborescence" title="Permanent link">&para;</a></h2>
+<p><img alt="alt text" src="../fichiers.png" /></p>
 <ul>
-<li>
-<p>Datas</p>
-</li>
-<li>
-<p>Configuration</p>
-</li>
-<li>
-<p>Binaires</p>
-</li>
+<li>Datas</li>
+</ul>
+<p>Pour retrouver tout les objets de ta base de données , il se trouve dans le fichier : C:\Program Files\PostgreSQL\17\data\base
+Chaque objet d'une base ainsi que la base elle meme à un OID qui est un identifant unique .</p>
+<ul>
+<li>Configuration
+Pour connaitre son adresse ip : https://monip.io/</li>
+</ul>
+<p>Installer PostgreSQL sur son serveur</p>
+<p><img alt="alt text" src="../install_sur_serveur-1.png" /></p>
+<p><strong>Avant toute modification des fichiers hba et postgresql.conf il faut imeractivement les copiés dans un dossier de sortes que si l'on faisait une mauvaise manipulation on puisse recupérer le fichier</strong></p>
+<ul>
+<li>Binaires</li>
 </ul>
 <h2 id="4-focus-sur-les-tablespaces">4. Focus sur les Tablespaces<a class="headerlink" href="#4-focus-sur-les-tablespaces" title="Permanent link">&para;</a></h2>
 <h2 id="5-le-role-de-dba">5. Le rôle de DBA<a class="headerlink" href="#5-le-role-de-dba" title="Permanent link">&para;</a></h2>
