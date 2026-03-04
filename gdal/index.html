@@ -74,6 +74,10 @@
                 <li class="toctree-l1"><a class="reference internal" href="../bash/">Code bash</a>
                 </li>
               </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../admin_BDD/">Administration BDD</a>
+                </li>
+              </ul>
       </div>
     </div>
     </nav>
@@ -104,7 +108,7 @@
 <h1 id="anti-seche-commandes-gdalogr">ANTI-SÈCHE COMMANDES GDAL/OGR<a class="headerlink" href="#anti-seche-commandes-gdalogr" title="Permanent link">&para;</a></h1>
 <p>Ce guide regroupe les commandes essentielles utilisées lors du traitement des données du département 31 (Haute-Garonne). Elles permettent de naviguer dans le système, de préparer l'arborescence et de manipuler des données Raster et Vecteur.</p>
 <hr />
-<h3 id="1-navigation-et-systeme">1. Navigation et Système<a class="headerlink" href="#1-navigation-et-systeme" title="Permanent link">&para;</a></h3>
+<h2 id="1-navigation-et-systeme">1. Navigation et Système<a class="headerlink" href="#1-navigation-et-systeme" title="Permanent link">&para;</a></h2>
 <p>Commandes de base pour se déplacer dans les répertoires WSL (Windows Subsystem for Linux) et vérifier l'installation.</p>
 <table>
 <thead>
@@ -135,7 +139,7 @@
 <pre><code class="language-bash">cd /mnt/c/Users/ag/Documents/gdal 
 </code></pre>
 <hr />
-<h3 id="2-preparation-de-lenvironnement">2. Préparation de l'Environnement<a class="headerlink" href="#2-preparation-de-lenvironnement" title="Permanent link">&para;</a></h3>
+<h2 id="2-preparation-de-lenvironnement">2. Préparation de l'Environnement<a class="headerlink" href="#2-preparation-de-lenvironnement" title="Permanent link">&para;</a></h2>
 <p>Création de l'arborescence de dossiers pour organiser proprement les données sources et les sorties.</p>
 <h4 id="creer-les-dossiers-de-travail">Créer les dossiers de travail<a class="headerlink" href="#creer-les-dossiers-de-travail" title="Permanent link">&para;</a></h4>
 <pre><code class="language-bash">mkdir raster
@@ -146,7 +150,7 @@ mkdir -p raster/mnt # -p crée les dossiers parents si nécessaire
 <pre><code class="language-bash">touch readme.md
 </code></pre>
 <hr />
-<h3 id="3-traitement-raster-mnt">3. Traitement Raster (MNT)<a class="headerlink" href="#3-traitement-raster-mnt" title="Permanent link">&para;</a></h3>
+<h2 id="3-traitement-raster-mnt">3. Traitement Raster (MNT)<a class="headerlink" href="#3-traitement-raster-mnt" title="Permanent link">&para;</a></h2>
 <p>Utilisation des outils GDAL pour télécharger, extraire et assembler des dalles de la BD ALTI.</p>
 <p>Installation de 7zip et Extraction</p>
 <pre><code class="language-bash">
@@ -164,7 +168,7 @@ Le VRT est crucial car il fusionne virtuellement toutes les dalles .asc sans dup
 gdalbuildvrt -srcnodata 0 -a_srs EPSG:2154 mnt31.vrt path/to/files/*.asc
 </code></pre>
 <hr />
-<h3 id="4-traitement-vecteur-ogr">4. Traitement Vecteur (OGR)<a class="headerlink" href="#4-traitement-vecteur-ogr" title="Permanent link">&para;</a></h3>
+<h2 id="4-traitement-vecteur-ogr">4. Traitement Vecteur (OGR)<a class="headerlink" href="#4-traitement-vecteur-ogr" title="Permanent link">&para;</a></h2>
 <p>Utilisation de l'outil ogrinfo pour inspecter la structure des fichiers Shapefile avant leur intégration.</p>
 <pre><code class="language-bash"># Inspecter un fichier Shapefile (Résumé global)
 ogrinfo -so DEPARTEMENT.shp
