@@ -86,6 +86,10 @@
     <li class="toctree-l2"><a class="reference internal" href="#5-le-role-de-dba">5. Le rôle de DBA</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#6-manipulations-diverses">6. Manipulations diverses</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#pgtune">PGTUNE</a>
+    </li>
+        </ul>
     </li>
     </ul>
                 </li>
@@ -127,9 +131,10 @@
 <li>
 <p>Système d'exploitation</p>
 </li>
-<li>
-<p>Une base de dev et une base de prod</p>
-</li>
+</ul>
+<p><img alt="alt text" src="../cluster.png" /></p>
+<ul>
+<li>Une base de dev et une base de prod</li>
 </ul>
 <h2 id="2-etapes-de-la-creation-dun-systeme-de-base-de-donnees">2. Étapes de la Création d'un système de base de données<a class="headerlink" href="#2-etapes-de-la-creation-dun-systeme-de-base-de-donnees" title="Permanent link">&para;</a></h2>
 <ul>
@@ -209,16 +214,73 @@ Pour connaitre son adresse ip : https://monip.io/</li>
 </li>
 </ul>
 <h2 id="6-manipulations-diverses">6. Manipulations diverses<a class="headerlink" href="#6-manipulations-diverses" title="Permanent link">&para;</a></h2>
+<p><img alt="alt text" src="../pgtune_tablespace.png" /></p>
 <ul>
-<li>
-<p>Pgtune &amp; modification de la configuration du serveur</p>
-</li>
-<li>
-<p>Gestion des tablespaces</p>
-</li>
-<li>
-<p>Création d'une base et attribution du tablespace</p>
-</li>
+<li>Pgtune &amp; modification de la configuration du serveur</li>
+</ul>
+<h3 id="pgtune">PGTUNE<a class="headerlink" href="#pgtune" title="Permanent link">&para;</a></h3>
+<p>PGTune est un outil (généralement utilisé via une interface web) qui aide les administrateurs de bases de données à configurer de manière optimale le fichier postgresql.conf que nous avons vu précédemment.</p>
+<p>Imagine que PostgreSQL est un moteur de voiture de course : par défaut, il est réglé pour fonctionner sur n'importe quel petit ordinateur. PGTune agit comme un mécanicien spécialisé qui ajuste les réglages du moteur en fonction de la puissance réelle de ton serveur.</p>
+<p>Pourquoi PGTune est-il important ?
+Comme tu l'as vu dans le fichier de configuration, les valeurs par défaut sont souvent très basses (ex: shared_buffers = 128MB). Voici pourquoi PGTune est crucial :</p>
+<p>Optimisation des ressources : Il calcule les valeurs idéales pour la mémoire (shared_buffers, work_mem) en fonction de la RAM totale de ton serveur.</p>
+<p>Adaptation au stockage : Il ajuste les paramètres du disque (comme random_page_cost) selon que tu utilises un disque dur classique ou un SSD.</p>
+<p>Spécificité de l'usage : Il propose des réglages différents selon que ta base sert à une application web (beaucoup de petites requêtes) ou à du Data Warehousing (grosses analyses de données).</p>
+<p>Sécurité et performance du WAL : Il configure les tailles optimales pour les journaux de transaction (max_wal_size) afin d'éviter des écritures disque inutiles.</p>
+<p>Comment ça marche concrètement ?
+Tu te rends sur l'outil et tu renseignes 4 à 5 informations simples :</p>
+<p>Version de PostgreSQL .</p>
+<p>Type d'OS .</p>
+<p>RAM totale du serveur (ex: 8 GB, 16 GB).</p>
+<p>Nombre de CPU.</p>
+<p>Type de stockage (SSD ou HDD).</p>
+<p>Le résultat : PGTune te donne une liste de lignes de configuration. Il te suffit de les copier et de les coller dans ton fichier postgresql.conf sur ton serveur Windows, puis de redémarrer l'instance pour que ton serveur soit boosté.</p>
+<ul>
+<li>Gestion des tablespaces</li>
+</ul>
+<p>Un Tablespace dans PostgreSQL est un emplacement physique sur le disque dur où sont stockés les fichiers de données de votre base de données.</p>
+<p>Pour bien comprendre, voici une explication simple : par défaut, PostgreSQL stocke tout au même endroit (le répertoire PGDATA). Un tablespace vous permet de dire à PostgreSQL : "Pour cette table précise, n'utilise pas le disque principal, mais utilise ce dossier sur cet autre disque dur."</p>
+<p>À quoi ça sert ? (Les 3 avantages majeurs)</p>
+<p><strong>Optimisation des performances</strong> : Vous pouvez placer les tables très consultées sur un disque ultra-rapide (SSD) et laisser les données historiques ou volumineuses sur un disque plus lent et moins cher (HDD).</p>
+<p><strong>Gestion de l'espace disque</strong> : Si votre disque principal est presque plein, vous pouvez créer un tablespace sur un nouveau disque dur ajouté au serveur pour continuer à stocker des données.</p>
+<p><strong>Organisation</strong> : Cela permet de séparer physiquement les données de différents projets ou utilisateurs au sein du même cluster.</p>
+<p>Exemple concret</p>
+<p>Imaginez que vous gérez des données géographiques très lourdes (comme le schéma ign sur votre image précédente) :</p>
+<p>Tablespace "Rapide" (SSD) : Pour les index et les tables de production actives.</p>
+<p>Tablespace "Archives" (HDD externe) : Pour les anciennes versions des données de 2010 que vous consultez rarement.</p>
+<ol>
+<li>La Sauvegarde (Exportation)
+L'objectif est de créer un « fichier dump » (copie conforme) qui permet de recréer la base de données en cas de besoin. PostgreSQL utilise pour cela l'utilitaire pg_dump.</li>
+</ol>
+<p>Format Texte (SQL) : Le résultat est un script de commandes SQL lisibles. La restauration se fait ensuite simplement via l'outil psql.</p>
+<p>Formats Archives (-Fc ou -Fd) : Ce sont les formats les plus flexibles. Ils sont compressés par défaut et permettent de choisir précisément ce que l'on veut restaurer (et même de le faire en parallèle pour gagner du temps). La restauration nécessite alors l'outil pg_restore.</p>
+<p>Cas particulier : pg_dumpall : Cet outil permet de sauvegarder l'intégralité d'un cluster, incluant les bases de données, mais aussi les rôles (utilisateurs) et les tablespaces.</p>
+<ol>
+<li>La Restauration (Importation)
+La méthode de restauration dépend directement du format du fichier de sauvegarde que vous possédez.</li>
+</ol>
+<p>Restauration d'un script SQL : On utilise le programme psql qui va lire et exécuter les commandes du fichier.</p>
+<p>Commande type : psql base_de_donnees &lt; fichier_sauvegarde.</p>
+<p>Restauration d'un cluster complet : Si vous utilisez une sauvegarde issue de pg_dumpall, vous devez impérativement avoir les droits de superutilisateur pour recréer les rôles et les tablespaces.</p>
+<p>Conseil de performance : Après chaque restauration, il est fortement conseillé de lancer la commande ANALYZE pour que le système mette à jour ses statistiques de performance.</p>
+<ol>
+<li>Automatisation via Script et Crontab
+Pour garantir la sécurité des données, il est courant de planifier ces tâches sous Linux/WSL.</li>
+</ol>
+<p>Le Script Bash
+On crée un script (souvent placé dans /usr/bin/) qui définit les variables essentielles :</p>
+<p>DB_USER : L'utilisateur (souvent postgres).</p>
+<p>DB_NAME : Le nom de la base.</p>
+<p>backup_file : Le chemin où sera stocké le fichier, souvent nommé avec la date du jour pour s'y retrouver.</p>
+<p>La Planification (Crontab)
+On utilise l'outil crontab pour définir la fréquence des sauvegardes.</p>
+<p>Exemple : 20 * * * * /usr/bin/script_sauv.sh lancera la sauvegarde à la 20ème minute de chaque heure.</p>
+<p>Points de vigilance
+Utilisateurs existants : Lors d'une restauration, tous les propriétaires des objets de la base doivent déjà exister sur le nouveau serveur, sinon l'opération échouera.</p>
+<p>Compatibilité : pg_dump est capable de restaurer des bases vers des versions plus récentes du serveur ou vers des architectures de processeurs différentes.</p>
+<p>Tablespaces : Si vous restaurez un cluster complet, assurez-vous que les chemins d'accès aux disques (tablespaces) existent sur la nouvelle machine
+- Création d'une base et attribution du tablespace</p>
+<ul>
 <li>
 <p>Création d'une base de données template</p>
 </li>
