@@ -124,7 +124,7 @@
 <p>Avoir le soucis de la pérennité et de la cohérence des données</p>
 <h2 id="1-concept-dadministration-on-doit-differencier-la-gestion-du-serveur-de-la-gestion-des-bases-de-donnees">1. Concept d'administration : on doit différencier la gestion du serveur de la gestion des bases de données<a class="headerlink" href="#1-concept-dadministration-on-doit-differencier-la-gestion-du-serveur-de-la-gestion-des-bases-de-donnees" title="Permanent link">&para;</a></h2>
 <div class="logo-gallery">
-    <img src="img/concept_bd.png" alt="Aperçu du projet">
+    <img src="../img/concept_bd.png" alt="Aperçu du projet">
 </div>
 <ul>
 <li>
@@ -135,7 +135,7 @@
 </li>
 </ul>
 <div class="logo-gallery">
-    <img src="img/cluster.png" alt="Aperçu du projet">
+    <img src="../img/cluster.png" alt="Aperçu du projet">
 </div>
 <ul>
 <li>Une base de dev et une base de prod</li>
@@ -163,7 +163,7 @@ C'est ici que l'administration devient stratégique. Un Tablespace permet de dir
 <li>Sauvegarde de la ou des bases de données</li>
 </ul>
 <div class="logo-gallery">
-    <img src="img/sauvegarde.png" alt="Aperçu du projet">
+    <img src="../img/sauvegarde.png" alt="Aperçu du projet">
 </div>
 <p>a. La Sauvegarde Logique (Le "Cliché") C'est l'extraction de la structure et des données à un instant $T$ sous forme de script SQL ou d'archive propriétaire.Manuel (pg_dump) : Idéal pour sauvegarder une base précise ou une table spécifique. C'est un fichier texte (souvent compressé) contenant les commandes CREATE TABLE et INSERT.Automatisé (Scripts) : Généralement une tâche Cron (Linux) ou un Tâche Planifiée (Windows) qui lance pg_dumpall (pour tout le cluster) chaque nuit.</p>
 <p><strong>Avantage</strong> : Facile à restaurer sur une version différente de PostgreSQL ou une autre architecture.</p>
@@ -185,7 +185,7 @@ Le concept : Avant d'écrire une donnée dans les fichiers de la base, PostgreSQ
 </ul>
 <h2 id="3-architecture-et-arborescence">3. Architecture et arborescence<a class="headerlink" href="#3-architecture-et-arborescence" title="Permanent link">&para;</a></h2>
 <div class="logo-gallery">
-    <img src="img/fichiers.png" alt="Aperçu du projet">
+    <img src="../img/fichiers.png" alt="Aperçu du projet">
 </div>
 <ul>
 <li>Datas</li>
@@ -198,7 +198,7 @@ Pour connaitre son adresse ip : https://monip.io/</li>
 </ul>
 <p>Installer PostgreSQL sur son serveur</p>
 <div class="logo-gallery">
-    <img src="img/install_sur_serveur.png" alt="Aperçu du projet">
+    <img src="../img/install_sur_serveur.png" alt="Aperçu du projet">
 </div>
 <p><strong>Avant toute modification des fichiers hba et postgresql.conf il faut imeractivement les copiés dans un dossier de sortes que si l'on faisait une mauvaise manipulation on puisse recupérer le fichier</strong></p>
 <ul>
@@ -225,7 +225,7 @@ Pour connaitre son adresse ip : https://monip.io/</li>
 </ul>
 <h2 id="6-manipulations-diverses">6. Manipulations diverses<a class="headerlink" href="#6-manipulations-diverses" title="Permanent link">&para;</a></h2>
 <div class="logo-gallery">
-    <img src="img/pgtune_tablespace.png" alt="Aperçu du projet">
+    <img src="../img/pgtune_tablespace.png" alt="Aperçu du projet">
 </div>
 <ul>
 <li>Pgtune &amp; modification de la configuration du serveur</li>

@@ -1,60 +1,85 @@
 /* =============================================================
-   1. FORCER LE CENTRAGE HORIZONTAL
-   ============================================================= */
+   VARIABLES PRINCIPALES
+============================================================= */
+:root {
+    /* Couleurs mode clair */
+    --bg-color: #f4f7f9;
+    --content-bg: #ffffff;
+    --text-color: #333333;
+    --primary-color: #0379ee;
+    --secondary-color: #1b4f72;
+    --accent-color: #d5d80a;
+    --important-color: #ff9800;
+    --success-color: #4caf50;
+    --code-bg: #282c34;
+    --code-color: #abb2bf;
+}
+
+/* =============================================================
+   MODE SOMBRE
+============================================================= */
+.dark-mode {
+    --bg-color: #1e1e1e;
+    --content-bg: #2c2c2c;
+    --text-color: #e0e0e0;
+    --primary-color: #4aa1ff;
+    --secondary-color: #82cfff;
+    --accent-color: #ffd700;
+    --important-color: #ffb86c;
+    --success-color: #50fa7b;
+    --code-bg: #121212;
+    --code-color: #f8f8f2;
+}
+
+/* =============================================================
+   IMPORT POLICES GOOGLE
+============================================================= */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Fira+Code&display=swap');
+
+/* =============================================================
+   LAYOUT PRINCIPAL
+============================================================= */
+body {
+    font-family: 'Merriweather', serif;
+    background: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    line-height: 1.6;
+    text-align: justify;
+    transition: all 0.3s ease;
+}
 
 .wy-nav-content-wrap {
-    background: #f4f7f9 !important;
-    min-height: 100vh !important;
-    position: static !important;
-    margin-left: 300px !important;
-    width: calc(100% - 300px) !important;
-    display: block !important;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
 }
 
 .wy-nav-content {
-    background: white !important;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 950px;
+    padding: 40px 60px;
+    background: var(--content-bg);
     border-radius: 8px;
-    padding: 40px 60px !important;
-
-    max-width: 950px !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    float: none !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
 }
 
 .wy-body-for-nav {
-    background: #f4f7f9 !important;
+    background: var(--bg-color);
 }
 
 /* =============================================================
-   2. TYPOGRAPHIE PRINCIPALE
-   ============================================================= */
-
-.rst-content {
-    font-family: "Times New Roman", Times, serif !important;
-    font-size: 18px !important;
-    text-align: justify !important;
-    line-height: 1.6;
-}
-
+   TYPOGRAPHIE ET ESPACEMENT
+============================================================= */
 .rst-content p,
 .rst-content li {
-    font-family: "Times New Roman", Times, serif !important;
-    font-size: 18px !important;
-    text-align: justify !important;
-}
-
-/* =============================================================
-   3. ESPACEMENT POUR MEILLEURE LECTURE
-   ============================================================= */
-
-.rst-content p {
     margin-bottom: 16px;
 }
 
 .rst-content ul,
 .rst-content ol {
+    padding-left: 20px;
     margin-bottom: 18px;
 }
 
@@ -63,48 +88,66 @@
 }
 
 /* =============================================================
-   4. TITRES ET SECTIONS
-   ============================================================= */
-
+   TITRES ET SECTIONS
+============================================================= */
 .rst-content h2 {
-    margin-top: 60px !important;
-    color: #0379ee !important;
-    border-bottom: 3px solid #0379ee !important;
+    margin-top: 60px;
+    color: var(--primary-color);
+    border-bottom: 3px solid var(--primary-color);
     padding-bottom: 10px;
     text-transform: uppercase;
     font-weight: bold;
+    scroll-margin-top: 80px;
 }
 
 .rst-content h3 {
-    margin-top: 40px !important;
-    color: #1b4f72 !important;
-    border-left: 6px solid #d5d80a !important;
+    margin-top: 40px;
+    color: var(--secondary-color);
+    border-left: 6px solid var(--accent-color);
     padding-left: 15px;
+    scroll-margin-top: 80px;
 }
 
 /* =============================================================
-   5. BLOCS DE CODE
-   ============================================================= */
-
+   BLOCS DE CODE
+============================================================= */
 .rst-content pre {
-    margin: 30px 0 !important;
-    padding: 20px !important;
-    background: #282c34 !important;
-    color: #abb2bf !important;
+    margin: 30px 0;
+    padding: 20px;
+    background: var(--code-bg);
+    color: var(--code-color);
     border-radius: 6px;
-    border-left: 5px solid #0379ee;
+    border-left: 5px solid var(--primary-color);
+    font-family: 'Fira Code', monospace;
+    overflow-x: auto;
+    tab-size: 2;
+    transition: all 0.3s ease;
+}
+
+code {
+    background: #f1f1f1;
+    padding: 3px 6px;
+    border-radius: 4px;
+}
+
+pre code {
+    background: none;
 }
 
 /* =============================================================
-   6. IMAGES PROFESSIONNELLES
-   ============================================================= */
-
+   IMAGES
+============================================================= */
 .rst-content img {
     display: block;
     margin: 25px auto;
     max-width: 100%;
     border-radius: 6px;
     box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+}
+
+.rst-content img:hover {
+    transform: scale(1.02);
 }
 
 .logo-gallery {
@@ -116,73 +159,44 @@
 }
 
 /* =============================================================
-   7. ADAPTATION MOBILE
-   ============================================================= */
-
-@media screen and (max-width: 768px) {
-
-    .wy-nav-content-wrap {
-        margin-left: 0 !important;
-        width: 100% !important;
-    }
-
-    .wy-nav-content {
-        margin: 10px !important;
-        padding: 20px !important;
-        width: auto !important;
-    }
-
-}
-/* =============================================================
-   FORCER LA TYPOGRAPHIE
-   ============================================================= */
-
-body,
-.wy-nav-content,
-.rst-content,
-.rst-content p,
-.rst-content li {
-    font-family: "Times New Roman", Times, serif !important;
-    font-size: 18px !important;
-    text-align: justify !important;
-}
-/* =============================================================
-   BOITES DOCUMENTATION
-   ============================================================= */
-
+   BOITES D’INFO
+============================================================= */
 .box {
     padding: 18px;
     margin: 25px 0;
     border-radius: 6px;
-    font-size: 14px;
+    font-size: 16px;
+    transition: all 0.3s ease;
 }
 
 .box-concept {
     background: #e8f4fd;
-    border-left: 6px solid #0379ee;
+    border-left: 6px solid var(--primary-color);
 }
 
 .box-important {
     background: #fff4e5;
-    border-left: 6px solid #ff9800;
+    border-left: 6px solid var(--important-color);
 }
 
 .box-astuce {
     background: #e8f5e9;
-    border-left: 6px solid #4caf50;
+    border-left: 6px solid var(--success-color);
 }
-/* =============================================================
-   TABLEAUX TECHNIQUES
-   ============================================================= */
 
+/* =============================================================
+   TABLEAUX
+============================================================= */
 .rst-content table {
     width: 100%;
     border-collapse: collapse;
     margin: 25px 0;
+    display: block;
+    overflow-x: auto;
 }
 
 .rst-content table th {
-    background: #0379ee;
+    background: var(--primary-color);
     color: white;
     padding: 10px;
     text-align: left;
@@ -194,18 +208,28 @@ body,
 }
 
 .rst-content table tr:nth-child(even) {
-    background: #f4f7f9;
+    background: var(--bg-color);
 }
+
 /* =============================================================
-   BLOCS TERMINAL
-   ============================================================= */
+   RESPONSIVE
+============================================================= */
+@media screen and (max-width: 768px) {
+    .wy-nav-content-wrap {
+        justify-content: flex-start;
+    }
 
-code {
-    background: #f1f1f1;
-    padding: 3px 6px;
-    border-radius: 4px;
-}
+    .wy-nav-content {
+        margin: 10px;
+        padding: 20px;
+        width: auto;
+    }
 
-pre code {
-    background: none;
+    .rst-content {
+        padding: 15px;
+    }
+
+    .rst-content pre {
+        padding: 10px;
+    }
 }
