@@ -1,0 +1,211 @@
+/* =============================================================
+   1. FORCER LE CENTRAGE HORIZONTAL
+   ============================================================= */
+
+.wy-nav-content-wrap {
+    background: #f4f7f9 !important;
+    min-height: 100vh !important;
+    position: static !important;
+    margin-left: 300px !important;
+    width: calc(100% - 300px) !important;
+    display: block !important;
+}
+
+.wy-nav-content {
+    background: white !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    padding: 40px 60px !important;
+
+    max-width: 950px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    float: none !important;
+}
+
+.wy-body-for-nav {
+    background: #f4f7f9 !important;
+}
+
+/* =============================================================
+   2. TYPOGRAPHIE PRINCIPALE
+   ============================================================= */
+
+.rst-content {
+    font-family: "Times New Roman", Times, serif !important;
+    font-size: 18px !important;
+    text-align: justify !important;
+    line-height: 1.6;
+}
+
+.rst-content p,
+.rst-content li {
+    font-family: "Times New Roman", Times, serif !important;
+    font-size: 18px !important;
+    text-align: justify !important;
+}
+
+/* =============================================================
+   3. ESPACEMENT POUR MEILLEURE LECTURE
+   ============================================================= */
+
+.rst-content p {
+    margin-bottom: 16px;
+}
+
+.rst-content ul,
+.rst-content ol {
+    margin-bottom: 18px;
+}
+
+.rst-content li {
+    margin-bottom: 6px;
+}
+
+/* =============================================================
+   4. TITRES ET SECTIONS
+   ============================================================= */
+
+.rst-content h2 {
+    margin-top: 60px !important;
+    color: #0379ee !important;
+    border-bottom: 3px solid #0379ee !important;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.rst-content h3 {
+    margin-top: 40px !important;
+    color: #1b4f72 !important;
+    border-left: 6px solid #d5d80a !important;
+    padding-left: 15px;
+}
+
+/* =============================================================
+   5. BLOCS DE CODE
+   ============================================================= */
+
+.rst-content pre {
+    margin: 30px 0 !important;
+    padding: 20px !important;
+    background: #282c34 !important;
+    color: #abb2bf !important;
+    border-radius: 6px;
+    border-left: 5px solid #0379ee;
+}
+
+/* =============================================================
+   6. IMAGES PROFESSIONNELLES
+   ============================================================= */
+
+.rst-content img {
+    display: block;
+    margin: 25px auto;
+    max-width: 100%;
+    border-radius: 6px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+.logo-gallery {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 30px 0;
+    flex-wrap: wrap;
+}
+
+/* =============================================================
+   7. ADAPTATION MOBILE
+   ============================================================= */
+
+@media screen and (max-width: 768px) {
+
+    .wy-nav-content-wrap {
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
+
+    .wy-nav-content {
+        margin: 10px !important;
+        padding: 20px !important;
+        width: auto !important;
+    }
+
+}
+/* =============================================================
+   FORCER LA TYPOGRAPHIE
+   ============================================================= */
+
+body,
+.wy-nav-content,
+.rst-content,
+.rst-content p,
+.rst-content li {
+    font-family: "Times New Roman", Times, serif !important;
+    font-size: 18px !important;
+    text-align: justify !important;
+}
+/* =============================================================
+   BOITES DOCUMENTATION
+   ============================================================= */
+
+.box {
+    padding: 18px;
+    margin: 25px 0;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.box-concept {
+    background: #e8f4fd;
+    border-left: 6px solid #0379ee;
+}
+
+.box-important {
+    background: #fff4e5;
+    border-left: 6px solid #ff9800;
+}
+
+.box-astuce {
+    background: #e8f5e9;
+    border-left: 6px solid #4caf50;
+}
+/* =============================================================
+   TABLEAUX TECHNIQUES
+   ============================================================= */
+
+.rst-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+}
+
+.rst-content table th {
+    background: #0379ee;
+    color: white;
+    padding: 10px;
+    text-align: left;
+}
+
+.rst-content table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+.rst-content table tr:nth-child(even) {
+    background: #f4f7f9;
+}
+/* =============================================================
+   BLOCS TERMINAL
+   ============================================================= */
+
+code {
+    background: #f1f1f1;
+    padding: 3px 6px;
+    border-radius: 4px;
+}
+
+pre code {
+    background: none;
+}
