@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Revision Esri - Mon Portefeuille Géomatique</title>
+    <title>QCM ESRI - Mon Portefeuille Géomatique</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -13,7 +13,7 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Revision Esri";
+        var mkdocs_page_name = "QCM ESRI";
         var mkdocs_page_input_path = "esri.md";
         var mkdocs_page_url = null;
       </script>
@@ -76,6 +76,14 @@
                 <li class="toctree-l1"><a class="reference internal" href="../admin_BDD/">ADMIN BDD</a>
                 </li>
               </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">QCM ESRI</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#qcm">QCM!</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
       </div>
     </div>
     </nav>
@@ -90,7 +98,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">Revision Esri</li>
+      <li class="breadcrumb-item active">QCM ESRI</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -743,7 +751,57 @@
     o: ["Système de Gestion de Base de Données Relationnelle", "Serveur de Géographie Binaire de Données Rapides", "Stockage Global de Balises de Données Réelles", "Structure Géo-Binaire des Données de Réseau"], 
     a: 0, 
     e: "C'est le terme standard pour désigner les moteurs comme PostgreSQL, SQL Server ou Oracle." 
-  }
+  },
+  { q: "Quel est l'objectif principal de la maintenance de la géodatabase ?", o: ["Changer les fonds de carte", "Optimiser les performances et garantir l'intégrité des données", "Réduire le salaire du DBA", "Installer des jeux vidéo"], a: 1, e: "La maintenance prévient la dégradation des temps de réponse." },
+  { q: "Qu'est-ce que l'archivage dans une GDB entreprise ?", o: ["Placer les données dans un dossier .zip", "Conserver l'historique de toutes les modifications dans des tables spécifiques", "Supprimer les vieilles données", "Envoyer les données sur un serveur distant"], a: 1, e: "L'archivage permet de 'remonter le temps' sur l'état d'une entité." },
+  { q: "Quelle opération doit être faite avant de compresser une géodatabase versionnée ?", o: ["Supprimer toutes les données", "Réconcilier et réinjecter (Post) les versions vers la version Default", "Éteindre le serveur SGBD", "Changer de mot de passe"], a: 1, e: "La compression est efficace si les versions ont été fusionnées préalablement." },
+  { q: "Dans ArcGIS Pro, que permet l'outil 'Statistiques de base de données' ?", o: ["Compter le nombre de clics", "Mettre à jour les statistiques du SGBD pour l'optimiseur de requêtes", "Savoir qui est l'utilisateur le plus actif", "Calculer le prix de la base"], a: 1, e: "C'est un outil de maintenance essentiel accessible au Chef de Projet." },
+  { q: "Comment s'appelle l'identifiant permanent d'une entité utilisé pour l'archivage ?", o: ["ObjectID", "GDB_ARCHIVE_OID", "GlobalID", "Name"], a: 2, e: "Le GlobalID est souvent utilisé pour lier les archives à l'entité vivante car il ne change jamais." },
+  { q: "Qu'est-ce qu'une 'Jointure spatiale' ?", o: ["Associer deux tables par un code commun", "Associer deux couches selon leur position géographique (intersection, proximité)", "Coller deux cartes ensemble", "Un type de soudure"], a: 1, e: "La jointure spatiale est un outil puissant d'analyse SIG." },
+  { q: "Pourquoi utiliser des 'Domaines' dans une GDB ?", o: ["Pour acheter des noms de sites internet", "Pour contraindre les valeurs saisies à une liste prédéfinie (intégrité)", "Pour délimiter le terrain", "Pour choisir la couleur du texte"], a: 1, e: "Les domaines (listes déroulantes) limitent les erreurs de saisie." },
+  { q: "Qu'est-ce qu'un 'Domaine de plage' ?", o: ["Un terrain au bord de mer", "Une contrainte imposant une valeur entre un minimum et un maximum (ex: 0 à 100)", "Une liste de noms de villes", "Un type de raster"], a: 1, e: "Utile pour des données numériques comme des diamètres ou des pressions." },
+  { q: "Dans PostgreSQL, comment s'appelle l'extension pour gérer les données raster ?", o: ["PostGIS_Raster", "ImageMagick", "ArcRaster", "PixelDB"], a: 0, e: "PostGIS inclut un module pour le stockage des pixels." },
+  { q: "Quel est l'avantage des 'Jeux de classes d'entités' pour un Chef de Projet ?", o: ["C'est plus joli", "Permet d'appliquer un système de coordonnées unique à tout un groupe de couches", "Réduit la taille des fichiers", "Empêche la suppression"], a: 1, e: "Cela garantit la cohérence spatiale d'un projet." },
+  { q: "Comment partager une GDB entreprise avec des utilisateurs externes sans accès direct au SGBD ?", o: ["Leur donner le mot de passe 'sde'", "Publier les données sous forme de Services Web (ArcGIS Enterprise)", "Envoyer le serveur par la poste", "Faire une capture d'écran"], a: 1, e: "Les services web (REST) sont la méthode standard de diffusion sécurisée." },
+  { q: "Qu'est-ce que le 'Géoréférencement' ?", o: ["L'achat d'un GPS", "L'action de donner une position géographique à une image ou un plan CAO", "Le nom d'un logiciel", "La liste des pays du monde"], a: 1, e: "Indispensable avant d'intégrer des plans non calés dans la GDB." },
+  { q: "Peut-on utiliser une GDB fichier pour du webmapping intensif ?", o: ["Oui, sans problème", "Non, elle n'est pas conçue pour de nombreux accès concurrents via le web (préférer l'entreprise)", "Seulement si le serveur est puissant", "Seulement avec Google Chrome"], a: 1, e: "La GDB d'entreprise est requise pour les performances web à grande échelle." },
+  { q: "Que contient la table 'GDB_ServiceItems' ?", o: ["La liste des repas servis", "Des informations sur les services de géodatabase", "Les codes de réduction ESRI", "Rien"], a: 1, e: "C'est une table système liée à la gestion des services." },
+  { q: "Comment s'appelle l'opération de vérification des erreurs topologiques ?", o: ["Le nettoyage", "La validation de la topologie", "Le scan", "Le debug"], a: 1, e: "Valider la topologie permet de lister les erreurs (chevauchements, vides)." },
+  { q: "Qu'est-ce qu'une 'Relation de classe' ?", o: ["Un cours à l'école", "Une association stockée entre deux tables (1-N ou M-N) avec maintien de l'intégrité", "Un lien hypertexte", "Un type de dossier"], a: 1, e: "Les Relationship Classes sont plus puissantes que les jointures simples." },
+  { q: "Quel outil permet de charger des millions d'entités rapidement ?", o: ["Le copier-coller", "L'outil 'Charger des données' (Append) ou le 'Bulk Load'", "La saisie manuelle", "L'envoi par e-mail"], a: 1, e: "Le chargement en masse est optimisé pour la performance." },
+  { q: "Pourquoi un Chef de Projet doit-il surveiller les fichiers '.lock' ?", o: ["Parce qu'ils sont dangereux", "Pour identifier qui utilise ou bloque un jeu de données dans une GDB fichier", "Pour libérer de la mémoire RAM", "Pour crypter les données"], a: 1, e: "Les verrous indiquent l'utilisation en cours." },
+  { q: "Quelle est la différence entre 'Jointure' et 'Relation' ?", o: ["Aucune", "La jointure est physique/virtuelle pour l'affichage, la relation définit un lien logique durable", "La jointure est pour les points, la relation pour les lignes", "La jointure est payante"], a: 1, e: "Les relations sont stockées dans la GDB et gèrent mieux les liens complexes." },
+  { q: "Peut-on faire du SQL sur une GDB fichier ?", o: ["Non", "Oui, de manière limitée via l'API File Geodatabase ou ArcGIS Pro", "Seulement avec Excel", "Seulement sur Linux"], a: 1, e: "L'accès SQL est possible mais restreint par rapport à un vrai SGBDR." },
+  { q: "Quel est le rôle du 'Service de géodatabase' ?", o: ["Réparer les ordinateurs", "Gérer les requêtes entre le client et le SGBD (historiquement ArcSDE)", "Vendre des licences", "Afficher l'heure"], a: 1, e: "Aujourd'hui, ce rôle est intégré au client et au serveur SGBD." },
+  { q: "Que signifie 'Schéma Read-Only' ?", o: ["On ne peut que lire les données", "On ne peut lire que le dimanche", "Les données sont invisibles", "Les données sont cryptées"], a: 0, e: "C'est un mode de sécurité pour protéger les données de référence." },
+  { q: "Comment gérer les photos de terrain dans une GDB ?", o: ["Les coller sur l'écran", "Utiliser le type BLOB ou les 'Pièces jointes' (Attachments)", "Les transformer en texte", "Les stocker sur Instagram"], a: 1, e: "Les pièces jointes sont la méthode standard pour lier des médias aux entités." },
+  { q: "Qu'est-ce qu'un 'MNT' dans une GDB ?", o: ["Mon Nom de Table", "Modèle Numérique de Terrain", "Mise à Niveau Technique", "Multi-Nœuds de Transport"], a: 1, e: "Le MNT est souvent stocké sous forme de raster ou de TIN." },
+  { q: "Quel outil ArcGIS Pro permet de voir l'historique d'une GDB ?", o: ["Le journal des modifications", "La fenêtre d'archivage", "L'historique internet", "Le panneau de configuration"], a: 1, e: "Si l'archivage est activé, on peut naviguer dans le temps." },
+  { q: "Pourquoi éviter de mettre des espaces dans les noms de tables ?", o: ["C'est interdit par la loi", "Cela complique les requêtes SQL et peut causer des erreurs", "Cela prend trop de place", "C'est une question de mode"], a: 1, e: "Les standards de nommage SGBD proscrivent les espaces et caractères spéciaux." },
+  { q: "Que signifie 'Réparer la géométrie' ?", o: ["Changer la couleur", "Corriger les erreurs de tracé (ex: auto-intersections) qui bloquent les calculs", "Supprimer la couche", "Agrandir la carte"], a: 1, e: "Une géométrie invalide peut faire planter une requête spatiale." },
+  { q: "Quel est l'intérêt d'une GDB 'Template' ?", o: ["Pour faire de la décoration", "Pour réutiliser une structure de données vide mais normée sur plusieurs projets", "Pour gagner de l'argent", "C'est un modèle de lettre"], a: 1, e: "Indispensable pour la standardisation des données dans une organisation." },
+  { q: "Comment s'appelle l'extension spatiale native de SQL Server ?", o: ["Geometry et Geography", "SpatialSQL", "SQLGIS", "SDE_Type"], a: 0, e: "SQL Server possède ses propres types spatiaux reconnus par ArcGIS." },
+  { q: "Peut-on exporter une GDB d'entreprise vers un document XML ?", o: ["Non", "Oui, pour sauvegarder ou transférer uniquement la structure (schéma)", "Seulement si on a internet", "Seulement via Python"], a: 1, e: "Le Workspace XML est idéal pour cloner des structures." },
+  { q: "Qu'est-ce qu'une 'Clé Primaire' ?", o: ["La clé pour ouvrir le bureau", "Un champ qui identifie de manière unique chaque ligne (ex: ObjectID)", "Le mot de passe de la base", "Le nom de la base"], a: 1, e: "Essentiel pour les jointures et l'intégrité." },
+  { q: "Qu'est-ce qu'une 'Clé Étrangère' ?", o: ["Une clé qui vient d'un autre pays", "Un champ dans une table qui fait référence à la clé primaire d'une autre table", "Un mot de passe invité", "Une clé USB"], a: 1, e: "C'est la base des relations entre tables." },
+  { q: "Peut-on versionner une GDB fichier ?", o: ["Oui", "Non, le versionnement est réservé aux GDB d'entreprise", "Seulement avec une extension payante", "Seulement sur Windows 11"], a: 1, e: "La GDB fichier ne supporte pas le versionnement multi-utilisateur." },
+  { q: "Quel est le rôle du Chef de Projet Géomatique dans la gestion de la GDB ?", o: ["Nettoyer les serveurs", "Définir l'architecture, les normes de saisie et veiller à la maintenance", "Installer Windows sur les postes", "Vendre des licences"], a: 1, e: "C'est un rôle de coordinateur stratégique et technique." },
+  { q: "Que signifie l'acronyme SIG ?", o: ["Système d'Information Géographique", "Service d'Imagerie Globale", "Suivi des Informations de Géologie", "Structure d'Intégration Géométrique"], a: 0, e: "Le concept global englobant les logiciels, données et méthodes." },
+  { q: "Comment s'appelle le blog francophone de référence sur ESRI cité dans le cours ?", o: ["SIG Passion", "ArcOrama (par Gaëtan Lavenu)", "Geoblog", "Le Monde du SIG"], a: 1, e: "ArcOrama est la ressource incontournable pour les actualités ESRI." },
+  { q: "Quelle commande SQL permet d'ajouter un champ à une table existante ?", o: ["ADD FIELD", "ALTER TABLE ADD COLUMN", "MODIFY TABLE", "NEW COLUMN"], a: 1, e: "C'est la syntaxe SQL standard utilisée par le traducteur." },
+  { q: "Que fait l'outil 'Compacter' (Compact) sur une GDB fichier ?", o: ["Elle la compresse en .zip", "Elle réorganise les fichiers pour récupérer l'espace vide après suppressions", "Elle réduit la taille des images", "Elle la ferme"], a: 1, e: "À faire régulièrement pour éviter que la GDB fichier ne 'gonfle' inutilement." },
+  { q: "Peut-on mettre des index sur des champs de texte ?", o: ["Non, uniquement sur les chiffres", "Oui, pour accélérer les recherches de noms ou de codes", "Seulement si le texte est court", "Seulement le premier jour"], a: 1, e: "Les index ne sont pas que spatiaux." },
+  { q: "Quelle est la règle d'or en cas de corruption de GDB ?", o: ["Pleurer", "Toujours avoir une sauvegarde (Backup) à jour", "Réinstaller ArcGIS Pro", "Changer d'ordinateur"], a: 1, e: "La sauvegarde est la seule garantie réelle contre la perte de données." },
+  { q: "Qu'est-ce que 'ST_GEOMETRY' ?", o: ["Une marque de voiture", "Un type de stockage spatial propriétaire ESRI disponible en SQL", "Un satellite", "Une fonction mathématique"], a: 1, e: "Il permet de stocker et d'interroger les géométries en SQL." },
+  { q: "Dans ArcGIS Pro, que signifie le point rouge sur une couche ?", o: ["La couche est très importante", "La source de données est cassée (problème de chemin ou connexion)", "La couche est en train de brûler", "C'est une donnée confidentielle"], a: 1, e: "Il faut souvent réparer le lien vers la GDB." },
+  { q: "Peut-on utiliser ArcGIS Pro sans géodatabase ?", o: ["Non", "Oui, mais vous perdez la majorité des fonctions de gestion et d'analyse avancées", "Seulement pour les photos", "Seulement avec une licence gratuite"], a: 1, e: "La GDB est le cœur de l'écosystème ArcGIS." },
+  { q: "Quel est le coût d'une base de données PostgreSQL ?", o: ["Très cher", "Gratuit (Open Source)", "100€ par mois", "Dépendant du nombre de cartes"], a: 1, e: "PostgreSQL est gratuit, ce qui réduit les coûts d'infrastructure." },
+  { q: "Pourquoi le Chef de Projet doit-il documenter le schéma de la GDB ?", o: ["Pour passer le temps", "Pour que l'équipe comprenne la structure et les relations entre les données", "Pour faire plaisir à ESRI", "C'est inutile"], a: 1, e: "La documentation est la clé de la pérennité d'un projet SIG." },
+  { q: "Quelle est la fonction d'un 'Alias' de champ ?", o: ["Cacher le vrai nom", "Donner un nom lisible et compréhensible à un champ technique (ex: 'NOM_COMM' -> 'Nom de la commune')", "Changer le type de donnée", "Crypter le champ"], a: 1, e: "L'alias améliore l'expérience utilisateur." },
+  { q: "Que signifie 'ETL' en géomatique ?", o: ["Extract, Transform, Load", "Espace de Travail Local", "Ensemble de Tables de Lignes", "Édition de Traitement de Liaison"], a: 0, e: "Processus de migration de données (ex: de Excel vers GDB)." },
+  { q: "Quel est l'outil ETL intégré par excellence dans ArcGIS ?", o: ["Excel", "Data Interoperability (basé sur FME)", "Paint", "Word"], a: 1, e: "Il permet de lire et transformer des centaines de formats." },
+  { q: "Quel est le dernier conseil de Jérôme Fuseau pour réussir ?", o: ["Se reposer", "Consulter les ressources en ligne ESRI et pratiquer les exercices", "Acheter un nouveau PC", "Apprendre le japonais"], a: 1, e: "La pratique et la veille documentaire sont essentielles." },
+  { q: "Félicitations, vous avez fini le QCM ! Quelle est la prochaine étape ?", o: ["Tout oublier", "Réviser les points faibles identifiés", "Désinstaller ArcGIS", "Partir en vacances"], a: 1, e: "L'examen demande une maîtrise globale de ces concepts." }
     ];
 
     let current = 0;
@@ -809,6 +867,9 @@
 
             </div>
           </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../admin_BDD/" class="btn btn-neutral float-left" title="ADMIN BDD"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
 
   <hr/>
 
@@ -829,6 +890,8 @@
   <div class="rst-versions" role="note" aria-label="Versions">
   <span class="rst-current-version" data-toggle="rst-current-version">
     
+    
+      <span><a href="../admin_BDD/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
   </span>
