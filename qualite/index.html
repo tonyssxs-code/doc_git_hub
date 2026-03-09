@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Revision Qualité - Mon Portefeuille Géomatique</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../overrides/style.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Revision Qualit\u00e9";
+        var mkdocs_page_input_path = "qualite.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Mon Portefeuille Géomatique
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">ACCEUIL</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../format/">FORMATS</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../gdal/">GDAL</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../metadonnee/">METADONNES</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../vrt/">VRT</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../source/">SOURCES</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../note/">INTEROPERABILITE</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../bash/">BASH</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../admin_BDD/">ADMIN BDD</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../esri/">QCM ESRI</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../juridique/">Revision Aspect juridiques</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href=".">QUALITE</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="../revision">REVISION</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="../standard">STANDARDS</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Mon Portefeuille Géomatique</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Revision Qualité</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+<div class="progress-container"><div class="progress-bar" id="myBar"></div></div>
+
+                <h1 id="revision-qualite">Revision Qualité<a class="headerlink" href="#revision-qualite" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="qcm">QCM!<a class="headerlink" href="#qcm" title="Permanent link">&para;</a></h2>
+<div class="container-quiz">
+    <div id="quiz-ui">
+        <h1>Examen de Synthèse : Qualité des données Géographiques</h1>
+        <div class="progress-bar-quiz"><div id="progress-fill-quiz"></div></div>
+        <div id="questions-wrapper"></div>
+        <div class="nav-footer">
+            <button id="prev-btn" onclick="move(-1)" disabled>Précédent</button>
+            <span id="counter" style="font-weight: 600; color: #64748b;">Question 1 / 50</span>
+            <button id="next-btn" onclick="move(1)">Suivant</button>
+        </div>
+    </div>
+
+    <div id="final-screen">
+        <h1>Résultats de l'évaluation</h1>
+        <div class="score-circle" id="score-display">0%</div>
+        <p id="feedback-msg" style="font-size: 1.1rem; margin-bottom: 30px;"></p>
+        <button onclick="location.reload()">Recommencer l'examen</button>
+    </div>
+</div>
+
+<style>
+    .container-quiz { max-width: 100%; margin: 20px auto; background: white; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0; }
+    #quiz-ui h1 { color: #1e3a8a; text-align: center; font-size: 1.5rem; border: none; }
+    .progress-bar-quiz { height: 8px; background: #e2e8f0; border-radius: 4px; margin-bottom: 30px; overflow: hidden; }
+    #progress-fill-quiz { height: 100%; background: #3b82f6; width: 2%; transition: width 0.3s; }
+    .question-container { display: none; }
+    .question-container.active { display: block; animation: fadeIn 0.4s; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    .question-text { font-size: 1.1rem; font-weight: 700; margin-bottom: 20px; color: #0f172a; }
+    .option-item { background: #fff; border: 2px solid #e2e8f0; margin-bottom: 10px; padding: 12px; border-radius: 8px; cursor: pointer; }
+    .option-item:hover { border-color: #3b82f6; background: #f0f7ff; }
+    .option-item.correct { border-color: #10b981; background: #ecfdf5; color: #065f46; font-weight: 600; }
+    .option-item.wrong { border-color: #ef4444; background: #fef2f2; color: #991b1b; }
+    .explanation-box { margin-top: 20px; padding: 15px; border-radius: 8px; background: #f1f5f9; border-left: 6px solid #3b82f6; display: none; }
+    .nav-footer { margin-top: 30px; display: flex; justify-content: space-between; align-items: center; }
+    #final-screen { display: none; text-align: center; }
+    .score-circle { width: 100px; height: 100px; border-radius: 50%; border: 5px solid #1e3a8a; margin: 20px auto; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 900; }
+</style>
+<script>
+    const examData = [
+  { 
+    q: "Selon la norme ISO 9000, quelle est la définition de la Qualité ?", 
+    o: ["Un produit qui coûte cher", "L'absence totale d'erreurs", "L'aptitude à satisfaire des besoins explicites ou implicites", "Le respect strict du budget"], 
+    a: 2, 
+    e: "La qualité est définie par l'aptitude à répondre aux besoins via des spécifications." 
+  },
+  { 
+    q: "Qu'est-ce que le 'Terrain Nominal' (ou univers du discours) ?", 
+    o: ["Le terrain physique mesuré au GPS", "La modélisation du monde réel à travers des spécifications (ce qui aurait dû être saisi)", "Un logiciel de cartographie", "La base de données finale"], 
+    a: 1, 
+    e: "C'est la vision théorique du monde que l'on souhaite obtenir selon les règles de saisie." 
+  },
+  { 
+    q: "Quelle est la différence entre spécifications de production et de qualité ?", 
+    o: ["C'est la même chose", "La production définit le prix, la qualité définit le délai", "La production définit le processus, la qualité définit le niveau d'erreur acceptable", "La production est pour le client, la qualité pour le prestataire"], 
+    a: 2, 
+    e: "Les spécifications de qualité fixent la tolérance aux erreurs par rapport au terrain nominal." 
+  },
+  { 
+    q: "Dans la version 2023 de l'ISO 19157, quel critère a été supprimé ?", 
+    o: ["L'exhaustivité", "La précision géométrique", "L'utilisabilité", "La cohérence logique"], 
+    a: 2, 
+    e: "Le critère d'utilisabilité a été retiré de la dernière version de la norme." 
+  },
+
+  // --- ELEMENTS DE QUALITE ET METADONNEES (Slides 14-18) ---
+  { 
+    q: "Que contient l'élément 'Généalogie' dans les métadonnées ?", 
+    o: ["Le nom des auteurs", "L'historique du cycle de vie et les sources utilisées", "Le prix d'achat", "L'échelle d'impression"], 
+    a: 1, 
+    e: "La généalogie décrit les étapes de traitement et les sources de données." 
+  },
+  { 
+    q: "Le critère 'Propos' (ou résumé dans INSPIRE) décrit :", 
+    o: ["La date de création", "Les erreurs connues", "Les raisons de la création et les usages prévus", "Le format de fichier"], 
+    a: 2, 
+    e: "Il explique pourquoi la donnée a été produite à l'origine." 
+  },
+
+  // --- NORME ISO 19157 : LES 5 CRITÈRES (Slides 19-31) ---
+  { 
+    q: "Un bâtiment oublié dans une base de données relève de :", 
+    o: ["L'omission (exhaustivité)", "L'excès (exhaustivité)", "La cohérence topologique", "La précision sémantique"], 
+    a: 0, 
+    e: "L'omission est l'absence d'une entité qui devrait être présente." 
+  },
+  { 
+    q: "Qu'est-ce que la 'Cohérence Conceptuelle' ?", 
+    o: ["Le respect du format .shp", "Le respect des règles du schéma (ex: une parcelle doit avoir un propriétaire)", "La précision des coordonnées", "La date de mise à jour"], 
+    a: 1, 
+    e: "Elle vérifie si les données respectent les règles de gestion du modèle." 
+  },
+  { 
+    q: "Si deux zones d'urbanisme se chevauchent alors qu'elles devraient être jointives, il s'agit d'un défaut de :", 
+    o: ["Cohérence de format", "Cohérence de domaine", "Cohérence topologique", "Précision temporelle"], 
+    a: 2, 
+    e: "La topologie gère les relations spatiales comme le recouvrement ou la connectivité." 
+  },
+  { 
+    q: "Une date d'approbation antérieure à la date de demande est un problème de :", 
+    o: ["Validité temporelle", "Cohérence temporelle", "Précision absolue", "Exactitude sémantique"], 
+    a: 1, 
+    e: "La cohérence temporelle vérifie la logique chronologique des événements." 
+  },
+  { 
+    q: "Attribuer la classe 'poteau téléphone' à un 'poteau EDF' est une erreur de :", 
+    o: ["Précision géométrique", "Exhaustivité", "Classification (précision sémantique)", "Cohérence de format"], 
+    a: 2, 
+    e: "La précision sémantique concerne l'exactitude des attributs et des classes." 
+  },
+  { 
+    q: "Quelle est la différence entre précision absolue et relative ?", 
+    o: ["La précision absolue est pour le papier, la relative pour le numérique", "Absolue : position par rapport au monde réel. Relative : position des objets entre eux.", "Il n'y a aucune différence", "L'absolue est gratuite, la relative est payante"], 
+    a: 1, 
+    e: "La précision relative assure que si deux objets sont voisins sur le terrain, ils le sont dans la base." 
+  },
+
+  // --- CONTROLE ET ARRETE DE 2003 (Slides 32-35) ---
+  { 
+    q: "Selon l'arrêté de 2003, quelle doit être la précision du matériel de contrôle ?", 
+    o: ["Identique au matériel de production", "Au moins deux fois meilleure que la précision recherchée", "Dix fois moins précise", "Peu importe"], 
+    a: 1, 
+    e: "Pour contrôler efficacement, l'instrument de mesure doit être plus précis que l'objet contrôlé." 
+  },
+  { 
+    q: "Pourquoi l'arrêté de 2003 est-il jugé complexe en pratique ?", 
+    o: ["Il est trop court", "Il coûte environ 10% du chantier et demande des compétences en topométrie", "Il est interdit par l'Europe", "Il ne concerne que les images"], 
+    a: 1, 
+    e: "Le coût et la technicité du contrôle topographique limitent son application systématique." 
+  },
+
+  // --- QUALITÉ EXTERNE ET RASTER (Slides 36-47) ---
+  { 
+    q: "Concernant le Cadastre (PCI), que peut-on dire de sa qualité ?", 
+    o: ["Elle est parfaite partout", "Elle est inconnue et géométriquement très variable", "Elle est garantie par l'IGN", "Elle est mise à jour en temps réel"], 
+    a: 1, 
+    e: "Le cadastre a un but fiscal ; sa géométrie peut être aléatoire selon les communes." 
+  },
+  { 
+    q: "Quelle est la relation habituelle entre résolution et précision pour une image (raster) ?", 
+    o: ["Précision = Résolution", "Précision = Double de la résolution (taille du pixel)", "Précision = Moitié de la résolution", "Il n'y a aucun lien"], 
+    a: 1, 
+    e: "Usuellement, on considère que la précision géométrique est le double de la taille du pixel." 
+  },
+  { 
+    q: "Quel élément dégrade fortement la précision d'une orthophotographie en zone de montagne ?", 
+    o: ["La couleur des arbres", "L'heure de la prise de vue", "La précision du MNT (Modèle Numérique de Terrain)", "Le format de l'image (JPEG)"], 
+    a: 2, 
+    e: "Une ortho-image est corrigée par le relief ; si le MNT est faux, l'image sera mal positionnée." 
+  },
+
+  // --- ÉTUDES DE CAS ET RESPONSABILITÉ (Slides 48-62) ---
+  { 
+    q: "Dans l'étude de cas sur les ERP (Etablissements Recevant du Public), quel est le problème majeur ?", 
+    o: ["Il n'y a pas assez de données", "La multiplication de bases non coordonnées (communes, SDIS, IGN) de qualité inconnue", "Les données sont trop chères", "Le format n'est pas standard"], 
+    a: 1, 
+    e: "La déperdition d'énergie vient du manque de partage et de coordination entre producteurs." 
+  },
+  { 
+    q: "Le standard RAEPA est cité comme un exemple de :", 
+    o: ["Logiciel libre", "Échec technique", "Succès par 'copier/coller' de spécifications bien conçues", "Norme ISO"], 
+    a: 2, 
+    e: "Le RAEPA (réseaux d'eau) a réussi car il a été largement adopté comme modèle par les praticiens." 
+  },
+  { 
+    q: "Qui est responsable en cas de préjudice lié à une donnée de mauvaise qualité ?", 
+    o: ["Toujours le producteur", "Toujours l'utilisateur", "C'est une responsabilité complexe et souvent partagée", "Le gouvernement"], 
+    a: 2, 
+    e: "La responsabilité dépend de la documentation fournie (métadonnées) et de l'usage fait par l'utilisateur." 
+  },
+  { 
+    q: "Comment évaluer la qualité d'une donnée issue du Crowdsourcing (ex: OpenStreetMap) ?", 
+    o: ["On ne peut pas", "Par l'analyse de l'activité de la communauté et les outils de contrôle internes à OSM", "En demandant à l'IGN", "En regardant uniquement le nombre de contributeurs"], 
+    a: 1, 
+    e: "Le crowdsourcing repose sur des mécanismes d'autocorrection et des outils communautaires." 
+  },
+  { 
+    q: "Quelle série de fiches du CEREMA est recommandée pour qualifier les données ?", 
+    o: ["Les fiches ISO 9001", "Les fiches QuaDoGéo", "Les fiches INSPIRE", "Les fiches de paie"], 
+    a: 1, 
+    e: "Le groupe de travail QuaDoGéo et le CEREMA ont produit 11 fiches méthodologiques de référence." 
+  },
+  // --- ARCHITECTURE DES NORMES ISO 19100 ---
+  { 
+    q: "Quelle norme ISO traite spécifiquement des METADONNÉES ?", 
+    o: ["ISO 19157", "ISO 19115", "ISO 19131", "ISO 9000"], 
+    a: 1, 
+    e: "L'ISO 19115 définit le contenu des métadonnées (généalogie, propos, actualité)." 
+  },
+  { 
+    q: "La norme ISO 19131 est dédiée à :", 
+    o: ["La mesure des erreurs", "La structure des fichiers", "Les spécifications de contenu des produits (Data Product Specification)", "La gestion des serveurs"], 
+    a: 2, 
+    e: "Elle définit comment rédiger un document de spécification pour un produit de données." 
+  },
+  { 
+    q: "Quelle est la particularité de la norme ISO 19157:2023 ?", 
+    o: ["Elle remplace toutes les autres normes", "Elle normalise les composants et structures des mesures de qualité", "Elle est obligatoire par la loi française", "Elle concerne uniquement les images satellites"], 
+    a: 1, 
+    e: "Elle fournit les lignes directrices pour évaluer et rapporter la qualité quantitative." 
+  },
+  { 
+    q: "Une norme ISO est-elle d'application obligatoire ?", 
+    o: ["Oui, toujours", "Non, elle est d'application volontaire sauf si une loi l'impose", "Uniquement pour l'État", "Seulement si elle est payante"], 
+    a: 1, 
+    e: "En information géographique, les normes sont des guides de bonnes pratiques, pas des obligations légales directes." 
+  },
+
+  // --- FOCUS ISO 19157 : LES SOUS-ÉLÉMENTS ---
+  { 
+    q: "Dans l'ISO 19157, la 'Cohérence de domaine' vérifie :", 
+    o: ["Si le fichier est sur le bon serveur", "Le respect des plages de valeurs (ex: des entiers là où des entiers sont déclarés)", "La précision du GPS", "La langue utilisée dans les attributs"], 
+    a: 1, 
+    e: "La cohérence de domaine s'assure que les valeurs saisies sont autorisées par le modèle." 
+  },
+  { 
+    q: "La 'Cohérence de format' mesure :", 
+    o: ["La taille du fichier en Go", "Le degré de concordance avec la structure physique (ex: format de date jj/mm/aaaa)", "La beauté du style cartographique", "La vitesse d'affichage"], 
+    a: 1, 
+    e: "Elle vérifie que le stockage physique respecte les règles techniques définies." 
+  },
+  { 
+    q: "La 'Précision de position des données matricielles' concerne :", 
+    o: ["Les fichiers Vecteur uniquement", "La localisation des données sur la grille (raster)", "Le nom des communes", "La date de prise de vue"], 
+    a: 1, 
+    e: "C'est l'équivalent de la précision géométrique pour les pixels." 
+  },
+  { 
+    q: "Quel élément de l'ISO 19157 traite de la 'justesse de la chronologie des événements' ?", 
+    o: ["Validité temporelle", "Cohérence temporelle", "Exactitude de mesure temporelle", "Généalogie"], 
+    a: 1, 
+    e: "La cohérence temporelle s'assure que l'ordre des dates est logique." 
+  },
+
+  // --- MESURE ET ÉVALUATION ---
+  { 
+    q: "Selon l'ISO 19157, un rapport de qualité doit être :", 
+    o: ["Oral uniquement", "Quantitatif (mesures) et qualitatif (historique)", "Secret", "Un simple pourcentage global"], 
+    a: 1, 
+    e: "La norme exige une description structurée des résultats de tests de qualité." 
+  },
+  { 
+    q: "Qu'est-ce qu'une 'unité de qualité des données' (Data Quality Unit) ?", 
+    o: ["Un mètre", "L'association d'un élément de qualité et d'un lot de données", "Un logiciel de contrôle", "Une équipe de géomaticiens"], 
+    a: 1, 
+    e: "C'est la structure de base pour appliquer un test (ex: tester l'exhaustivité sur la couche 'Bâtiments')." 
+  },
+
+  // --- LIENS AVEC L'ISO 9000 ---
+  { 
+    q: "Quelle différence majeure l'ISO 19157 fait-elle par rapport au langage courant ?", 
+    o: ["La qualité n'est pas une indication de valeur, mais le respect des spécifications", "La qualité signifie 'haute précision'", "La qualité est réservée aux experts", "Il n'y a pas de différence"], 
+    a: 0, 
+    e: "Un produit peut être 'grossier' mais de 'bonne qualité ISO' s'il respecte ses spécifications modestes." 
+  },
+  { 
+    q: "Si des spécifications définissent un produit volontairement biaisé et que le résultat est biaisé, le produit est :", 
+    o: ["De mauvaise qualité", "De bonne qualité au sens ISO (conforme aux specs)", "Inutilisable", "À supprimer"], 
+    a: 1, 
+    e: "La qualité ISO mesure la conformité au modèle (terrain nominal), pas la vérité absolue." 
+  }
+];
+    let current = 0;
+const userAnswers = new Array(examData.length).fill(null);
+
+
+
+/* =========================
+   FONCTION MÉLANGE TABLEAU
+   ========================= */
+
+function shuffleArray(array) {
+
+  for (let i = array.length - 1; i > 0; i--) {
+
+    const j = Math.floor(Math.random() * (i + 1));
+
+    [array[i], array[j]] = [array[j], array[i]];
+
+  }
+
+}
+
+
+
+/* =========================
+   MÉLANGE QUESTIONS + RÉPONSES
+   ========================= */
+
+function shuffleQuizData() {
+
+  examData.forEach(q => {
+
+    const correctText = q.o[q.a];
+
+    shuffleArray(q.o);
+
+    q.a = q.o.indexOf(correctText);
+
+  });
+
+  shuffleArray(examData);
+
+}
+
+
+
+/* =========================
+   INITIALISATION QUIZ
+   ========================= */
+
+function initQuiz() {
+
+  const wrapper = document.getElementById('questions-wrapper');
+
+  examData.forEach((item, idx) => {
+
+    const div = document.createElement('div');
+
+    div.className = `question-container ${idx === 0 ? 'active' : ''}`;
+
+    div.id = `q-${idx}`;
+
+    div.innerHTML = `
+      <div class="question-text">${idx + 1}. ${item.q}</div>
+
+      <div class="options-list">
+        ${item.o.map((opt, i) =>
+          `<div class="option-item" onclick="handleSelect(${idx}, ${i}, this)">${opt}</div>`
+        ).join('')}
+      </div>
+
+      <div class="explanation-box" id="exp-${idx}">
+        <div style="font-weight:bold; color:#1e3a8a; font-size:0.8rem;">💡 ANALYSE</div>
+        <div>${item.e}</div>
+      </div>
+    `;
+
+    wrapper.appendChild(div);
+
+  });
+
+}
+
+
+
+/* =========================
+   GESTION RÉPONSE UTILISATEUR
+   ========================= */
+
+window.handleSelect = function(qIdx, oIdx, el) {
+
+  const options = document.querySelectorAll(`#q-${qIdx} .option-item`);
+
+  options.forEach(o => o.classList.remove("correct","wrong"));
+
+  userAnswers[qIdx] = oIdx;
+
+  const correct = examData[qIdx].a;
+
+  if (oIdx === correct) {
+
+    el.classList.add('correct');
+
+  } else {
+
+    el.classList.add('wrong');
+
+    options[correct].classList.add('correct');
+
+  }
+
+  document.getElementById(`exp-${qIdx}`).style.display = 'block';
+
+}
+
+
+
+/* =========================
+   NAVIGATION QUESTIONS
+   ========================= */
+
+window.move = function(dir) {
+
+  const containers = document.querySelectorAll('.question-container');
+
+  containers[current].classList.remove('active');
+
+  current += dir;
+
+  if (current >= examData.length) {
+
+    finish();
+
+    return;
+
+  }
+
+  containers[current].classList.add('active');
+
+  updateUI();
+
+}
+
+
+
+/* =========================
+   UI
+   ========================= */
+
+function updateUI() {
+
+  document.getElementById('counter').innerText =
+    `Question ${current + 1} / ${examData.length}`;
+
+  document.getElementById('prev-btn').disabled = current === 0;
+
+  document.getElementById('next-btn').innerText =
+    (current === examData.length - 1) ? "Terminer" : "Suivant";
+
+  document.getElementById('progress-fill-quiz').style.width =
+    `${((current + 1) / examData.length) * 100}%`;
+
+}
+
+
+
+/* =========================
+   FIN DU QUIZ
+   ========================= */
+
+function finish() {
+
+  document.getElementById('quiz-ui').style.display = 'none';
+
+  document.getElementById('final-screen').style.display = 'block';
+
+
+  let score = 0;
+
+  examData.forEach((q,i)=>{
+    if(userAnswers[i] === q.a) score++;
+  });
+
+  const pct = Math.round((score / examData.length) * 100);
+
+  document.getElementById('score-display').innerText = `${pct}%`;
+
+  document.getElementById('feedback-msg').innerText =
+    pct >= 70
+      ? "Félicitations ! Expert en métadonnées !"
+      : "Pas mal, encore un peu de révision sur l'ISO 19115.";
+
+}
+
+
+
+/* =========================
+   LANCEMENT
+   ========================= */
+
+shuffleQuizData();
+
+initQuiz();
+
+updateUI();
+</script>
+              
+
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../overrides/script.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

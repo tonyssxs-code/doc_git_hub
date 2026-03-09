@@ -98,6 +98,22 @@
                 <li class="toctree-l1"><a class="reference internal" href="../esri/">QCM ESRI</a>
                 </li>
               </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../juridique/">Revision Aspect juridiques</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="../qualite">QUALITE</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="../revision">REVISION</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="../standard">STANDARDS</a>
+                </li>
+              </ul>
       </div>
     </div>
     </nav>
@@ -263,64 +279,210 @@
         { q: "Dans INSPIRE, qu'est-ce que le 'moissonnage' ?", o: ["La vente de données", "La récolte automatique de métadonnées de portails distants", "La suppression de fichiers", "Le nettoyage de la base"], a: 1, e: "Le moissonnage permet de créer des catalogues nationaux sans ressaisie manuelle." }
     ];
 
-    let current = 0;
-    let score = 0;
-    const userAnswers = new Array(examData.length).fill(null);
+   let current = 0;
+const userAnswers = new Array(examData.length).fill(null);
 
-    function initQuiz() {
-        const wrapper = document.getElementById('questions-wrapper');
-        examData.forEach((item, idx) => {
-            const div = document.createElement('div');
-            div.className = `question-container ${idx === 0 ? 'active' : ''}`;
-            div.id = `q-${idx}`;
-            div.innerHTML = `
-                <div class="question-text">${idx + 1}. ${item.q}</div>
-                <div class="options-list">
-                    ${item.o.map((opt, i) => `<div class="option-item" onclick="handleSelect(${idx}, ${i}, this)">${opt}</div>`).join('')}
-                </div>
-                <div class="explanation-box" id="exp-${idx}">
-                    <div style="font-weight:bold; color:#1e3a8a; font-size:0.8rem;">💡 ANALYSE</div>
-                    <div id="exp-text-${idx}">${item.e}</div>
-                </div>
-            `;
-            wrapper.appendChild(div);
-        });
-    }
 
-    window.handleSelect = function(qIdx, oIdx, el) {
-        if (userAnswers[qIdx] !== null) return;
-        userAnswers[qIdx] = oIdx;
-        const options = document.querySelectorAll(`#q-${qIdx} .option-item`);
-        const correct = examData[qIdx].a;
-        if (oIdx === correct) { el.classList.add('correct'); score++; } 
-        else { el.classList.add('wrong'); options[correct].classList.add('correct'); }
-        document.getElementById(`exp-${qIdx}`).style.display = 'block';
-    }
 
-    window.move = function(dir) {
-        const containers = document.querySelectorAll('.question-container');
-        containers[current].classList.remove('active');
-        current += dir;
-        if (current >= examData.length) { finish(); } 
-        else { containers[current].classList.add('active'); updateUI(); }
-    }
+/* =========================
+   FONCTION MÉLANGE TABLEAU
+   ========================= */
 
-    function updateUI() {
-        document.getElementById('counter').innerText = `Question ${current + 1} / ${examData.length}`;
-        document.getElementById('prev-btn').disabled = current === 0;
-        document.getElementById('next-btn').innerText = (current === examData.length - 1) ? "Terminer" : "Suivant";
-        document.getElementById('progress-fill-quiz').style.width = `${((current + 1) / examData.length) * 100}%`;
-    }
+function shuffleArray(array) {
 
-    function finish() {
-        document.getElementById('quiz-ui').style.display = 'none';
-        document.getElementById('final-screen').style.display = 'block';
-        const pct = Math.round((score / examData.length) * 100);
-        document.getElementById('score-display').innerText = `${pct}%`;
-        document.getElementById('feedback-msg').innerText = pct >= 70 ? "Félicitations ! Expert en métadonnées !" : "Pas mal, encore un peu de révision sur l'ISO 19115.";
-    }
+  for (let i = array.length - 1; i > 0; i--) {
 
-    initQuiz();
+    const j = Math.floor(Math.random() * (i + 1));
+
+    [array[i], array[j]] = [array[j], array[i]];
+
+  }
+
+}
+
+
+
+/* =========================
+   MÉLANGE QUESTIONS + RÉPONSES
+   ========================= */
+
+function shuffleQuizData() {
+
+  examData.forEach(q => {
+
+    const correctText = q.o[q.a];
+
+    shuffleArray(q.o);
+
+    q.a = q.o.indexOf(correctText);
+
+  });
+
+  shuffleArray(examData);
+
+}
+
+
+
+/* =========================
+   INITIALISATION QUIZ
+   ========================= */
+
+function initQuiz() {
+
+  const wrapper = document.getElementById('questions-wrapper');
+
+  examData.forEach((item, idx) => {
+
+    const div = document.createElement('div');
+
+    div.className = `question-container ${idx === 0 ? 'active' : ''}`;
+
+    div.id = `q-${idx}`;
+
+    div.innerHTML = `
+      <div class="question-text">${idx + 1}. ${item.q}</div>
+
+      <div class="options-list">
+        ${item.o.map((opt, i) =>
+          `<div class="option-item" onclick="handleSelect(${idx}, ${i}, this)">${opt}</div>`
+        ).join('')}
+      </div>
+
+      <div class="explanation-box" id="exp-${idx}">
+        <div style="font-weight:bold; color:#1e3a8a; font-size:0.8rem;">💡 ANALYSE</div>
+        <div>${item.e}</div>
+      </div>
+    `;
+
+    wrapper.appendChild(div);
+
+  });
+
+}
+
+
+
+/* =========================
+   GESTION RÉPONSE UTILISATEUR
+   ========================= */
+
+window.handleSelect = function(qIdx, oIdx, el) {
+
+  const options = document.querySelectorAll(`#q-${qIdx} .option-item`);
+
+  options.forEach(o => o.classList.remove("correct","wrong"));
+
+  userAnswers[qIdx] = oIdx;
+
+  const correct = examData[qIdx].a;
+
+  if (oIdx === correct) {
+
+    el.classList.add('correct');
+
+  } else {
+
+    el.classList.add('wrong');
+
+    options[correct].classList.add('correct');
+
+  }
+
+  document.getElementById(`exp-${qIdx}`).style.display = 'block';
+
+}
+
+
+
+/* =========================
+   NAVIGATION QUESTIONS
+   ========================= */
+
+window.move = function(dir) {
+
+  const containers = document.querySelectorAll('.question-container');
+
+  containers[current].classList.remove('active');
+
+  current += dir;
+
+  if (current >= examData.length) {
+
+    finish();
+
+    return;
+
+  }
+
+  containers[current].classList.add('active');
+
+  updateUI();
+
+}
+
+
+
+/* =========================
+   UI
+   ========================= */
+
+function updateUI() {
+
+  document.getElementById('counter').innerText =
+    `Question ${current + 1} / ${examData.length}`;
+
+  document.getElementById('prev-btn').disabled = current === 0;
+
+  document.getElementById('next-btn').innerText =
+    (current === examData.length - 1) ? "Terminer" : "Suivant";
+
+  document.getElementById('progress-fill-quiz').style.width =
+    `${((current + 1) / examData.length) * 100}%`;
+
+}
+
+
+
+/* =========================
+   FIN DU QUIZ
+   ========================= */
+
+function finish() {
+
+  document.getElementById('quiz-ui').style.display = 'none';
+
+  document.getElementById('final-screen').style.display = 'block';
+
+
+  let score = 0;
+
+  examData.forEach((q,i)=>{
+    if(userAnswers[i] === q.a) score++;
+  });
+
+  const pct = Math.round((score / examData.length) * 100);
+
+  document.getElementById('score-display').innerText = `${pct}%`;
+
+  document.getElementById('feedback-msg').innerText =
+    pct >= 70
+      ? "Félicitations ! Expert en métadonnées !"
+      : "Pas mal, encore un peu de révision sur l'ISO 19115.";
+
+}
+
+
+
+/* =========================
+   LANCEMENT
+   ========================= */
+
+shuffleQuizData();
+
+initQuiz();
+
+updateUI();
 </script>
               
 

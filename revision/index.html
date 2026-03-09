@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Revision Qualité - Mon Portefeuille Géomatique</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../overrides/style.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Revision Qualit\u00e9";
+        var mkdocs_page_input_path = "revision.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Mon Portefeuille Géomatique
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">ACCEUIL</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../format/">FORMATS</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../gdal/">GDAL</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../metadonnee/">METADONNES</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../vrt/">VRT</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../source/">SOURCES</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../note/">INTEROPERABILITE</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../bash/">BASH</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../admin_BDD/">ADMIN BDD</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../esri/">QCM ESRI</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../juridique/">Revision Aspect juridiques</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="../qualite">QUALITE</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href=".">REVISION</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="../standard">STANDARDS</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Mon Portefeuille Géomatique</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Revision Qualité</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+<div class="progress-container"><div class="progress-bar" id="myBar"></div></div>
+
+                <h1 id="revision-qualite">Revision Qualité<a class="headerlink" href="#revision-qualite" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="qcm">QCM!<a class="headerlink" href="#qcm" title="Permanent link">&para;</a></h2>
+<div class="container-quiz">
+    <div id="quiz-ui">
+        <h1>Examen de Synthèse : Bloc A2</h1>
+        <div class="progress-bar-quiz"><div id="progress-fill-quiz"></div></div>
+        <div id="questions-wrapper"></div>
+        <div class="nav-footer">
+            <button id="prev-btn" onclick="move(-1)" disabled>Précédent</button>
+            <span id="counter" style="font-weight: 600; color: #64748b;">Question 1 / 50</span>
+            <button id="next-btn" onclick="move(1)">Suivant</button>
+        </div>
+    </div>
+
+    <div id="final-screen">
+        <h1>Résultats de l'évaluation</h1>
+        <div class="score-circle" id="score-display">0%</div>
+        <p id="feedback-msg" style="font-size: 1.1rem; margin-bottom: 30px;"></p>
+        <button onclick="location.reload()">Recommencer l'examen</button>
+    </div>
+</div>
+
+<style>
+    .container-quiz { max-width: 100%; margin: 20px auto; background: white; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0; }
+    #quiz-ui h1 { color: #1e3a8a; text-align: center; font-size: 1.5rem; border: none; }
+    .progress-bar-quiz { height: 8px; background: #e2e8f0; border-radius: 4px; margin-bottom: 30px; overflow: hidden; }
+    #progress-fill-quiz { height: 100%; background: #3b82f6; width: 2%; transition: width 0.3s; }
+    .question-container { display: none; }
+    .question-container.active { display: block; animation: fadeIn 0.4s; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    .question-text { font-size: 1.1rem; font-weight: 700; margin-bottom: 20px; color: #0f172a; }
+    .option-item { background: #fff; border: 2px solid #e2e8f0; margin-bottom: 10px; padding: 12px; border-radius: 8px; cursor: pointer; }
+    .option-item:hover { border-color: #3b82f6; background: #f0f7ff; }
+    .option-item.correct { border-color: #10b981; background: #ecfdf5; color: #065f46; font-weight: 600; }
+    .option-item.wrong { border-color: #ef4444; background: #fef2f2; color: #991b1b; }
+    .explanation-box { margin-top: 20px; padding: 15px; border-radius: 8px; background: #f1f5f9; border-left: 6px solid #3b82f6; display: none; }
+    .nav-footer { margin-top: 30px; display: flex; justify-content: space-between; align-items: center; }
+    #final-screen { display: none; text-align: center; }
+    .score-circle { width: 100px; height: 100px; border-radius: 50%; border: 5px solid #1e3a8a; margin: 20px auto; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 900; }
+</style>
+<script>
+    const examData = [
+  // --- BLOC 1 : DROIT DE LA DONNÉE & CADRE LÉGAL (1-35) ---
+  { q: "Selon l'article L100-3 du CRPA, une structure privée peut être une 'administration' si :", o: ["Elle a plus de 50 salariés", "Elle est chargée d'une mission de service public", "Elle vend des données à l'État", "Elle utilise des logiciels libres"], a: 1, e: "C'est la mission de service public qui définit l'administration au sens du CRPA." },
+  { q: "La loi 3DS (2022) impose l'adressage aux communes de moins de 2000 habitants avant le :", o: ["1er janvier 2024", "1er juin 2024", "1er janvier 2025", "31 décembre 2025"], a: 1, e: "Le décret d'août 2023 a fixé l'échéance au 1er juin 2024 pour les petites communes." },
+  { q: "Quel droit protège l'investissement substantiel du producteur d'une base de données ?", o: ["Le droit d'auteur", "Le droit moral", "Le droit sui generis", "Le secret industriel"], a: 2, e: "Le droit sui generis protège l'investissement financier, matériel ou humain." },
+  { q: "Une donnée est 'personnelle' selon le RGPD si elle permet d'identifier quelqu'un :", o: ["Uniquement par son nom", "Directement ou indirectement (ex: numéro de parcelle)", "Seulement si elle est publiée", "Uniquement via son adresse mail"], a: 1, e: "L'identification peut être indirecte via des identifiants croisés." },
+  { q: "Quelle est la durée de protection du droit moral de l'auteur ?", o: ["70 ans", "50 ans", "Perpétuel", "15 ans"], a: 2, e: "Le droit moral est perpétuel, inaliénable et imprescriptible." },
+  { q: "L'obligation de diffuser les données en 'standard ouvert' signifie :", o: ["Format PDF uniquement", "Format dont les spécifications sont publiques et sans restriction", "Format Excel", "Format Shapefile"], a: 1, e: "L'article L300-4 vise l'interopérabilité sans dépendance à un éditeur." },
+  { q: "Le délai de notification d'une violation de données à la CNIL est de :", o: ["24h", "48h", "72h", "1 semaine"], a: 2, e: "Le responsable dispose de 72 heures maximum après constatation." },
+  { q: "La licence ODbL impose la clause 'Share-Alike', soit :", o: ["La gratuité totale", "Le partage des données dérivées sous la même licence", "L'interdiction de modifier", "La citation du maire"], a: 1, e: "C'est une clause de réciprocité pour maintenir la donnée ouverte." },
+  { q: "La convention d'Aarhus (transposée dans le Code de l'env.) garantit l'accès :", o: ["Aux données bancaires", "Aux informations relatives à l'environnement", "Aux données militaires", "Aux données de santé"], a: 1, e: "Elle fonde le droit à l'information environnementale pour les citoyens." },
+  { q: "Le secret industriel et commercial permet à une entreprise de :", o: ["Ne pas payer d'impôts", "Refuser la communication de ses procédés de fabrication", "Cacher le nom de son dirigeant", "Interdire l'usage du GPS"], a: 1, e: "C'est une exception légale à la communication des documents administratifs." },
+  { q: "Une œuvre collective (ex: une base produite par une collectivité) appartient à :", o: ["L'agent qui l'a créée", "La personne morale sous le nom de laquelle elle est divulguée", "L'État", "Au public par défaut"], a: 1, e: "Les droits appartiennent à la structure (personne morale)." },
+  { q: "Quelle donnée est considérée comme 'sensible' (Art. 9 RGPD) ?", o: ["L'adresse IP", "L'origine raciale ou ethnique", "Le numéro de téléphone pro", "Le matricule d'un véhicule"], a: 1, e: "Ces données font l'objet d'une interdiction de traitement par principe." },
+  { q: "La Base d'Adresses Nationale (BAN) est devenue donnée de référence en :", o: ["2015", "2019", "2022", "2024"], a: 1, e: "Son rôle central a été officialisé en 2019." },
+  { q: "Le RGPD s'applique aux données des personnes :", o: ["Morales (entreprises)", "Physiques vivantes", "Décédées", "Uniquement de nationalité française"], a: 1, e: "Il protège les individus, pas les sociétés." },
+  { q: "La 'pseudonymisation' diffère de l'anonymisation car :", o: ["Elle est gratuite", "Elle est réversible", "Elle supprime tout", "Elle est obligatoire"], a: 1, e: "On peut encore réidentifier la personne via une table de correspondance." },
+  { q: "Peut-on refuser de donner une donnée car elle contient des erreurs ?", o: ["Oui, pour la sécurité", "Non, l'administration doit diffuser en l'état", "Seulement si c'est le cadastre", "Uniquement par décision du maire"], a: 1, e: "La qualité n'est pas un motif de refus de communication." },
+  { q: "L'AIPD (Analyse d'Impact) est nécessaire si le traitement est :", o: ["Trop volumineux", "Susceptible d'engendrer un risque élevé pour les droits et libertés", "Réalisé sur ArcGIS", "Public"], a: 1, e: "C'est une obligation du RGPD pour les traitements risqués." },
+  { q: "Qui est le point de contact officiel de la CNIL dans une collectivité ?", o: ["Le Maire", "Le DPD (Délégué à la Protection des Données)", "Le technicien SIG", "L'archiviste"], a: 1, e: "Le DPD (ou DPO) assure la conformité interne." },
+  { q: "Le droit 'patrimonial' d'un auteur dure jusqu'à :", o: ["Sa démission", "Sa mort", "70 ans après sa mort", "Perpétuellement"], a: 2, e: "Les ayants droit perçoivent les revenus pendant 70 ans." },
+  { q: "La licence Etalab 2.0 autorise la revente des données ?", o: ["Non", "Oui, sans redevance mais avec citation de la source", "Seulement par l'IGN", "Uniquement aux associations"], a: 1, e: "C'est une licence très libre favorisant la réutilisation commerciale." },
+  { q: "INSPIRE est une directive européenne pour :", o: ["Le commerce", "L'infrastructure d'information géographique environnementale", "Le transport aérien", "La santé"], a: 1, e: "Elle impose le partage et l'interopérabilité des données vertes." },
+  { q: "Un 'document administratif' peut être un code source informatique ?", o: ["Non", "Oui, selon le CRPA", "Seulement le HTML", "Uniquement si l'auteur est d'accord"], a: 1, e: "Le code source est considéré comme un document administratif réutilisable." },
+  { q: "La redevance pour réutilisation des données est désormais :", o: ["La règle", "L'exception (principe de gratuité par défaut)", "Interdite par la loi", "Fixée par le préfet"], a: 1, e: "La gratuité est devenue le principe général pour l'Open Data public." },
+  { q: "Une œuvre composite (en droit d'auteur) est :", o: ["Une œuvre faite par 100 personnes", "Une œuvre nouvelle intégrant une œuvre préexistante", "Une œuvre sans auteur", "Une musique de fond"], a: 1, e: "Exemple : une carte thématique basée sur un fond de plan IGN." },
+  { q: "Le principe de 'minimisation' du RGPD signifie :", o: ["Réduire la taille des fichiers", "Ne collecter que les données strictement nécessaires à la finalité", "Utiliser une petite police de caractères", "Supprimer les données tous les jours"], a: 1, e: "On ne doit pas collecter plus que ce dont on a besoin." },
+  { q: "Le droit sui generis sur une base dure :", o: ["70 ans", "15 ans (renouvelables en cas d'investissement)", "5 ans", "À vie"], a: 1, e: "C'est une protection plus courte que le droit d'auteur." },
+  { q: "La CADA est compétente pour :", o: ["Sanctionner les fuites de données", "Donner un avis sur le refus de communication d'un document", "Fixer le prix des licences", "Créer des cartes"], a: 1, e: "C'est la Commission d'Accès aux Documents Administratifs." },
+  { q: "Quelle clause est obligatoire dans un contrat de cession de droits ?", o: ["Le numéro de SIRET", "L'étendue, la destination, le lieu et la durée de la cession", "La marque de l'ordinateur utilisé", "Le nom du serveur"], a: 1, e: "Article L131-3 du CPI : le formalisme est strict." },
+  { q: "L'interopérabilité sémantique consiste à :", o: ["Utiliser le même logiciel", "S'accorder sur la signification des objets (dictionnaire de données)", "Avoir des câbles compatibles", "Traduire en anglais"], a: 1, e: "Il faut que le sens des données soit compris par tous les systèmes." },
+  { q: "Un traitement de données personnelles doit avoir :", o: ["Un gros budget", "Une finalité déterminée, explicite et légitime", "Plus de 1000 entrées", "Une interface web"], a: 1, e: "C'est un principe de base du RGPD." },
+  { q: "Le droit à l'effacement est aussi appelé :", o: ["Droit à l'oubli", "Droit au silence", "Droit de retrait", "Droit à l'image"], a: 0, e: "Une personne peut demander la suppression de ses données sous conditions." },
+  { q: "L'IGN a rendu ses données 'socles' gratuites en :", o: ["2010", "2015", "2021", "2024"], a: 2, e: "C'est le passage au modèle Open Data de l'IGN." },
+  { q: "Le transfert de données hors UE est :", o: ["Libre", "Interdit sauf garanties (décision d'adéquation, etc.)", "Autorisé uniquement vers les USA", "Payant"], a: 1, e: "Le RGPD encadre strictement la sortie des données hors zone protégée." },
+  { q: "Peut-on diffuser les données fiscales des citoyens ?", o: ["Oui, en Open Data", "Non, couvert par le secret fiscal", "Seulement si le citoyen est d'accord", "Uniquement en mairie"], a: 1, e: "Le secret fiscal est une limite majeure à la diffusion des données." },
+  { q: "La mention de la source est une contrepartie de la Licence Ouverte.", o: ["Vrai", "Faux", "Facultatif", "Seulement pour les images"], a: 0, e: "C'est l'obligation principale de l'utilisateur." },
+
+  // --- BLOC 2 : QUALITÉ DE LA DONNÉE (ISO 19157) (36-75) ---
+  { q: "Selon l'ISO 9000, la qualité est l'aptitude à :", o: ["Être le plus précis possible", "Satisfaire des besoins explicites ou implicites", "Coûter le moins cher", "Durer éternellement"], a: 1, e: "Elle se mesure par rapport à l'adéquation aux besoins." },
+  { q: "Le 'Terrain Nominal' (ou univers du discours) est :", o: ["Le sol réel", "La modélisation du monde selon les spécifications", "Un fichier SIG", "Le nom du projet"], a: 1, e: "C'est la vision théorique que l'on veut atteindre." },
+  { q: "L'omission est un sous-élément de quel critère ?", o: ["Cohérence logique", "Exhaustivité", "Précision sémantique", "Précision temporelle"], a: 1, e: "L'omission désigne l'absence d'entités requises." },
+  { q: "La présence d'un bâtiment en trop dans la base est un défaut :", o: ["De précision géométrique", "D'excès (Exhaustivité)", "De topologie", "De format"], a: 1, e: "L'excès est la présence d'entités non prévues par les specs." },
+  { q: "La cohérence topologique vérifie :", o: ["Le format du fichier", "Les relations spatiales (vides, chevauchements)", "La langue des attributs", "La date du lever"], a: 1, e: "Elle assure la structure spatiale correcte (ex: pas de trous entre parcelles)." },
+  { q: "Un attribut 'Date' au format MM/JJ au lieu de JJ/MM est une erreur de :", o: ["Cohérence conceptuelle", "Cohérence de format", "Cohérence de domaine", "Exactitude temporelle"], a: 1, e: "Cela concerne la structure physique de la donnée." },
+  { q: "La 'Cohérence de Domaine' vérifie si :", o: ["On est dans le bon pays", "La valeur appartient à une liste autorisée", "Le serveur est allumé", "Le format est .shp"], a: 1, e: "Ex : Vérifier qu'un code d'usage est bien dans le dictionnaire de données." },
+  { q: "La précision absolue mesure l'écart entre :", o: ["Deux objets de la base", "La position dans la base et la position vraie sur le terrain", "Deux logiciels", "Deux dates"], a: 1, e: "C'est la précision par rapport au système de coordonnées réelles." },
+  { q: "La précision relative mesure :", o: ["La position par rapport au GPS", "La position des objets les uns par rapport aux autres", "Le prix de la donnée", "L'âge de l'auteur"], a: 1, e: "Importante pour la cohérence de voisinage." },
+  { q: "L'ISO 19115 concerne quel domaine ?", o: ["La qualité", "Les métadonnées", "Les images", "Le SQL"], a: 1, e: "Elle cadre la description des catalogues de données." },
+  { q: "La généalogie dans les métadonnées décrit :", o: ["Les ancêtres du créateur", "Les sources et les étapes de transformation", "Le coût du projet", "La hiérarchie des dossiers"], a: 1, e: "Elle permet de comprendre comment la donnée a été produite." },
+  { q: "Dans l'ISO 19157:2023, l'utilisabilité a été :", o: ["Renforcée", "Supprimée car trop subjective", "Rendue obligatoire", "Fusionnée avec la géométrie"], a: 1, e: "L'utilisabilité n'est plus un critère quantitatif normé." },
+  { q: "La précision sémantique évalue l'exactitude :", o: ["De la position X,Y", "Des attributs et de la classification", "De la date", "Du format binaire"], a: 1, e: "Est-ce le bon nom ? La bonne catégorie ?" },
+  { q: "La résolution d'un raster est :", o: ["Son erreur de position", "La taille du pixel au sol", "Sa date de prise de vue", "Son nombre de couches"], a: 1, e: "Ex : une image à 20cm de résolution." },
+  { q: "Usuellement, la précision géométrique d'un raster est :", o: ["Égale à la résolution", "Le double de la résolution", "Dix fois la résolution", "Indépendante"], a: 1, e: "C'est une règle métier courante (incertitude de 2 pixels)." },
+  { q: "Une ortho-image est redressée à l'aide d'un :", o: ["Logiciel photo", "MNT (Modèle Numérique de Terrain)", "Scanner", "Cadastre"], a: 1, e: "Le MNT élimine les déformations dues au relief." },
+  { q: "L'arrêté de 2003 sur les classes de précision impose que le contrôle soit :", o: ["Fait par le même agent", "Réalisé avec un matériel au moins 2 fois plus précis", "Optionnel", "Fait uniquement sur papier"], a: 1, e: "Le contrôle doit être plus précis que la production." },
+  { q: "Quelle donnée est considérée de 'qualité inconnue' au sens strict ?", o: ["BD TOPO", "Le plan cadastral informatisé (PCI)", "L'orthophoto IGN", "La BAN"], a: 1, e: "Sa précision géométrique n'est pas documentée et varie selon les zones." },
+  { q: "Le 'Propos' dans les métadonnées indique :", o: ["Le prix", "L'intention et les raisons de la création de la donnée", "La liste des erreurs", "Le nom du serveur"], a: 1, e: "Il aide l'utilisateur à savoir si la donnée convient à son projet." },
+  { q: "Le critère 'Actualité' se documente par :", o: ["Une note de 1 à 10", "Une date ou une plage temporelle", "Le nom du rédacteur", "Le format de fichier"], a: 1, e: "Elle indique la validité temporelle de l'information." },
+  { q: "La précision de mesure temporelle vérifie :", o: ["Si l'heure est juste", "L'exactitude des attributs de temps par rapport au réel", "La vitesse du processeur", "L'âge du capitaine"], a: 1, e: "C'est l'un des sous-éléments de la précision temporelle." },
+  { q: "La 'Cohérence Conceptuelle' vérifie :", o: ["Le respect du schéma conceptuel (règles métier)", "Le format .shp", "La projection RGF93", "La couleur des routes"], a: 0, e: "Elle s'assure que les objets respectent les définitions du dictionnaire." },
+  { q: "Un contrôle 'exhaustif' signifie que l'on vérifie :", o: ["Seulement ce qui semble faux", "100% des objets du lot", "Un échantillon de 10%", "Rien du tout"], a: 1, e: "Contrairement au sondage, on regarde tout." },
+  { q: "Le plan cadastral est avant tout un outil :", o: ["Géométrique", "Fiscal", "Écologique", "Militaire"], a: 1, e: "D'où ses imprécisions géométriques chroniques." },
+  { q: "L'interopérabilité visée par l'ISO et INSPIRE permet :", o: ["De faire des économies", "L'échange de données entre systèmes hétérogènes", "De n'utiliser qu'un seul logiciel", "De supprimer les métadonnées"], a: 1, e: "C'est la capacité à travailler ensemble." },
+  { q: "Le standard 'RAEPA' a réussi grâce à :", o: ["Une loi", "Son adoption massive par copier/coller des specs par les praticiens", "Sa gratuité", "Sa couleur"], a: 1, e: "C'est un exemple de standard métier efficace." },
+  { q: "La précision temporelle inclut la 'Validité temporelle', soit :", o: ["La date de péremption", "La conformité des données aux aspects temporels réels", "Le temps de calcul", "La vitesse du vent"], a: 1, e: "Ex : les horaires de fermeture d'une route sont-ils corrects ?" },
+  { q: "Un levé topographique conforme à l'arrêté de 2003 doit spécifier :", o: ["La marque du GPS", "La classe de précision visée", "Le nom du stagiaire", "Le logiciel de dessin"], a: 1, e: "C'est la base du contrat entre donneur d'ordre et prestataire." },
+  { q: "La qualité selon l'ISO 19157 est une mesure :", o: ["Subjective", "Quantitative", "Esthétique", "Financière"], a: 1, e: "Elle repose sur des mesures d'erreurs réelles." },
+  { q: "Le contrôle qualité coûte environ quel pourcentage d'un chantier topographique ?", o: ["1%", "10%", "50%", "90%"], a: 1, e: "C'est un investissement significatif (souvent négligé)." },
+  { q: "L'ISO 19131 sert à rédiger quoi ?", o: ["Des métadonnées", "Des spécifications de produit", "Des factures", "Des rapports de bug"], a: 1, e: "Elle cadre ce que doit contenir un descriptif de données." },
+  { q: "Une erreur de 'classification' est une erreur :", o: ["Géométrique", "Sémantique", "Temporelle", "Logique"], a: 1, e: "On s'est trompé de type d'objet." },
+  { q: "Dans ArcGIS, les 'Domaines' servent à garantir :", o: ["La précision GPS", "La cohérence de domaine (valeurs autorisées)", "Le prix des licences", "Le nombre de couches"], a: 1, e: "Ils empêchent la saisie de valeurs hors liste." },
+  { q: "La 'Qualité Externe' est souvent définie par :", o: ["Le prix", "L'adéquation à un usage spécifique (utilisabilité)", "La marque du logiciel", "Le nombre de téléchargements"], a: 1, e: "C'est la vue du point de vue de l'utilisateur final." },
+  { q: "La 'Qualité Interne' mesure :", o: ["La satisfaction client", "La conformité aux spécifications de production", "Le moral des employés", "Le débit internet"], a: 1, e: "C'est la vue du point de vue du producteur." },
+  { q: "Un échantillonnage statistique (ISO 19157) permet :", o: ["D'avoir 100% de certitude", "D'estimer la qualité d'un grand lot par un petit contrôle", "De ne rien contrôler", "De supprimer les erreurs"], a: 1, e: "C'est une méthode de contrôle par sondage." },
+  { q: "La cohérence de format vérifie si le fichier est un .shp ou .gdb conforme.", o: ["Vrai", "Faux", "Seulement pour les images", "Uniquement sur Mac"], a: 0, e: "Elle vérifie la structure physique." },
+  { q: "Le dictionnaire de données est indispensable pour la cohérence :", o: ["Temporelle", "Sémantique et conceptuelle", "Géométrique", "Financière"], a: 1, e: "C'est le référentiel du sens des données." },
+  { q: "La précision géométrique d'une BD TOPO est de l'ordre de :", o: ["1 mm", "1 mètre", "10 mètres", "100 mètres"], a: 1, e: "Elle varie selon les thèmes mais vise la précision métrique." },
+  { q: "Le groupe de travail 'QuaDoGéo' (CNIG) travaille sur :", o: ["Le prix des cartes", "La qualification des données géographiques", "Le droit de vote", "Les satellites"], a: 1, e: "C'est la référence française sur la mise en pratique de l'ISO 19157." },
+
+  // --- BLOC 3 : LOGICIELS ESRI (ARCGIS) (76-100) ---
+  { q: "Quelle extension ArcGIS Pro sert à automatiser les contrôles qualité ?", o: ["3D Analyst", "ArcGIS Data Reviewer", "Network Analyst", "Business Analyst"], a: 1, e: "Data Reviewer permet de configurer des règles de contrôle auto." },
+  { q: "Dans ArcGIS Pro, qu'est-ce qu'une 'Attribute Rule' ?", o: ["Une règle de symbologie", "Un script Arcade pour valider ou calculer des données automatiquement", "Un type de licence", "Une icône"], a: 1, e: "Elle assure l'intégrité sémantique dès la saisie." },
+  { q: "La topologie dans une Geodatabase Esri permet de :", o: ["Changer les couleurs", "Identifier les superpositions ou les trous entre polygones", "Vendre des données", "Accélérer le PC"], a: 1, e: "C'est l'outil de base pour la cohérence topologique." },
+  { q: "Quel format est le plus riche pour la qualité des données chez Esri ?", o: ["Shapefile (.shp)", "File Geodatabase (.gdb)", "KML", "DXF"], a: 1, e: "La GDB gère les domaines, sous-types et topologies." },
+  { q: "Dans ArcGIS Online, un 'Crédit' est consommé par :", o: ["Le simple affichage d'un point", "Le stockage de couches d'entités ou les analyses spatiales", "Le renommage d'un projet", "L'installation du logiciel"], a: 1, e: "Le stockage et les services cloud sont payants en crédits." },
+  { q: "Arcade est un langage utilisé chez Esri pour :", o: ["Installer le serveur", "Calculer des expressions dynamiques et des étiquettes", "Pirater des bases de données", "Jouer à des jeux"], a: 1, e: "C'est le langage de script léger et transverse à la plateforme." },
+  { q: "Le 'Portal for ArcGIS' est le composant de :", o: ["ArcGIS Online", "ArcGIS Enterprise", "ArcMap", "QGIS"], a: 1, e: "C'est l'interface de gestion de contenu en mode on-premise." },
+  { q: "Un 'Sous-type' dans ArcGIS permet de :", o: ["Créer des dossiers", "Appliquer des domaines différents à une même couche selon une catégorie", "Augmenter la RAM", "Changer le fond de plan"], a: 1, e: "Très utile pour structurer finement une base de données." },
+  { q: "ArcGIS Data Reviewer peut stocker les erreurs dans une table dédiée.", o: ["Vrai", "Faux", "Seulement pour les lignes", "Uniquement sur ArcGIS Online"], a: 0, e: "Cela permet le suivi de la correction des défauts." },
+  { q: "Pour partager une donnée modifiable sur le web, on publie un :", o: ["Tile Service", "Feature Service", "Print Service", "WMS"], a: 1, e: "Le Feature Service autorise l'édition des géométries et attributs." },
+  { q: "La gestion des licences ArcGIS Pro se fait principalement via :", o: ["Un fichier texte", "Un portail ArcGIS Online ou Enterprise (licence nommée)", "Une clé USB", "Un coup de téléphone"], a: 1, e: "C'est le nouveau modèle de gestion des accès d'Esri." },
+  { q: "Un 'Domain' de type 'Coded Value' impose :", o: ["Une plage de chiffres", "Une liste de choix prédéfinis", "Une couleur", "Un mot de passe"], a: 1, e: "Il garantit que l'utilisateur ne saisit pas n'importe quoi." },
+  { q: "L'outil 'Check Geometry' sert à détecter :", o: ["Les fautes de frappe", "Les anomalies mathématiques des vecteurs (auto-intersections, etc.)", "Le relief", "La météo"], a: 1, e: "Il assure la validité géométrique logicielle." },
+  { q: "ArcGIS Online est une solution de type :", o: ["Logiciel de bureau", "SaaS (Software as a Service)", "Base de données SQL", "Système d'exploitation"], a: 1, e: "Tout est géré dans le cloud d'Esri." },
+  { q: "Peut-on faire du contrôle qualité ISO 19157 sans extension payante dans ArcGIS ?", o: ["Non, c'est impossible", "Oui, via des requêtes SQL et des topologies de base", "Seulement le dimanche", "Uniquement en Python"], a: 1, e: "On peut faire beaucoup manuellement, mais Data Reviewer automatise le tout." },
+  { q: "L'interopérabilité chez Esri passe notamment par le support des standards :", o: ["MP3", "OGC (WMS, WFS, WMTS)", "AVI", "DOCX"], a: 1, e: "Esri supporte les protocoles de l'Open Geospatial Consortium." },
+  { q: "Le 'Data Store' dans ArcGIS Enterprise sert à :", o: ["Stocker les photos des employés", "Héberger les données des services web", "Vendre des cartes", "Remplacer Excel"], a: 1, e: "C'est le composant de stockage des données hébergées." },
+  { q: "Un 'Web Map' Esri contient :", o: ["La donnée brute", "La configuration de la carte (couches, symbologie, pop-ups)", "Le logiciel ArcGIS Pro", "Un virus"], a: 1, e: "C'est le fichier de configuration JSON qui définit la carte en ligne." },
+  { q: "Les 'Vector Tiles' sont préférables aux 'Raster Tiles' pour :", o: ["Leur poids léger et leur haute résolution sur écran Retina", "Leur prix", "Leur couleur", "Leur format papier"], a: 0, e: "Elles sont beaucoup plus performantes et fluides." },
+  { q: "ArcGIS Pro remplace quel ancien logiciel ?", o: ["AutoCAD", "ArcMap", "Excel", "Paint"], a: 1, e: "ArcMap est en fin de vie au profit d'ArcGIS Pro." },
+  { q: "La règle de topologie 'Must Not Have Gaps' sert à :", o: ["Éviter les trous entre les polygones", "Vérifier les dates", "Calculer des surfaces", "Relier des points"], a: 0, e: "Indispensable pour un cadastre ou un zonage d'urbanisme." },
+  { q: "Un service 'Imagerie' (Image Service) est optimisé pour :", o: ["Le texte", "Les rasters lourds et les analyses multispectrales", "Le dessin de lignes", "Le chat"], a: 1, e: "Il gère les gros volumes de données pixels." },
+  { q: "Le 'Notebook' dans ArcGIS Pro permet d'utiliser quel langage ?", o: ["Java", "Python", "C++", "PHP"], a: 1, e: "Python est le langage roi pour l'automatisation SIG chez Esri." },
+  { q: "L'outil 'Project' (Projet) dans ArcGIS sert à :", o: ["Changer de dossier", "Changer le système de coordonnées d'une donnée", "Créer une mise en page", "Enregistrer son travail"], a: 1, e: "Il transforme les coordonnées d'un système à un autre." },
+  { q: "Qui définit les spécifications de qualité d'un projet SIG ?", o: ["L'ordinateur", "Le chef de projet (en fonction des besoins)", "Esri", "La police"], a: 1, e: "C'est l'humain qui définit le niveau d'exigence (Qualité = conformité aux specs)." }
+        ];
+    let current = 0;
+const userAnswers = new Array(examData.length).fill(null);
+
+
+
+/* =========================
+   FONCTION MÉLANGE TABLEAU
+   ========================= */
+
+function shuffleArray(array) {
+
+  for (let i = array.length - 1; i > 0; i--) {
+
+    const j = Math.floor(Math.random() * (i + 1));
+
+    [array[i], array[j]] = [array[j], array[i]];
+
+  }
+
+}
+
+
+
+/* =========================
+   MÉLANGE QUESTIONS + RÉPONSES
+   ========================= */
+
+function shuffleQuizData() {
+
+  examData.forEach(q => {
+
+    const correctText = q.o[q.a];
+
+    shuffleArray(q.o);
+
+    q.a = q.o.indexOf(correctText);
+
+  });
+
+  shuffleArray(examData);
+
+}
+
+
+
+/* =========================
+   INITIALISATION QUIZ
+   ========================= */
+
+function initQuiz() {
+
+  const wrapper = document.getElementById('questions-wrapper');
+
+  examData.forEach((item, idx) => {
+
+    const div = document.createElement('div');
+
+    div.className = `question-container ${idx === 0 ? 'active' : ''}`;
+
+    div.id = `q-${idx}`;
+
+    div.innerHTML = `
+      <div class="question-text">${idx + 1}. ${item.q}</div>
+
+      <div class="options-list">
+        ${item.o.map((opt, i) =>
+          `<div class="option-item" onclick="handleSelect(${idx}, ${i}, this)">${opt}</div>`
+        ).join('')}
+      </div>
+
+      <div class="explanation-box" id="exp-${idx}">
+        <div style="font-weight:bold; color:#1e3a8a; font-size:0.8rem;">💡 ANALYSE</div>
+        <div>${item.e}</div>
+      </div>
+    `;
+
+    wrapper.appendChild(div);
+
+  });
+
+}
+
+
+
+/* =========================
+   GESTION RÉPONSE UTILISATEUR
+   ========================= */
+
+window.handleSelect = function(qIdx, oIdx, el) {
+
+  const options = document.querySelectorAll(`#q-${qIdx} .option-item`);
+
+  options.forEach(o => o.classList.remove("correct","wrong"));
+
+  userAnswers[qIdx] = oIdx;
+
+  const correct = examData[qIdx].a;
+
+  if (oIdx === correct) {
+
+    el.classList.add('correct');
+
+  } else {
+
+    el.classList.add('wrong');
+
+    options[correct].classList.add('correct');
+
+  }
+
+  document.getElementById(`exp-${qIdx}`).style.display = 'block';
+
+}
+
+
+
+/* =========================
+   NAVIGATION QUESTIONS
+   ========================= */
+
+window.move = function(dir) {
+
+  const containers = document.querySelectorAll('.question-container');
+
+  containers[current].classList.remove('active');
+
+  current += dir;
+
+  if (current >= examData.length) {
+
+    finish();
+
+    return;
+
+  }
+
+  containers[current].classList.add('active');
+
+  updateUI();
+
+}
+
+
+
+/* =========================
+   UI
+   ========================= */
+
+function updateUI() {
+
+  document.getElementById('counter').innerText =
+    `Question ${current + 1} / ${examData.length}`;
+
+  document.getElementById('prev-btn').disabled = current === 0;
+
+  document.getElementById('next-btn').innerText =
+    (current === examData.length - 1) ? "Terminer" : "Suivant";
+
+  document.getElementById('progress-fill-quiz').style.width =
+    `${((current + 1) / examData.length) * 100}%`;
+
+}
+
+
+
+/* =========================
+   FIN DU QUIZ
+   ========================= */
+
+function finish() {
+
+  document.getElementById('quiz-ui').style.display = 'none';
+
+  document.getElementById('final-screen').style.display = 'block';
+
+
+  let score = 0;
+
+  examData.forEach((q,i)=>{
+    if(userAnswers[i] === q.a) score++;
+  });
+
+  const pct = Math.round((score / examData.length) * 100);
+
+  document.getElementById('score-display').innerText = `${pct}%`;
+
+  document.getElementById('feedback-msg').innerText =
+    pct >= 70
+      ? "Félicitations ! Expert en métadonnées !"
+      : "Pas mal, encore un peu de révision sur l'ISO 19115.";
+
+}
+
+
+
+/* =========================
+   LANCEMENT
+   ========================= */
+
+shuffleQuizData();
+
+initQuiz();
+
+updateUI();
+</script>
+              
+
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../overrides/script.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

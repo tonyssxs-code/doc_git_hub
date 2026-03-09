@@ -84,6 +84,22 @@
     </ul>
                 </li>
               </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../juridique/">Revision Aspect juridiques</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="../qualite">QUALITE</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="../revision">REVISION</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="../standard">STANDARDS</a>
+                </li>
+              </ul>
       </div>
     </div>
     </nav>
@@ -114,7 +130,7 @@
 <h2 id="qcm">QCM!<a class="headerlink" href="#qcm" title="Permanent link">&para;</a></h2>
 <div class="container-quiz">
     <div id="quiz-ui">
-        <h1>Examen de Synthèse : Métadonnées Géographiques</h1>
+        <h1>Examen de Synthèse : Formats ESRI</h1>
         <div class="progress-bar-quiz"><div id="progress-fill-quiz"></div></div>
         <div id="questions-wrapper"></div>
         <div class="nav-footer">
@@ -152,6 +168,181 @@
 </style>
 <script>
     const examData = [
+  { 
+    q: "Qui est le 'Super-utilisateur' du moteur de base de données (ex: compte 'postgres') ?", 
+    o: ["Le Chef de projet SIG", "L'Administrateur de Base de Données (DBA)", "L'utilisateur 'sde'", "Le technicien de saisie"], 
+    a: 1, 
+    e: "Le DBA gère l'instance entière, crée les bases physiques et installe les extensions comme PostGIS." 
+  },
+  { 
+    q: "Quelle action le DBA peut-il faire que l'administrateur GDB ne peut pas faire ?", 
+    o: ["Créer une classe d'entités", "Modifier la configuration mémoire du serveur SGBD", "Ajouter un domaine", "Réparer une géométrie"], 
+    a: 1, 
+    e: "Le DBA agit sur le contenant (serveur/instance), l'administrateur GDB agit sur le contenu (objets métiers)." 
+  },
+  { 
+    q: "Par convention chez ESRI, quel est le nom du compte propriétaire du référentiel de la géodatabase ?", 
+    o: ["admin", "root", "sde", "arcgis"], 
+    a: 2, 
+    e: "Le compte 'sde' possède les tables système indispensables au fonctionnement de la GDB." 
+  },
+  { 
+    q: "L'utilisateur 'sde' peut-il supprimer une table appartenant à un utilisateur métier nommé 'URBANISME' ?", 
+    o: ["Oui, il peut tout faire", "Non, par défaut seul le propriétaire ou le DBA peuvent supprimer l'objet", "Seulement si la table est vide", "Seulement le lundi"], 
+    a: 1, 
+    e: "Dans une GDB, le 'Droit de propriété' (Ownership) est strict. 'sde' administre la structure, pas forcément les données des autres." 
+  },
+  { 
+    q: "Quel est le rôle principal de l'Administrateur de Géodatabase ?", 
+    o: ["Changer les mots de passe Windows", "Mettre à jour le schéma système et compresser la base", "Dessiner des polygones", "Vendre des licences"], 
+    a: 1, 
+    e: "Son rôle est de maintenir l'intégrité et la performance du référentiel GDB." 
+  },
+  { 
+    q: "Un utilisateur 'LECTEUR' possède le droit SELECT. Que ne peut-il absolument PAS faire ?", 
+    o: ["Ouvrir la table attributaire", "Exporter les données en local", "Utiliser la commande 'Calculer un champ'", "Afficher la couche dans ArcGIS Pro"], 
+    a: 2, 
+    e: "Le calcul de champ nécessite le droit UPDATE (écriture), ce qu'un lecteur n'a pas." 
+  },
+  { 
+    q: "Comment appelle-t-on un utilisateur qui a le droit de créer ses propres tables dans la GDB ?", 
+    o: ["Un simple utilisateur", "Un Créateur de données (Data Creator)", "Un administrateur adjoint", "Un invité"], 
+    a: 1, 
+    e: "Le créateur possède les objets qu'il génère et peut donner des droits dessus aux autres." 
+  },
+  { 
+    q: "Si l'utilisateur 'GEO_BASE' crée une table, qui peut lui retirer son droit de suppression sur cette même table ?", 
+    o: ["L'administrateur GDB", "Le DBA (via des droits SGBD)", "Personne", "Le logiciel ArcGIS"], 
+    a: 1, 
+    e: "Le DBA a les pleins pouvoirs sur le SGBD et peut techniquement tout outrepasser." 
+  },
+  { 
+    q: "Un utilisateur 'EDITEUR' peut-il modifier la structure (ajouter un champ) d'une table qu'il ne possède pas ?", 
+    o: ["Oui, s'il a le droit de modification", "Non, il faut être propriétaire (Owner) pour modifier le schéma d'une table", "Seulement s'il connaît le mot de passe", "Oui, s'il utilise ArcGIS Pro"], 
+    a: 1, 
+    e: "L'édition (données) et la modification de schéma (structure) sont deux niveaux de droits différents." 
+  },
+  { 
+    q: "À quoi servent les 'Rôles de base de données' ?", 
+    o: ["À jouer une pièce de théâtre", "À regrouper des privilèges pour les affecter à plusieurs utilisateurs d'un coup", "À définir la couleur des icônes", "À limiter le temps de connexion"], 
+    a: 1, 
+    e: "On crée un rôle 'SIGNATAIRE' avec certains droits, puis on y ajoute les utilisateurs concernés." 
+  },
+  { 
+    q: "Le compte 'sde' doit-il être utilisé pour la saisie quotidienne des données ?", 
+    o: ["Oui, c'est plus simple", "Non, c'est une faille de sécurité majeure et une mauvaise pratique", "Seulement si on est pressé", "Oui, pour éviter les erreurs de droits"], 
+    a: 1, 
+    e: "Le compte admin ne doit servir qu'aux tâches de maintenance (compression, mise à jour de schéma)." 
+  },
+  { 
+    q: "Qui est responsable de la création des comptes utilisateurs dans PostgreSQL ?", 
+    o: ["L'administrateur GDB", "Le DBA", "L'utilisateur final lui-même", "Microsoft"], 
+    a: 1, 
+    e: "C'est une tâche système SGBD qui incombe au DBA (ou à l'admin GDB s'il a les droits 'Create User')." 
+  },
+  { 
+    q: "Un utilisateur possède le droit 'INSERT' mais pas 'DELETE'. Que peut-il faire ?", 
+    o: ["Ajouter des points mais pas les supprimer", "Supprimer des points mais pas en ajouter", "Tout modifier", "Rien"], 
+    a: 0, 
+    e: "Les droits sont granulaires. On peut autoriser l'ajout sans autoriser la suppression." 
+  },
+  { 
+    q: "Que signifie le privilège 'GRANT' ?", 
+    o: ["Le nom d'un utilisateur", "Le droit de donner ses propres privilèges à un autre utilisateur", "Un type de donnée spatiale", "Une erreur système"], 
+    a: 1, 
+    e: "Si j'ai le droit de 'Grant', je peux déléguer mes droits à mes collègues." 
+  },
+  { 
+    q: "Pourquoi le Chef de Projet doit-il éviter de donner les droits 'DBA' aux techniciens ?", 
+    o: ["Pour garder le pouvoir", "Pour éviter les suppressions accidentelles de bases entières ou de tables système", "Parce que c'est payant", "Pour limiter la vitesse du réseau"], 
+    a: 1, 
+    e: "La sécurité et la stabilité de la base dépendent de la restriction des droits critiques." 
+  },
+  { 
+    q: "L'administrateur GDB peut-il voir les mots de passe des utilisateurs dans PostgreSQL ?", 
+    o: ["Oui", "Non, ils sont chiffrés et illisibles", "Seulement s'il utilise pgAdmin", "Seulement s'il connaît le nom de l'utilisateur"], 
+    a: 1, 
+    e: "Les mots de passe sont hachés dans les tables système du SGBD." 
+  },
+  { 
+    q: "Quel rôle est indispensable pour effectuer une 'Compression' de la géodatabase ?", 
+    o: ["L'utilisateur Lecteur", "L'administrateur de géodatabase (compte sde)", "Le créateur de la table", "Le support technique"], 
+    a: 1, 
+    e: "La compression est une tâche de maintenance réservée à l'administrateur de la GDB." 
+  },
+  { 
+    q: "Un utilisateur 'PUBLIC' dans PostgreSQL représente quoi ?", 
+    o: ["L'État", "Tous les utilisateurs de la base par défaut", "Les utilisateurs externes", "Un compte de test"], 
+    a: 1, 
+    e: "Donner un droit à 'PUBLIC' revient à le donner à tout le monde." 
+  },
+  { 
+    q: "Peut-on empêcher un utilisateur de voir une table spécifique ?", 
+    o: ["Non, tout est visible", "Oui, en ne lui accordant pas le privilège SELECT sur cette table", "Seulement en supprimant la table", "Seulement en changeant le nom"], 
+    a: 1, 
+    e: "La visibilité est la base de la sécurité des données." 
+  },
+  { 
+    q: "Qui peut 'Enregistrer en tant que version' une classe d'entités ?", 
+    o: ["Le Lecteur", "Le propriétaire de la table ou l'administrateur GDB", "Le DBA uniquement", "N'importe qui"], 
+    a: 1, 
+    e: "L'enregistrement dans le référentiel GDB nécessite des droits élevés sur l'objet." 
+  },
+  { 
+    q: "Qu'est-ce qu'un 'Utilisateur de base de données' (Database User) ?", 
+    o: ["Une personne physique", "Un identifiant de connexion authentifié par le SGBD", "Un logiciel", "Un ordinateur"], 
+    a: 1, 
+    e: "C'est l'entité logique qui se connecte via le fichier .sde." 
+  },
+  { 
+    q: "L'administrateur GDB peut-il créer des index spatiaux ?", 
+    o: ["Oui", "Non, seul le propriétaire de la table peut le faire", "Oui, mais uniquement sur ses propres tables", "Seulement le premier jour"], 
+    a: 1, 
+    e: "Généralement, la gestion des index est réservée au propriétaire (owner) de la donnée." 
+  },
+  { 
+    q: "Un utilisateur peut-il appartenir à plusieurs rôles à la fois ?", 
+    o: ["Non", "Oui, et il cumule les privilèges de chaque rôle", "Oui, mais il perd ses droits individuels", "Seulement sur Oracle"], 
+    a: 1, 
+    e: "Le cumul de rôles permet une gestion flexible (ex: Rôle 'Cadastre' + Rôle 'Edition')." 
+  },
+  { 
+    q: "Que se passe-t-il si un utilisateur essaie de faire une action non autorisée (ex: Delete sans droit) ?", 
+    o: ["Le PC redémarre", "ArcGIS affiche un message d'erreur 'Privilèges insuffisants' renvoyé par le SGBD", "L'action est faite mais pas enregistrée", "Rien du tout"], 
+    a: 1, 
+    e: "C'est le SGBD qui bloque l'action et renvoie l'erreur au client ArcGIS." 
+  },
+  { 
+    q: "Quel compte est utilisé pour mettre à jour la licence d'une GDB entreprise ?", 
+    o: ["N'importe quel éditeur", "L'administrateur de géodatabase (sde)", "Le DBA", "L'utilisateur 'guest'"], 
+    a: 1, 
+    e: "La mise à jour du fichier keycodes dans la base est une tâche d'administration GDB." 
+  },
+  { q: "Un propriétaire de table peut-il supprimer sa propre table ?", o: ["Non, il faut l'accord de sde", "Oui, il a tout pouvoir sur son objet", "Seulement s'il a une licence Advanced", "Non, c'est définitif"], a: 1, e: "L'owner possède le droit DROP sur ses objets." },
+  { q: "Comment s'appelle l'outil pour donner des droits dans ArcGIS Pro ?", o: ["Gestionnaire de tâches", "Privilèges (Privileges)", "Propriétés de la carte", "Analyse spatiale"], a: 1, e: "Le clic droit sur une table dans le catalogue permet d'accéder au menu 'Gérer les privilèges'." },
+  { q: "L'administrateur GDB peut-il déconnecter un utilisateur actif ?", o: ["Non", "Oui, pour effectuer une maintenance (compression)", "Seulement si l'utilisateur est d'accord", "Seulement via la prise électrique"], a: 1, e: "ArcGIS Pro propose un outil pour voir et couper les verrous/connexions." },
+  { q: "Quel est le risque de partager un compte générique (ex: 'user1') entre 10 personnes ?", o: ["Le logiciel va planter", "Perte de la traçabilité (on ne sait plus qui a modifié quoi)", "La base sera plus lente", "C'est interdit par le SGBD"], a: 1, e: "Pour l'audit et l'archivage, des comptes individuels sont préférables." },
+  { q: "Que signifie 'Schéma sde' ?", o: ["Un plan de métro", "Le conteneur des tables et procédures système ESRI", "Un type de raster", "Le nom du serveur"], a: 1, e: "C'est le 'cœur' logiciel de la géodatabase dans la base SQL." },
+  { q: "Un utilisateur peut-il changer son propre mot de passe dans ArcGIS ?", o: ["Oui, via les paramètres de connexion", "Non, il faut appeler le DBA", "Seulement si le mot de passe est expiré", "Seulement sur SQL Server"], a: 1, e: "La plupart des SGBD permettent à l'utilisateur de modifier ses identifiants." },
+  { q: "Quel rôle peut créer des 'Domaines' ?", o: ["Le lecteur", "L'administrateur GDB ou le propriétaire de la table qui va l'utiliser", "Uniquement le DBA", "Le support ESRI"], a: 1, e: "La création de domaine modifie le schéma de la GDB." },
+  { q: "Le DBA doit-il connaître le métier des géomaticiens ?", o: ["Non, pas du tout", "Oui, pour optimiser les index et le stockage en fonction des usages réels", "Seulement pour les couleurs", "Oui, pour dessiner les cartes"], a: 1, e: "La collaboration DBA/Chef de Projet SIG est la clé d'un système performant." },
+  { q: "Qu'est-ce que l'authentification Windows (OS) ?", o: ["Se connecter avec son compte de session Windows sans retaper de mot de passe", "Une sécurité plus faible", "Une connexion via internet", "Un type de fichier"], a: 0, e: "Le SGBD fait confiance à l'identité fournie par l'Active Directory (ou Windows)." },
+  { q: "Qu'est-ce que l'authentification par le SGBD ?", o: ["Utiliser un login/pass créé spécifiquement dans PostgreSQL", "Ne pas avoir de mot de passe", "Utiliser sa carte d'identité", "Une connexion anonyme"], a: 0, e: "C'est la méthode la plus courante pour les GDB multi-plateformes." },
+  { q: "L'administrateur GDB peut-il supprimer le compte 'sde' ?", o: ["Oui", "Non, la GDB cesserait de fonctionner car elle perdrait son propriétaire", "Seulement s'il le recrée après", "Seulement avec une clé USB"], a: 1, e: "Le compte propriétaire du référentiel est intouchable." },
+  { q: "Un utilisateur avec droit 'UPDATE' peut-il supprimer une ligne entière ?", o: ["Oui", "Non, il lui faut le droit DELETE", "Seulement si la ligne est vide", "Seulement s'il l'a créée lui-même"], a: 1, e: "UPDATE permet de modifier la valeur d'une case, DELETE permet de supprimer la ligne." },
+  { q: "Qui définit les quotas de stockage (taille maximale de la base) ?", o: ["L'administrateur GDB", "Le DBA au niveau du système de fichiers ou du SGBD", "Le Chef de Projet SIG", "Le fournisseur d'électricité"], a: 1, e: "Le contrôle des ressources matérielles appartient au DBA." },
+  { q: "Peut-on donner des droits sur une vue sans donner de droits sur la table source ?", o: ["Non", "Oui, c'est un excellent moyen de sécuriser les données (masquage de colonnes)", "Seulement sur Oracle", "Seulement si la vue est spatiale"], a: 1, e: "La vue agit comme un filtre sécurisé." },
+  { q: "Que se passe-t-il si l'administrateur GDB oublie son mot de passe ?", o: ["La base est perdue", "Le DBA peut le réinitialiser via le SGBD", "Il faut appeler ESRI aux USA", "Rien, il suffit d'attendre"], a: 1, e: "Le DBA a toujours un accès 'backdoor' pour la maintenance des comptes." },
+  { q: "Un utilisateur 'Éditeur' peut-il créer une nouvelle classe d'entités ?", o: ["Oui, par définition", "Non, sauf s'il possède spécifiquement le privilège 'Create Table'", "Seulement s'il a fini son travail", "Seulement dans une GDB fichier"], a: 1, e: "Le droit d'éditer (données existantes) et le droit de créer (nouveaux objets) sont distincts." },
+  { q: "Quel compte possède le droit de 'Réconcilier' deux versions ?", o: ["L'utilisateur qui possède la version ou l'admin GDB", "Le DBA uniquement", "N'importe quel lecteur", "Personne"], a: 0, e: "La gestion des versions appartient à celui qui les a créées ou à l'admin global." },
+  { q: "Le compte 'sde' peut-il être un compte Windows ?", o: ["Non, obligatoirement SGBD", "Oui, c'est possible selon la configuration", "Seulement sur Linux", "Seulement si on n'a pas de mot de passe"], a: 1, e: "L'authentification peut être mixte ou OS pour sde." },
+  { q: "Que contient la table GDB_UserMetadata ?", o: ["Les photos des employés", "Des métadonnées spécifiques liées aux utilisateurs", "Les adresses e-mail", "Rien"], a: 1, e: "C'est une table système pour la gestion interne." },
+  { q: "Pourquoi limiter le nombre d'administrateurs GDB ?", o: ["Pour ne pas partager les bureaux", "Pour éviter les conflits de maintenance et assurer la responsabilité des actions", "Parce que les licences sont chères", "Pour accélérer la base"], a: 1, e: "Une gouvernance claire évite les erreurs critiques." },
+  { q: "L'administrateur de géodatabase doit-il être un expert SQL ?", o: ["Non, jamais", "Il est fortement recommandé d'avoir des bases pour comprendre les blocages et les performances", "Oui, il doit coder le SGBD", "Seulement s'il utilise Excel"], a: 1, e: "La double compétence SIG/SQL est le profil idéal du Chef de Projet." },
+  { q: "Peut-on automatiser la création des comptes ?", o: ["Non", "Oui, via des scripts Python (ArcPy) ou SQL", "Seulement avec un robot", "Seulement le premier de l'an"], a: 1, e: "L'automatisation réduit les erreurs humaines de saisie." },
+  { q: "Que faire si un utilisateur quitte l'organisation ?", o: ["Supprimer ses tables immédiatement", "Désactiver son compte ou transférer la propriété de ses tables à un autre utilisateur", "Laisser le compte tel quel", "Changer le nom de la base"], a: 1, e: "La gestion du cycle de vie des comptes est une tâche de sécurité." },
+  { q: "Un utilisateur sans aucun droit peut-il voir le nom des tables ?", o: ["Non", "Oui, selon la configuration du SGBD (catalogue)", "Seulement s'il a ArcGIS Pro", "Seulement s'il est administrateur"], a: 1, e: "Souvent, la liste des tables est visible, mais le contenu reste inaccessible." },
+  { q: "Quel est le but final de cette gestion des comptes ?", o: ["Compliquer la vie des gens", "Garantir que la bonne donnée est modifiée par la bonne personne en toute sécurité", "Vendre plus de serveurs", "Rendre le SIG plus joli"], a: 1, e: "C'est la définition même de la gouvernance des données." },
   { 
     q: "Quelle est la définition d'une géodatabase selon l'écosystème ESRI ?", 
     o: ["Un logiciel de dessin assisté par ordinateur", "Une collection de jeux de données géographiques stockés dans un dossier ou un SGBDR", "Un serveur web dédié à l'affichage de cartes", "Un format de compression d'images satellites"], 
@@ -752,6 +943,56 @@
     a: 0, 
     e: "C'est le terme standard pour désigner les moteurs comme PostgreSQL, SQL Server ou Oracle." 
   },
+  { q: "Dans PostgreSQL, que permet d'ajouter la cartouche spatiale PostGIS ?", o: ["Une interface graphique colorée", "Le support des types de données et fonctions spatiales (géométries)", "La possibilité d'imprimer en PDF", "Un antivirus intégré"], a: 1, e: "PostGIS transforme un SGBDR classique en SGBD spatial." },
+  { q: "Quelle manipulation sur le dossier 'lib' de PostgreSQL est requise pour ArcGIS ?", o: ["Le vider entièrement", "Y copier les librairies ST_GEOMETRY compatibles", "Le renommer en 'lib_old'", "Le compresser en .zip"], a: 1, e: "Le déploiement des DLL ou fichiers .so de ST_GEOMETRY dans le dossier lib est crucial pour l'interopérabilité." },
+  { q: "Lors de la création d'une GDB entreprise, à quoi sert le compte 'sde' ?", o: ["C'est le compte de l'utilisateur final", "C'est généralement le compte propriétaire des tables système de la géodatabase", "C'est un compte invité", "C'est le compte du support technique ESRI"], a: 1, e: "L'utilisateur 'sde' est par convention l'administrateur de la géodatabase." },
+  { q: "Peut-on stocker des tables non-spatiales dans une géodatabase d'entreprise ?", o: ["Non, uniquement du spatial", "Oui, et elles bénéficient de la gestion de la GDB si elles sont enregistrées", "Seulement si elles font moins de 1 Mo", "Seulement le premier jour"], a: 1, e: "Une GDB peut contenir des tables alphanumériques classiques." },
+  { q: "Quelle est la règle de compatibilité des versions de client et de géodatabase ?", o: ["Il n'y a aucune règle", "Les règles de compatibilité s'appliquent dès que la base contient des tables système de GDB", "Le client doit toujours être plus ancien que la base", "La base doit être mise à jour tous les matins"], a: 1, e: "ArcGIS vérifie la version des tables système pour autoriser la connexion." },
+  { q: "Dans PostgreSQL, quel outil permet de créer la base de données physique avant d'y injecter la GDB ?", o: ["ArcGIS Pro", "pgAdmin ou SQL Shell (psql)", "Windows Explorer", "Excel"], a: 1, e: "La base de données hôte est créée avec les outils natifs de PostgreSQL." },
+  { q: "Comment ArcGIS Pro identifie-t-il une base de données comme étant une 'géodatabase' ?", o: ["Par le nom de la base", "Par la présence des tables GDB_Items et consort", "Par la couleur de l'icône", "Par la présence d'un fichier .jpg"], a: 1, e: "C'est le schéma système (le référentiel) qui définit la GDB." },
+  { q: "Peut-on connecter ArcGIS Pro à une base PostgreSQL sans que ce soit une géodatabase ?", o: ["Non", "Oui, mais uniquement en lecture seule ou via SQL pour les données simples", "Seulement si PostGIS est désinstallé", "Seulement via un câble USB"], a: 1, e: "On peut se connecter à des bases de données simples, mais sans les fonctionnalités avancées de la GDB." },
+  { q: "Que se passe-t-il si la version de PostgreSQL n'est pas supportée par votre version d'ArcGIS ?", o: ["La base explose", "La connexion échouera ou sera instable", "Le logiciel passera en anglais", "Rien du tout"], a: 1, e: "La matrice de compatibilité ESRI/SGBD doit être scrupuleusement respectée." },
+  { q: "À quoi sert l'outil de géotraitement 'Créer une géodatabase d'entreprise' ?", o: ["À dessiner des cartes", "À injecter le schéma système (référentiel) dans une base SQL existante", "À installer PostgreSQL sur l'ordinateur", "À envoyer un e-mail au DBA"], a: 1, e: "Cet outil crée les tables système nécessaires au fonctionnement de la GDB." },
+  { q: "Quel port est utilisé par défaut pour se connecter à PostgreSQL ?", o: ["80", "5432", "1521", "3306"], a: 1, e: "5432 est le port standard de PostgreSQL (mentionné indirectement via les procédures de connexion)." },
+  { q: "Dans une GDB multi-utilisateur, que permet le 'traducteur' ?", o: ["De traduire le SIG en 50 langues", "De convertir les actions graphiques en requêtes SQL performantes", "De traduire les adresses en coordonnées", "De changer le format des images"], a: 1, e: "Le traducteur fait le pont entre le clic utilisateur et la requête SQL." },
+  { q: "Quelle est l'utilité des 'Vues de bases de données' (Database Views) ?", o: ["C'est pour regarder la base en 3D", "Présenter des données filtrées ou jointes comme une table unique", "Supprimer les données inutiles", "Changer le mot de passe"], a: 1, e: "Les vues simplifient l'accès aux données complexes pour l'utilisateur final." },
+  { q: "Qu'est-ce qu'une 'Couche de requête' ?", o: ["Une couche de peinture", "Une couche dont la source est une requête SQL définie dans ArcGIS Pro", "Une couche qui demande l'autorisation avant de s'afficher", "Un format de fichier .txt"], a: 1, e: "Elle permet d'afficher dynamiquement le résultat d'un SQL complexe." },
+  { q: "Où sont stockées les métadonnées dans une géodatabase entreprise ?", o: ["Dans un dossier sur le bureau", "Dans les tables système (souvent GDB_Items ou tables XML)", "Sur le site internet d'ESRI", "Elles ne sont pas stockées"], a: 1, e: "Le référentiel stocke les structures et les métadonnées associées." },
+  { q: "Peut-on faire une jointure entre deux tables de deux bases PostgreSQL différentes ?", o: ["Non", "Oui, via des mécanismes comme les vues ou les couches de requêtes spécifiques", "Seulement avec une clé USB", "Seulement en format papier"], a: 1, e: "Les outils ArcGIS permettent d'associer des données de sources disparates." },
+  { q: "Quel est l'intérêt du type de stockage spatial 'natif' du SGBD ?", o: ["Il est plus joli", "Il permet d'utiliser les fonctions spatiales SQL standard (ex: ST_Intersects)", "Il prend plus de place", "Il est moins sécurisé"], a: 1, e: "Le stockage natif permet aux outils tiers et au SQL d'interagir avec la géométrie." },
+  { q: "Quelle est la limite de stockage d'une GDB d'entreprise ?", o: ["10 Go", "2 To", "Illimitée (limitée uniquement par le SGBD et le matériel)", "256 To"], a: 2, e: "Contrairement aux GDB fichiers ou mobiles, les GDB d'entreprise n'ont pas de limite logicielle fixe." },
+  { q: "Combien d'utilisateurs peuvent éditer simultanément une GDB d'entreprise ?", o: ["Un seul", "Dix au maximum", "Un grand nombre (grâce au versionnement)", "Zéro"], a: 2, e: "C'est l'un des piliers des GDB multi-utilisateurs." },
+  { q: "Que signifie 'Transactions longues' ?", o: ["Des ventes qui durent longtemps", "Des sessions de mise à jour s'étendant sur plusieurs jours sans verrouiller les autres utilisateurs", "Une connexion internet lente", "Le temps de chargement d'une carte"], a: 1, e: "Le versionnement permet de travailler longtemps sur des données sans bloquer la base." },
+  { q: "Quelle extension est nécessaire pour les 'Réseaux de transport' ?", o: ["3D Analyst", "Network Analyst", "Spatial Analyst", "Aeronautical Analyst"], a: 1, e: "Network Analyst est l'extension dédiée aux calculs d'itinéraires et réseaux." },
+  { q: "Peut-on stocker des scripts Python dans une GDB ?", o: ["Non", "Oui, au sein de boîtes à outils de géotraitement stockées dans la GDB", "Seulement si le script fait moins de 10 lignes", "Seulement sur Mac"], a: 1, e: "Les GDB (sauf mobiles) peuvent contenir des Toolboxes (boîtes à outils)." },
+  { q: "Quel type de champ est idéal pour stocker l'historique d'une modification ?", o: ["Texte", "Date", "Entier", "BLOB"], a: 1, e: "Le champ Date est essentiel pour le suivi temporel et l'archivage." },
+  { q: "Que contient le fichier 'keycodes' ?", o: ["Les mots de passe des utilisateurs", "La licence d'activation pour ArcGIS Server/GDB entreprise", "Le code source du logiciel", "Une liste d'adresses IP"], a: 1, e: "C'est le fichier qui prouve au SGBD que vous avez le droit de créer une GDB entreprise." },
+  { q: "Dans PostgreSQL, que fait la commande 'CREATE EXTENSION postgis;' ?", o: ["Elle crée une nouvelle carte", "Elle active les fonctionnalités spatiales dans la base courante", "Elle ferme la base", "Elle installe ArcGIS Pro"], a: 1, e: "C'est la commande SQL pour activer PostGIS." },
+  { q: "Que se passe-t-il si vous déplacez manuellement un fichier du dossier .gdb ?", o: ["La GDB devient plus rapide", "Vous risquez de corrompre définitivement la géodatabase", "Windows vous félicite", "Rien"], a: 1, e: "L'intégrité de la GDB fichier repose sur l'ensemble de ses fichiers internes." },
+  { q: "Qu'est-ce qu'un 'Jeu de données thématique' ?", o: ["Un livre de géographie", "Un Feature Dataset regroupant des classes ayant un lien (ex: Réseau Eau)", "Une image satellite", "Un type de couleur"], a: 1, e: "Il organise les données par thème métier." },
+  { q: "Le format SQLite est utilisé par quel type de GDB ?", o: ["Fichier", "Entreprise", "Mobile", "Personnelle"], a: 2, e: "La GDB mobile est un fichier SQLite unique." },
+  { q: "Quelle est la taille maximale d'un nom de champ dans une GDB (généralement) ?", o: ["10 caractères", "31 à 64 selon le SGBD", "Illimitée", "5 caractères"], a: 1, e: "Les limites dépendent du SGBDR sous-jacent (ex: 63 pour PostgreSQL)." },
+  { q: "Pourquoi compresse-t-on une géodatabase d'entreprise ?", o: ["Pour gagner de la place", "Pour fusionner les tables de modification (A et D) avec la table de base et améliorer les performances", "Pour la mettre dans un mail", "Pour changer le mot de passe"], a: 1, e: "La compression en versionnement nettoie les états inutiles et réduit la taille des tables." },
+  { q: "À quoi sert la 'Maintenance des statistiques' ?", o: ["À savoir combien de personnes utilisent le SIG", "À aider l'optimiseur du SGBD à choisir le chemin le plus rapide pour les requêtes", "À calculer la moyenne des altitudes", "À faire des graphiques"], a: 1, e: "Les statistiques à jour permettent au moteur SQL d'être performant." },
+  { q: "Quel privilège permet uniquement de voir les données sans les modifier ?", o: ["SELECT", "UPDATE", "DELETE", "INSERT"], a: 0, e: "SELECT est le privilège de lecture seule." },
+  { q: "Quel privilège permet d'ajouter de nouvelles entités ?", o: ["SELECT", "INSERT", "DROP", "ALTER"], a: 1, e: "INSERT permet la création de nouveaux enregistrements." },
+  { q: "Que signifie 'Droit de propriété' (Ownership) sur une table ?", o: ["L'utilisateur qui a créé la table peut la modifier ou la supprimer", "L'utilisateur peut prêter sa table", "La table appartient à ESRI", "La table est publique"], a: 0, e: "Le propriétaire (owner) possède tous les droits sur l'objet créé." },
+  { q: "Comment retirer un droit à un utilisateur en SQL ?", o: ["GIVE", "REVOKE", "TAKE", "DELETE"], a: 1, e: "REVOKE est la commande inverse de GRANT." },
+  { q: "Qu'est-ce qu'un 'Rôle' dans un SGBD ?", o: ["Le titre de l'employé", "Un groupe de privilèges que l'on peut attribuer à plusieurs utilisateurs", "Une fonction Python", "Une icône sur la carte"], a: 1, e: "Les rôles simplifient la gestion des droits (ex: Rôle 'Lecteur')." },
+  { q: "Dans PostgreSQL, qu'est-ce qu'un 'Schéma' ?", o: ["Un dessin", "Un espace logique (conteneur) à l'intérieur d'une base de données", "Le plan du bâtiment", "Un type de donnée"], a: 1, e: "Les objets sont souvent organisés par schéma (ex: schéma 'public' ou 'sde')." },
+  { q: "Quelle est l'utilité de l'index spatial ?", o: ["Accélérer les recherches basées sur la localisation", "Trier les noms par ordre alphabétique", "Calculer la somme des populations", "Décorer la base de données"], a: 0, e: "L'index spatial est vital pour les performances de rendu et de sélection géographique." },
+  { q: "Quelle commande permet de mettre à jour les statistiques dans PostgreSQL ?", o: ["CLEAN", "ANALYZE", "REFRESH", "UPDATE"], a: 1, e: "ANALYZE met à jour les statistiques d'utilisation des tables." },
+  { q: "Que fait l'opération de 'Reconstruction d'index' ?", o: ["Elle supprime les données", "Elle réorganise physiquement l'index pour plus de rapidité", "Elle change le nom de la table", "Elle crée une nouvelle carte"], a: 1, e: "Utile après de gros chargements de données." },
+  { q: "Qu'est-ce que le 'Versionnement' ?", o: ["Le numéro de mise à jour du logiciel", "Un mécanisme permettant des modifications isolées sans modifier la table de base immédiatement", "Une sauvegarde sur CD-ROM", "Un type de fichier image"], a: 1, e: "C'est la base du travail collaboratif multi-utilisateur." },
+  { q: "Quelle table contient les géométries en stockage ST_GEOMETRY ?", o: ["La table métier dans la colonne shape", "Un fichier .shp sur le disque", "Une table cachée nommée 'SECRET'", "Le registre Windows"], a: 0, e: "La géométrie est une colonne comme une autre dans la table métier." },
+  { q: "Le format 'Mosaïque' est-il géré en GDB d'entreprise ?", o: ["Non", "Oui, c'est le mode recommandé pour les gros volumes raster", "Seulement sur Oracle", "Seulement avec un plugin"], a: 1, e: "Les mosaïques en SGBD sont très performantes pour l'imagerie." },
+  { q: "Peut-on limiter l'accès à certaines colonnes d'une table ?", o: ["Non, c'est tout ou rien", "Oui, via les privilèges du SGBD ou des vues", "Seulement pour les noms", "Seulement le vendredi"], a: 1, e: "La sécurité peut être fine (au niveau de la ligne ou de la colonne via des vues)." },
+  { q: "Quel est l'impact d'un trop grand nombre de versions non compressées ?", o: ["La base devient plus rapide", "Les performances se dégradent fortement (ralentissement)", "La base change de couleur", "Rien"], a: 1, e: "L'accumulation d'états dans les tables A et D ralentit les requêtes." },
+  { q: "Que signifie 'SDE' historiquement ?", o: ["Spatial Data Engine", "Super Data Entry", "Simple Data ESRI", "Software Data Engine"], a: 0, e: "Le moteur de données spatiales d'ESRI." },
+  { q: "Comment assurer la haute disponibilité d'une GDB entreprise ?", o: ["En éteignant le serveur la nuit", "En utilisant les mécanismes de réplication ou de clustering du SGBD", "En faisant des copies sur clé USB", "En imprimant les données"], a: 1, e: "On s'appuie sur la robustesse du SGBD choisi." },
+  { q: "Quelle est la fréquence recommandée pour la maintenance (backup/stats) ?", o: ["Une fois par an", "Quotidienne ou hebdomadaire selon l'activité", "Jamais", "Toutes les heures"], a: 1, e: "Une GDB vivante nécessite un entretien régulier." },
+  { q: "Peut-on transformer une GDB fichier en GDB entreprise ?", o: ["Non", "Oui, en chargeant les données de l'une vers l'autre via ArcGIS Pro", "Seulement en changeant l'extension .gdb en .sde", "Seulement avec un convertisseur en ligne"], a: 1, e: "Le chargement de données est l'opération standard de migration." },
+  { q: "Quel est le principal risque d'une base de données sans administrateur (DBA) ?", o: ["La base devient trop belle", "Perte de données, corruption ou performances catastrophiques", "Le logiciel devient gratuit", "Aucun risque"], a: 1, e: "La gestion professionnelle est indispensable pour une GDB d'entreprise." },
   { q: "Quel est l'objectif principal de la maintenance de la géodatabase ?", o: ["Changer les fonds de carte", "Optimiser les performances et garantir l'intégrité des données", "Réduire le salaire du DBA", "Installer des jeux vidéo"], a: 1, e: "La maintenance prévient la dégradation des temps de réponse." },
   { q: "Qu'est-ce que l'archivage dans une GDB entreprise ?", o: ["Placer les données dans un dossier .zip", "Conserver l'historique de toutes les modifications dans des tables spécifiques", "Supprimer les vieilles données", "Envoyer les données sur un serveur distant"], a: 1, e: "L'archivage permet de 'remonter le temps' sur l'état d'une entité." },
   { q: "Quelle opération doit être faite avant de compresser une géodatabase versionnée ?", o: ["Supprimer toutes les données", "Réconcilier et réinjecter (Post) les versions vers la version Default", "Éteindre le serveur SGBD", "Changer de mot de passe"], a: 1, e: "La compression est efficace si les versions ont été fusionnées préalablement." },
@@ -805,63 +1046,209 @@
     ];
 
     let current = 0;
-    let score = 0;
-    const userAnswers = new Array(examData.length).fill(null);
+const userAnswers = new Array(examData.length).fill(null);
 
-    function initQuiz() {
-        const wrapper = document.getElementById('questions-wrapper');
-        examData.forEach((item, idx) => {
-            const div = document.createElement('div');
-            div.className = `question-container ${idx === 0 ? 'active' : ''}`;
-            div.id = `q-${idx}`;
-            div.innerHTML = `
-                <div class="question-text">${idx + 1}. ${item.q}</div>
-                <div class="options-list">
-                    ${item.o.map((opt, i) => `<div class="option-item" onclick="handleSelect(${idx}, ${i}, this)">${opt}</div>`).join('')}
-                </div>
-                <div class="explanation-box" id="exp-${idx}">
-                    <div style="font-weight:bold; color:#1e3a8a; font-size:0.8rem;">💡 ANALYSE</div>
-                    <div id="exp-text-${idx}">${item.e}</div>
-                </div>
-            `;
-            wrapper.appendChild(div);
-        });
-    }
 
-    window.handleSelect = function(qIdx, oIdx, el) {
-        if (userAnswers[qIdx] !== null) return;
-        userAnswers[qIdx] = oIdx;
-        const options = document.querySelectorAll(`#q-${qIdx} .option-item`);
-        const correct = examData[qIdx].a;
-        if (oIdx === correct) { el.classList.add('correct'); score++; } 
-        else { el.classList.add('wrong'); options[correct].classList.add('correct'); }
-        document.getElementById(`exp-${qIdx}`).style.display = 'block';
-    }
 
-    window.move = function(dir) {
-        const containers = document.querySelectorAll('.question-container');
-        containers[current].classList.remove('active');
-        current += dir;
-        if (current >= examData.length) { finish(); } 
-        else { containers[current].classList.add('active'); updateUI(); }
-    }
+/* =========================
+   FONCTION MÉLANGE TABLEAU
+   ========================= */
 
-    function updateUI() {
-        document.getElementById('counter').innerText = `Question ${current + 1} / ${examData.length}`;
-        document.getElementById('prev-btn').disabled = current === 0;
-        document.getElementById('next-btn').innerText = (current === examData.length - 1) ? "Terminer" : "Suivant";
-        document.getElementById('progress-fill-quiz').style.width = `${((current + 1) / examData.length) * 100}%`;
-    }
+function shuffleArray(array) {
 
-    function finish() {
-        document.getElementById('quiz-ui').style.display = 'none';
-        document.getElementById('final-screen').style.display = 'block';
-        const pct = Math.round((score / examData.length) * 100);
-        document.getElementById('score-display').innerText = `${pct}%`;
-        document.getElementById('feedback-msg').innerText = pct >= 70 ? "Félicitations ! Expert en métadonnées !" : "Pas mal, encore un peu de révision sur l'ISO 19115.";
-    }
+  for (let i = array.length - 1; i > 0; i--) {
 
-    initQuiz();
+    const j = Math.floor(Math.random() * (i + 1));
+
+    [array[i], array[j]] = [array[j], array[i]];
+
+  }
+
+}
+
+
+
+/* =========================
+   MÉLANGE QUESTIONS + RÉPONSES
+   ========================= */
+
+function shuffleQuizData() {
+
+  examData.forEach(q => {
+
+    const correctText = q.o[q.a];
+
+    shuffleArray(q.o);
+
+    q.a = q.o.indexOf(correctText);
+
+  });
+
+  shuffleArray(examData);
+
+}
+
+
+
+/* =========================
+   INITIALISATION QUIZ
+   ========================= */
+
+function initQuiz() {
+
+  const wrapper = document.getElementById('questions-wrapper');
+
+  examData.forEach((item, idx) => {
+
+    const div = document.createElement('div');
+
+    div.className = `question-container ${idx === 0 ? 'active' : ''}`;
+
+    div.id = `q-${idx}`;
+
+    div.innerHTML = `
+      <div class="question-text">${idx + 1}. ${item.q}</div>
+
+      <div class="options-list">
+        ${item.o.map((opt, i) =>
+          `<div class="option-item" onclick="handleSelect(${idx}, ${i}, this)">${opt}</div>`
+        ).join('')}
+      </div>
+
+      <div class="explanation-box" id="exp-${idx}">
+        <div style="font-weight:bold; color:#1e3a8a; font-size:0.8rem;">💡 ANALYSE</div>
+        <div>${item.e}</div>
+      </div>
+    `;
+
+    wrapper.appendChild(div);
+
+  });
+
+}
+
+
+
+/* =========================
+   GESTION RÉPONSE UTILISATEUR
+   ========================= */
+
+window.handleSelect = function(qIdx, oIdx, el) {
+
+  const options = document.querySelectorAll(`#q-${qIdx} .option-item`);
+
+  options.forEach(o => o.classList.remove("correct","wrong"));
+
+  userAnswers[qIdx] = oIdx;
+
+  const correct = examData[qIdx].a;
+
+  if (oIdx === correct) {
+
+    el.classList.add('correct');
+
+  } else {
+
+    el.classList.add('wrong');
+
+    options[correct].classList.add('correct');
+
+  }
+
+  document.getElementById(`exp-${qIdx}`).style.display = 'block';
+
+}
+
+
+
+/* =========================
+   NAVIGATION QUESTIONS
+   ========================= */
+
+window.move = function(dir) {
+
+  const containers = document.querySelectorAll('.question-container');
+
+  containers[current].classList.remove('active');
+
+  current += dir;
+
+  if (current >= examData.length) {
+
+    finish();
+
+    return;
+
+  }
+
+  containers[current].classList.add('active');
+
+  updateUI();
+
+}
+
+
+
+/* =========================
+   UI
+   ========================= */
+
+function updateUI() {
+
+  document.getElementById('counter').innerText =
+    `Question ${current + 1} / ${examData.length}`;
+
+  document.getElementById('prev-btn').disabled = current === 0;
+
+  document.getElementById('next-btn').innerText =
+    (current === examData.length - 1) ? "Terminer" : "Suivant";
+
+  document.getElementById('progress-fill-quiz').style.width =
+    `${((current + 1) / examData.length) * 100}%`;
+
+}
+
+
+
+/* =========================
+   FIN DU QUIZ
+   ========================= */
+
+function finish() {
+
+  document.getElementById('quiz-ui').style.display = 'none';
+
+  document.getElementById('final-screen').style.display = 'block';
+
+
+  let score = 0;
+
+  examData.forEach((q,i)=>{
+    if(userAnswers[i] === q.a) score++;
+  });
+
+  const pct = Math.round((score / examData.length) * 100);
+
+  document.getElementById('score-display').innerText = `${pct}%`;
+
+  document.getElementById('feedback-msg').innerText =
+    pct >= 70
+      ? "Félicitations ! Expert en métadonnées !"
+      : "Pas mal, encore un peu de révision sur l'ISO 19115.";
+
+}
+
+
+
+/* =========================
+   LANCEMENT
+   ========================= */
+
+shuffleQuizData();
+
+initQuiz();
+
+updateUI();
 </script>
               
 
@@ -869,6 +1256,7 @@
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
         <a href="../admin_BDD/" class="btn btn-neutral float-left" title="ADMIN BDD"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../juridique/" class="btn btn-neutral float-right" title="Revision Aspect juridiques">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -893,6 +1281,8 @@
     
       <span><a href="../admin_BDD/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
+    
+      <span><a href="../juridique/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

@@ -1,0 +1,1409 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Revision LES STANDARDS DE DONNEES - Mon Portefeuille Géomatique</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../overrides/style.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Revision LES STANDARDS DE DONNEES";
+        var mkdocs_page_input_path = "standard.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Mon Portefeuille Géomatique
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">ACCEUIL</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../format/">FORMATS</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../gdal/">GDAL</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../metadonnee/">METADONNES</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../vrt/">VRT</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../source/">SOURCES</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../note/">INTEROPERABILITE</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../bash/">BASH</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../admin_BDD/">ADMIN BDD</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../esri/">QCM ESRI</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../juridique/">Revision Aspect juridiques</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="../qualite">QUALITE</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="../revision">REVISION</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href=".">STANDARDS</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Mon Portefeuille Géomatique</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Revision LES STANDARDS DE DONNEES</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+<div class="progress-container"><div class="progress-bar" id="myBar"></div></div>
+
+                <h1 id="revision-les-standards-de-donnees">Revision LES STANDARDS DE DONNEES<a class="headerlink" href="#revision-les-standards-de-donnees" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="qcm">QCM!<a class="headerlink" href="#qcm" title="Permanent link">&para;</a></h2>
+<div class="container-quiz">
+    <div id="quiz-ui">
+        <h1>Examen de Synthèse : standards</h1>
+        <div class="progress-bar-quiz"><div id="progress-fill-quiz"></div></div>
+        <div id="questions-wrapper"></div>
+        <div class="nav-footer">
+            <button id="prev-btn" onclick="move(-1)" disabled>Précédent</button>
+            <span id="counter" style="font-weight: 600; color: #64748b;">Question 1 / 50</span>
+            <button id="next-btn" onclick="move(1)">Suivant</button>
+        </div>
+    </div>
+
+    <div id="final-screen">
+        <h1>Résultats de l'évaluation</h1>
+        <div class="score-circle" id="score-display">0%</div>
+        <p id="feedback-msg" style="font-size: 1.1rem; margin-bottom: 30px;"></p>
+        <button onclick="location.reload()">Recommencer l'examen</button>
+    </div>
+</div>
+
+<style>
+    .container-quiz { max-width: 100%; margin: 20px auto; background: white; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0; }
+    #quiz-ui h1 { color: #1e3a8a; text-align: center; font-size: 1.5rem; border: none; }
+    .progress-bar-quiz { height: 8px; background: #e2e8f0; border-radius: 4px; margin-bottom: 30px; overflow: hidden; }
+    #progress-fill-quiz { height: 100%; background: #3b82f6; width: 2%; transition: width 0.3s; }
+    .question-container { display: none; }
+    .question-container.active { display: block; animation: fadeIn 0.4s; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    .question-text { font-size: 1.1rem; font-weight: 700; margin-bottom: 20px; color: #0f172a; }
+    .option-item { background: #fff; border: 2px solid #e2e8f0; margin-bottom: 10px; padding: 12px; border-radius: 8px; cursor: pointer; }
+    .option-item:hover { border-color: #3b82f6; background: #f0f7ff; }
+    .option-item.correct { border-color: #10b981; background: #ecfdf5; color: #065f46; font-weight: 600; }
+    .option-item.wrong { border-color: #ef4444; background: #fef2f2; color: #991b1b; }
+    .explanation-box { margin-top: 20px; padding: 15px; border-radius: 8px; background: #f1f5f9; border-left: 6px solid #3b82f6; display: none; }
+    .nav-footer { margin-top: 30px; display: flex; justify-content: space-between; align-items: center; }
+    #final-screen { display: none; text-align: center; }
+    .score-circle { width: 100px; height: 100px; border-radius: 50%; border: 5px solid #1e3a8a; margin: 20px auto; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 900; }
+</style>
+<script>
+    const examData = [
+{
+q:"Que produisait chaque organisation à la fin des années 1990 pour son SIG ?",
+o:[
+"Un modèle standard européen",
+"Sa propre donnée selon ses méthodes",
+"Uniquement des données IGN",
+"Uniquement des données OpenStreetMap"
+],
+a:1,
+e:"À la fin des années 1990 chaque acteur produisait ses données selon ses propres méthodes, ce qui créait une forte hétérogénéité."
+},
+
+{
+q:"Quel problème principal existait concernant les référentiels géographiques dans les années 1990 ?",
+o:[
+"Ils étaient trop précis",
+"Ils étaient gratuits",
+"Ils étaient très chers",
+"Ils étaient uniquement raster"
+],
+a:2,
+e:"Les référentiels existants étaient souvent coûteux et peu accessibles."
+},
+
+{
+q:"Quel organisme européen a créé le groupe TC287 sur l'information géographique ?",
+o:[
+"Le CEN",
+"Le CNIG",
+"L’IGN",
+"La Commission européenne"
+],
+a:0,
+e:"Le comité européen de normalisation (CEN) a créé le groupe TC287 sur l'information géographique."
+},
+
+{
+q:"Quelle norme internationale décrit les métadonnées géographiques ?",
+o:[
+"ISO 19115",
+"ISO 9001",
+"ISO 27001",
+"ISO 19110"
+],
+a:0,
+e:"La norme ISO 19115 définit les métadonnées pour l'information géographique."
+},
+
+{
+q:"Que sont les métadonnées ?",
+o:[
+"Des données satellites",
+"Des données altimétriques",
+"Des données décrivant les données",
+"Des bases cadastrales"
+],
+a:2,
+e:"Les métadonnées décrivent les données afin de faciliter leur recherche et leur utilisation."
+},
+
+{
+q:"Quel organisme international élabore des normes comme ISO 19115 ?",
+o:[
+"L’ISO",
+"Le CNIG",
+"L’IGN",
+"L’OGC"
+],
+a:0,
+e:"L'Organisation internationale de normalisation (ISO) élabore les normes internationales."
+},
+
+{
+q:"Quel référentiel national a été confié à l’IGN au début des années 2000 ?",
+o:[
+"Le RGE",
+"Le PCRS",
+"La BAN",
+"Le RPCU"
+],
+a:0,
+e:"L'État a confié à l'IGN la production du Référentiel à Grande Échelle (RGE)."
+},
+
+{
+q:"Combien de composantes principales possède le RGE ?",
+o:[
+"5",
+"2",
+"10",
+"3"
+],
+a:0,
+e:"Le RGE comprend orthophotographie, topographie, adresses, parcellaire et altimétrie."
+},
+
+{
+q:"Quelle directive européenne crée une infrastructure de données géographiques ?",
+o:[
+"INSPIRE",
+"RGPD",
+"DORA",
+"OpenData"
+],
+a:0,
+e:"La directive INSPIRE vise à créer une infrastructure européenne de données géographiques."
+},
+
+{
+q:"En quelle année la directive INSPIRE a-t-elle été adoptée ?",
+o:[
+"2007",
+"2000",
+"2010",
+"2015"
+],
+a:0,
+e:"La directive INSPIRE a été adoptée par le Parlement européen en mars 2007."
+},
+
+{
+q:"Quel est l'objectif principal de la directive INSPIRE ?",
+o:[
+"Créer des satellites européens",
+"Faciliter l'interopérabilité des données géographiques",
+"Remplacer les SIG",
+"Créer un GPS européen"
+],
+a:1,
+e:"INSPIRE vise à assurer l’interopérabilité et le partage des données géographiques."
+},
+
+{
+q:"Quand la directive INSPIRE a-t-elle été transposée en droit français ?",
+o:[
+"2010",
+"2007",
+"2005",
+"2015"
+],
+a:0,
+e:"La directive a été transposée en droit français par l’ordonnance du 21 octobre 2010."
+},
+
+{
+q:"À qui s’applique principalement la directive INSPIRE ?",
+o:[
+"Aux citoyens",
+"Aux autorités publiques",
+"Aux entreprises privées",
+"Aux universités"
+],
+a:1,
+e:"INSPIRE concerne principalement les données détenues par les autorités publiques."
+},
+
+{
+q:"Combien d'annexes thématiques contient la directive INSPIRE ?",
+o:[
+"3",
+"5",
+"2",
+"10"
+],
+a:0,
+e:"INSPIRE est structurée en trois annexes thématiques."
+},
+
+{
+q:"Dans quelle annexe INSPIRE trouve-t-on les adresses et les parcelles cadastrales ?",
+o:[
+"Annexe I",
+"Annexe II",
+"Annexe III",
+"Annexe IV"
+],
+a:0,
+e:"Les adresses et parcelles cadastrales sont dans l'annexe I."
+},
+
+{
+q:"Quel service permet de visualiser une donnée géographique sur internet ?",
+o:[
+"WMS",
+"WFS",
+"FTP",
+"SMTP"
+],
+a:0,
+e:"WMS permet d'afficher des cartes via le web."
+},
+
+{
+q:"Quel service permet de télécharger des objets géographiques vectoriels ?",
+o:[
+"WFS",
+"WMS",
+"HTTP",
+"SOAP"
+],
+a:0,
+e:"Le service WFS permet de récupérer les données vectorielles."
+},
+
+{
+q:"Quel consortium développe des standards géospatiaux ouverts ?",
+o:[
+"OGC",
+"IGN",
+"CNIG",
+"CEN"
+],
+a:0,
+e:"L'Open Geospatial Consortium développe des standards ouverts."
+},
+
+{
+q:"En quelle année l’OGC a-t-il été fondé ?",
+o:[
+"1994",
+"2000",
+"1985",
+"2010"
+],
+a:0,
+e:"L’Open Geospatial Consortium a été créé en 1994."
+},
+
+{
+q:"Quel organisme coordonne l'information géographique en France ?",
+o:[
+"CNIG",
+"IGN",
+"INSEE",
+"CEN"
+],
+a:0,
+e:"Le Conseil national de l'information géolocalisée coordonne les actions nationales."
+},
+
+{
+q:"En quelle année le CNIG a-t-il été relancé ?",
+o:[
+"2011",
+"2007",
+"2020",
+"2015"
+],
+a:0,
+e:"Le CNIG a été réorganisé en 2011 pour accompagner INSPIRE."
+},
+
+{
+q:"Quel rôle joue la commission des standards du CNIG ?",
+o:[
+"Créer des satellites",
+"Coordonner la création de standards",
+"Gérer les licences",
+"Produire les données"
+],
+a:1,
+e:"Elle coordonne les travaux de création des standards nationaux."
+},
+
+{
+q:"Combien de fois par an environ la commission des standards se réunit-elle ?",
+o:[
+"3 à 4 fois",
+"1 fois",
+"12 fois",
+"Tous les jours"
+],
+a:0,
+e:"Elle se réunit environ trois à quatre fois par an."
+},
+
+{
+q:"Qui valide finalement un standard CNIG ?",
+o:[
+"Le conseil plénier",
+"Les universités",
+"L’IGN",
+"Les régions"
+],
+a:0,
+e:"Le conseil plénier du CNIG valide les standards."
+},
+
+{
+q:"Quel standard concerne les plans de corps de rue simplifiés ?",
+o:[
+"PCRS",
+"RGE",
+"BAN",
+"OCS"
+],
+a:0,
+e:"Le PCRS concerne les plans de corps de rue simplifiés."
+},
+
+{
+q:"Quel référentiel décrit l’occupation du sol à grande échelle ?",
+o:[
+"OCS GE",
+"RGE",
+"BD TOPO",
+"BAN"
+],
+a:0,
+e:"OCS GE décrit l’occupation du sol à grande échelle."
+},
+
+{
+q:"Quel standard concerne les friches ?",
+o:[
+"Standard Friches",
+"Standard Bâtiment",
+"Standard Hydro",
+"Standard Transport"
+],
+a:0,
+e:"Le standard Friches sert à inventorier et cartographier les friches."
+},
+
+{
+q:"Quel portail national utilise le standard Friches ?",
+o:[
+"Cartofriches",
+"Géoportail",
+"OpenStreetMap",
+"GeoIDE"
+],
+a:0,
+e:"Cartofriches utilise ce standard pour inventorier les friches."
+},
+
+{
+q:"Quel organisme produit la BD ORTHO ?",
+o:[
+"IGN",
+"INSEE",
+"CNIG",
+"OGC"
+],
+a:0,
+e:"La BD ORTHO est produite par l’IGN."
+},
+
+{
+q:"Que représente la BD ORTHO ?",
+o:[
+"Une image aérienne du territoire",
+"Un cadastre",
+"Un modèle altimétrique",
+"Une base d’adresses"
+],
+a:0,
+e:"La BD ORTHO est une orthophotographie du territoire."
+},
+
+{
+q:"Que décrit la BD TOPO ?",
+o:[
+"La modélisation 2D et 3D du territoire",
+"Les données météorologiques",
+"Les statistiques",
+"Les sols agricoles"
+],
+a:0,
+e:"La BD TOPO modélise le territoire et ses infrastructures."
+},
+
+{
+q:"Quel référentiel fournit un modèle numérique de terrain ?",
+o:[
+"RGE ALTI",
+"BD TOPO",
+"BAN",
+"OCS"
+],
+a:0,
+e:"RGE ALTI fournit un modèle numérique de terrain."
+},
+
+{
+q:"Que signifie toponyme ?",
+o:[
+"Nom de lieu",
+"Nom de route",
+"Nom de rivière",
+"Nom de ville uniquement"
+],
+a:0,
+e:"Un toponyme est un nom de lieu."
+},
+
+{
+q:"Quel est l’objectif de la standardisation ?",
+o:[
+"Harmoniser les pratiques",
+"Créer plus de données",
+"Supprimer les SIG",
+"Créer des satellites"
+],
+a:0,
+e:"La standardisation vise à harmoniser les pratiques et formats."
+},
+
+{
+q:"Quelle est la différence principale entre norme et standard ?",
+o:[
+"La norme possède plus d’autorité",
+"Le standard est obligatoire",
+"La norme est locale",
+"Aucune différence"
+],
+a:0,
+e:"Une norme possède un statut plus officiel et contraignant."
+},
+
+{
+q:"Quelle proportion des événements se passent quelque part selon le cours ?",
+o:[
+"80%",
+"20%",
+"50%",
+"100%"
+],
+a:0,
+e:"En géomatique on estime que 80% des phénomènes ont une dimension spatiale."
+},
+
+{
+q:"Quel portail européen permet de rechercher les données INSPIRE ?",
+o:[
+"Inspire Geoportal",
+"Géoportail",
+"Google Maps",
+"ArcGIS Online"
+],
+a:0,
+e:"Le portail INSPIRE permet la recherche de métadonnées."
+},
+
+{
+q:"Quel service permet de rechercher des données géographiques ?",
+o:[
+"Service de recherche",
+"Service FTP",
+"Service email",
+"Service cloud"
+],
+a:0,
+e:"INSPIRE prévoit des services de recherche de données."
+},
+
+{
+q:"Quel service permet de télécharger les données ?",
+o:[
+"Service de téléchargement",
+"Service d'impression",
+"Service de calcul",
+"Service météo"
+],
+a:0,
+e:"INSPIRE prévoit des services de téléchargement."
+},
+
+{
+q:"Quel service permet de transformer les données ?",
+o:[
+"Service de transformation",
+"Service météo",
+"Service raster",
+"Service local"
+],
+a:0,
+e:"INSPIRE prévoit un service de transformation."
+},
+
+{
+q:"Quelle initiative référence des schémas de données en France ?",
+o:[
+"schema.data.gouv.fr",
+"geo.data.fr",
+"map.data.fr",
+"sig.data.fr"
+],
+a:0,
+e:"schema.data.gouv.fr référence des modèles de données."
+},
+
+{
+q:"Quel exemple de schéma est mentionné dans le cours ?",
+o:[
+"Schéma des DAE",
+"Schéma des routes",
+"Schéma des ponts",
+"Schéma des satellites"
+],
+a:0,
+e:"Le schéma des DAE est donné comme exemple."
+},
+
+{
+q:"Quelle directive européenne favorise l’ouverture des données ?",
+o:[
+"Directive Open Data",
+"Directive Inspire",
+"Directive RGPD",
+"Directive GPS"
+],
+a:0,
+e:"La directive Open Data encourage l’ouverture des données."
+},
+
+{
+q:"Quel problème apparaît entre INSPIRE et l’Open Data ?",
+o:[
+"Décalage sémantique",
+"Problème de GPS",
+"Problème de satellites",
+"Problème de projection"
+],
+a:0,
+e:"Les modèles peuvent différer, créant des problèmes d’interopérabilité."
+},
+
+{
+q:"Quel modèle de métadonnées est utilisé dans l’Open Data ?",
+o:[
+"DCAT",
+"ISO 19115",
+"WMS",
+"OGC"
+],
+a:0,
+e:"DCAT est utilisé dans le monde de l’open data."
+},
+
+{
+q:"Quel modèle rapproche DCAT des données géographiques ?",
+o:[
+"GeoDCAT-AP",
+"WFS",
+"ISO",
+"INSPIRE"
+],
+a:0,
+e:"GeoDCAT-AP est un profil géospatial de DCAT."
+},
+
+{
+q:"Quel organisme produit les données météorologiques françaises ?",
+o:[
+"Météo France",
+"IGN",
+"INSEE",
+"CNIG"
+],
+a:0,
+e:"Météo France produit les données météorologiques."
+},
+
+{
+q:"Quel type de données font partie des HVDS ?",
+o:[
+"Données de forte valeur",
+"Données secrètes",
+"Données privées",
+"Données commerciales"
+],
+a:0,
+e:"HVDS signifie High Value Data Sets."
+},
+
+{
+q:"Quel est l'objectif des HVDS ?",
+o:[
+"Rendre certaines données publiques accessibles",
+"Créer des satellites",
+"Créer des SIG",
+"Créer des cartes papier"
+],
+a:0,
+e:"Les HVDS visent à rendre certaines données publiques très accessibles."
+},
+
+{
+q:"Quel est le rôle de la commission besoins et usages du CNIG ?",
+o:[
+"Identifier les besoins en données",
+"Créer les cartes",
+"Produire les données",
+"Stocker les données"
+],
+a:0,
+e:"Elle identifie les besoins et usages de l'information géolocalisée."
+},
+
+{
+q:"Qui rédige concrètement un standard ?",
+o:[
+"Un groupe de travail",
+"Le gouvernement",
+"L’IGN",
+"L’INSEE"
+],
+a:0,
+e:"Les standards sont rédigés par des groupes de travail."
+},
+{
+q:"Pourquoi la standardisation des données géographiques est-elle devenue nécessaire à la fin des années 1990 ?",
+o:[
+"Les données étaient produites de manière hétérogène par différents acteurs",
+"Les données étaient trop nombreuses",
+"Les satellites produisaient trop d'images",
+"Les SIG n'existaient pas encore"
+],
+a:0,
+e:"Chaque organisation produisait ses propres données selon ses propres méthodes, rendant l’interopérabilité difficile."
+},
+
+{
+q:"Quel problème majeur posait l’absence de standardisation des données géographiques ?",
+o:[
+"Impossible de partager facilement les données",
+"Manque de satellites",
+"Manque de stockage",
+"Absence d'internet"
+],
+a:0,
+e:"Sans standards communs, les données ne pouvaient pas être facilement partagées ou utilisées entre organisations."
+},
+
+{
+q:"Quel rôle joue un référentiel géographique dans un SIG ?",
+o:[
+"Servir de socle commun pour produire d'autres données",
+"Créer des métadonnées",
+"Stocker les données satellites",
+"Supprimer les erreurs"
+],
+a:0,
+e:"Les référentiels constituent une base commune pour produire et partager des données métier."
+},
+
+{
+q:"Quel comité européen a travaillé sur les normes d'information géographique avant INSPIRE ?",
+o:[
+"TC287 du CEN",
+"OGC Europe",
+"ISO TC211",
+"CNIG"
+],
+a:0,
+e:"Le groupe TC287 du CEN a travaillé sur les normes géographiques."
+},
+
+{
+q:"Quel est le rôle principal des métadonnées ?",
+o:[
+"Décrire les données pour faciliter leur découverte et leur utilisation",
+"Stocker les données",
+"Transformer les données",
+"Afficher les données"
+],
+a:0,
+e:"Les métadonnées décrivent les données afin de faciliter leur inventaire, recherche et utilisation."
+},
+
+{
+q:"Quel est l’objectif principal des normes ISO de la série 19100 ?",
+o:[
+"Standardiser l'information géographique",
+"Standardiser les réseaux internet",
+"Standardiser les satellites",
+"Standardiser les bases SQL"
+],
+a:0,
+e:"La série ISO 19100 concerne la normalisation de l'information géographique."
+},
+
+{
+q:"Quelle norme ISO concerne spécifiquement la qualité des données géographiques ?",
+o:[
+"ISO 19157",
+"ISO 19115",
+"ISO 19139",
+"ISO 19110"
+],
+a:0,
+e:"ISO 19157 concerne l’évaluation et la description de la qualité des données."
+},
+
+{
+q:"Pourquoi la directive INSPIRE a-t-elle été mise en place ?",
+o:[
+"Pour améliorer l’interopérabilité des données environnementales en Europe",
+"Pour créer des bases de données privées",
+"Pour remplacer les SIG",
+"Pour créer un cadastre européen"
+],
+a:0,
+e:"INSPIRE vise à faciliter l'échange et l'utilisation des données environnementales entre pays européens."
+},
+
+{
+q:"Quelle institution européenne est à l’origine de la directive INSPIRE ?",
+o:[
+"La Commission européenne",
+"Le Parlement européen",
+"Le Conseil de l'Europe",
+"La Banque centrale européenne"
+],
+a:0,
+e:"La directive INSPIRE a été élaborée par la Commission européenne."
+},
+
+{
+q:"Quelle est la particularité de la directive INSPIRE concernant les utilisateurs ?",
+o:[
+"Elle concerne surtout les autorités publiques",
+"Elle concerne uniquement les citoyens",
+"Elle concerne uniquement les entreprises",
+"Elle concerne uniquement les universités"
+],
+a:0,
+e:"INSPIRE vise principalement le partage des données entre autorités publiques."
+},
+
+{
+q:"Quel est le rôle des services géographiques dans INSPIRE ?",
+o:[
+"Permettre l’accès et l’utilisation des données via internet",
+"Stocker les données",
+"Créer les données",
+"Supprimer les erreurs"
+],
+a:0,
+e:"INSPIRE prévoit des services web pour accéder aux données."
+},
+
+{
+q:"Combien de services principaux sont définis dans l'article 11 de la directive INSPIRE ?",
+o:[
+"5",
+"3",
+"7",
+"10"
+],
+a:0,
+e:"Les cinq services sont : recherche, consultation, téléchargement, transformation et appel de services."
+},
+
+{
+q:"Quel service permet de rechercher des données géographiques ?",
+o:[
+"Service de découverte",
+"Service de calcul",
+"Service de projection",
+"Service raster"
+],
+a:0,
+e:"Le service de découverte permet de rechercher des données via leurs métadonnées."
+},
+
+{
+q:"Pourquoi les métadonnées sont-elles essentielles dans INSPIRE ?",
+o:[
+"Elles permettent de trouver et comprendre les données",
+" Elles remplacent les données",
+"Elles créent les données",
+"Elles suppriment les erreurs"
+],
+a:0,
+e:"Les métadonnées facilitent la recherche et l'utilisation des données."
+},
+
+{
+q:"Quel rôle joue le géocatalogue national en France ?",
+o:[
+"Faire le lien avec le portail INSPIRE européen",
+"Produire les données",
+"Créer les satellites",
+"Stocker les données IGN"
+],
+a:0,
+e:"Le géocatalogue permet de référencer les données françaises dans INSPIRE."
+},
+
+{
+q:"Quel organisme français coordonne la mise en œuvre d’INSPIRE ?",
+o:[
+"Le CNIG",
+"L’IGN",
+"INSEE",
+"CEN"
+],
+a:0,
+e:"Le CNIG est la structure nationale de coordination."
+},
+
+{
+q:"Quelle commission du CNIG travaille sur la qualité et les règles ?",
+o:[
+"La commission règles et qualité",
+"La commission topographie",
+"La commission environnement",
+"La commission urbanisme"
+],
+a:0,
+e:"Cette commission prépare les avis sur les règlements européens."
+},
+
+{
+q:"Quel groupe de travail traite de l’éthique des données ?",
+o:[
+"Groupe éthique",
+"Groupe raster",
+"Groupe satellite",
+"Groupe cartographie"
+],
+a:0,
+e:"Le groupe éthique fait partie des groupes de travail liés aux règles et qualité."
+},
+
+{
+q:"Que signifie HVDS ?",
+o:[
+"High Value Data Sets",
+"High Vector Data System",
+"Hybrid Vector Data Source",
+"Hyper Visual Data System"
+],
+a:0,
+e:"Les HVDS sont des données publiques considérées comme particulièrement importantes."
+},
+
+{
+q:"Quel objectif poursuivent les HVDS ?",
+o:[
+"Faciliter la création de services innovants",
+"Créer des satellites",
+"Créer des cartes papier",
+"Supprimer les SIG"
+],
+a:0,
+e:"Les HVDS sont destinées à encourager l'innovation et la réutilisation des données."
+},
+
+{
+q:"Quelle commission CNIG traite du géopositionnement ?",
+o:[
+"Commission géopositionnement",
+"Commission topographie",
+"Commission réseau",
+"Commission géologie"
+],
+a:0,
+e:"Elle traite des techniques de positionnement terrestre, aérien ou spatial."
+},
+
+{
+q:"Pourquoi les standards sont-ils nécessaires pour les producteurs de données ?",
+o:[
+"Pour garantir l’interopérabilité",
+"Pour réduire la taille des données",
+"Pour supprimer les erreurs",
+"Pour améliorer la cartographie"
+],
+a:0,
+e:"Les standards permettent aux données d’être utilisées par différents systèmes."
+},
+
+{
+q:"Quelle étape précède la création d’un groupe de travail pour un standard ?",
+o:[
+"L’identification d’un besoin par la commission besoins et usages",
+"Un vote européen",
+"Une décision du Parlement",
+"Une publication ISO"
+],
+a:0,
+e:"La commission besoins et usages identifie les besoins."
+},
+
+{
+q:"Quel document décrit les objets et leurs attributs dans un standard ?",
+o:[
+"Un dictionnaire de données",
+"Un rapport technique",
+"Une licence",
+"Un protocole réseau"
+],
+a:0,
+e:"Le dictionnaire de données décrit les objets et attributs."
+},
+
+{
+q:"Pourquoi une étape sémantique est-elle nécessaire dans la création d’un standard ?",
+o:[
+"Pour s’accorder sur la définition des concepts",
+"Pour traduire les données",
+"Pour compresser les données",
+"Pour calculer les coordonnées"
+],
+a:0,
+e:"Les acteurs doivent partager les mêmes définitions."
+},
+
+{
+q:"Quel processus permet au public de commenter un standard en cours de création ?",
+o:[
+"Appel à commentaires",
+"Référendum",
+"Vote parlementaire",
+"Consultation privée"
+],
+a:0,
+e:"Les commentaires permettent d'améliorer le standard."
+},
+
+{
+q:"Quel organisme valide définitivement les standards CNIG ?",
+o:[
+"Le conseil plénier du CNIG",
+"La Commission européenne",
+"L’IGN",
+"L’ISO"
+],
+a:0,
+e:"La validation finale est faite par le conseil plénier."
+},
+
+{
+q:"Pourquoi les organisations cataloguent-elles leurs données ?",
+o:[
+"Pour améliorer leur découverte",
+"Pour les vendre",
+"Pour les supprimer",
+"Pour les cacher"
+],
+a:0,
+e:"Le catalogage permet de retrouver facilement les données."
+},
+
+{
+q:"Quel problème peut apparaître entre INSPIRE et l’Open Data ?",
+o:[
+"Des incompatibilités de modèles de métadonnées",
+"Un manque de données",
+"Un problème de satellites",
+"Un problème de stockage"
+],
+a:0,
+e:"INSPIRE utilise ISO alors que l'open data utilise souvent DCAT."
+},
+
+{
+q:"Quel modèle est utilisé dans les portails open data ?",
+o:[
+"DCAT",
+"ISO 19115",
+"WMS",
+"OGC"
+],
+a:0,
+e:"DCAT est un modèle de métadonnées utilisé dans l’open data."
+},
+
+{
+q:"Quel profil adapte DCAT aux données géographiques ?",
+o:[
+"GeoDCAT-AP",
+"GeoJSON",
+"GeoXML",
+"GeoISO"
+],
+a:0,
+e:"GeoDCAT-AP permet de décrire les données géographiques dans les portails open data."
+},
+
+{
+q:"Quel est l'objectif principal de la standardisation dans la géomatique ?",
+o:[
+"Faciliter le partage et l'utilisation des données",
+"Créer des cartes",
+"Produire plus de données",
+"Remplacer les SIG"
+],
+a:0,
+e:"La standardisation facilite l’interopérabilité des données."
+}
+
+];
+    let current = 0;
+const userAnswers = new Array(examData.length).fill(null);
+
+
+
+/* =========================
+   FONCTION MÉLANGE TABLEAU
+   ========================= */
+
+function shuffleArray(array) {
+
+  for (let i = array.length - 1; i > 0; i--) {
+
+    const j = Math.floor(Math.random() * (i + 1));
+
+    [array[i], array[j]] = [array[j], array[i]];
+
+  }
+
+}
+
+
+
+/* =========================
+   MÉLANGE QUESTIONS + RÉPONSES
+   ========================= */
+
+function shuffleQuizData() {
+
+  examData.forEach(q => {
+
+    const correctText = q.o[q.a];
+
+    shuffleArray(q.o);
+
+    q.a = q.o.indexOf(correctText);
+
+  });
+
+  shuffleArray(examData);
+
+}
+
+
+
+/* =========================
+   INITIALISATION QUIZ
+   ========================= */
+
+function initQuiz() {
+
+  const wrapper = document.getElementById('questions-wrapper');
+
+  examData.forEach((item, idx) => {
+
+    const div = document.createElement('div');
+
+    div.className = `question-container ${idx === 0 ? 'active' : ''}`;
+
+    div.id = `q-${idx}`;
+
+    div.innerHTML = `
+      <div class="question-text">${idx + 1}. ${item.q}</div>
+
+      <div class="options-list">
+        ${item.o.map((opt, i) =>
+          `<div class="option-item" onclick="handleSelect(${idx}, ${i}, this)">${opt}</div>`
+        ).join('')}
+      </div>
+
+      <div class="explanation-box" id="exp-${idx}">
+        <div style="font-weight:bold; color:#1e3a8a; font-size:0.8rem;">💡 ANALYSE</div>
+        <div>${item.e}</div>
+      </div>
+    `;
+
+    wrapper.appendChild(div);
+
+  });
+
+}
+
+
+
+/* =========================
+   GESTION RÉPONSE UTILISATEUR
+   ========================= */
+
+window.handleSelect = function(qIdx, oIdx, el) {
+
+  const options = document.querySelectorAll(`#q-${qIdx} .option-item`);
+
+  options.forEach(o => o.classList.remove("correct","wrong"));
+
+  userAnswers[qIdx] = oIdx;
+
+  const correct = examData[qIdx].a;
+
+  if (oIdx === correct) {
+
+    el.classList.add('correct');
+
+  } else {
+
+    el.classList.add('wrong');
+
+    options[correct].classList.add('correct');
+
+  }
+
+  document.getElementById(`exp-${qIdx}`).style.display = 'block';
+
+}
+
+
+
+/* =========================
+   NAVIGATION QUESTIONS
+   ========================= */
+
+window.move = function(dir) {
+
+  const containers = document.querySelectorAll('.question-container');
+
+  containers[current].classList.remove('active');
+
+  current += dir;
+
+  if (current >= examData.length) {
+
+    finish();
+
+    return;
+
+  }
+
+  containers[current].classList.add('active');
+
+  updateUI();
+
+}
+
+
+
+/* =========================
+   UI
+   ========================= */
+
+function updateUI() {
+
+  document.getElementById('counter').innerText =
+    `Question ${current + 1} / ${examData.length}`;
+
+  document.getElementById('prev-btn').disabled = current === 0;
+
+  document.getElementById('next-btn').innerText =
+    (current === examData.length - 1) ? "Terminer" : "Suivant";
+
+  document.getElementById('progress-fill-quiz').style.width =
+    `${((current + 1) / examData.length) * 100}%`;
+
+}
+
+
+
+/* =========================
+   FIN DU QUIZ
+   ========================= */
+
+function finish() {
+
+  document.getElementById('quiz-ui').style.display = 'none';
+
+  document.getElementById('final-screen').style.display = 'block';
+
+
+  let score = 0;
+
+  examData.forEach((q,i)=>{
+    if(userAnswers[i] === q.a) score++;
+  });
+
+  const pct = Math.round((score / examData.length) * 100);
+
+  document.getElementById('score-display').innerText = `${pct}%`;
+
+  document.getElementById('feedback-msg').innerText =
+    pct >= 70
+      ? "Félicitations ! Expert en métadonnées !"
+      : "Pas mal, encore un peu de révision sur l'ISO 19115.";
+
+}
+
+
+
+/* =========================
+   LANCEMENT
+   ========================= */
+
+shuffleQuizData();
+
+initQuiz();
+
+updateUI();
+</script>
+              
+
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../overrides/script.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
