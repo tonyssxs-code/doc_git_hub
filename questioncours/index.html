@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Questioncours - Mon Portefeuille Géomatique</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../overrides/style.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Questioncours";
+        var mkdocs_page_input_path = "questioncours.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Mon Portefeuille Géomatique
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">ACCEUIL</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../format/">FORMATS</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../gdal/">GDAL</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../metadonnee/">METADONNES</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../vrt/">VRT</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../source/">SOURCES</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../note/">INTEROPERABILITE</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../bash/">BASH</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../admin_BDD/">ADMIN BDD</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../esri/">QCM ESRI</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../juridique/">Revision Aspect juridiques</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="../qualite">QUALITE</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="../revision">REVISION</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="../standard">STANDARDS</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href=".">GENERAL</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Mon Portefeuille Géomatique</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Questioncours</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+<div class="progress-container"><div class="progress-bar" id="myBar"></div></div>
+
+                <div class="container-quiz">
+    <div id="quiz-ui">
+        <h1>Examen de Synthèse : Questions du cours </h1>
+        <div class="progress-bar-quiz"><div id="progress-fill-quiz"></div></div>
+        <div id="questions-wrapper"></div>
+        <div class="nav-footer">
+            <button id="prev-btn" onclick="move(-1)" disabled>Précédent</button>
+            <span id="counter" style="font-weight: 600; color: #64748b;">Question 1 / 50</span>
+            <button id="next-btn" onclick="move(1)">Suivant</button>
+        </div>
+    </div>
+
+    <div id="final-screen">
+        <h1>Résultats de l'évaluation</h1>
+        <div class="score-circle" id="score-display">0%</div>
+        <p id="feedback-msg" style="font-size: 1.1rem; margin-bottom: 30px;"></p>
+        <button onclick="location.reload()">Recommencer l'examen</button>
+    </div>
+</div>
+
+<style>
+/* -- Styles inchangés, identiques à ton code original -- */
+.container-quiz { max-width: 100%; margin: 20px auto; background: white; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0; }
+#quiz-ui h1 { color: #1e3a8a; text-align: center; font-size: 1.5rem; border: none; }
+.progress-bar-quiz { height: 8px; background: #e2e8f0; border-radius: 4px; margin-bottom: 30px; overflow: hidden; }
+#progress-fill-quiz { height: 100%; background: #3b82f6; width: 2%; transition: width 0.3s; }
+.question-container { display: none; }
+.question-container.active { display: block; animation: fadeIn 0.4s; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.question-text { font-size: 1.1rem; font-weight: 700; margin-bottom: 20px; color: #0f172a; }
+.option-item { background: #fff; border: 2px solid #e2e8f0; margin-bottom: 10px; padding: 12px; border-radius: 8px; cursor: pointer; }
+.option-item:hover { border-color: #3b82f6; background: #f0f7ff; }
+.option-item.correct { border-color: #10b981; background: #ecfdf5; color: #065f46; font-weight: 600; }
+.option-item.wrong { border-color: #ef4444; background: #fef2f2; color: #991b1b; }
+.option-item.selected { border-color: #3b82f6; background: #e0f2fe; }
+.explanation-box { margin-top: 20px; padding: 15px; border-radius: 8px; background: #f1f5f9; border-left: 6px solid #3b82f6; display: none; }
+.nav-footer { margin-top: 30px; display: flex; justify-content: space-between; align-items: center; }
+#final-screen { display: none; text-align: center; }
+.score-circle { width: 100px; height: 100px; border-radius: 50%; border: 5px solid #1e3a8a; margin: 20px auto; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 900; }
+</style>
+
+<script>
+const examData = [
+
+  {
+    id: 1,
+    q: "Quelles entités sont considérées comme une 'administration' au sens du CRPA (Loi Open Data) ?",
+    o: [
+      "L'État et ses ministères",
+      "Les collectivités territoriales (Mairies, Régions...)",
+      "Une entreprise privée sans mission de service public",
+      "Les organismes de droit privé chargés d'une mission de service public (ex: SNCF, EDF)"
+    ],
+    // Plusieurs bonnes réponses : A, B, D
+    a: [0, 1, 3],
+    e: "L'administration au sens de la loi inclut tout organisme gérant un service public, même s'il est de droit privé."
+  },
+  {
+    id: 2,
+    q: "Quelle est la différence fondamentale entre une 'donnée' et une 'information' ?",
+    o: [
+      "La donnée est brute (ex: un pixel, une coordonnée)",
+      "L'information est une donnée interprétée et contextualisée",
+      "Il n'y a aucune différence, ce sont des synonymes exacts",
+      "La donnée est numérique, l'information est toujours sur papier"
+    ],
+    // Plusieurs bonnes réponses : A, B
+    a: [0, 1],
+    e: "La donnée est le matériau brut. L'information est le sens que l'on donne à ce matériau (ex: 45.3 est une donnée, 'il fait 45.3°C' est une information)."
+  },
+  {
+    id: 3,
+    q: "Qu'est-ce qui caractérise une 'diffusion' de données ?",
+    o: [
+      "C'est une mise à disposition proactive par l'administration",
+      "Elle se fait généralement par voie électronique (portail Open Data)",
+      "C'est l'envoi d'un fichier à un seul individu suite à une plainte",
+      "Elle vise un public large et indéterminé"
+    ],
+    // Plusieurs bonnes réponses : A, B, D
+    a: [0, 1, 3],
+    e: "La diffusion est une démarche d'ouverture vers tous, contrairement à la communication individuelle."
+  },
+  {
+    id: 4,
+    q: "Définissez la 'réutilisation' au sens légal :",
+    o: [
+      "Utiliser la donnée pour une fin différente de la mission de service public initiale",
+      "Consulter simplement la donnée sur un écran sans l'enregistrer",
+      "Exploiter la donnée pour créer un service commercial (ex: application GPS)",
+      "Recopier la donnée sur un papier pour un usage personnel"
+    ],
+    // Plusieurs bonnes réponses : A, C
+    a: [0, 2],
+    e: "La réutilisation est l'usage de la donnée par un tiers à des fins autres que celles de la mission de service public pour laquelle elle a été produite."
+  },
+  {
+    id: 5,
+    q: "Quelles sont les différences entre 'accès' et 'réutilisation' ?",
+    o: [
+      "L'accès est le droit de consulter/obtenir le document",
+      "La réutilisation est le droit d'exploiter le contenu pour d'autres projets",
+      "L'accès est toujours payant, la réutilisation est gratuite",
+      "L'accès est limité par le secret administratif, la réutilisation par la licence"
+    ],
+    // Plusieurs bonnes réponses : A, B, D
+    a: [0, 1, 3],
+    e: "L'accès est la 'porte d'entrée' (CADA). La réutilisation est 'ce qu'on fait à l'intérieur' (Licence)."
+  },
+  {
+    id: 6,
+    q: "Qu'est-ce qu'un contrat dans le domaine de la géomatique ?",
+    o: [
+      "Un accord de volontés destiné à créer des obligations (ex: licence d'utilisation)",
+      "Une loi votée par l'Assemblée Nationale",
+      "Un document technique (spécifications)",
+      "Une convention entre un producteur de données et un utilisateur"
+    ],
+    // Plusieurs bonnes réponses : A, D
+    a: [0, 3],
+    e: "Un contrat (ou une licence) fixe les règles spécifiques entre les signataires."
+  },
+  {
+    id: 7,
+    q: "Quelle est la relation entre un contrat et la loi ?",
+    o: [
+      "Le contrat peut ignorer la loi s'il est signé par un maire",
+      "Le contrat doit obligatoirement respecter les lois d'ordre public (ex: RGPD)",
+      "La loi définit le cadre général, le contrat précise les détails de l'échange",
+      "Un contrat est toujours inférieur à la loi dans la hiérarchie des normes"
+    ],
+    // Plusieurs bonnes réponses : B, C, D
+    a: [1, 2, 3],
+    e: "Le contrat est un outil juridique qui s'exerce à l'intérieur du cadre fixé par la loi."
+  },
+  {
+    id: 8,
+    q: "Pourquoi une donnée géographique liée à un lieu peut-elle être une donnée personnelle ?",
+    o: [
+      "Parce qu'elle peut identifier indirectement un individu (ex: Parcelle -> Cadastre -> Nom)",
+      "Parce que le GPS est interdit en France",
+      "Parce que l'adresse permet de localiser la vie privée d'une personne",
+      "Seulement si le nom de la personne est écrit sur la carte"
+    ],
+    // Plusieurs bonnes réponses : A, C
+    a: [0, 2],
+    e: "Le RGPD protège l'identification directe ET indirecte. Une parcelle ou une adresse sont des identifiants indirects."
+  },
+  {
+    id: 9,
+    q: "Identifiez les données soumises à réutilisation et celles qui ne le sont pas :",
+    o: [
+      "Soumis : Le tracé des routes publiques (donnée administrative)",
+      "Non soumis : Données protégées par le secret de la Défense Nationale",
+      "Soumis : Données dont les droits de propriété intellectuelle appartiennent à un tiers",
+      "Non soumis : Documents dont la communication ne constitue pas un droit (ex: documents inachevés)"
+    ],
+    // Plusieurs bonnes réponses : A, B, D
+    a: [0, 1, 3],
+    e: "On ne peut pas réutiliser ce qui appartient à un tiers ou ce qui est secret/inachevé."
+  },
+  {
+    id: 1,
+    q: "Dans une situation de 'Régie' (le service conçoit et saisit la BD lui-même), qui détient les droits ?",
+    o: [
+      "Le prestataire externe",
+      "Le service (auteur et producteur)",
+      "Le ministère de la Justice",
+      "Personne, la donnée est libre par nature"
+    ],
+    // Réponse unique : B
+    a: [1],
+    e: "En régie, le service assure toutes les étapes et cumule donc le droit moral, patrimonial et le droit du producteur."
+  },
+  {
+    id: 2,
+    q: "Le service sous-traite la CONCEPTION de la structure et la SAISIE à un prestataire. Quels droits le prestataire détient-il ?",
+    o: [
+      "Le droit moral",
+      "Le droit patrimonial",
+      "Le droit du producteur",
+      "Aucun droit"
+    ],
+    // Réponses multiples : A, B
+    a: [0, 1],
+    e: "Si le prestataire conçoit la structure, il est considéré comme l'auteur (droits moral et patrimonial). Le service conserve le droit du producteur car il finance le projet."
+  },
+  {
+    id: 3,
+    q: "Le service sous-traite uniquement la SAISIE mais en DICTE la structure. Qui détient les droits d'auteur (moral et patrimonial) ?",
+    o: [
+      "Le prestataire qui a saisi les données",
+      "Le service qui a dicté la structure",
+      "Le commanditaire final",
+      "Le CEREMA"
+    ],
+    // Réponse unique : B
+    a: [1],
+    e: "Celui qui conçoit l'architecture (la structure) de la base de données est le titulaire des droits d'auteur."
+  },
+  {
+    id: 4,
+    q: "Dans quel(s) cas le 'Commanditaire' détient-il l'intégralité des droits (moral, patrimonial et producteur) ?",
+    o: [
+      "Quand le service saisit des données dans une BDD dont la structure est dictée par le commanditaire",
+      "En cas de sous-traitance totale à un prestataire",
+      "Quand le service conçoit lui-même la structure pour un client",
+      "Quand la commande est passée sans mention de cession de droits mais que le client dicte tout"
+    ],
+    // Réponses multiples : A, D
+    a: [0, 3],
+    e: "Si le commanditaire dicte la structure et finance la prestation, il récupère l'ensemble des droits selon le tableau."
+  },
+  {
+    id: 5,
+    q: "Si un service saisit des données sur commande d'un client dans une BDD qu'il a LUI-MÊME créée (structure conçue par le service), qui possède le droit du producteur ?",
+    o: [
+      "Le service",
+      "Le prestataire",
+      "Le commanditaire (le client)",
+      "L'État"
+    ],
+    // Réponse unique : C
+    a: [2],
+    e: "Même si le service conçoit la structure, le fait d'agir sur commande d'un client transfère le droit du producteur au commanditaire."
+  },
+  {
+    id: 6,
+    q: "Quelles affirmations sont vraies concernant le droit du producteur dans le cadre d'une sous-traitance ?",
+    o: [
+      "Il appartient toujours au prestataire",
+      "Il appartient au service si celui-ci finance et sous-traite",
+      "Il est lié à l'investissement financier et technique",
+      "Il est identique au droit moral"
+    ],
+    // Réponses multiples : B, C
+    a: [1, 2],
+    e: "Le droit du producteur protège l'investissement. Dans les cas de sous-traitance du tableau, il reste au service (le donneur d'ordre)."
+  },
+  {
+    id: 7,
+    q: "On suppose que les commandes sont passées SANS mention de cession de droits. Qu'est-ce que cela implique ?",
+    o: [
+      "Que le droit moral est automatiquement supprimé",
+      "Que l'on doit se référer strictement à qui a conçu la structure pour déterminer l'auteur",
+      "Que le prestataire perd tous ses droits par défaut",
+      "Que la répartition des droits suit les règles de conception et de financement par défaut"
+    ],
+    // Réponses multiples : B, D
+    a: [1, 3],
+    e: "En l'absence de contrat de cession, c'est l'activité réelle (conception vs exécution) qui détermine la titularité des droits."
+  },
+  {
+    id: 1,
+    q: "Scénario : La mairie d'Antibes crée une base de données de ses espaces verts. Les agents municipaux dessinent les polygones et créent les attributs sur leur temps de travail. Qui détient les droits ?",
+    o: [
+      "Les agents municipaux (droit moral)",
+      "La mairie (Régie : droit moral, patrimonial et producteur)",
+      "L'IGN",
+      "Le public (Open Data immédiat)"
+    ],
+    a: [1],
+    e: "C'est le cas de la 'Régie' : le service conçoit et saisit pour lui-même."
+  },
+  {
+    id: 2,
+    q: "Scénario : Le CRIGE PACA commande une BD 'Occupation du sol' à une société privée. Le cahier des charges du CRIGE impose strictement la structure des tables et les noms des champs. Qui est titulaire du droit d'auteur ?",
+    o: [
+      "La société privée (le prestataire)",
+      "Le CRIGE PACA (le service)",
+      "Les deux (co-titularité)",
+      "L'Europe via INSPIRE"
+    ],
+    a: [1],
+    e: "Le service 'dicte la structure'. Le prestataire n'est qu'un exécutant technique, le droit d'auteur reste au service."
+  },
+  {
+    id: 3,
+    q: "Scénario : Une communauté de communes demande à un bureau d'études de créer un observatoire du commerce. Le bureau d'études arrive avec sa propre méthode et sa propre structure de base de données. Quels droits reviennent au bureau d'études ?",
+    o: [
+      "Le droit moral",
+      "Le droit patrimonial",
+      "Le droit du producteur",
+      "Aucun, car il a été payé"
+    ],
+    a: [0, 1],
+    e: "Le prestataire a conçu la structure. Il est l'auteur (moral + patrimonial). La collectivité n'aura que le droit du producteur."
+  },
+  {
+    id: 4,
+    q: "Scénario : Un promoteur immobilier (Client) commande à un géomètre la création d'une base de données des réseaux d'un nouveau quartier. Le promoteur impose son propre modèle de données. Quels droits possède le promoteur ?",
+    o: [
+      "Droit moral",
+      "Droit patrimonial",
+      "Droit du producteur",
+      "Tous les droits"
+    ],
+    a: [3],
+    e: "Cas 'Prestation sur commande' : le client (commanditaire) dicte la structure, il récupère l'intégralité des droits."
+  },
+  {
+    id: 5,
+    q: "Dans le tableau, qu'est-ce qui différencie principalement la 'Sous-traitance' de la 'Prestation sur commande' ?",
+    o: [
+      "Le prix payé",
+      "La personne qui détient le droit du producteur (Service vs Commanditaire)",
+      "Le logiciel utilisé",
+      "Le volume de données"
+    ],
+    a: [1],
+    e: "En sous-traitance, le 'Service' garde la main. En prestation sur commande, c'est le 'Client/Commanditaire' qui est titulaire du droit du producteur."
+  },
+  {
+    id: 6,
+    q: "Si un prestataire conçoit une structure de base de données innovante pour un service, le service peut-il modifier cette structure sans l'accord du prestataire ?",
+    o: [
+      "Oui, car il a payé pour ça",
+      "Non, à cause du droit moral du prestataire (respect de l'œuvre)",
+      "Seulement si le contrat de cession le prévoit",
+      "Oui, le droit moral n'existe pas pour les bases de données"
+    ],
+    a: [1, 2],
+    e: "Le droit moral protège l'intégrité de l'œuvre. Sans cession ou accord, modifier la structure peut être une atteinte au droit moral."
+  },
+  {
+    id: 7,
+    q: "Scénario : Un stagiaire dans un service SIG crée une structure de base de données originale. Le service n'avait rien dicté. Selon le tableau, qui est l'auteur ?",
+    o: [
+      "Le stagiaire (il a conçu la structure)",
+      "Le service (il emploie le stagiaire)",
+      "L'école du stagiaire",
+      "Le tuteur de stage"
+    ],
+    a: [0],
+    e: "Si le service n'a pas dicté la structure, le concepteur physique (le stagiaire) est l'auteur. Note : souvent, les contrats de stage prévoient une cession automatique vers l'employeur pour éviter ce cas."
+  },
+  {
+    id: 8,
+    q: "Le droit du producteur est lié à l'investissement. Dans quels cas du tableau le titulaire est-il le 'Commanditaire' ?",
+    o: [
+      "Saisie dans une BDD dont la structure est dictée par le commanditaire",
+      "Saisie dans une BDD créée par le service dont il conçoit la structure (sur commande du client)",
+      "En régie",
+      "En sous-traitance de saisie uniquement"
+    ],
+    a: [0, 1],
+    e: "Dès qu'il s'agit d'une prestation effectuée sur commande d'un client, le droit du producteur revient au client (commanditaire)."
+  },
+  {
+    id: 9,
+    q: "Qu'est-ce qui définit le 'Droit Patrimonial' dans ces exemples ?",
+    o: [
+      "Le droit de vendre ou de louer la base de données",
+      "Le droit d'être cité comme auteur",
+      "Le droit de corriger les erreurs",
+      "Le droit d'exploitation commerciale"
+    ],
+    a: [0, 3],
+    e: "Le droit patrimonial est le volet 'économique' du droit d'auteur."
+  },
+  {
+    id: 10,
+    q: "Sur le tableau, la mention 'Service' pour le droit du producteur en cas de sous-traitance signifie que :",
+    o: [
+      "Le prestataire n'a pas le droit de revendre la base à quelqu'un d'autre",
+      "Le service peut diffuser la base en Open Data",
+      "L'investissement financier a été porté par le service public",
+      "Le prestataire est propriétaire des serveurs"
+    ],
+    a: [0, 1, 2],
+    e: "Le droit du producteur permet d'interdire l'extraction ou la réutilisation non autorisée. Ici, c'est le service qui décide."
+  }
+
+];
+
+// Variables
+let current = 0;
+const userAnswers = new Array(examData.length).fill(null);
+
+/* Mélange tableau */
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
+
+function shuffleQuizData() {
+  examData.forEach(q => {
+    // Shuffle options
+    const correctTexts = q.a.map(i => q.o[i]);
+    shuffleArray(q.o);
+    q.a = correctTexts.map(txt => q.o.indexOf(txt));
+  });
+  shuffleArray(examData);
+}
+
+/* Initialisation quiz */
+function initQuiz() {
+  const wrapper = document.getElementById('questions-wrapper');
+  examData.forEach((item, idx) => {
+    const div = document.createElement('div');
+    div.className = `question-container ${idx === 0 ? 'active' : ''}`;
+    div.id = `q-${idx}`;
+    div.innerHTML = `
+      <div class="question-text">${idx + 1}. ${item.q}</div>
+      <div class="options-list">
+        ${item.o.map((opt, i) => `<div class="option-item" onclick="handleSelect(${idx}, ${i}, this)">${opt}</div>`).join('')}
+      </div>
+      <button onclick="validateQuestion(${idx})" style="margin-top:10px;">Valider la question</button>
+      <div class="explanation-box" id="exp-${idx}">
+        <div style="font-weight:bold; color:#1e3a8a; font-size:0.8rem;">💡 ANALYSE</div>
+        <div>${item.e}</div>
+      </div>
+    `;
+    wrapper.appendChild(div);
+  });
+}
+
+/* Gestion sélection */
+window.handleSelect = function(qIdx, oIdx, el) {
+  if (!Array.isArray(userAnswers[qIdx])) userAnswers[qIdx] = [];
+  // Toggle sélection
+  if (userAnswers[qIdx].includes(oIdx)) {
+    userAnswers[qIdx] = userAnswers[qIdx].filter(i => i !== oIdx);
+    el.classList.remove("selected");
+  } else {
+    userAnswers[qIdx].push(oIdx);
+    el.classList.add("selected");
+  }
+};
+
+/* Validation question */
+function validateQuestion(qIdx) {
+  const options = document.querySelectorAll(`#q-${qIdx} .option-item`);
+  const correct = examData[qIdx].a;
+
+  options.forEach((o, i) => {
+    if (correct.includes(i)) o.classList.add('correct');
+    else if (userAnswers[qIdx]?.includes(i)) o.classList.add('wrong');
+  });
+
+  document.getElementById(`exp-${qIdx}`).style.display = 'block';
+}
+
+/* Navigation */
+window.move = function(dir) {
+  const containers = document.querySelectorAll('.question-container');
+  containers[current].classList.remove('active');
+  current += dir;
+  if (current >= examData.length) { finish(); return; }
+  containers[current].classList.add('active');
+  updateUI();
+};
+
+/* UI */
+function updateUI() {
+  document.getElementById('counter').innerText = `Question ${current + 1} / ${examData.length}`;
+  document.getElementById('prev-btn').disabled = current === 0;
+  document.getElementById('next-btn').innerText = (current === examData.length - 1) ? "Terminer" : "Suivant";
+  document.getElementById('progress-fill-quiz').style.width = `${((current + 1)/examData.length)*100}%`;
+}
+
+/* Fin du quiz */
+function finish() {
+  document.getElementById('quiz-ui').style.display = 'none';
+  document.getElementById('final-screen').style.display = 'block';
+
+  let score = 0;
+  examData.forEach((q,i)=>{
+    const user = userAnswers[i] || [];
+    const correct = q.a;
+    if (user.length === correct.length && user.every(ans => correct.includes(ans))) score++;
+  });
+
+  const pct = Math.round((score / examData.length) * 100);
+  document.getElementById('score-display').innerText = `${pct}%`;
+  document.getElementById('feedback-msg').innerText =
+    pct >= 70 ? "Félicitations ! Expert en métadonnées !" : "Pas mal, encore un peu de révision sur l'ISO 19115.";
+}
+
+/* Lancement */
+shuffleQuizData();
+initQuiz();
+updateUI();
+</script>
+              
+
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../overrides/script.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
