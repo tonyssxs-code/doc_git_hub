@@ -172,605 +172,606 @@
 
 <script>
 const examData = [
+
   {
     "id": 1,
-    "q": "Quelle norme internationale définit spécifiquement les principes de description de la qualité des données géographiques ?",
+    "q": "Selon le cours, quelle est la définition d'une 'Norme' ?",
     "o": [
-      "ISO 19115",
-      "ISO 19139",
-      "ISO 19157",
-      "ISO 9001"
+      "Une habitude de travail partagée par une équipe",
+      "Une règle fixant les conditions de réalisation d'un objet pour assurer l'interchangeabilité",
+      "Un logiciel certifié par l'IGN",
+      "Une loi votée au Parlement européen uniquement"
     ],
-    "a": [2],
-    "e": "L'ISO 19157 (2013) est la norme de référence pour la qualité des données géographiques, agrégeant les anciennes normes 19113, 19114 et 19138."
+    "a": [1],
+    "e": "Source Larousse citée dans le cours : une norme assure l'unification de l'emploi et l'interchangeabilité."
   },
   {
     "id": 2,
-    "q": "Comment définit-on la 'Qualité Interne' d'une donnée ?",
+    "q": "Quels sont les deux organismes (CRIGE PACA et un autre) qui ont déployé la FOAD Qualité depuis 2021 ?",
     "o": [
-      "Le niveau d'adéquation entre la donnée et le besoin de l'utilisateur",
-      "Le niveau d'adéquation entre la donnée produite et ses spécifications nominales",
-      "La rapidité d'affichage de la donnée dans un SIG",
-      "La satisfaction du client final"
+      "L'IGN",
+      "Le Cerema",
+      "L'INSEE",
+      "OpenStreetMap France"
     ],
     "a": [1],
-    "e": "La qualité interne mesure l'écart par rapport au 'Terrain Nominal' (les spécifications techniques définies au départ)."
+    "e": "Le cours mentionne explicitement le partenariat CRIGE-PACA / CEREMA pour le déploiement de la FOAD Qualité."
   },
   {
     "id": 3,
-    "q": "La directive européenne INSPIRE vise principalement à :",
+    "q": "Le 'Terrain Nominal' est défini comme :",
     "o": [
-      "Interdire la vente de données géographiques",
-      "Remplacer l'IGN par une agence européenne",
-      "Assurer l'interopérabilité et faciliter la diffusion des données environnementales",
-      "Uniformiser les prix des logiciels SIG"
+      "Le monde réel tel qu'on le voit",
+      "La donnée conforme aux spécifications",
+      "Le nom des parcelles cadastrales",
+      "La précision GPS moyenne"
     ],
-    "a": [2],
-    "e": "INSPIRE impose aux autorités publiques de rendre leurs données accessibles et interopérables via des services web."
+    "a": [1],
+    "e": "Le schéma du cours montre que le terrain nominal est l'image de la donnée si elle suivait parfaitement les spécifications."
   },
   {
     "id": 4,
-    "q": "Qu'est-ce que le 'Terrain Nominal' dans le processus de production ?",
+    "q": "Dans le schéma 'Les expressions de la qualité', qu'est-ce que la Qualité Interne ?",
     "o": [
-      "Le monde réel tel qu'il existe physiquement",
-      "La donnée une fois qu'elle est publiée en Open Data",
-      "La donnée telle qu'elle devrait être si elle respectait 100% des spécifications",
-      "Le fond de plan utilisé pour la numérisation"
+      "L'écart entre le besoin utilisateur et la donnée",
+      "L'écart entre les spécifications et la production des données",
+      "La vitesse du réseau local de l'entreprise",
+      "La qualité des métadonnées uniquement"
     ],
-    "a": [2],
-    "e": "Le terrain nominal est l'image idéale de la base de données définie par les spécifications de saisie."
+    "a": [1],
+    "e": "La qualité interne mesure la conformité de la production par rapport aux spécifications fixées."
   },
   {
     "id": 5,
-    "q": "Parmi ces critères, lequel fait partie des 5 critères de la norme ISO 19157 ?",
+    "q": "Quel projet vise à implémenter le 'Geospatial User Feedback' (GUF) dans Géonetwork ?",
     "o": [
-      "La rapidité de téléchargement",
-      "La cohérence logique",
-      "Le coût de production",
-      "La convivialité de l'interface"
+      "Le projet INSPIRE",
+      "Le projet de notation par l'utilisateur (type avis client)",
+      "Le projet PCRS",
+      "Le projet d'Open Data national"
     ],
     "a": [1],
-    "e": "Les 5 critères sont : Exhaustivité, Cohérence logique, Précision de position, Précision thématique et Qualité temporelle."
+    "e": "Le cours cite le GUF comme un moyen de mesurer la satisfaction client (Qualité externe)."
   },
   {
     "id": 6,
-    "q": "Dans le critère d'Exhaustivité, qu'est-ce qu'une 'Omission' ?",
+    "q": "Pour contrôler AVEC référentiel, quelle est la règle de qualité minimale du référentiel ?",
     "o": [
-      "Une donnée présente dans la base mais qui n'existe pas sur le terrain",
-      "Une donnée manquante dans la base alors qu'elle existe sur le terrain",
-      "Une erreur de saisie dans le nom d'un attribut",
-      "Un polygone qui en chevauche un autre"
+      "Qualité du référentiel < qualité du lot à contrôler",
+      "Qualité du référentiel >= qualité du lot à contrôler",
+      "Le référentiel doit être gratuit",
+      "Le référentiel doit obligatoirement être l'IGN"
     ],
     "a": [1],
-    "e": "L'omission désigne l'absence d'éléments qui auraient dû être saisis selon les spécifications."
+    "e": "Pour être une base de comparaison valable, le référentiel doit être au moins aussi précis ou plus précis que la donnée contrôlée."
   },
   {
     "id": 7,
-    "q": "Quel indicateur utilise-t-on pour mesurer la justesse d'un classement thématique (ex: forêt vs prairie) ?",
+    "q": "Dans le cours, quelle blague illustre l'importance de la qualité des référentiels ?",
     "o": [
-      "L'Écart Moyen Quadratique (EMC)",
-      "Le coefficient d'épaisseur",
-      "La matrice de confusion",
-      "Le taux de dangles"
+      "Une blague sur la Joconde",
+      "Une blague sur un GPS en forêt",
+      "Une blague sur un facteur",
+      "Une blague sur les hexagones"
     ],
-    "a": [2],
-    "e": "La matrice de confusion permet de confronter les classes saisies aux classes réelles pour identifier les erreurs de croisement."
+    "a": [0],
+    "e": "Stéphane Rolle utilise l'image de la Joconde (et sa version dégradée) pour illustrer la notion de référence."
   },
   {
     "id": 8,
-    "q": "L'échantillonnage 'Aléatoire Stratifié' consiste à :",
+    "q": "Lequel de ces éléments n'est PAS un des 5 critères de la norme ISO 19157 ?",
     "o": [
-      "Choisir des objets au hasard sur tout le territoire",
-      "Diviser le lot en sous-ensembles homogènes (strates) avant de tirer au sort",
-      "Ne contrôler que les objets qui semblent faux",
-      "Prendre un objet tous les 10 objets"
+      "Exhaustivité",
+      "Cohérence logique",
+      "Précision de position",
+      "Coût de la donnée"
     ],
-    "a": [1],
-    "e": "Cela permet de s'assurer que toutes les zones (urbain, rural, etc.) sont représentées proportionnellement dans le contrôle."
+    "a": [3],
+    "e": "Les 5 critères sont : Exhaustivité, Cohérence logique, Précision de position, Précision thématique et Qualité temporelle."
   },
   {
     "id": 9,
-    "q": "Dans PostGIS, quelle fonction permet de vérifier la validité géométrique d'un objet ?",
+    "q": "La cohérence logique se divise en 4 sous-critères. Lequel est cité ?",
     "o": [
-      "ST_Length",
-      "ST_IsValid",
-      "ST_Distance",
-      "ST_Buffer"
+      "La cohérence conceptuelle",
+      "La cohérence des couleurs",
+      "La cohérence des prix",
+      "La cohérence des auteurs"
     ],
-    "a": [1],
-    "e": "ST_IsValid vérifie le respect des règles topologiques (pas d'auto-intersection, anneaux fermés, etc.)."
+    "a": [0],
+    "e": "Les 4 sont : conceptuelle, domaine de valeur, format et topologique."
   },
   {
     "id": 10,
-    "q": "Quelle est la principale utilité des métadonnées ?",
+    "q": "Qu'est-ce qu'une 'Omission' en exhaustivité ?",
     "o": [
-      "Améliorer la précision de position des points",
-      "Décrire les données pour faciliter leur recherche et leur utilisation",
-      "Remplacer les fichiers de formes (shapefiles)",
-      "Compresser les données pour le web"
+      "Une donnée en trop",
+      "Une donnée manquante",
+      "Une erreur de texte",
+      "Un point mal placé"
     ],
     "a": [1],
-    "e": "Les métadonnées sont 'les données sur les données', indispensables pour connaître la généalogie et la qualité d'un lot."
+    "e": "L'omission est l'absence d'un élément qui devrait être présent selon les spécifications."
   },
   {
     "id": 11,
-    "q": "Le critère de 'Précision de position' s'évalue souvent par :",
+    "q": "Comment définit-on un 'Lot' dans les méthodes d'échantillonnage ?",
     "o": [
-      "La date de mise à jour",
-      "Le calcul de l'EMC (Écart Moyen Quadratique) par rapport à un référentiel plus précis",
-      "Le nombre d'attributs vides",
-      "Le nom de l'auteur de la donnée"
+      "Un prix gagné au loto",
+      "Une unité minimale d'objet",
+      "Un ensemble de données à évaluer, produites dans des conditions homogènes",
+      "Une zone géographique de 1km²"
     ],
-    "a": [1],
-    "e": "L'EMC mesure l'écart moyen entre la position saisie et la position réelle (ou de référence)."
+    "a": [2],
+    "e": "Le lot est l'ensemble global à partir duquel on tire l'échantillon."
   },
   {
     "id": 12,
-    "q": "Pour un calcul d'itinéraire PMR, quel défaut topologique est le plus bloquant ?",
+    "q": "L'échantillonnage 'Orienté surface' est illustré dans le cours par :",
     "o": [
-      "Une erreur de nom de rue",
-      "Un 'dangle' (nœud non connecté) sur un segment de voirie",
-      "Un polygone de bâtiment qui n'a pas de couleur",
-      "Une métadonnée incomplète"
+      "La ville de Marseille",
+      "La commune de 'Les ChampsTillon'",
+      "Le département du Vaucluse",
+      "L'île de Corse"
     ],
     "a": [1],
-    "e": "Si les segments ne sont pas connectés topologiquement, l'algorithme de routage ne peut pas passer d'un tronçon à l'autre."
+    "e": "C'est l'exemple fictif utilisé pour montrer le découpage en zones géographiques."
   },
   {
     "id": 13,
-    "q": "Qu'est-ce que la 'LAQ' ?",
+    "q": "Dans l'exercice sur le taux d'exhaustivité (T), quelle est la formule ?",
     "o": [
-      "La Loi sur l'Aménagement des Quartiers",
-      "La Limite d'Acceptation de la Qualité (seuil d'erreur toléré)",
-      "Une norme de compression d'image",
-      "Le Logiciel d'Analyse de la Qualité"
+      "T = Nb Erreurs / Nb Total",
+      "T = 1 - (Omissions + Excédents) / Nb d'objets attendus",
+      "T = Surface / Périmètre",
+      "T = 1 + Erreurs"
     ],
     "a": [1],
-    "e": "La LAQ définit le taux d'erreur maximum au-delà duquel le lot de données est refusé."
+    "e": "Le cours donne l'exemple de calcul du taux d'exhaustivité basé sur les manquants et les surplus."
   },
   {
     "id": 14,
-    "q": "Le 'Dire d'expert' est une méthode d'évaluation :",
+    "q": "La 'Cohérence de format' vérifie quoi ?",
     "o": [
-      "Automatique",
-      "Directe et qualitative (basée sur la connaissance du terrain)",
-      "Basée uniquement sur des statistiques",
-      "Inutilisable selon l'ISO 19157"
+      "Si le fichier est un PDF",
+      "L'adéquation avec la structure physique (noms, types et taille des attributs)",
+      "Si la carte est jolie",
+      "Le nom du prestataire"
     ],
     "a": [1],
-    "e": "Le dire d'expert complète les mesures quantitatives par une analyse métier (connaissance locale ou thématique)."
+    "e": "Elle vérifie que le fichier respecte le format informatique spécifié."
   },
   {
     "id": 15,
-    "q": "Dans le cadre de l'accessibilité (Loi LOM), quelle précision est cruciale pour les fauteuils roulants ?",
+    "q": "L'indice de compacité Q est calculé avec quelle formule dans QGIS ?",
     "o": [
-      "La précision temporelle",
-      "La précision altimétrique (pentes et dévers)",
-      "La précision du nom de la commune",
-      "Le format de fichier (PDF ou Excel)"
+      "$area / $perimeter",
+      "(4 * pi() * $area) / ($perimeter * $perimeter)",
+      "2 * $area / $perimeter",
+      "$x + $y"
     ],
     "a": [1],
-    "e": "Une erreur de quelques pourcents de pente peut rendre un itinéraire impraticable pour un PMR."
+    "e": "Formule citée pour détecter les formes irrégulières ou résiduelles."
   },
   {
     "id": 16,
-    "q": "La 'Cohérence de format' vérifie :",
+    "q": "Le coefficient d'épaisseur E permet d'identifier :",
     "o": [
-      "Si la donnée est belle à l'écran",
-      "L'adéquation avec la structure physique attendue (noms des champs, types de données)",
-      "Si le fichier est lisible sur un smartphone",
-      "Si le prestataire a utilisé QGIS"
+      "La hauteur des arbres",
+      "Les parcelles anormalement étroites (ex: < 2m)",
+      "La largeur des routes uniquement",
+      "Le poids du fichier"
     ],
     "a": [1],
-    "e": "Elle s'assure que le fichier livré respecte techniquement le schéma de données (MCD)."
+    "e": "Une valeur E < 2m indique souvent une parcelle anormale ou un résidu de saisie."
   },
   {
     "id": 17,
-    "q": "Un échantillonnage 'Au jugé' est considéré comme :",
+    "q": "Dans la matrice de confusion, que représente MCM (i,j) ?",
     "o": [
-      "Probabiliste",
-      "Non probabiliste (déterministe)",
-      "Systématique",
-      "Toujours meilleur qu'un tirage aléatoire"
+      "Le nom d'une ville",
+      "Le nombre d'objets de la classe 'i' classés en classe 'j'",
+      "Une coordonnée GPS",
+      "Le temps de calcul"
     ],
     "a": [1],
-    "e": "C'est un choix subjectif fait par l'expert, utile pour cibler des zones complexes mais non représentatif statistiquement."
+    "e": "C'est l'outil de base pour calculer la précision thématique (erreurs de classement)."
   },
   {
     "id": 18,
-    "q": "Le coefficient Kappa est utilisé pour :",
+    "q": "Le coefficient Kappa sert à :",
     "o": [
-      "Mesurer la distance entre deux points",
-      "Évaluer la concordance entre un classement et la réalité, en excluant la part du hasard",
-      "Calculer la surface d'un polygone",
-      "Déterminer la date de péremption d'une donnée"
+      "Mesurer la température",
+      "Évaluer la justesse du classement en éliminant la part du hasard",
+      "Calculer la pente d'un terrain",
+      "Valider une licence Open Data"
     ],
     "a": [1],
-    "e": "Il affine la mesure de précision thématique en tenant compte des classements corrects qui auraient pu arriver par chance."
+    "e": "Le Kappa est l'indicateur statistique de référence pour la précision thématique."
   },
   {
     "id": 19,
-    "q": "La 'Cohérence Conceptuelle' mesure :",
+    "q": "Quelle commande shell est citée pour obtenir des infos rapides sur un fichier ?",
     "o": [
-      "Le respect des règles du schéma conceptuel (ex: pas de chevauchements de zones d'urbanisme)",
-      "La clarté du manuel d'utilisation",
-      "Le nombre d'objets manquants",
-      "La précision GPS lors de la saisie"
+      "ls -l",
+      "ogrinfo",
+      "ping",
+      "format C:"
     ],
-    "a": [0],
-    "e": "Elle vérifie si les données respectent les règles métiers et les relations définies dans le modèle (MCD)."
+    "a": [1],
+    "e": "Ogrinfo est utilisé pour vérifier la cohérence de format et la structure des couches."
   },
   {
     "id": 20,
-    "q": "Quelle ressource nationale française propose des standards pour les données (PLU, accessibilité, etc.) ?",
+    "q": "Dans PostGIS, quel outil est utilisé pour importer un Shapefile ?",
     "o": [
-      "Le CNIG (Conseil National de l'Information Géolocalisée)",
-      "Météo France",
-      "La Poste",
-      "Le Ministère des Finances"
+      "sh2pg",
+      "shp2pgsql",
+      "import_map",
+      "qgis_import"
     ],
-    "a": [0],
-    "e": "Le CNIG valide les standards de données pour assurer l'échange entre collectivités et l'État."
+    "a": [1],
+    "e": "shp2pgsql est l'utilitaire standard mentionné dans la partie 'Mise en pratique' du cours."
   },
   {
     "id": 21,
-    "q": "L'indice de compacité Q (formule de Gravelius) permet de détecter :",
+    "q": "La qualité temporelle inclut la 'Validité temporelle'. Elle vérifie :",
     "o": [
-      "Les erreurs de noms d'attributs",
-      "Les formes de polygones anormalement découpées ou irrégulières",
-      "La date de création de la donnée",
-      "L'altitude d'un point"
+      "Si la donnée est périmée",
+      "L'adéquation entre la donnée et la période de temps spécifiée",
+      "La vitesse de mise à jour",
+      "L'heure du serveur"
     ],
     "a": [1],
-    "e": "Si Q est proche de 0, la forme est très découpée, ce qui peut trahir une erreur de numérisation."
+    "e": "Elle s'assure que la donnée représente bien la réalité à la date prévue."
   },
   {
     "id": 22,
-    "q": "Qu'est-ce qu'un 'Excédent' dans un jeu de données ?",
+    "q": "Un 'Dangle' (nœud pendant) est une erreur de quel type ?",
     "o": [
-      "Une donnée trop précise",
-      "Une donnée présente en base mais qui n'existe pas dans le monde réel",
-      "Un fichier trop lourd pour être envoyé par mail",
-      "Un doublon de métadonnées"
+      "Exhaustivité",
+      "Cohérence topologique",
+      "Précision thématique",
+      "Généalogie"
     ],
     "a": [1],
-    "e": "L'excédent est une erreur d'exhaustivité où des objets 'fictifs' ou en trop sont présents."
+    "e": "C'est une erreur de connexion arc-nœud dans la cohérence topologique."
   },
   {
     "id": 23,
-    "q": "La 'Qualité Temporelle' inclut la notion de 'Validité' qui vérifie :",
+    "q": "L'échantillonnage 'Probabiliste' est basé sur :",
     "o": [
-      "Si la donnée est utilisable légalement",
-      "Si la donnée correspond à la période de temps spécifiée (ex: données de 2023)",
-      "Si le format .shp est encore valide",
-      "Si l'ordinateur est à l'heure"
+      "Le choix de l'expert",
+      "Le hasard (lois statistiques)",
+      "Le prix des données",
+      "La forme des polygones"
     ],
     "a": [1],
-    "e": "Elle s'assure que les données représentent bien la réalité à l'instant T défini."
+    "e": "Il permet de généraliser les résultats de l'échantillon à tout le lot avec un niveau de confiance."
   },
   {
     "id": 24,
-    "q": "Le 'Calcul de pente' via un MNT pour l'accessibilité est un contrôle :",
+    "q": "Quel site est cité pour télécharger des données cadastrales au format EDIGEO ?",
     "o": [
-      "De cohérence de format",
-      "De précision de position (Z)",
-      "D'exhaustivité",
-      "De généalogie"
+      "google.fr",
+      "cadastre.data.gouv.fr",
+      "ign.fr",
+      "crige-paca.org"
     ],
     "a": [1],
-    "e": "C'est une vérification de la justesse de l'altitude et des calculs dérivés (pentes)."
+    "e": "C'est l'exemple utilisé pour illustrer la standardisation (ISO 19157 appliqué au cadastre)."
   },
   {
     "id": 25,
-    "q": "Un jeu de données 'Homogène' signifie que :",
+    "q": "Une 'Micro-surface' est une erreur :",
     "o": [
-      "Tous les objets sont des points",
-      "Le processus de production et les sources sont constants sur tout le lot",
-      "La donnée est gratuite pour tous",
-      "Il n'y a aucune erreur"
+      "De précision de position",
+      "De cohérence topologique",
+      "De cohérence temporelle",
+      "De métadonnées"
     ],
     "a": [1],
-    "e": "L'homogénéité permet d'appliquer un échantillonnage réduit avec un bon niveau de confiance."
+    "e": "Le cours les classe comme des anomalies de cohérence topologique (souvent liées à des problèmes de saisie)."
   },
   {
     "id": 26,
-    "q": "Pour contrôler les passages piétons d'un prestataire, la télédétection sert de :",
+    "q": "Dans le cours, quel critère est illustré par des photos aériennes où l'on voit (ou non) des détails ?",
     "o": [
-      "Donnée produite",
-      "Référentiel de contrôle (Source externe)",
-      "Logiciel de dessin",
-      "Métadonnée"
+      "La cohérence logique",
+      "L'utilité des métadonnées",
+      "La topologie",
+      "Le coût"
     ],
     "a": [1],
-    "e": "On utilise une source indépendante (télédétection) pour valider le travail du prestataire."
+    "e": "L'exemple montre que sans métadonnées, on ne peut pas déduire les différences entre deux images."
   },
   {
     "id": 27,
-    "q": "La 'Généalogie' d'une donnée décrit :",
+    "q": "Que signifie 'LAQ' ?",
     "o": [
-      "Le nom des enfants de l'auteur",
-      "L'historique des traitements et les sources utilisées pour produire la donnée",
-      "Le prix de vente successif de la donnée",
-      "La hiérarchie des dossiers sur le serveur"
+      "Limite d'Acceptation de la Qualité",
+      "Ligne d'Action Qualitative",
+      "Logiciel d'Analyse Quantifiée",
+      "Loi d'Aménagement des Quartiers"
     ],
-    "a": [1],
-    "e": "La généalogie permet de comprendre comment la donnée a été fabriquée et donc sa fiabilité potentielle."
+    "a": [0],
+    "e": "C'est le seuil de tolérance défini pour accepter ou rejeter un lot de données."
   },
   {
     "id": 28,
-    "q": "Un 'Micro-polygone' (ou sliver polygone) est généralement une erreur de :",
+    "q": "Un 'Excédent' est :",
     "o": [
-      "Précision thématique",
-      "Cohérence topologique",
-      "Qualité temporelle",
-      "Métadonnée"
+      "Une donnée trop précise",
+      "Une donnée présente en base mais absente du terrain",
+      "Une donnée trop lourde",
+      "Une donnée payante"
     ],
     "a": [1],
-    "e": "Ces petits polygones résiduels apparaissent souvent lors de découpages ou de jointures spatiales mal calées."
+    "e": "C'est l'inverse de l'omission dans le critère d'exhaustivité."
   },
   {
     "id": 29,
-    "q": "Le standard 'CNIG Accessibilité' impose un modèle de données pour :",
+    "q": "Le 'Dire d'expert' est une méthode d'évaluation :",
     "o": [
-      "La collecte des données sur la voirie et les ERP pour le transport",
-      "Le dessin des pistes cyclables uniquement",
-      "Le recensement de la population",
-      "La gestion des parkings privés"
+      "Indirecte",
+      "Directe",
+      "Automatique",
+      "Interdite"
     ],
-    "a": [0],
-    "e": "Il vise à harmoniser les inventaires d'accessibilité pour faciliter le calcul d'itinéraire national."
+    "a": [1],
+    "e": "C'est une évaluation directe basée sur la connaissance humaine de la thématique ou du terrain."
   },
   {
     "id": 30,
-    "q": "Quel outil web permet de tester la validité d'un fichier par rapport à un standard CNIG en France ?",
-    "o": [
-      "Google Maps",
-      "Le validateur du Géoportail de l'Urbanisme (GPU)",
-      "Wikipedia",
-      "Adobe Acrobat"
-    ],
-    "a": [1],
-    "e": "Le GPU intègre des validateurs automatiques pour vérifier la conformité des PLU avant dépôt."
-  },
-  {
-    "id": 31,
-    "q": "Une erreur de 'Domaine de valeur' serait :",
-    "o": [
-      "Un point placé à 10m de sa position réelle",
-      "La valeur 'OUI' dans un champ qui n'accepte que '0' ou '1'",
-      "Un objet manquant",
-      "Un fichier corrompu"
-    ],
-    "a": [1],
-    "e": "C'est l'utilisation d'une valeur non autorisée par le dictionnaire d'attributs."
-  },
-  {
-    "id": 32,
-    "q": "L'échantillonnage 'Semi-aléatoire' (ou systématique) consiste à :",
-    "o": [
-      "Choisir au hasard",
-      "Choisir selon un pas régulier (ex: tous les 1km ou tous les 10 dossiers)",
-      "Choisir uniquement les dossiers faciles",
-      "Ne rien choisir du tout"
-    ],
-    "a": [1],
-    "e": "C'est une méthode rigoureuse qui assure une couverture spatiale ou temporelle régulière."
-  },
-  {
-    "id": 33,
-    "q": "La précision 'Z' d'un LiDAR est généralement de l'ordre de :",
-    "o": [
-      "10 mètres",
-      "Quelques centimètres à décimètres",
-      "1 millimètre",
-      "Inexistante (le LiDAR ne fait que du XY)"
-    ],
-    "a": [1],
-    "e": "Le LiDAR est particulièrement précis pour les relevés altimétriques."
-  },
-  {
-    "id": 34,
-    "q": "Le RGAA (évoqué dans l'étude de cas) concerne :",
-    "o": [
-      "La qualité des fichiers Shapefile",
-      "L'accessibilité numérique des sites web pour les handicapés",
-      "Le règlement général sur l'aviation",
-      "Le stockage des données LiDAR"
-    ],
-    "a": [1],
-    "e": "Le Référentiel Général d'Amélioration de l'Accessibilité assure que les outils web sont utilisables par tous."
-  },
-  {
-    "id": 35,
-    "q": "La 'Qualité Externe' est aussi appelée :",
-    "o": [
-      "Qualité de production",
-      "Aptitude à l'emploi (ou utilisabilité)",
-      "Vérification topologique",
-      "Certification ISO 9001"
-    ],
-    "a": [1],
-    "e": "Elle juge si la donnée, même 'parfaite' selon ses specs, répond vraiment au besoin de l'utilisateur."
-  },
-  {
-    "id": 36,
-    "q": "Dans l'échantillonnage, qu'est-ce qu'un 'Lot' ?",
-    "o": [
-      "Un seul point GPS",
-      "L'ensemble des données à évaluer produites dans des conditions identiques",
-      "Le prix payé au prestataire",
-      "Une zone de 100m²"
-    ],
-    "a": [1],
-    "e": "Le lot est l'unité de base pour l'évaluation statistique de la qualité."
-  },
-  {
-    "id": 37,
-    "q": "Une 'Auto-intersection' est :",
-    "o": [
-      "Un croisement entre deux routes",
-      "Une ligne ou un polygone qui se recoupe lui-même",
-      "Un accident de voiture",
-      "Une jointure entre deux tables SQL"
-    ],
-    "a": [1],
-    "e": "C'est une erreur topologique grave qui empêche de nombreux calculs spatiaux."
-  },
-  {
-    "id": 38,
-    "q": "Le 'PCRS' (Plan Corps de Rue Simplifié) est un référentiel :",
-    "o": [
-      "À très grande échelle (précision centimétrique)",
-      "À petite échelle (toute la France sur une page)",
-      "Uniquement thématique (noms des commerces)",
-      "Destiné aux satellites uniquement"
-    ],
-    "a": [0],
-    "e": "Le PCRS est le socle de précision pour gérer les réseaux et la voirie en ville."
-  },
-  {
-    "id": 39,
-    "q": "Quel est le risque principal d'une 'Sous-segmentation' en topologie ?",
-    "o": [
-      "La donnée est trop lourde",
-      "L'itinéraire calculé peut sauter des obstacles ou des changements de pente",
-      "La couleur n'est pas la bonne",
-      "On ne peut pas l'ouvrir dans Excel"
-    ],
-    "a": [1],
-    "e": "Si un segment est trop long, il peut masquer une variation de pente critique au milieu."
-  },
-  {
-    "id": 40,
-    "q": "L'Open Data signifie que la donnée est :",
-    "o": [
-      "Gratuite mais interdite de modification",
-      "Ouverte, réutilisable et souvent sous licence libre",
-      "Uniquement consultable sur écran",
-      "Secrète"
-    ],
-    "a": [1],
-    "e": "L'Open Data facilite la diffusion mais ne garantit pas la qualité (d'où l'importance des métadonnées)."
-  },
-  {
-    "id": 41,
-    "q": "La 'Justesse chronologique' vérifie :",
-    "o": [
-      "Si l'auteur a fini son travail à l'heure",
-      "L'ordre correct des événements temporels (ex: date de début < date de fin)",
-      "Le fuseau horaire du serveur",
-      "Si la donnée est mise à jour toutes les secondes"
-    ],
-    "a": [1],
-    "e": "C'est un sous-critère de la qualité temporelle (cohérence temporelle)."
-  },
-  {
-    "id": 42,
-    "q": "Une donnée 'Souveraine' est une donnée :",
-    "o": [
-      "Qui appartient au Roi",
-      "Produite par l'État pour assurer ses missions régaliennes (ex: IGN, Cadastre)",
-      "Qui vient de l'étranger",
-      "Qui ne peut pas être mise sur internet"
-    ],
-    "a": [1],
-    "e": "Ce sont les référentiels de confiance pour les politiques publiques."
-  },
-  {
-    "id": 43,
-    "q": "Le 'Taux d'exhaustivité' se calcule souvent par la formule :",
-    "o": [
-      "1 - (Erreurs / Total)",
-      "Surface / Périmètre",
-      "Prix / Temps",
-      "Nombre de colonnes x Nombre de lignes"
-    ],
-    "a": [0],
-    "e": "On soustrait le ratio d'erreurs (omissions/excédents) à l'unité."
-  },
-  {
-    "id": 44,
-    "q": "L'évaluation 'Indirecte' de la qualité se base sur :",
-    "o": [
-      "Le contrôle visuel de chaque point",
-      "Des informations externes comme la généalogie ou le mode de production",
-      "La mesure avec une règle sur l'écran",
-      "Le prix du logiciel"
-    ],
-    "a": [1],
-    "e": "On déduit la qualité de la donnée par la fiabilité du processus qui l'a créée."
-  },
-  {
-    "id": 45,
-    "q": "Pourquoi utiliser une grille (hexagones/carreaux) pour l'échantillonnage ?",
-    "o": [
-      "Parce que c'est joli",
-      "Pour garantir une répartition spatiale homogène du contrôle sur tout le territoire",
-      "Pour réduire la taille des fichiers",
-      "Pour masquer les noms des communes"
-    ],
-    "a": [1],
-    "e": "Cela évite de contrôler uniquement les zones où il y a beaucoup de données et d'oublier les zones vides."
-  },
-  {
-    "id": 46,
-    "q": "La 'Précision thématique' des attributs quantitatifs s'évalue par :",
-    "o": [
-      "Une liste de noms",
-      "L'écart entre la valeur saisie (ex: 5m) et la valeur réelle (ex: 5.10m)",
-      "La couleur du point",
-      "Le nombre de caractères"
-    ],
-    "a": [1],
-    "e": "C'est l'exactitude des valeurs numériques associées aux objets."
-  },
-  {
-    "id": 47,
-    "q": "Dans l'étude de cas, pourquoi l'outil web doit-il être Open Source ?",
-    "o": [
-      "Pour ne pas payer de licence Microsoft",
-      "Pour pouvoir être réutilisé et amélioré par d'autres territoires",
-      "Parce que c'est obligatoire pour tous les sites web",
-      "Pour empêcher le piratage"
-    ],
-    "a": [1],
-    "e": "L'Open Source favorise la mutualisation entre collectivités territoriales."
-  },
-  {
-    "id": 48,
-    "q": "Un 'Dangle' est une erreur où :",
-    "o": [
-      "Un point est au milieu de nulle part",
-      "Une ligne ne se connecte pas à une autre (extrémité pendante)",
-      "Une table SQL est vide",
-      "La carte est à l'envers"
-    ],
-    "a": [1],
-    "e": "C'est l'ennemi numéro 1 du calcul d'itinéraire."
-  },
-  {
-    "id": 49,
     "q": "La norme ISO 19115 concerne :",
     "o": [
       "La qualité",
       "Les métadonnées",
-      "Le format Shapefile",
-      "Le protocole HTTP"
+      "La topologie",
+      "Les services web"
     ],
     "a": [1],
-    "e": "L'ISO 19115 définit le contenu des fiches de métadonnées (qui, quoi, où, quand)."
+    "e": "Elle définit le contenu des fiches de métadonnées (19139 étant le format XML)."
+  },
+  {
+    "id": 31,
+    "q": "Quelle fonction QGIS est utilisée dans l'exercice 'Mise en pratique' pour créer une grille ?",
+    "o": [
+      "Points réguliers",
+      "Créer une grille",
+      "Polygon divider",
+      "ST_MakeGrid"
+    ],
+    "a": [1],
+    "e": "C'est l'outil recommandé pour l'échantillonnage orienté surface."
+  },
+  {
+    "id": 32,
+    "q": "La précision thématique des attributs quantitatifs mesure :",
+    "o": [
+      "Si le nom est bien écrit",
+      "L'écart entre la valeur numérique saisie et la valeur vraie",
+      "La couleur du point",
+      "La date de saisie"
+    ],
+    "a": [1],
+    "e": "Elle s'applique aux valeurs chiffrées (ex: surface, hauteur)."
+  },
+  {
+    "id": 33,
+    "q": "Un échantillonnage 'Stratifié' divise le lot en :",
+    "o": [
+      "Petits carrés",
+      "Sous-ensembles homogènes (strates)",
+      "Fichiers séparés",
+      "Groupes d'utilisateurs"
+    ],
+    "a": [1],
+    "e": "Cela permet de s'assurer que chaque type de donnée est contrôlé."
+  },
+  {
+    "id": 34,
+    "q": "La cohérence temporelle 'Justesse de chronologie' vérifie :",
+    "o": [
+      "L'heure du PC",
+      "Si Date_Debut < Date_Fin",
+      "La date de naissance de l'auteur",
+      "Si le fichier est récent"
+    ],
+    "a": [1],
+    "e": "Elle s'assure que la séquence temporelle des événements est logique."
+  },
+  {
+    "id": 35,
+    "q": "Quelle licence est citée pour les diapos de Stéphane Rolle ?",
+    "o": [
+      "Public Domain",
+      "CC-BY-NC-SA",
+      "Propriétaire",
+      "Licence Ouverte"
+    ],
+    "a": [1],
+    "e": "C'est précisé en début de support (Stéphane Rolle & Cerema)."
+  },
+  {
+    "id": 36,
+    "q": "L'exercice topologique QGIS utilise quel plugin tiers ?",
+    "o": [
+      "Polygon Divider",
+      "Topology Checker",
+      "MMQGIS",
+      "QuickOSM"
+    ],
+    "a": [0],
+    "e": "Mentionné pour diviser des polygones lors de l'échantillonnage."
+  },
+  {
+    "id": 37,
+    "q": "Qu'est-ce que la 'Généalogie' ?",
+    "o": [
+      "L'arbre généalogique du créateur",
+      "L'historique et le mode de production de la donnée",
+      "La liste des versions du logiciel",
+      "Le nom des serveurs"
+    ],
+    "a": [1],
+    "e": "Elle est accessible via les métadonnées et permet une évaluation indirecte."
+  },
+  {
+    "id": 38,
+    "q": "L'exactitude du classement est une mesure de :",
+    "o": [
+      "Précision de position",
+      "Précision thématique",
+      "Cohérence logique",
+      "Exhaustivité"
+    ],
+    "a": [1],
+    "e": "C'est le fait d'avoir affecté le bon code/nom à un objet."
+  },
+  {
+    "id": 39,
+    "q": "Un échantillonnage 'Au jugé' est :",
+    "o": [
+      "Probabiliste",
+      "Non probabiliste",
+      "Automatique",
+      "Infaillible"
+    ],
+    "a": [1],
+    "e": "Il dépend du choix subjectif de l'expert."
+  },
+  {
+    "id": 40,
+    "q": "Le schéma 'Où vous situez vous?' oppose la Quantité à quoi ?",
+    "o": [
+      "La Qualité",
+      "Le Prix",
+      "Le Temps",
+      "La Couleur"
+    ],
+    "a": [0],
+    "e": "Le cours souligne qu'avec l'augmentation de la quantité de données, la qualité devient cruciale."
+  },
+  {
+    "id": 41,
+    "q": "La 'Cohérence au domaine de valeur' vérifie :",
+    "o": [
+      "Si le point est dans la commune",
+      "L'appartenance des valeurs aux plages spécifiées (ex: dictionnaire de données)",
+      "Si le fichier est lourd",
+      "La date de mise à jour"
+    ],
+    "a": [1],
+    "e": "On vérifie si les attributs respectent les listes de valeurs autorisées."
+  },
+  {
+    "id": 42,
+    "q": "L'indice Q proche de 1 signifie que la forme est :",
+    "o": [
+      "Irrégulière",
+      "Compacte",
+      "Allongée",
+      "Trouée"
+    ],
+    "a": [1],
+    "e": "Plus Q est proche de 1, plus le polygone est compact."
+  },
+  {
+    "id": 43,
+    "q": "Dans l'exercice PostGIS, quel mot-clé permet de détecter des doublons géométriques ?",
+    "o": [
+      "DISTINCT",
+      "ST_Equals",
+      "GROUP BY",
+      "ORDER BY"
+    ],
+    "a": [1],
+    "e": "On utilise ST_Equals pour comparer si deux géométries sont identiques."
+  },
+  {
+    "id": 44,
+    "q": "La norme ISO 19157 date de quelle année ?",
+    "o": [
+      "1997",
+      "2013",
+      "2022",
+      "2005"
+    ],
+    "a": [1],
+    "e": "Adoptée en 2013, elle remplace plusieurs normes précédentes."
+  },
+  {
+    "id": 45,
+    "q": "Quel type de données est utilisé dans les exercices du cours ?",
+    "o": [
+      "Données réelles confidentielles",
+      "Données libres de droit mais fictives",
+      "Données Google Maps",
+      "Données satellites classées"
+    ],
+    "a": [1],
+    "e": "Précisé en début de cours : les données contiennent volontairement des erreurs à des fins de formation."
+  },
+  {
+    "id": 46,
+    "q": "Le GT CNIG QuaDoGéo est co-animé par le CRIGE PACA et :",
+    "o": [
+      "Météo France",
+      "L'IGN",
+      "Le Cerema",
+      "L'INRAE"
+    ],
+    "a": [1],
+    "e": "Co-animation CRIGE PACA – IGN depuis janvier 2023."
+  },
+  {
+    "id": 47,
+    "q": "La 'Précision de position relative' mesure :",
+    "o": [
+      "La position par rapport au satellite",
+      "L'écart de position entre deux objets du même lot",
+      "Le nom de la rue la plus proche",
+      "La distance à Marseille"
+    ],
+    "a": [1],
+    "e": "C'est la cohérence de positionnement des objets les uns par rapport aux autres."
+  },
+  {
+    "id": 48,
+    "q": "Dans le schéma 'Services / Données / Métadonnées', quel protocole concerne les services ?",
+    "o": [
+      "XML",
+      "WFS / WMS",
+      "GML",
+      "CSV"
+    ],
+    "a": [1],
+    "e": "Les protocoles WMS/WFS sont cités comme services pour diffuser les données."
+  },
+  {
+    "id": 49,
+    "q": "Le 'Calcul de la surface' dans l'exercice QGIS se fait via :",
+    "o": [
+      "Un champ virtuel ou stats",
+      "Une règle graduée",
+      "Le nom de l'objet",
+      "Le site de l'IGN"
+    ],
+    "a": [0],
+    "e": "Utilisé pour comparer les surfaces entre le lot et le référentiel."
   },
   {
     "id": 50,
-    "q": "Quel est l'objectif final de la mise en place d'une démarche qualité ?",
+    "q": "Stéphane Rolle est responsable de quel pôle ?",
     "o": [
-      "Sanctionner les prestataires",
-      "Garantir la confiance des utilisateurs dans les données pour leurs prises de décision",
-      "Remplir les serveurs de rapports PDF",
-      "Augmenter le nombre de couches dans le SIG"
+      "Pôle Communication",
+      "Pôle Technique et SIG",
+      "Pôle Juridique",
+      "Pôle Environnement"
     ],
     "a": [1],
-    "e": "La qualité n'est pas une fin en soi, mais un moyen de s'assurer que les analyses (ex: accessibilité) sont justes."
+    "e": "Précisé dans sa diapo de présentation."
   }
 ]
 // Variables
