@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Stephane - Mon Portefeuille Géomatique</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../overrides/style.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Stephane";
+        var mkdocs_page_input_path = "stephane.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Mon Portefeuille Géomatique
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">ACCEUIL</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../format/">FORMATS</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../gdal/">GDAL</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../metadonnee/">METADONNES</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../vrt/">VRT</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../source/">SOURCES</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../note/">INTEROPERABILITE</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../bash/">BASH</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../admin_BDD/">ADMIN BDD</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../esri/">QCM ESRI</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../juridique/">Revision Aspect juridiques</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="../qualite">QUALITE</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="../revision">REVISION</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="../standard">STANDARDS</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="../questioncours">GENERAL</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href=".">STEPHANE</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Mon Portefeuille Géomatique</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Stephane</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+<div class="progress-container"><div class="progress-bar" id="myBar"></div></div>
+
+                <div class="container-quiz">
+    <div id="quiz-ui">
+        <h1>Examen de Synthèse : Questions du cours </h1>
+        <div class="progress-bar-quiz"><div id="progress-fill-quiz"></div></div>
+        <div id="questions-wrapper"></div>
+        <div class="nav-footer">
+            <button id="prev-btn" onclick="move(-1)" disabled>Précédent</button>
+            <span id="counter" style="font-weight: 600; color: #64748b;">Question 1 / 50</span>
+            <button id="next-btn" onclick="move(1)">Suivant</button>
+        </div>
+    </div>
+
+    <div id="final-screen">
+        <h1>Résultats de l'évaluation</h1>
+        <div class="score-circle" id="score-display">0%</div>
+        <p id="feedback-msg" style="font-size: 1.1rem; margin-bottom: 30px;"></p>
+        <button onclick="location.reload()">Recommencer l'examen</button>
+    </div>
+</div>
+
+<style>
+/* -- Styles inchangés, identiques à ton code original -- */
+.container-quiz { max-width: 100%; margin: 20px auto; background: white; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0; }
+#quiz-ui h1 { color: #1e3a8a; text-align: center; font-size: 1.5rem; border: none; }
+.progress-bar-quiz { height: 8px; background: #e2e8f0; border-radius: 4px; margin-bottom: 30px; overflow: hidden; }
+#progress-fill-quiz { height: 100%; background: #3b82f6; width: 2%; transition: width 0.3s; }
+.question-container { display: none; }
+.question-container.active { display: block; animation: fadeIn 0.4s; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.question-text { font-size: 1.1rem; font-weight: 700; margin-bottom: 20px; color: #0f172a; }
+.option-item { background: #fff; border: 2px solid #e2e8f0; margin-bottom: 10px; padding: 12px; border-radius: 8px; cursor: pointer; }
+.option-item:hover { border-color: #3b82f6; background: #f0f7ff; }
+.option-item.correct { border-color: #10b981; background: #ecfdf5; color: #065f46; font-weight: 600; }
+.option-item.wrong { border-color: #ef4444; background: #fef2f2; color: #991b1b; }
+.option-item.selected { border-color: #3b82f6; background: #e0f2fe; }
+.explanation-box { margin-top: 20px; padding: 15px; border-radius: 8px; background: #f1f5f9; border-left: 6px solid #3b82f6; display: none; }
+.nav-footer { margin-top: 30px; display: flex; justify-content: space-between; align-items: center; }
+#final-screen { display: none; text-align: center; }
+.score-circle { width: 100px; height: 100px; border-radius: 50%; border: 5px solid #1e3a8a; margin: 20px auto; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 900; }
+</style>
+
+<script>
+const examData = [
+  {
+    "id": 1,
+    "q": "Quelle norme internationale définit spécifiquement les principes de description de la qualité des données géographiques ?",
+    "o": [
+      "ISO 19115",
+      "ISO 19139",
+      "ISO 19157",
+      "ISO 9001"
+    ],
+    "a": [2],
+    "e": "L'ISO 19157 (2013) est la norme de référence pour la qualité des données géographiques, agrégeant les anciennes normes 19113, 19114 et 19138."
+  },
+  {
+    "id": 2,
+    "q": "Comment définit-on la 'Qualité Interne' d'une donnée ?",
+    "o": [
+      "Le niveau d'adéquation entre la donnée et le besoin de l'utilisateur",
+      "Le niveau d'adéquation entre la donnée produite et ses spécifications nominales",
+      "La rapidité d'affichage de la donnée dans un SIG",
+      "La satisfaction du client final"
+    ],
+    "a": [1],
+    "e": "La qualité interne mesure l'écart par rapport au 'Terrain Nominal' (les spécifications techniques définies au départ)."
+  },
+  {
+    "id": 3,
+    "q": "La directive européenne INSPIRE vise principalement à :",
+    "o": [
+      "Interdire la vente de données géographiques",
+      "Remplacer l'IGN par une agence européenne",
+      "Assurer l'interopérabilité et faciliter la diffusion des données environnementales",
+      "Uniformiser les prix des logiciels SIG"
+    ],
+    "a": [2],
+    "e": "INSPIRE impose aux autorités publiques de rendre leurs données accessibles et interopérables via des services web."
+  },
+  {
+    "id": 4,
+    "q": "Qu'est-ce que le 'Terrain Nominal' dans le processus de production ?",
+    "o": [
+      "Le monde réel tel qu'il existe physiquement",
+      "La donnée une fois qu'elle est publiée en Open Data",
+      "La donnée telle qu'elle devrait être si elle respectait 100% des spécifications",
+      "Le fond de plan utilisé pour la numérisation"
+    ],
+    "a": [2],
+    "e": "Le terrain nominal est l'image idéale de la base de données définie par les spécifications de saisie."
+  },
+  {
+    "id": 5,
+    "q": "Parmi ces critères, lequel fait partie des 5 critères de la norme ISO 19157 ?",
+    "o": [
+      "La rapidité de téléchargement",
+      "La cohérence logique",
+      "Le coût de production",
+      "La convivialité de l'interface"
+    ],
+    "a": [1],
+    "e": "Les 5 critères sont : Exhaustivité, Cohérence logique, Précision de position, Précision thématique et Qualité temporelle."
+  },
+  {
+    "id": 6,
+    "q": "Dans le critère d'Exhaustivité, qu'est-ce qu'une 'Omission' ?",
+    "o": [
+      "Une donnée présente dans la base mais qui n'existe pas sur le terrain",
+      "Une donnée manquante dans la base alors qu'elle existe sur le terrain",
+      "Une erreur de saisie dans le nom d'un attribut",
+      "Un polygone qui en chevauche un autre"
+    ],
+    "a": [1],
+    "e": "L'omission désigne l'absence d'éléments qui auraient dû être saisis selon les spécifications."
+  },
+  {
+    "id": 7,
+    "q": "Quel indicateur utilise-t-on pour mesurer la justesse d'un classement thématique (ex: forêt vs prairie) ?",
+    "o": [
+      "L'Écart Moyen Quadratique (EMC)",
+      "Le coefficient d'épaisseur",
+      "La matrice de confusion",
+      "Le taux de dangles"
+    ],
+    "a": [2],
+    "e": "La matrice de confusion permet de confronter les classes saisies aux classes réelles pour identifier les erreurs de croisement."
+  },
+  {
+    "id": 8,
+    "q": "L'échantillonnage 'Aléatoire Stratifié' consiste à :",
+    "o": [
+      "Choisir des objets au hasard sur tout le territoire",
+      "Diviser le lot en sous-ensembles homogènes (strates) avant de tirer au sort",
+      "Ne contrôler que les objets qui semblent faux",
+      "Prendre un objet tous les 10 objets"
+    ],
+    "a": [1],
+    "e": "Cela permet de s'assurer que toutes les zones (urbain, rural, etc.) sont représentées proportionnellement dans le contrôle."
+  },
+  {
+    "id": 9,
+    "q": "Dans PostGIS, quelle fonction permet de vérifier la validité géométrique d'un objet ?",
+    "o": [
+      "ST_Length",
+      "ST_IsValid",
+      "ST_Distance",
+      "ST_Buffer"
+    ],
+    "a": [1],
+    "e": "ST_IsValid vérifie le respect des règles topologiques (pas d'auto-intersection, anneaux fermés, etc.)."
+  },
+  {
+    "id": 10,
+    "q": "Quelle est la principale utilité des métadonnées ?",
+    "o": [
+      "Améliorer la précision de position des points",
+      "Décrire les données pour faciliter leur recherche et leur utilisation",
+      "Remplacer les fichiers de formes (shapefiles)",
+      "Compresser les données pour le web"
+    ],
+    "a": [1],
+    "e": "Les métadonnées sont 'les données sur les données', indispensables pour connaître la généalogie et la qualité d'un lot."
+  },
+  {
+    "id": 11,
+    "q": "Le critère de 'Précision de position' s'évalue souvent par :",
+    "o": [
+      "La date de mise à jour",
+      "Le calcul de l'EMC (Écart Moyen Quadratique) par rapport à un référentiel plus précis",
+      "Le nombre d'attributs vides",
+      "Le nom de l'auteur de la donnée"
+    ],
+    "a": [1],
+    "e": "L'EMC mesure l'écart moyen entre la position saisie et la position réelle (ou de référence)."
+  },
+  {
+    "id": 12,
+    "q": "Pour un calcul d'itinéraire PMR, quel défaut topologique est le plus bloquant ?",
+    "o": [
+      "Une erreur de nom de rue",
+      "Un 'dangle' (nœud non connecté) sur un segment de voirie",
+      "Un polygone de bâtiment qui n'a pas de couleur",
+      "Une métadonnée incomplète"
+    ],
+    "a": [1],
+    "e": "Si les segments ne sont pas connectés topologiquement, l'algorithme de routage ne peut pas passer d'un tronçon à l'autre."
+  },
+  {
+    "id": 13,
+    "q": "Qu'est-ce que la 'LAQ' ?",
+    "o": [
+      "La Loi sur l'Aménagement des Quartiers",
+      "La Limite d'Acceptation de la Qualité (seuil d'erreur toléré)",
+      "Une norme de compression d'image",
+      "Le Logiciel d'Analyse de la Qualité"
+    ],
+    "a": [1],
+    "e": "La LAQ définit le taux d'erreur maximum au-delà duquel le lot de données est refusé."
+  },
+  {
+    "id": 14,
+    "q": "Le 'Dire d'expert' est une méthode d'évaluation :",
+    "o": [
+      "Automatique",
+      "Directe et qualitative (basée sur la connaissance du terrain)",
+      "Basée uniquement sur des statistiques",
+      "Inutilisable selon l'ISO 19157"
+    ],
+    "a": [1],
+    "e": "Le dire d'expert complète les mesures quantitatives par une analyse métier (connaissance locale ou thématique)."
+  },
+  {
+    "id": 15,
+    "q": "Dans le cadre de l'accessibilité (Loi LOM), quelle précision est cruciale pour les fauteuils roulants ?",
+    "o": [
+      "La précision temporelle",
+      "La précision altimétrique (pentes et dévers)",
+      "La précision du nom de la commune",
+      "Le format de fichier (PDF ou Excel)"
+    ],
+    "a": [1],
+    "e": "Une erreur de quelques pourcents de pente peut rendre un itinéraire impraticable pour un PMR."
+  },
+  {
+    "id": 16,
+    "q": "La 'Cohérence de format' vérifie :",
+    "o": [
+      "Si la donnée est belle à l'écran",
+      "L'adéquation avec la structure physique attendue (noms des champs, types de données)",
+      "Si le fichier est lisible sur un smartphone",
+      "Si le prestataire a utilisé QGIS"
+    ],
+    "a": [1],
+    "e": "Elle s'assure que le fichier livré respecte techniquement le schéma de données (MCD)."
+  },
+  {
+    "id": 17,
+    "q": "Un échantillonnage 'Au jugé' est considéré comme :",
+    "o": [
+      "Probabiliste",
+      "Non probabiliste (déterministe)",
+      "Systématique",
+      "Toujours meilleur qu'un tirage aléatoire"
+    ],
+    "a": [1],
+    "e": "C'est un choix subjectif fait par l'expert, utile pour cibler des zones complexes mais non représentatif statistiquement."
+  },
+  {
+    "id": 18,
+    "q": "Le coefficient Kappa est utilisé pour :",
+    "o": [
+      "Mesurer la distance entre deux points",
+      "Évaluer la concordance entre un classement et la réalité, en excluant la part du hasard",
+      "Calculer la surface d'un polygone",
+      "Déterminer la date de péremption d'une donnée"
+    ],
+    "a": [1],
+    "e": "Il affine la mesure de précision thématique en tenant compte des classements corrects qui auraient pu arriver par chance."
+  },
+  {
+    "id": 19,
+    "q": "La 'Cohérence Conceptuelle' mesure :",
+    "o": [
+      "Le respect des règles du schéma conceptuel (ex: pas de chevauchements de zones d'urbanisme)",
+      "La clarté du manuel d'utilisation",
+      "Le nombre d'objets manquants",
+      "La précision GPS lors de la saisie"
+    ],
+    "a": [0],
+    "e": "Elle vérifie si les données respectent les règles métiers et les relations définies dans le modèle (MCD)."
+  },
+  {
+    "id": 20,
+    "q": "Quelle ressource nationale française propose des standards pour les données (PLU, accessibilité, etc.) ?",
+    "o": [
+      "Le CNIG (Conseil National de l'Information Géolocalisée)",
+      "Météo France",
+      "La Poste",
+      "Le Ministère des Finances"
+    ],
+    "a": [0],
+    "e": "Le CNIG valide les standards de données pour assurer l'échange entre collectivités et l'État."
+  },
+  {
+    "id": 21,
+    "q": "L'indice de compacité Q (formule de Gravelius) permet de détecter :",
+    "o": [
+      "Les erreurs de noms d'attributs",
+      "Les formes de polygones anormalement découpées ou irrégulières",
+      "La date de création de la donnée",
+      "L'altitude d'un point"
+    ],
+    "a": [1],
+    "e": "Si Q est proche de 0, la forme est très découpée, ce qui peut trahir une erreur de numérisation."
+  },
+  {
+    "id": 22,
+    "q": "Qu'est-ce qu'un 'Excédent' dans un jeu de données ?",
+    "o": [
+      "Une donnée trop précise",
+      "Une donnée présente en base mais qui n'existe pas dans le monde réel",
+      "Un fichier trop lourd pour être envoyé par mail",
+      "Un doublon de métadonnées"
+    ],
+    "a": [1],
+    "e": "L'excédent est une erreur d'exhaustivité où des objets 'fictifs' ou en trop sont présents."
+  },
+  {
+    "id": 23,
+    "q": "La 'Qualité Temporelle' inclut la notion de 'Validité' qui vérifie :",
+    "o": [
+      "Si la donnée est utilisable légalement",
+      "Si la donnée correspond à la période de temps spécifiée (ex: données de 2023)",
+      "Si le format .shp est encore valide",
+      "Si l'ordinateur est à l'heure"
+    ],
+    "a": [1],
+    "e": "Elle s'assure que les données représentent bien la réalité à l'instant T défini."
+  },
+  {
+    "id": 24,
+    "q": "Le 'Calcul de pente' via un MNT pour l'accessibilité est un contrôle :",
+    "o": [
+      "De cohérence de format",
+      "De précision de position (Z)",
+      "D'exhaustivité",
+      "De généalogie"
+    ],
+    "a": [1],
+    "e": "C'est une vérification de la justesse de l'altitude et des calculs dérivés (pentes)."
+  },
+  {
+    "id": 25,
+    "q": "Un jeu de données 'Homogène' signifie que :",
+    "o": [
+      "Tous les objets sont des points",
+      "Le processus de production et les sources sont constants sur tout le lot",
+      "La donnée est gratuite pour tous",
+      "Il n'y a aucune erreur"
+    ],
+    "a": [1],
+    "e": "L'homogénéité permet d'appliquer un échantillonnage réduit avec un bon niveau de confiance."
+  },
+  {
+    "id": 26,
+    "q": "Pour contrôler les passages piétons d'un prestataire, la télédétection sert de :",
+    "o": [
+      "Donnée produite",
+      "Référentiel de contrôle (Source externe)",
+      "Logiciel de dessin",
+      "Métadonnée"
+    ],
+    "a": [1],
+    "e": "On utilise une source indépendante (télédétection) pour valider le travail du prestataire."
+  },
+  {
+    "id": 27,
+    "q": "La 'Généalogie' d'une donnée décrit :",
+    "o": [
+      "Le nom des enfants de l'auteur",
+      "L'historique des traitements et les sources utilisées pour produire la donnée",
+      "Le prix de vente successif de la donnée",
+      "La hiérarchie des dossiers sur le serveur"
+    ],
+    "a": [1],
+    "e": "La généalogie permet de comprendre comment la donnée a été fabriquée et donc sa fiabilité potentielle."
+  },
+  {
+    "id": 28,
+    "q": "Un 'Micro-polygone' (ou sliver polygone) est généralement une erreur de :",
+    "o": [
+      "Précision thématique",
+      "Cohérence topologique",
+      "Qualité temporelle",
+      "Métadonnée"
+    ],
+    "a": [1],
+    "e": "Ces petits polygones résiduels apparaissent souvent lors de découpages ou de jointures spatiales mal calées."
+  },
+  {
+    "id": 29,
+    "q": "Le standard 'CNIG Accessibilité' impose un modèle de données pour :",
+    "o": [
+      "La collecte des données sur la voirie et les ERP pour le transport",
+      "Le dessin des pistes cyclables uniquement",
+      "Le recensement de la population",
+      "La gestion des parkings privés"
+    ],
+    "a": [0],
+    "e": "Il vise à harmoniser les inventaires d'accessibilité pour faciliter le calcul d'itinéraire national."
+  },
+  {
+    "id": 30,
+    "q": "Quel outil web permet de tester la validité d'un fichier par rapport à un standard CNIG en France ?",
+    "o": [
+      "Google Maps",
+      "Le validateur du Géoportail de l'Urbanisme (GPU)",
+      "Wikipedia",
+      "Adobe Acrobat"
+    ],
+    "a": [1],
+    "e": "Le GPU intègre des validateurs automatiques pour vérifier la conformité des PLU avant dépôt."
+  },
+  {
+    "id": 31,
+    "q": "Une erreur de 'Domaine de valeur' serait :",
+    "o": [
+      "Un point placé à 10m de sa position réelle",
+      "La valeur 'OUI' dans un champ qui n'accepte que '0' ou '1'",
+      "Un objet manquant",
+      "Un fichier corrompu"
+    ],
+    "a": [1],
+    "e": "C'est l'utilisation d'une valeur non autorisée par le dictionnaire d'attributs."
+  },
+  {
+    "id": 32,
+    "q": "L'échantillonnage 'Semi-aléatoire' (ou systématique) consiste à :",
+    "o": [
+      "Choisir au hasard",
+      "Choisir selon un pas régulier (ex: tous les 1km ou tous les 10 dossiers)",
+      "Choisir uniquement les dossiers faciles",
+      "Ne rien choisir du tout"
+    ],
+    "a": [1],
+    "e": "C'est une méthode rigoureuse qui assure une couverture spatiale ou temporelle régulière."
+  },
+  {
+    "id": 33,
+    "q": "La précision 'Z' d'un LiDAR est généralement de l'ordre de :",
+    "o": [
+      "10 mètres",
+      "Quelques centimètres à décimètres",
+      "1 millimètre",
+      "Inexistante (le LiDAR ne fait que du XY)"
+    ],
+    "a": [1],
+    "e": "Le LiDAR est particulièrement précis pour les relevés altimétriques."
+  },
+  {
+    "id": 34,
+    "q": "Le RGAA (évoqué dans l'étude de cas) concerne :",
+    "o": [
+      "La qualité des fichiers Shapefile",
+      "L'accessibilité numérique des sites web pour les handicapés",
+      "Le règlement général sur l'aviation",
+      "Le stockage des données LiDAR"
+    ],
+    "a": [1],
+    "e": "Le Référentiel Général d'Amélioration de l'Accessibilité assure que les outils web sont utilisables par tous."
+  },
+  {
+    "id": 35,
+    "q": "La 'Qualité Externe' est aussi appelée :",
+    "o": [
+      "Qualité de production",
+      "Aptitude à l'emploi (ou utilisabilité)",
+      "Vérification topologique",
+      "Certification ISO 9001"
+    ],
+    "a": [1],
+    "e": "Elle juge si la donnée, même 'parfaite' selon ses specs, répond vraiment au besoin de l'utilisateur."
+  },
+  {
+    "id": 36,
+    "q": "Dans l'échantillonnage, qu'est-ce qu'un 'Lot' ?",
+    "o": [
+      "Un seul point GPS",
+      "L'ensemble des données à évaluer produites dans des conditions identiques",
+      "Le prix payé au prestataire",
+      "Une zone de 100m²"
+    ],
+    "a": [1],
+    "e": "Le lot est l'unité de base pour l'évaluation statistique de la qualité."
+  },
+  {
+    "id": 37,
+    "q": "Une 'Auto-intersection' est :",
+    "o": [
+      "Un croisement entre deux routes",
+      "Une ligne ou un polygone qui se recoupe lui-même",
+      "Un accident de voiture",
+      "Une jointure entre deux tables SQL"
+    ],
+    "a": [1],
+    "e": "C'est une erreur topologique grave qui empêche de nombreux calculs spatiaux."
+  },
+  {
+    "id": 38,
+    "q": "Le 'PCRS' (Plan Corps de Rue Simplifié) est un référentiel :",
+    "o": [
+      "À très grande échelle (précision centimétrique)",
+      "À petite échelle (toute la France sur une page)",
+      "Uniquement thématique (noms des commerces)",
+      "Destiné aux satellites uniquement"
+    ],
+    "a": [0],
+    "e": "Le PCRS est le socle de précision pour gérer les réseaux et la voirie en ville."
+  },
+  {
+    "id": 39,
+    "q": "Quel est le risque principal d'une 'Sous-segmentation' en topologie ?",
+    "o": [
+      "La donnée est trop lourde",
+      "L'itinéraire calculé peut sauter des obstacles ou des changements de pente",
+      "La couleur n'est pas la bonne",
+      "On ne peut pas l'ouvrir dans Excel"
+    ],
+    "a": [1],
+    "e": "Si un segment est trop long, il peut masquer une variation de pente critique au milieu."
+  },
+  {
+    "id": 40,
+    "q": "L'Open Data signifie que la donnée est :",
+    "o": [
+      "Gratuite mais interdite de modification",
+      "Ouverte, réutilisable et souvent sous licence libre",
+      "Uniquement consultable sur écran",
+      "Secrète"
+    ],
+    "a": [1],
+    "e": "L'Open Data facilite la diffusion mais ne garantit pas la qualité (d'où l'importance des métadonnées)."
+  },
+  {
+    "id": 41,
+    "q": "La 'Justesse chronologique' vérifie :",
+    "o": [
+      "Si l'auteur a fini son travail à l'heure",
+      "L'ordre correct des événements temporels (ex: date de début < date de fin)",
+      "Le fuseau horaire du serveur",
+      "Si la donnée est mise à jour toutes les secondes"
+    ],
+    "a": [1],
+    "e": "C'est un sous-critère de la qualité temporelle (cohérence temporelle)."
+  },
+  {
+    "id": 42,
+    "q": "Une donnée 'Souveraine' est une donnée :",
+    "o": [
+      "Qui appartient au Roi",
+      "Produite par l'État pour assurer ses missions régaliennes (ex: IGN, Cadastre)",
+      "Qui vient de l'étranger",
+      "Qui ne peut pas être mise sur internet"
+    ],
+    "a": [1],
+    "e": "Ce sont les référentiels de confiance pour les politiques publiques."
+  },
+  {
+    "id": 43,
+    "q": "Le 'Taux d'exhaustivité' se calcule souvent par la formule :",
+    "o": [
+      "1 - (Erreurs / Total)",
+      "Surface / Périmètre",
+      "Prix / Temps",
+      "Nombre de colonnes x Nombre de lignes"
+    ],
+    "a": [0],
+    "e": "On soustrait le ratio d'erreurs (omissions/excédents) à l'unité."
+  },
+  {
+    "id": 44,
+    "q": "L'évaluation 'Indirecte' de la qualité se base sur :",
+    "o": [
+      "Le contrôle visuel de chaque point",
+      "Des informations externes comme la généalogie ou le mode de production",
+      "La mesure avec une règle sur l'écran",
+      "Le prix du logiciel"
+    ],
+    "a": [1],
+    "e": "On déduit la qualité de la donnée par la fiabilité du processus qui l'a créée."
+  },
+  {
+    "id": 45,
+    "q": "Pourquoi utiliser une grille (hexagones/carreaux) pour l'échantillonnage ?",
+    "o": [
+      "Parce que c'est joli",
+      "Pour garantir une répartition spatiale homogène du contrôle sur tout le territoire",
+      "Pour réduire la taille des fichiers",
+      "Pour masquer les noms des communes"
+    ],
+    "a": [1],
+    "e": "Cela évite de contrôler uniquement les zones où il y a beaucoup de données et d'oublier les zones vides."
+  },
+  {
+    "id": 46,
+    "q": "La 'Précision thématique' des attributs quantitatifs s'évalue par :",
+    "o": [
+      "Une liste de noms",
+      "L'écart entre la valeur saisie (ex: 5m) et la valeur réelle (ex: 5.10m)",
+      "La couleur du point",
+      "Le nombre de caractères"
+    ],
+    "a": [1],
+    "e": "C'est l'exactitude des valeurs numériques associées aux objets."
+  },
+  {
+    "id": 47,
+    "q": "Dans l'étude de cas, pourquoi l'outil web doit-il être Open Source ?",
+    "o": [
+      "Pour ne pas payer de licence Microsoft",
+      "Pour pouvoir être réutilisé et amélioré par d'autres territoires",
+      "Parce que c'est obligatoire pour tous les sites web",
+      "Pour empêcher le piratage"
+    ],
+    "a": [1],
+    "e": "L'Open Source favorise la mutualisation entre collectivités territoriales."
+  },
+  {
+    "id": 48,
+    "q": "Un 'Dangle' est une erreur où :",
+    "o": [
+      "Un point est au milieu de nulle part",
+      "Une ligne ne se connecte pas à une autre (extrémité pendante)",
+      "Une table SQL est vide",
+      "La carte est à l'envers"
+    ],
+    "a": [1],
+    "e": "C'est l'ennemi numéro 1 du calcul d'itinéraire."
+  },
+  {
+    "id": 49,
+    "q": "La norme ISO 19115 concerne :",
+    "o": [
+      "La qualité",
+      "Les métadonnées",
+      "Le format Shapefile",
+      "Le protocole HTTP"
+    ],
+    "a": [1],
+    "e": "L'ISO 19115 définit le contenu des fiches de métadonnées (qui, quoi, où, quand)."
+  },
+  {
+    "id": 50,
+    "q": "Quel est l'objectif final de la mise en place d'une démarche qualité ?",
+    "o": [
+      "Sanctionner les prestataires",
+      "Garantir la confiance des utilisateurs dans les données pour leurs prises de décision",
+      "Remplir les serveurs de rapports PDF",
+      "Augmenter le nombre de couches dans le SIG"
+    ],
+    "a": [1],
+    "e": "La qualité n'est pas une fin en soi, mais un moyen de s'assurer que les analyses (ex: accessibilité) sont justes."
+  }
+]
+// Variables
+let current = 0;
+const userAnswers = new Array(examData.length).fill(null);
+
+/* Mélange tableau */
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
+
+function shuffleQuizData() {
+  examData.forEach(q => {
+    // Shuffle options
+    const correctTexts = q.a.map(i => q.o[i]);
+    shuffleArray(q.o);
+    q.a = correctTexts.map(txt => q.o.indexOf(txt));
+  });
+  shuffleArray(examData);
+}
+
+/* Initialisation quiz */
+function initQuiz() {
+  const wrapper = document.getElementById('questions-wrapper');
+  examData.forEach((item, idx) => {
+    const div = document.createElement('div');
+    div.className = `question-container ${idx === 0 ? 'active' : ''}`;
+    div.id = `q-${idx}`;
+    div.innerHTML = `
+      <div class="question-text">${idx + 1}. ${item.q}</div>
+      <div class="options-list">
+        ${item.o.map((opt, i) => `<div class="option-item" onclick="handleSelect(${idx}, ${i}, this)">${opt}</div>`).join('')}
+      </div>
+      <button onclick="validateQuestion(${idx})" style="margin-top:10px;">Valider la question</button>
+      <div class="explanation-box" id="exp-${idx}">
+        <div style="font-weight:bold; color:#1e3a8a; font-size:0.8rem;">💡 ANALYSE</div>
+        <div>${item.e}</div>
+      </div>
+    `;
+    wrapper.appendChild(div);
+  });
+}
+
+/* Gestion sélection */
+window.handleSelect = function(qIdx, oIdx, el) {
+  if (!Array.isArray(userAnswers[qIdx])) userAnswers[qIdx] = [];
+  // Toggle sélection
+  if (userAnswers[qIdx].includes(oIdx)) {
+    userAnswers[qIdx] = userAnswers[qIdx].filter(i => i !== oIdx);
+    el.classList.remove("selected");
+  } else {
+    userAnswers[qIdx].push(oIdx);
+    el.classList.add("selected");
+  }
+};
+
+/* Validation question */
+function validateQuestion(qIdx) {
+  const options = document.querySelectorAll(`#q-${qIdx} .option-item`);
+  const correct = examData[qIdx].a;
+
+  options.forEach((o, i) => {
+    if (correct.includes(i)) o.classList.add('correct');
+    else if (userAnswers[qIdx]?.includes(i)) o.classList.add('wrong');
+  });
+
+  document.getElementById(`exp-${qIdx}`).style.display = 'block';
+}
+
+/* Navigation */
+window.move = function(dir) {
+  const containers = document.querySelectorAll('.question-container');
+  containers[current].classList.remove('active');
+  current += dir;
+  if (current >= examData.length) { finish(); return; }
+  containers[current].classList.add('active');
+  updateUI();
+};
+
+/* UI */
+function updateUI() {
+  document.getElementById('counter').innerText = `Question ${current + 1} / ${examData.length}`;
+  document.getElementById('prev-btn').disabled = current === 0;
+  document.getElementById('next-btn').innerText = (current === examData.length - 1) ? "Terminer" : "Suivant";
+  document.getElementById('progress-fill-quiz').style.width = `${((current + 1)/examData.length)*100}%`;
+}
+
+/* Fin du quiz */
+function finish() {
+  document.getElementById('quiz-ui').style.display = 'none';
+  document.getElementById('final-screen').style.display = 'block';
+
+  let score = 0;
+  examData.forEach((q,i)=>{
+    const user = userAnswers[i] || [];
+    const correct = q.a;
+    if (user.length === correct.length && user.every(ans => correct.includes(ans))) score++;
+  });
+
+  const pct = Math.round((score / examData.length) * 100);
+  document.getElementById('score-display').innerText = `${pct}%`;
+  document.getElementById('feedback-msg').innerText =
+    pct >= 70 ? "Félicitations ! Expert en métadonnées !" : "Pas mal, encore un peu de révision sur l'ISO 19115.";
+}
+
+/* Lancement */
+shuffleQuizData();
+initQuiz();
+updateUI();
+</script>
+              
+
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../overrides/script.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
