@@ -933,6 +933,126 @@ const examData = [
     ],
     a: [1],
     e: "Le terme 'matriciel' (raster) désigne les données composées d'une grille de pixels."
+  },
+  {
+    id: 1,
+    q: "Scénario : Vous gérez une base de données de 10 000 regards d'égout. Vous décidez d'en contrôler un tous les 100 regards selon leur ordre d'ID. Quelle est cette méthode ?",
+    o: [
+      "Échantillonnage simple aléatoire",
+      "Échantillonnage semi-aléatoire (systématique)",
+      "Échantillonnage orienté objet",
+      "Échantillonnage stratifié"
+    ],
+    a: [1],
+    e: "Le choix d'un pas régulier (tous les n éléments) définit l'échantillonnage semi-aléatoire ou systématique."
+  },
+  {
+    id: 2,
+    q: "Scénario : Pour vérifier l'occupation du sol, vous divisez votre département en 'Zones de Montagne' et 'Zones de Plaine' pour être sûr de contrôler les deux contextes. C'est un :",
+    o: [
+      "Échantillonnage orienté surface",
+      "Échantillonnage simple aléatoire",
+      "Échantillonnage aléatoire stratifié",
+      "Échantillonnage au jugé"
+    ],
+    a: [2],
+    e: "La stratification consiste à découper la population en sous-groupes homogènes (strates) avant le tirage."
+  },
+  {
+    id: 3,
+    q: "Scénario : Un algorithme choisit 200 points de coordonnées (X,Y) au hasard total sur l'emprise d'une forêt pour vérifier la densité des arbres. C'est un :",
+    o: [
+      "Échantillonnage simple aléatoire",
+      "Échantillonnage orienté surface",
+      "Échantillonnage orienté objet",
+      "Échantillonnage semi-aléatoire"
+    ],
+    a: [0, 1],
+    e: "C'est à la fois simple aléatoire (hasard total) et orienté surface (basé sur des coordonnées spatiales)."
+  },
+  {
+    id: 4,
+    q: "Scénario : Vous décidez de contrôler la précision de TOUS les ponts dont la portée dépasse 50 mètres. Quelle méthode utilisez-vous ?",
+    o: [
+      "Échantillonnage orienté surface",
+      "Échantillonnage orienté objet",
+      "Échantillonnage stratifié",
+      "Échantillonnage semi-aléatoire"
+    ],
+    a: [1],
+    e: "On cible des entités spécifiques selon leurs caractéristiques propres (ici, la portée), c'est orienté 'objet'."
+  },
+  {
+    id: 5,
+    q: "Scénario : Pour un diagnostic réseau, vous sélectionnez la commune de 'Villenave' et contrôlez l'intégralité de ses vannes de gaz. Cela correspond à :",
+    o: [
+      "Un échantillonnage par grappes (unité géographique)",
+      "Un échantillonnage orienté surface",
+      "Un échantillonnage simple aléatoire",
+      "Un échantillonnage stratifié"
+    ],
+    a: [0, 1],
+    e: "Sélectionner une zone géographique entière (commune, dalle) pour tout contrôler est un échantillonnage orienté surface (ou par grappe)."
+  },
+  {
+    id: 6,
+    q: "Scénario : Vous utilisez un logiciel qui tire au sort 5% des lignes de votre table attributaire sans aucun critère géographique ou métier. C'est un :",
+    o: [
+      "Échantillonnage semi-aléatoire",
+      "Échantillonnage simple aléatoire",
+      "Échantillonnage orienté objet",
+      "Échantillonnage stratifié"
+    ],
+    a: [1],
+    e: "Le tirage au sort pur sans critère ni pas régulier est l'échantillonnage simple aléatoire."
+  },
+  {
+    id: 7,
+    q: "Scénario : Vous souhaitez contrôler la numérisation du bâti. Vous sélectionnez une dalle de 1km x 1km tous les 10 km le long d'un axe routier. C'est un :",
+    o: [
+      "Échantillonnage orienté surface",
+      "Échantillonnage semi-aléatoire",
+      "Échantillonnage orienté objet",
+      "Échantillonnage aléatoire stratifié"
+    ],
+    a: [0, 1],
+    e: "L'utilisation d'un pas (tous les 10km) sur une unité spatiale (dalle) combine le semi-aléatoire et l'orienté surface."
+  },
+  {
+    id: 8,
+    q: "Scénario : Un expert géomaticien décide de contrôler uniquement les zones où il sait que les photos aériennes étaient nuageuses. C'est un échantillonnage :",
+    o: [
+      "Aléatoire stratifié",
+      "Au jugé (ou orienté risques)",
+      "Simple aléatoire",
+      "Semi-aléatoire"
+    ],
+    a: [1],
+    e: "Ici, ce n'est plus du hasard, mais un choix humain basé sur une connaissance métier des risques."
+  },
+  {
+    id: 9,
+    q: "Scénario : Vous séparez vos bâtiments en 'Bâtiments Publics' et 'Bâtiments Privés' et vous en tirez 10% dans chaque catégorie. C'est un :",
+    o: [
+      "Échantillonnage simple aléatoire",
+      "Échantillonnage aléatoire stratifié",
+      "Échantillonnage orienté surface",
+      "Échantillonnage semi-aléatoire"
+    ],
+    a: [1],
+    e: "Les catégories 'Public/Privé' constituent les strates du lot de données."
+  },
+  {
+    id: 10,
+    q: "Scénario : Dans un inventaire de mobilier urbain, vous décidez de ne vérifier que les bancs installés par l'entreprise 'EspacesVerts SARL'. C'est un :",
+    o: [
+      "Échantillonnage orienté surface",
+      "Échantillonnage semi-aléatoire",
+      "Échantillonnage orienté objet",
+      "Échantillonnage simple aléatoire"
+    ],
+    a: [2],
+    e: "On cible les objets selon un attribut spécifique (le prestataire), c'est donc orienté objet."
   }
 ];
 // Variables
