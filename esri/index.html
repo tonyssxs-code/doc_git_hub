@@ -78,10 +78,6 @@
               </ul>
               <ul class="current">
                 <li class="toctree-l1 current"><a class="reference internal current" href="#">QCM ESRI</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#qcm">QCM!</a>
-    </li>
-    </ul>
                 </li>
               </ul>
               <ul>
@@ -133,12 +129,9 @@
               
 <div class="progress-container"><div class="progress-bar" id="myBar"></div></div>
 
-                <h1 id="revision-esri">Revision Esri<a class="headerlink" href="#revision-esri" title="Permanent link">&para;</a></h1>
-<hr />
-<h2 id="qcm">QCM!<a class="headerlink" href="#qcm" title="Permanent link">&para;</a></h2>
-<div class="container-quiz">
+                <div class="container-quiz">
     <div id="quiz-ui">
-        <h1>Examen de Synthèse : Formats ESRI</h1>
+        <h1>Examen de Synthèse : Questions du cours </h1>
         <div class="progress-bar-quiz"><div id="progress-fill-quiz"></div></div>
         <div id="questions-wrapper"></div>
         <div class="nav-footer">
@@ -157,1105 +150,978 @@
 </div>
 
 <style>
-    .container-quiz { max-width: 100%; margin: 20px auto; background: white; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0; }
-    #quiz-ui h1 { color: #1e3a8a; text-align: center; font-size: 1.5rem; border: none; }
-    .progress-bar-quiz { height: 8px; background: #e2e8f0; border-radius: 4px; margin-bottom: 30px; overflow: hidden; }
-    #progress-fill-quiz { height: 100%; background: #3b82f6; width: 2%; transition: width 0.3s; }
-    .question-container { display: none; }
-    .question-container.active { display: block; animation: fadeIn 0.4s; }
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    .question-text { font-size: 1.1rem; font-weight: 700; margin-bottom: 20px; color: #0f172a; }
-    .option-item { background: #fff; border: 2px solid #e2e8f0; margin-bottom: 10px; padding: 12px; border-radius: 8px; cursor: pointer; }
-    .option-item:hover { border-color: #3b82f6; background: #f0f7ff; }
-    .option-item.correct { border-color: #10b981; background: #ecfdf5; color: #065f46; font-weight: 600; }
-    .option-item.wrong { border-color: #ef4444; background: #fef2f2; color: #991b1b; }
-    .explanation-box { margin-top: 20px; padding: 15px; border-radius: 8px; background: #f1f5f9; border-left: 6px solid #3b82f6; display: none; }
-    .nav-footer { margin-top: 30px; display: flex; justify-content: space-between; align-items: center; }
-    #final-screen { display: none; text-align: center; }
-    .score-circle { width: 100px; height: 100px; border-radius: 50%; border: 5px solid #1e3a8a; margin: 20px auto; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 900; }
+/* -- Styles inchangés, identiques à ton code original -- */
+.container-quiz { max-width: 100%; margin: 20px auto; background: white; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0; }
+#quiz-ui h1 { color: #1e3a8a; text-align: center; font-size: 1.5rem; border: none; }
+.progress-bar-quiz { height: 8px; background: #e2e8f0; border-radius: 4px; margin-bottom: 30px; overflow: hidden; }
+#progress-fill-quiz { height: 100%; background: #3b82f6; width: 2%; transition: width 0.3s; }
+.question-container { display: none; }
+.question-container.active { display: block; animation: fadeIn 0.4s; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.question-text { font-size: 1.1rem; font-weight: 700; margin-bottom: 20px; color: #0f172a; }
+.option-item { background: #fff; border: 2px solid #e2e8f0; margin-bottom: 10px; padding: 12px; border-radius: 8px; cursor: pointer; }
+.option-item:hover { border-color: #3b82f6; background: #f0f7ff; }
+.option-item.correct { border-color: #10b981; background: #ecfdf5; color: #065f46; font-weight: 600; }
+.option-item.wrong { border-color: #ef4444; background: #fef2f2; color: #991b1b; }
+.option-item.selected { border-color: #3b82f6; background: #e0f2fe; }
+.explanation-box { margin-top: 20px; padding: 15px; border-radius: 8px; background: #f1f5f9; border-left: 6px solid #3b82f6; display: none; }
+.nav-footer { margin-top: 30px; display: flex; justify-content: space-between; align-items: center; }
+#final-screen { display: none; text-align: center; }
+.score-circle { width: 100px; height: 100px; border-radius: 50%; border: 5px solid #1e3a8a; margin: 20px auto; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 900; }
 </style>
-<script>
-    const examData = [
-  { 
-    q: "Qui est le 'Super-utilisateur' du moteur de base de données (ex: compte 'postgres') ?", 
-    o: ["Le Chef de projet SIG", "L'Administrateur de Base de Données (DBA)", "L'utilisateur 'sde'", "Le technicien de saisie"], 
-    a: 1, 
-    e: "Le DBA gère l'instance entière, crée les bases physiques et installe les extensions comme PostGIS." 
-  },
-  { 
-    q: "Quelle action le DBA peut-il faire que l'administrateur GDB ne peut pas faire ?", 
-    o: ["Créer une classe d'entités", "Modifier la configuration mémoire du serveur SGBD", "Ajouter un domaine", "Réparer une géométrie"], 
-    a: 1, 
-    e: "Le DBA agit sur le contenant (serveur/instance), l'administrateur GDB agit sur le contenu (objets métiers)." 
-  },
-  { 
-    q: "Par convention chez ESRI, quel est le nom du compte propriétaire du référentiel de la géodatabase ?", 
-    o: ["admin", "root", "sde", "arcgis"], 
-    a: 2, 
-    e: "Le compte 'sde' possède les tables système indispensables au fonctionnement de la GDB." 
-  },
-  { 
-    q: "L'utilisateur 'sde' peut-il supprimer une table appartenant à un utilisateur métier nommé 'URBANISME' ?", 
-    o: ["Oui, il peut tout faire", "Non, par défaut seul le propriétaire ou le DBA peuvent supprimer l'objet", "Seulement si la table est vide", "Seulement le lundi"], 
-    a: 1, 
-    e: "Dans une GDB, le 'Droit de propriété' (Ownership) est strict. 'sde' administre la structure, pas forcément les données des autres." 
-  },
-  { 
-    q: "Quel est le rôle principal de l'Administrateur de Géodatabase ?", 
-    o: ["Changer les mots de passe Windows", "Mettre à jour le schéma système et compresser la base", "Dessiner des polygones", "Vendre des licences"], 
-    a: 1, 
-    e: "Son rôle est de maintenir l'intégrité et la performance du référentiel GDB." 
-  },
-  { 
-    q: "Un utilisateur 'LECTEUR' possède le droit SELECT. Que ne peut-il absolument PAS faire ?", 
-    o: ["Ouvrir la table attributaire", "Exporter les données en local", "Utiliser la commande 'Calculer un champ'", "Afficher la couche dans ArcGIS Pro"], 
-    a: 2, 
-    e: "Le calcul de champ nécessite le droit UPDATE (écriture), ce qu'un lecteur n'a pas." 
-  },
-  { 
-    q: "Comment appelle-t-on un utilisateur qui a le droit de créer ses propres tables dans la GDB ?", 
-    o: ["Un simple utilisateur", "Un Créateur de données (Data Creator)", "Un administrateur adjoint", "Un invité"], 
-    a: 1, 
-    e: "Le créateur possède les objets qu'il génère et peut donner des droits dessus aux autres." 
-  },
-  { 
-    q: "Si l'utilisateur 'GEO_BASE' crée une table, qui peut lui retirer son droit de suppression sur cette même table ?", 
-    o: ["L'administrateur GDB", "Le DBA (via des droits SGBD)", "Personne", "Le logiciel ArcGIS"], 
-    a: 1, 
-    e: "Le DBA a les pleins pouvoirs sur le SGBD et peut techniquement tout outrepasser." 
-  },
-  { 
-    q: "Un utilisateur 'EDITEUR' peut-il modifier la structure (ajouter un champ) d'une table qu'il ne possède pas ?", 
-    o: ["Oui, s'il a le droit de modification", "Non, il faut être propriétaire (Owner) pour modifier le schéma d'une table", "Seulement s'il connaît le mot de passe", "Oui, s'il utilise ArcGIS Pro"], 
-    a: 1, 
-    e: "L'édition (données) et la modification de schéma (structure) sont deux niveaux de droits différents." 
-  },
-  { 
-    q: "À quoi servent les 'Rôles de base de données' ?", 
-    o: ["À jouer une pièce de théâtre", "À regrouper des privilèges pour les affecter à plusieurs utilisateurs d'un coup", "À définir la couleur des icônes", "À limiter le temps de connexion"], 
-    a: 1, 
-    e: "On crée un rôle 'SIGNATAIRE' avec certains droits, puis on y ajoute les utilisateurs concernés." 
-  },
-  { 
-    q: "Le compte 'sde' doit-il être utilisé pour la saisie quotidienne des données ?", 
-    o: ["Oui, c'est plus simple", "Non, c'est une faille de sécurité majeure et une mauvaise pratique", "Seulement si on est pressé", "Oui, pour éviter les erreurs de droits"], 
-    a: 1, 
-    e: "Le compte admin ne doit servir qu'aux tâches de maintenance (compression, mise à jour de schéma)." 
-  },
-  { 
-    q: "Qui est responsable de la création des comptes utilisateurs dans PostgreSQL ?", 
-    o: ["L'administrateur GDB", "Le DBA", "L'utilisateur final lui-même", "Microsoft"], 
-    a: 1, 
-    e: "C'est une tâche système SGBD qui incombe au DBA (ou à l'admin GDB s'il a les droits 'Create User')." 
-  },
-  { 
-    q: "Un utilisateur possède le droit 'INSERT' mais pas 'DELETE'. Que peut-il faire ?", 
-    o: ["Ajouter des points mais pas les supprimer", "Supprimer des points mais pas en ajouter", "Tout modifier", "Rien"], 
-    a: 0, 
-    e: "Les droits sont granulaires. On peut autoriser l'ajout sans autoriser la suppression." 
-  },
-  { 
-    q: "Que signifie le privilège 'GRANT' ?", 
-    o: ["Le nom d'un utilisateur", "Le droit de donner ses propres privilèges à un autre utilisateur", "Un type de donnée spatiale", "Une erreur système"], 
-    a: 1, 
-    e: "Si j'ai le droit de 'Grant', je peux déléguer mes droits à mes collègues." 
-  },
-  { 
-    q: "Pourquoi le Chef de Projet doit-il éviter de donner les droits 'DBA' aux techniciens ?", 
-    o: ["Pour garder le pouvoir", "Pour éviter les suppressions accidentelles de bases entières ou de tables système", "Parce que c'est payant", "Pour limiter la vitesse du réseau"], 
-    a: 1, 
-    e: "La sécurité et la stabilité de la base dépendent de la restriction des droits critiques." 
-  },
-  { 
-    q: "L'administrateur GDB peut-il voir les mots de passe des utilisateurs dans PostgreSQL ?", 
-    o: ["Oui", "Non, ils sont chiffrés et illisibles", "Seulement s'il utilise pgAdmin", "Seulement s'il connaît le nom de l'utilisateur"], 
-    a: 1, 
-    e: "Les mots de passe sont hachés dans les tables système du SGBD." 
-  },
-  { 
-    q: "Quel rôle est indispensable pour effectuer une 'Compression' de la géodatabase ?", 
-    o: ["L'utilisateur Lecteur", "L'administrateur de géodatabase (compte sde)", "Le créateur de la table", "Le support technique"], 
-    a: 1, 
-    e: "La compression est une tâche de maintenance réservée à l'administrateur de la GDB." 
-  },
-  { 
-    q: "Un utilisateur 'PUBLIC' dans PostgreSQL représente quoi ?", 
-    o: ["L'État", "Tous les utilisateurs de la base par défaut", "Les utilisateurs externes", "Un compte de test"], 
-    a: 1, 
-    e: "Donner un droit à 'PUBLIC' revient à le donner à tout le monde." 
-  },
-  { 
-    q: "Peut-on empêcher un utilisateur de voir une table spécifique ?", 
-    o: ["Non, tout est visible", "Oui, en ne lui accordant pas le privilège SELECT sur cette table", "Seulement en supprimant la table", "Seulement en changeant le nom"], 
-    a: 1, 
-    e: "La visibilité est la base de la sécurité des données." 
-  },
-  { 
-    q: "Qui peut 'Enregistrer en tant que version' une classe d'entités ?", 
-    o: ["Le Lecteur", "Le propriétaire de la table ou l'administrateur GDB", "Le DBA uniquement", "N'importe qui"], 
-    a: 1, 
-    e: "L'enregistrement dans le référentiel GDB nécessite des droits élevés sur l'objet." 
-  },
-  { 
-    q: "Qu'est-ce qu'un 'Utilisateur de base de données' (Database User) ?", 
-    o: ["Une personne physique", "Un identifiant de connexion authentifié par le SGBD", "Un logiciel", "Un ordinateur"], 
-    a: 1, 
-    e: "C'est l'entité logique qui se connecte via le fichier .sde." 
-  },
-  { 
-    q: "L'administrateur GDB peut-il créer des index spatiaux ?", 
-    o: ["Oui", "Non, seul le propriétaire de la table peut le faire", "Oui, mais uniquement sur ses propres tables", "Seulement le premier jour"], 
-    a: 1, 
-    e: "Généralement, la gestion des index est réservée au propriétaire (owner) de la donnée." 
-  },
-  { 
-    q: "Un utilisateur peut-il appartenir à plusieurs rôles à la fois ?", 
-    o: ["Non", "Oui, et il cumule les privilèges de chaque rôle", "Oui, mais il perd ses droits individuels", "Seulement sur Oracle"], 
-    a: 1, 
-    e: "Le cumul de rôles permet une gestion flexible (ex: Rôle 'Cadastre' + Rôle 'Edition')." 
-  },
-  { 
-    q: "Que se passe-t-il si un utilisateur essaie de faire une action non autorisée (ex: Delete sans droit) ?", 
-    o: ["Le PC redémarre", "ArcGIS affiche un message d'erreur 'Privilèges insuffisants' renvoyé par le SGBD", "L'action est faite mais pas enregistrée", "Rien du tout"], 
-    a: 1, 
-    e: "C'est le SGBD qui bloque l'action et renvoie l'erreur au client ArcGIS." 
-  },
-  { 
-    q: "Quel compte est utilisé pour mettre à jour la licence d'une GDB entreprise ?", 
-    o: ["N'importe quel éditeur", "L'administrateur de géodatabase (sde)", "Le DBA", "L'utilisateur 'guest'"], 
-    a: 1, 
-    e: "La mise à jour du fichier keycodes dans la base est une tâche d'administration GDB." 
-  },
-  { q: "Un propriétaire de table peut-il supprimer sa propre table ?", o: ["Non, il faut l'accord de sde", "Oui, il a tout pouvoir sur son objet", "Seulement s'il a une licence Advanced", "Non, c'est définitif"], a: 1, e: "L'owner possède le droit DROP sur ses objets." },
-  { q: "Comment s'appelle l'outil pour donner des droits dans ArcGIS Pro ?", o: ["Gestionnaire de tâches", "Privilèges (Privileges)", "Propriétés de la carte", "Analyse spatiale"], a: 1, e: "Le clic droit sur une table dans le catalogue permet d'accéder au menu 'Gérer les privilèges'." },
-  { q: "L'administrateur GDB peut-il déconnecter un utilisateur actif ?", o: ["Non", "Oui, pour effectuer une maintenance (compression)", "Seulement si l'utilisateur est d'accord", "Seulement via la prise électrique"], a: 1, e: "ArcGIS Pro propose un outil pour voir et couper les verrous/connexions." },
-  { q: "Quel est le risque de partager un compte générique (ex: 'user1') entre 10 personnes ?", o: ["Le logiciel va planter", "Perte de la traçabilité (on ne sait plus qui a modifié quoi)", "La base sera plus lente", "C'est interdit par le SGBD"], a: 1, e: "Pour l'audit et l'archivage, des comptes individuels sont préférables." },
-  { q: "Que signifie 'Schéma sde' ?", o: ["Un plan de métro", "Le conteneur des tables et procédures système ESRI", "Un type de raster", "Le nom du serveur"], a: 1, e: "C'est le 'cœur' logiciel de la géodatabase dans la base SQL." },
-  { q: "Un utilisateur peut-il changer son propre mot de passe dans ArcGIS ?", o: ["Oui, via les paramètres de connexion", "Non, il faut appeler le DBA", "Seulement si le mot de passe est expiré", "Seulement sur SQL Server"], a: 1, e: "La plupart des SGBD permettent à l'utilisateur de modifier ses identifiants." },
-  { q: "Quel rôle peut créer des 'Domaines' ?", o: ["Le lecteur", "L'administrateur GDB ou le propriétaire de la table qui va l'utiliser", "Uniquement le DBA", "Le support ESRI"], a: 1, e: "La création de domaine modifie le schéma de la GDB." },
-  { q: "Le DBA doit-il connaître le métier des géomaticiens ?", o: ["Non, pas du tout", "Oui, pour optimiser les index et le stockage en fonction des usages réels", "Seulement pour les couleurs", "Oui, pour dessiner les cartes"], a: 1, e: "La collaboration DBA/Chef de Projet SIG est la clé d'un système performant." },
-  { q: "Qu'est-ce que l'authentification Windows (OS) ?", o: ["Se connecter avec son compte de session Windows sans retaper de mot de passe", "Une sécurité plus faible", "Une connexion via internet", "Un type de fichier"], a: 0, e: "Le SGBD fait confiance à l'identité fournie par l'Active Directory (ou Windows)." },
-  { q: "Qu'est-ce que l'authentification par le SGBD ?", o: ["Utiliser un login/pass créé spécifiquement dans PostgreSQL", "Ne pas avoir de mot de passe", "Utiliser sa carte d'identité", "Une connexion anonyme"], a: 0, e: "C'est la méthode la plus courante pour les GDB multi-plateformes." },
-  { q: "L'administrateur GDB peut-il supprimer le compte 'sde' ?", o: ["Oui", "Non, la GDB cesserait de fonctionner car elle perdrait son propriétaire", "Seulement s'il le recrée après", "Seulement avec une clé USB"], a: 1, e: "Le compte propriétaire du référentiel est intouchable." },
-  { q: "Un utilisateur avec droit 'UPDATE' peut-il supprimer une ligne entière ?", o: ["Oui", "Non, il lui faut le droit DELETE", "Seulement si la ligne est vide", "Seulement s'il l'a créée lui-même"], a: 1, e: "UPDATE permet de modifier la valeur d'une case, DELETE permet de supprimer la ligne." },
-  { q: "Qui définit les quotas de stockage (taille maximale de la base) ?", o: ["L'administrateur GDB", "Le DBA au niveau du système de fichiers ou du SGBD", "Le Chef de Projet SIG", "Le fournisseur d'électricité"], a: 1, e: "Le contrôle des ressources matérielles appartient au DBA." },
-  { q: "Peut-on donner des droits sur une vue sans donner de droits sur la table source ?", o: ["Non", "Oui, c'est un excellent moyen de sécuriser les données (masquage de colonnes)", "Seulement sur Oracle", "Seulement si la vue est spatiale"], a: 1, e: "La vue agit comme un filtre sécurisé." },
-  { q: "Que se passe-t-il si l'administrateur GDB oublie son mot de passe ?", o: ["La base est perdue", "Le DBA peut le réinitialiser via le SGBD", "Il faut appeler ESRI aux USA", "Rien, il suffit d'attendre"], a: 1, e: "Le DBA a toujours un accès 'backdoor' pour la maintenance des comptes." },
-  { q: "Un utilisateur 'Éditeur' peut-il créer une nouvelle classe d'entités ?", o: ["Oui, par définition", "Non, sauf s'il possède spécifiquement le privilège 'Create Table'", "Seulement s'il a fini son travail", "Seulement dans une GDB fichier"], a: 1, e: "Le droit d'éditer (données existantes) et le droit de créer (nouveaux objets) sont distincts." },
-  { q: "Quel compte possède le droit de 'Réconcilier' deux versions ?", o: ["L'utilisateur qui possède la version ou l'admin GDB", "Le DBA uniquement", "N'importe quel lecteur", "Personne"], a: 0, e: "La gestion des versions appartient à celui qui les a créées ou à l'admin global." },
-  { q: "Le compte 'sde' peut-il être un compte Windows ?", o: ["Non, obligatoirement SGBD", "Oui, c'est possible selon la configuration", "Seulement sur Linux", "Seulement si on n'a pas de mot de passe"], a: 1, e: "L'authentification peut être mixte ou OS pour sde." },
-  { q: "Que contient la table GDB_UserMetadata ?", o: ["Les photos des employés", "Des métadonnées spécifiques liées aux utilisateurs", "Les adresses e-mail", "Rien"], a: 1, e: "C'est une table système pour la gestion interne." },
-  { q: "Pourquoi limiter le nombre d'administrateurs GDB ?", o: ["Pour ne pas partager les bureaux", "Pour éviter les conflits de maintenance et assurer la responsabilité des actions", "Parce que les licences sont chères", "Pour accélérer la base"], a: 1, e: "Une gouvernance claire évite les erreurs critiques." },
-  { q: "L'administrateur de géodatabase doit-il être un expert SQL ?", o: ["Non, jamais", "Il est fortement recommandé d'avoir des bases pour comprendre les blocages et les performances", "Oui, il doit coder le SGBD", "Seulement s'il utilise Excel"], a: 1, e: "La double compétence SIG/SQL est le profil idéal du Chef de Projet." },
-  { q: "Peut-on automatiser la création des comptes ?", o: ["Non", "Oui, via des scripts Python (ArcPy) ou SQL", "Seulement avec un robot", "Seulement le premier de l'an"], a: 1, e: "L'automatisation réduit les erreurs humaines de saisie." },
-  { q: "Que faire si un utilisateur quitte l'organisation ?", o: ["Supprimer ses tables immédiatement", "Désactiver son compte ou transférer la propriété de ses tables à un autre utilisateur", "Laisser le compte tel quel", "Changer le nom de la base"], a: 1, e: "La gestion du cycle de vie des comptes est une tâche de sécurité." },
-  { q: "Un utilisateur sans aucun droit peut-il voir le nom des tables ?", o: ["Non", "Oui, selon la configuration du SGBD (catalogue)", "Seulement s'il a ArcGIS Pro", "Seulement s'il est administrateur"], a: 1, e: "Souvent, la liste des tables est visible, mais le contenu reste inaccessible." },
-  { q: "Quel est le but final de cette gestion des comptes ?", o: ["Compliquer la vie des gens", "Garantir que la bonne donnée est modifiée par la bonne personne en toute sécurité", "Vendre plus de serveurs", "Rendre le SIG plus joli"], a: 1, e: "C'est la définition même de la gouvernance des données." },
-  { 
-    q: "Quelle est la définition d'une géodatabase selon l'écosystème ESRI ?", 
-    o: ["Un logiciel de dessin assisté par ordinateur", "Une collection de jeux de données géographiques stockés dans un dossier ou un SGBDR", "Un serveur web dédié à l'affichage de cartes", "Un format de compression d'images satellites"], 
-    a: 1, 
-    e: "La géodatabase est une collection de jeux de données de différents types détenus dans un dossier ou un système de gestion de bases de données relationnelles." 
-  },
-  { 
-    q: "Quel format de géodatabase est techniquement basé sur SQLite ?", 
-    o: ["La géodatabase fichier", "La géodatabase personnelle", "La géodatabase mobile", "La géodatabase d'entreprise"], 
-    a: 2, 
-    e: "Le cours précise qu'une géodatabase mobile repose sur SQLite, une base de données relationnelle autonome." 
-  },
-  { 
-    q: "Quelle est la taille maximale d'un fichier unique de géodatabase mobile (.geodatabase) ?", 
-    o: ["2 Go", "1 To", "2 To", "Illimitée"], 
-    a: 2, 
-    e: "Une géodatabase mobile peut contenir jusqu'à 2 To de données dans un seul fichier." 
-  },
-  { 
-    q: "Quel est l'avantage principal de la géodatabase fichier par rapport au shapefile ?", 
-    o: ["Elle est lisible par Word", "Elle utilise environ 1/3 de l'espace de stockage de la géométrie requis par les shapefiles", "Elle ne peut pas être compressée", "Elle est limitée à 2 Go"], 
-    a: 1, 
-    e: "Le cours indique que les GDB fichiers utilisent environ un tiers de l'espace de stockage de la géométrie par rapport aux shapefiles." 
-  },
-  { 
-    q: "Dans une géodatabase d'entreprise, quelle table système renferme la liste de tous les éléments (classes d'entités, domaines, etc.) ?", 
-    o: ["GDB_ItemTypes", "GDB_ItemRelationships", "GDB_Items", "SDE_Layers"], 
-    a: 2, 
-    e: "GDB_Items renferme la liste de tous les éléments contenus dans une géodatabase." 
-  },
-  { 
-    q: "Que signifie le type de données 'BLOB' dans une géodatabase ?", 
-    o: ["Basic Line Object Binary", "Binary Large Object", "Base Layer Online Backup", "Binaire Localisé Objet"], 
-    a: 1, 
-    e: "Les objets BLOB sont utilisés pour stocker des documents, des photographies ou d'autres données volumineuses." 
-  },
-  { 
-    q: "Quel type de classe d'entités permet de gérer spécifiquement le texte des cartes avec des propriétés de rendu ?", 
-    o: ["Points", "Lignes", "Annotation", "Multipoints"], 
-    a: 2, 
-    e: "L'annotation est une classe d'entités spécifique qui inclut les propriétés de rendu du texte (police, taille, etc.)." 
-  },
-  { 
-    q: "Quelle table contient l'identifiant unique de chaque entité dans une classe d'entités ?", 
-    o: ["La colonne Shape", "La colonne ObjectID", "La colonne GlobalID", "La colonne Index"], 
-    a: 1, 
-    e: "La colonne ObjectID contient l'identifiant unique de chaque entité généré par le système." 
-  },
-  { 
-    q: "Laquelle de ces méthodes n'est PAS citée pour la création d'une géodatabase ?", 
-    o: ["Utiliser un document d'espace de travail XML", "Copier une structure existante", "Concevoir une GDB vide", "Convertir un fichier Excel directement en .gdb"], 
-    a: 3, 
-    e: "Le cours liste trois méthodes : XML, copie de structure/contenu, ou création d'une GDB vide." 
-  },
-  { 
-    q: "Quel type de jeu de données n'est PAS pris en charge dans une géodatabase mobile ?", 
-    o: ["Classe d'entités", "Table", "Jeu de données raster", "Relation"], 
-    a: 2, 
-    e: "Le cours note explicitement que les jeux de données raster ne sont pas pris en charge dans une géodatabase mobile." 
-  },
-  { 
-    q: "Pour garantir l'intégrité des données, comment doit-on renommer ou supprimer une géodatabase fichier ?", 
-    o: ["Avec l'Explorateur Windows", "Avec ArcGIS (Catalog)", "En ligne de commande DOS", "Via un navigateur Web"], 
-    a: 1, 
-    e: "La gestion doit toujours s'effectuer avec ArcGIS pour éviter toute perte de données ou corruption d'index." 
-  },
-  { 
-    q: "Quel SGBDR parmi les suivants n'est PAS mentionné comme supportant les géodatabases d'entreprise ?", 
-    o: ["Oracle", "PostgreSQL", "MySQL", "SAP HANA"], 
-    a: 2, 
-    e: "MySQL n'est pas cité. Les SGBDR supportés sont IBM Db2, SQL Server, Oracle, PostgreSQL et SAP HANA." 
-  },
-  { 
-    q: "Dans l'architecture multi-utilisateur, quel composant interprète les actions client en requêtes SQL ?", 
-    o: ["Le Référentiel", "Le Traducteur (translator)", "Le Serveur PostGIS", "L'interface ArcPy"], 
-    a: 1, 
-    e: "Le traducteur interprète les actions de l'utilisateur et construit les requêtes SQL transmises au serveur SGBDR." 
-  },
-  { 
-    q: "Quel préfixe de table système est utilisé pour fournir les fonctionnalités de la géodatabase (domaines, topologies, etc.) ?", 
-    o: ["SDE_", "GDB_", "GIS_", "ESRI_"], 
-    a: 1, 
-    e: "Le cours précise que l'ensemble de tables avec le préfixe GDB_ est utilisé pour fournir des fonctionnalités de géodatabase." 
-  },
-  { 
-    q: "Qui possède le plus haut niveau de privilèges dans la géodatabase (et non dans la base elle-même) ?", 
-    o: ["L'administrateur de base de données (DBA)", "L'administrateur de la géodatabase", "L'utilisateur final", "L'éditeur SIG"], 
-    a: 1, 
-    e: "L'administrateur de la géodatabase possède le plus haut niveau de privilèges au sein de la structure GDB." 
-  },
-  { 
-    q: "Quelle est la limite de stockage d'un jeu de données dans une GDB fichier par défaut ?", 
-    o: ["1 Go", "1 To", "4 To", "256 To"], 
-    a: 1, 
-    e: "Chaque jeu de données peut atteindre 1 To par défaut (extensible ensuite)." 
-  },
-  { 
-    q: "Quel élément est indispensable pour identifier de manière unique une ligne entre plusieurs géodatabases (réplication) ?", 
-    o: ["ObjectID", "Shape_Length", "ID Global (GUID)", "Nom de l'entité"], 
-    a: 2, 
-    e: "Les ID globaux identifient de manière unique une ligne entre plusieurs géodatabases, essentiels pour la réplication." 
-  },
-  { 
-    q: "Quelle extension ArcGIS Pro est requise pour utiliser des 'Jeux de données réseau' dans une GDB ?", 
-    o: ["3D Analyst", "Spatial Analyst", "Network Analyst", "Geostatistical Analyst"], 
-    a: 2, 
-    e: "L'extension ArcGIS Network Analyst est obligatoire pour ces jeux de données." 
-  },
-  { 
-    q: "Qu'est-ce qu'une 'Classe d'entités' ?", 
-    o: ["Un ensemble hétérogène de points et polygones", "Un ensemble homogène d'entités possédant la même représentation spatiale", "Un dossier contenant des PDF", "Une fonction de calcul de surface"], 
-    a: 1, 
-    e: "Les classes d'entités représentent des ensembles homogènes possédant la même représentation spatiale (points, lignes ou polygones)." 
-  },
-  { 
-    q: "Le schéma d'une géodatabase entreprise est stocké dans quoi ?", 
-    o: ["Un fichier .txt sur le serveur", "Un ensemble de tables système dans le SGBD", "Le registre Windows du client", "Une image raster"], 
-    a: 1, 
-    e: "Le schéma persiste dans un ensemble de tables système de la géodatabase au sein du SGBD." 
-  },
-  { 
-    q: "Quelle bibliothèque spatiale est nécessaire pour PostgreSQL pour fonctionner avec ArcGIS ?", 
-    o: ["ST_GEOMETRY ou PostGIS", "DirectX", "LibGDAL", "SpatiaLite"], 
-    a: 0, 
-    e: "Le cours mentionne l'installation des librairies ST_GEOMETRY et l'usage de la cartouche spatiale PostGIS." 
-  },
-  { 
-    q: "Combien d'utilisateurs peuvent mettre à jour le MÊME jeu de données simultanément dans une GDB fichier ?", 
-    o: ["Autant qu'on veut", "Un seul", "Dix", "Zéro"], 
-    a: 1, 
-    e: "Plusieurs clients peuvent accéder aux données, mais ils ne peuvent pas mettre à jour le même jeu de données simultanément." 
-  },
-  { 
-    q: "Quel composant contribue également au processus de filtrage spatial dans l'architecture ?", 
-    o: ["Le SGBDR seul", "Le traducteur", "Le clavier de l'utilisateur", "L'écran"], 
-    a: 1, 
-    e: "Le traducteur contribue également au processus de filtrage spatial." 
-  },
-  { 
-    q: "Dans PostgreSQL, qui doit créer la base de données initiale avant que la GDB soit créée ?", 
-    o: ["Le client ArcGIS Pro", "L'administrateur de PostgreSQL (via PgAdmin par ex.)", "Le stagiaire", "Le serveur web"], 
-    a: 1, 
-    e: "L'administrateur de PostgreSQL crée la base de données, puis l'administrateur de géodatabase crée la structure GDB." 
-  },
-  { 
-    q: "Que contient la table système GDB_ItemRelationships ?", 
-    o: ["La liste des noms d'utilisateurs", "Les associations de structures entre les éléments", "Les mots de passe chiffrés", "Les coordonnées GPS"], 
-    a: 1, 
-    e: "Elle contient les associations de structures, par exemple indiquer quelles classes sont dans un jeu de données d'entités." 
-  },
-  { 
-    q: "Quelle est la première étape technique indispensable avant de déployer une géodatabase dans PostgreSQL ?", 
-    o: ["Acheter un nouvel écran", "Installer une version de SGBD compatible avec la version d'ArcGIS utilisée", "Supprimer ArcGIS Pro", "Créer un fichier Excel"], 
-    a: 1, 
-    e: "Le cours précise qu'il faut installer une version de SGBD compatible en se référant aux préconisations d'ESRI." 
-  },
-  { 
-    q: "Où doivent être déployées les librairies ST_GEOMETRY sur la machine hébergeant le SGBD ?", 
-    o: ["Dans le dossier 'Mes Documents'", "Dans le dossier 'lib' du gestionnaire de bases de données", "Sur le bureau", "Dans le dossier d'installation d'ArcGIS Pro"], 
-    a: 1, 
-    e: "Les librairies ST_GEOMETRY doivent être placées dans le dossier 'lib' de l'instance SGBD pour être reconnues." 
-  },
-  { 
-    q: "Pour créer une géodatabase d'entreprise, quel fichier de licence est impératif ?", 
-    o: ["Un fichier .txt", "Un fichier de codes de clés ArcGIS Server (keycodes)", "Un certificat SSL", "Une licence Windows"], 
-    a: 1, 
-    e: "La création d'une GDB entreprise requiert un fichier de codes de clés ArcGIS Server accessible depuis le client." 
-  },
-  { 
-    q: "Quelle licence ArcGIS Pro est au minimum nécessaire pour créer une géodatabase d'entreprise ?", 
-    o: ["Basic", "Standard ou Advanced", "Personal Use", "Viewer"], 
-    a: 1, 
-    e: "Le support de cours indique que la création est disponible avec une licence Standard ou Advanced." 
-  },
-  { 
-    q: "Si la base de données doit être lue à la fois par ArcGIS et QGIS, quelle est la recommandation ?", 
-    o: ["Utiliser uniquement ArcGIS", "Créer la base via PgAdmin avec le template PostGIS au préalable", "Utiliser une clé USB", "Exporter en PDF"], 
-    a: 1, 
-    e: "Pour une interopérabilité ArcGIS/QGIS, il faut créer la base depuis PgAdmin en utilisant le template incluant la cartouche PostGIS." 
-  },
-  { 
-    q: "Peut-on mettre à jour des données de base de données 'non-géodatabase' directement dans ArcGIS Pro ?", 
-    o: ["Oui, sans restriction", "Non, seules les données de géodatabase peuvent être mises à jour", "Seulement le lundi", "Seulement si PostGIS est installé"], 
-    a: 1, 
-    e: "Le cours stipule : 'Les données de géodatabase peuvent être mises à jour dans ArcGIS Pro, mais pas les données de base de données'." 
-  },
-  { 
-    q: "Quel outil est utilisé par l'Administrateur de Géodatabase pour créer la structure GDB dans PostgreSQL ?", 
-    o: ["PgAdmin", "ArcCatalog (ou un outil de géotraitement dédié)", "Bloc-notes", "Excel"], 
-    a: 1, 
-    e: "Alors que le DBA utilise PgAdmin pour la base, l'admin GDB utilise ArcCatalog ou les outils de géotraitement ArcGIS." 
-  },
-  { 
-    q: "Quel mot de passe est indispensable pour ajouter ou supprimer des données dans la GDB entreprise ?", 
-    o: ["Le mot de passe de session Windows", "Le mot de passe d'administration de la géodatabase", "Le mot de passe de l'antivirus", "Aucun mot de passe"], 
-    a: 1, 
-    e: "Le mot de passe administration de la géodatabase est indispensable pour gérer les données stockées." 
-  },
-  { 
-    q: "Quel est le rôle du SGBDR dans l'architecture multi-utilisateur ?", 
-    o: ["Il sert uniquement d'interface graphique", "Il fournit la solution de stockage, sécurise les données et gère les connexions", "Il remplace ArcGIS Pro", "Il sert à imprimer les cartes"], 
-    a: 1, 
-    e: "Le SGBDR fournit le stockage sous forme de tables, sécurise l'accès et gère les connexions simultanées." 
-  },
-  { 
-    q: "Dans l'architecture ESRI, que signifie le terme 'Référentiel' (Repository) ?", 
-    o: ["Un entrepôt physique de serveurs", "Un ensemble de tables et procédures stockées gérant l'interaction utilisateur/GDB", "Une sauvegarde sur le Cloud", "Un dictionnaire papier"], 
-    a: 1, 
-    e: "Le référentiel est l'ensemble des tables (GDB_ et SDE_) et procédures qui prennent en charge le fonctionnement de la GDB." 
-  },
-  { 
-    q: "Quel est le préfixe des tables gérant l'interaction de l'utilisateur dans Oracle (équivalent du SDE_ sur d'autres SGBD) ?", 
-    o: ["ORA_", "SDO_", "GDB_", "GIS_"], 
-    a: 1, 
-    e: "Le cours mentionne que dans Oracle, on peut trouver le préfixe SDO_ à la place de SDE_." 
-  },
-  { 
-    q: "Qui possède le privilège le plus élevé dans l'ensemble du système de base de données ?", 
-    o: ["L'administrateur de géodatabase", "L'administrateur de base de données (DBA)", "Le technicien SIG", "L'analyste spatial"], 
-    a: 1, 
-    e: "Le DBA bénéficie du plus haut niveau de privilèges dans la base de données globale." 
-  },
-  { 
-    q: "Quel est le but principal de la configuration des privilèges ?", 
-    o: ["Ralentir le système", "Fournir un accès sécurisé aux données selon les rôles utilisateurs", "Empêcher tout accès aux données", "Changer la couleur des cartes"], 
-    a: 1, 
-    e: "La configuration des privilèges sert à sécuriser les accès et définir qui peut lire, modifier ou supprimer les données." 
-  },
-  { 
-    q: "Dans le cadre de l'exercice pratique du Jour 1, quel outil est utilisé pour l'installation de PostGIS ?", 
-    o: ["ArcGIS Online", "Une note technique fournie avec le cours", "Windows Update", "Adobe Reader"], 
-    a: 1, 
-    e: "Le cours mentionne l'utilisation d'une note technique à disposition des étudiants pour cette installation." 
-  },
-  { 
-    q: "Pourquoi est-il important de vérifier la version de PostgreSQL installée ?", 
-    o: ["Pour des raisons esthétiques", "Pour s'assurer de la compatibilité avec la version d'ArcGIS Pro installée", "Pour avoir le dernier logo", "Pour augmenter la RAM"], 
-    a: 1, 
-    e: "La compatibilité entre la version du client ArcGIS et du moteur PostgreSQL est critique pour le fonctionnement de la GDB." 
-  },
-  { 
-    q: "Que permet de faire le traducteur au niveau du filtrage spatial ?", 
-    o: ["Rien, c'est le rôle de l'écran", "Il contribue au processus de filtrage des données selon leur géométrie", "Il traduit les noms des rues en anglais", "Il efface les données inutiles"], 
-    a: 1, 
-    e: "Le traducteur convertit les requêtes spatiales du client en SQL et participe au processus de filtrage spatial." 
-  },
-  { 
-    q: "Quelle table système assure le suivi des types d'éléments reconnus (comme 'Table') ?", 
-    o: ["GDB_Items", "GDB_ItemTypes", "GDB_ItemRelationships", "GDB_ItemRelationshipTypes"], 
-    a: 1, 
-    e: "GDB_ItemTypes contient la liste prédéfinie des types d'éléments que la géodatabase sait gérer." 
-  },
-  { 
-    q: "Quel est le rôle de la table GDB_ItemRelationshipTypes ?", 
-    o: ["Stocker les photos des utilisateurs", "Renfermer la liste des types de relations reconnus (ex: DatasetInFeatureDataset)", "Calculer les surfaces", "Gérer les mots de passe"], 
-    a: 1, 
-    e: "Elle définit les types de relations possibles entre les objets de la géodatabase." 
-  },
-  { 
-    q: "Dans une géodatabase, comment sont gérés les attributs ?", 
-    o: ["Dans des fichiers Word séparés", "Dans des tables basées sur des concepts relationnels simples", "Uniquement par la pensée", "Dans des images"], 
-    a: 1, 
-    e: "Les attributs sont gérés dans des tables où chaque ligne a les mêmes champs et chaque colonne un type précis." 
-  },
-  { 
-    q: "Quel type numérique est aussi appelé 'réel double' ?", 
-    o: ["Entier court", "Entier long", "Nombre à virgule flottante à double précision", "Nombre à virgule flottante à simple précision"], 
-    a: 2, 
-    e: "Le cours précise que les réels doubles correspondent aux nombres à virgule flottante à double précision." 
-  },
-  { 
-    q: "À quoi servent les identifiants GUID ou ID Global ?", 
-    o: ["À donner un nom aux communes", "À identifier de manière unique une entité entre plusieurs géodatabases", "À calculer la longueur d'une ligne", "À définir la couleur d'un point"], 
-    a: 1, 
-    e: "Ils sont utilisés pour identifier de façon unique des lignes, notamment pour le versionnement et la réplication." 
-  },
-  { 
-    q: "Quelle est la longueur d'une chaîne GUID ?", 
-    o: ["10 caractères", "36 caractères (entre accolades)", "255 caractères", "8 bits"], 
-    a: 1, 
-    e: "Le cours spécifie que les GUID sont des chaînes de 36 caractères placées entre des accolades." 
-  },
-  { 
-    q: "Quelles sont les quatre classes d'entités les plus utilisées ?", 
-    o: ["Point, Ligne, Polygone, Annotation", "Raster, Vecteur, SQL, XML", "Cercle, Carré, Triangle, Losange", "Route, Ville, Rivière, Forêt"], 
-    a: 0, 
-    e: "Le support liste les points, les lignes, les polygones et les annotations comme étant les plus fréquentes." 
-  },
-  { 
-    q: "Dans la table métier d'une classe d'entités, que représente chaque ligne ?", 
-    o: ["Un fichier de configuration", "Une entité géographique individuelle", "Une couleur différente", "Une colonne"], 
-    a: 1, 
-    e: "Chaque ligne de la table représente une entité unique (un objet géographique)." 
-  },
-  { 
-    q: "Où est stockée la géométrie d'une entité dans une table de classe d'entités ?", 
-    o: ["Dans la colonne ObjectID", "Dans la colonne Shape", "Dans un dossier externe", "Dans le nom de la table"], 
-    a: 1, 
-    e: "La colonne Shape contient la géométrie ou la forme (point, ligne, polygone) de chaque entité." 
-  },
-  { 
-    q: "Quelle opération est essentielle pour optimiser les performances d'une géodatabase après de nombreuses modifications ?", 
-    o: ["Changer le fond de plan", "La maintenance (incluant la compression et la mise à jour des statistiques)", "Supprimer l'historique de navigation", "Redémarrer ArcGIS Pro"], 
-    a: 1, 
-    e: "La maintenance régulière est cruciale pour optimiser les performances de la géodatabase, notamment en gérant l'organisation physique des données." 
-  },
-  { 
-    q: "Qu'est-ce qu'une 'Couche de requête' (Query Layer) ?", 
-    o: ["Une couche de maquillage sur une carte", "Une couche définie par une requête SQL qui permet d'accéder aux données d'une base de données", "Un outil de dessin manuel", "Un format d'image compressé"], 
-    a: 1, 
-    e: "Les couches de requêtes permettent d'intégrer des données provenant de tables de bases de données via des instructions SQL." 
-  },
-  { 
-    q: "Dans quel cas utilise-t-on une 'Vue de base de données' ?", 
-    o: ["Pour regarder l'écran de son collègue", "Pour définir une table virtuelle basée sur une requête SQL afin de simplifier l'accès aux données", "Pour imprimer une carte en 3D", "Pour créer un dossier système"], 
-    a: 1, 
-    e: "Une vue permet de présenter des données provenant d'une ou plusieurs tables comme s'il s'agissait d'une seule table." 
-  },
-  { 
-    q: "Quel est l'intérêt d'un 'Jeu de classes d'entités' (Feature Dataset) ?", 
-    o: ["Stocker des photos", "Regrouper des classes d'entités liées thématiquement pour gérer une topologie ou un réseau", "Accélérer l'ouverture d'Excel", "Changer le mot de passe du SGBD"], 
-    a: 1, 
-    e: "Le Feature Dataset est utilisé pour organiser des classes d'entités partageant le même système de coordonnées, souvent pour la topologie." 
-  },
-  { 
-    q: "Peut-on créer des relations entre une table spatiale et une table non spatiale dans une géodatabase ?", 
-    o: ["Non, c'est impossible", "Oui, via des classes de relations ou des jointures", "Seulement avec une licence Basic", "Seulement sur Linux"], 
-    a: 1, 
-    e: "La géodatabase permet d'associer des enregistrements d'une table à ceux d'une autre table via des classes de relations." 
-  },
-  { 
-    q: "Qu'est-ce que la gestion du stockage permet de prendre en charge selon les objectifs du cours ?", 
-    o: ["Le tri des dossiers Windows", "Les processus de travail de gestion des données de l'organisation", "L'achat de nouveaux disques durs", "Le nettoyage du clavier"], 
-    a: 1, 
-    e: "Configurer le stockage permet de supporter efficacement les workflows spécifiques à l'organisation." 
-  },
-  { 
-    q: "Quel type de données raster est spécifiquement mentionné pour gérer, diffuser et partager de grands volumes d'images ?", 
-    o: ["Le JPEG", "La Mosaïque", "Le GIF", "Le PNG"], 
-    a: 1, 
-    e: "Les mosaïques sont l'outil privilégié pour gérer et diffuser de grands ensembles de données raster." 
-  },
-  { 
-    q: "Quelle extension est nécessaire pour gérer les 'Terrains' dans une géodatabase ?", 
-    o: ["Network Analyst", "3D Analyst", "Spatial Analyst", "Business Analyst"], 
-    a: 1, 
-    e: "L'extension ArcGIS 3D Analyst est obligatoire pour la gestion des jeux de données de type Terrains." 
-  },
-  { 
-    q: "Comment s'appelle le mécanisme qui permet de suivre l'évolution des données dans le temps ?", 
-    o: ["Le chronomètre", "La gestion de l'archivage", "Le copier-coller", "La corbeille"], 
-    a: 1, 
-    e: "L'archivage permet d'enregistrer et de consulter les états passés des données dans une géodatabase entreprise." 
-  },
-  { 
-    q: "Quel outil permet de copier des données d'une GDB à une autre sans perdre la structure ?", 
-    o: ["L'Explorateur Windows", "Le menu contextuel de la fenêtre Catalogue (Copier/Coller)", "Une capture d'écran", "L'envoi par e-mail direct"], 
-    a: 1, 
-    e: "Le chargement s'effectue via le catalogue ArcGIS pour garantir l'intégrité de la structure." 
-  },
-  { 
-    q: "Quelle est la particularité des réseaux géométriques dans ArcGIS Pro ?", 
-    o: ["Ils sont modifiables à l'infini", "Ils sont en lecture seule", "Ils n'existent pas", "Ils sont obligatoires"], 
-    a: 1, 
-    e: "Le cours mentionne que les réseaux géométriques sont en lecture seule dans ArcGIS Pro (remplacés par le Trace Network)." 
-  },
-  { 
-    q: "Quelle est la taille maximale d'un jeu de données raster dans une GDB mobile ?", 
-    o: ["2 To", "1 To", "Ce n'est pas pris en charge", "500 Mo"], 
-    a: 2, 
-    e: "Les jeux de données raster ne sont pas pris en charge dans les géodatabases mobiles (SQLite)." 
-  },
-  { 
-    q: "Dans ArcGIS Pro, où peut-on créer directement une nouvelle géodatabase fichier ?", 
-    o: ["Dans Microsoft Word", "Dans la fenêtre Catalogue (Catalog)", "Sur le site Google Maps", "Dans le Panneau de Configuration"], 
-    a: 1, 
-    e: "La création se fait directement via la fenêtre Catalogue ou par des outils de géotraitement." 
-  },
-  { 
-    q: "Qu'est-ce qu'une 'Boîte à outils de géotraitement' dans une GDB ?", 
-    o: ["Une boîte de rangement physique", "Une série d'outils, scripts et modèles créés par l'utilisateur", "Un ensemble de tournevis", "Une liste d'adresses e-mail"], 
-    a: 1, 
-    e: "Les GDB peuvent stocker des boîtes à outils contenant des scripts et des modèles (sauf les GDB mobiles)." 
-  },
-  { 
-    q: "Quelle est l'unité de base pour représenter les cours d'eau ou les axes de rue ?", 
-    o: ["Points", "Lignes", "Polygones", "Pixels"], 
-    a: 1, 
-    e: "Les lignes sont utilisées pour les objets trop étroits pour être des surfaces mais possédant une longueur." 
-  },
-  { 
-    q: "Que permettent de gérer les 'Sous-types' (subtypes) dans une table ?", 
-    o: ["Le nom de l'ordinateur", "Une catégorisation des entités partageant les mêmes attributs mais avec des comportements différents", "La vitesse de connexion", "Le nombre d'utilisateurs"], 
-    a: 1, 
-    e: "Les sous-types permettent de subdiviser une classe d'entités en groupes logiques (ex: canalisation en fonte vs PVC)." 
-  },
-  { 
-    q: "Quel est l'avantage de la compression des données vectorielles en lecture seule ?", 
-    o: ["Augmenter la taille des fichiers", "Réduire les besoins en stockage", "Changer le format en PDF", "Supprimer les données"], 
-    a: 1, 
-    e: "La compression permet de gagner de l'espace disque tout en gardant les données utilisables en consultation." 
-  },
-  { 
-    q: "Le traducteur ArcGIS agit entre quels éléments ?", 
-    o: ["L'utilisateur et son écran", "L'application cliente et le serveur SGBDR", "Le clavier et la souris", "La France et l'Espagne"], 
-    a: 1, 
-    e: "Il fait le pont entre les actions dans le logiciel (ArcGIS Pro) et les requêtes SQL envoyées à la base de données." 
-  },
-  { 
-    q: "Quel préfixe de table est associé aux métadonnées spatiales dans Oracle ?", 
-    o: ["GDB_", "SDO_", "SDE_", "DBA_"], 
-    a: 1, 
-    e: "Dans Oracle, on retrouve souvent le préfixe SDO_ pour les aspects spatiaux." 
-  },
-  { 
-    q: "Une géodatabase multi-utilisateur permet-elle les 'transactions longues' ?", 
-    o: ["Non, uniquement des transactions courtes", "Oui, c'est l'un de ses points forts grâce au versionnement", "Seulement avec une connexion fibre", "Seulement le week-end"], 
-    a: 1, 
-    e: "Les GDB d'entreprise supportent les transactions longues et les workflows versionnés." 
-  },
-  { 
-    q: "Dans PostgreSQL, que contient la 'cartouche spatiale' ?", 
-    o: ["De l'encre pour l'imprimante", "Les fonctions et types nécessaires à la gestion des données géographiques (PostGIS)", "Un ventilateur pour le serveur", "Une sauvegarde des mots de passe"], 
-    a: 1, 
-    e: "La cartouche spatiale (PostGIS) ajoute le support des objets géographiques au SGBD relationnel." 
-  },
-  { 
-    q: "À quoi sert la table GDB_Items ?", 
-    o: ["À stocker le nom des employés", "À recenser tous les éléments (classes, tables, relations) de la GDB", "À calculer le prix des données", "À gérer l'affichage"], 
-    a: 1, 
-    e: "C'est l'inventaire central de tout ce que contient la géodatabase." 
-  },
-  { 
-    q: "Peut-on envoyer une géodatabase mobile par e-mail ?", 
-    o: ["Non, c'est trop lourd", "Oui, car elle est contenue dans un fichier unique .geodatabase", "Seulement si on est administrateur", "Seulement en format papier"], 
-    a: 1, 
-    e: "Sa portabilité (fichier unique) permet de l'envoyer facilement par e-mail ou via USB." 
-  },
-  { 
-    q: "Pourquoi utiliser des 'Jointures' de données ?", 
-    o: ["Pour séparer les fichiers", "Pour associer des données présentes dans plusieurs tables afin de faciliter la gestion", "Pour supprimer les doublons", "Pour changer de logiciel"], 
-    a: 1, 
-    e: "Les jointures facilitent la manipulation de données éclatées dans plusieurs tables ou géodatabases." 
-  },
-  { 
-    q: "Qui est responsable de la fiabilité et de la sécurité des données dans une GDB entreprise ?", 
-    o: ["Le SGBDR sous-jacent", "L'écran de l'ordinateur", "La souris", "Le fournisseur d'accès internet"], 
-    a: 0, 
-    e: "La GDB d'entreprise tire parti des avantages du SGBDR (Oracle, SQL Server, etc.) en termes de fiabilité et sécurité." 
-  },
-  { 
-    q: "Quel type de données permet de stocker des coordonnées GPS précises avec 36 caractères ?", 
-    o: ["Entier long", "Identifiant GUID / ID Global", "Texte court", "BLOB"], 
-    a: 1, 
-    e: "Les types ID global et GUID stockent des chaînes de 36 caractères identifiant de manière unique une entité." 
-  },
-  { 
-    q: "Quelle est la fonction principale d'une 'Topologie' dans une géodatabase ?", 
-    o: ["Calculer l'altitude", "Gérer les règles de voisinage et d'intégrité entre les entités", "Changer le style des icônes", "Compresser les images"], 
-    a: 1, 
-    e: "La topologie permet de définir et de maintenir l'intégrité spatiale (ex: pas de chevauchement entre parcelles)." 
-  },
-  { 
-    q: "Dans une table de classe d'entités, à quoi sert la colonne 'ObjectID' ?", 
-    o: ["À stocker le nom de l'utilisateur", "À fournir un identifiant unique géré par le système pour chaque ligne", "À définir la couleur de l'entité", "À mesurer la surface"], 
-    a: 1, 
-    e: "L'ObjectID est la clé primaire gérée par ArcGIS pour identifier chaque entité de manière unique dans la table." 
-  },
-  { 
-    q: "Quel format de stockage ESRI utilise environ un tiers de l'espace de stockage des shapefiles ?", 
-    o: ["La géodatabase personnelle", "La géodatabase fichier", "La géodatabase mobile", "Le fichier .KML"], 
-    a: 1, 
-    e: "Le cours souligne l'efficacité de la structure de données des GDB fichiers, optimisée pour réduire le poids des géométries." 
-  },
-  { 
-    q: "Comment s'appelle l'opération consistant à créer une table virtuelle pour simplifier des jointures complexes dans le SGBD ?", 
-    o: ["Une couche de requête", "Une Vue (View)", "Un index spatial", "Une relation"], 
-    a: 1, 
-    e: "Une vue de base de données permet de définir une table logique basée sur une requête SQL." 
-  },
-  { 
-    q: "Quel élément est nécessaire pour que PostGIS soit actif dans une base PostgreSQL ?", 
-    o: ["Installer Excel", "Charger la cartouche spatiale (extension postgis)", "Redémarrer Windows", "Supprimer les index"], 
-    a: 1, 
-    e: "PostGIS est une extension (cartouche spatiale) qui doit être activée pour gérer les types de données spatiaux." 
-  },
-  { 
-    q: "Dans une GDB fichier, que signifie l'extension '.gdb' pour le système d'exploitation Windows ?", 
-    o: ["Un fichier unique", "Un dossier (système de fichiers)", "Un raccourci internet", "Une image"], 
-    a: 1, 
-    e: "Contrairement à la GDB mobile qui est un fichier unique, la GDB fichier est vue par Windows comme un dossier contenant de nombreux fichiers chiffrés." 
-  },
-  { 
-    q: "Pourquoi est-il impossible de savoir quel fichier '.gdbtable' correspond à quelle classe d'entités dans Windows ?", 
-    o: ["Parce qu'ils sont cachés", "Parce qu'ils portent des noms chiffrés/système", "Parce qu'ils n'existent pas", "Parce que c'est un secret industriel"], 
-    a: 1, 
-    e: "Le cours précise que le dossier contient des fichiers au nom chiffré, rendant la gestion manuelle via Windows impossible." 
-  },
-  { 
-    q: "Quel type de nombre est utilisé pour stocker des coordonnées géographiques avec une très grande précision ?", 
-    o: ["Entier court", "Réel double (double précision)", "Entier long", "Binaire"], 
-    a: 1, 
-    e: "Les réels doubles (nombres à virgule flottante à double précision) sont privilégiés pour la précision des géométries." 
-  },
-  { 
-    q: "Un 'Jeu de données raster' peut-il couvrir une étendue géographique complète ?", 
-    o: ["Non, c'est pour des points uniquement", "Oui, c'est une couche d'image couvrant une étendue donnée", "Seulement s'il est en noir et blanc", "Seulement s'il est stocké sur USB"], 
-    a: 1, 
-    e: "Un jeu de données raster représente une couche d'image ou de pixels couvrant une surface." 
-  },
-  { 
-    q: "Quelle est la limite de taille maximale d'un fichier de géodatabase mobile ?", 
-    o: ["1 To", "2 To", "4 To", "10 To"], 
-    a: 1, 
-    e: "Basée sur SQLite, la géodatabase mobile est limitée à 2 To par fichier." 
-  },
-  { 
-    q: "Que permet de stocker le format XML dans une géodatabase ?", 
-    o: ["Des vidéos", "Des métadonnées ou des contenus structurés via API", "Le mot de passe administrateur", "Des sons"], 
-    a: 1, 
-    e: "Les colonnes XML peuvent renfermer n'importe quel contenu au format XML, comme des métadonnées." 
-  },
-  { 
-    q: "Peut-on partager une géodatabase mobile sur toutes les plateformes (Android, Windows, iOS) ?", 
-    o: ["Non, uniquement Windows", "Oui, elle est prise en charge sur toutes les plateformes", "Seulement sur Linux", "Seulement via ArcGIS Online"], 
-    a: 1, 
-    e: "Le format SQLite des GDB mobiles les rend portables et compatibles avec tous les systèmes d'exploitation." 
-  },
-  { 
-    q: "Dans une GDB fichier, que se passe-t-il si deux utilisateurs tentent de modifier la même classe d'entités ?", 
-    o: ["Les modifications fusionnent", "Le premier bloque le second (verrouillage)", "La base de données s'efface", "ArcGIS s'éteint"], 
-    a: 1, 
-    e: "Les GDB fichiers ne permettent pas l'édition simultanée ; le système utilise des fichiers de verrouillage (.lock)." 
-  },
-  { 
-    q: "Quel est l'avantage du type 'Entier Court' (Short Integer) ?", 
-    o: ["Stocker des noms", "Stocker des petits nombres entiers en occupant moins d'espace", "Stocker des décimales", "Accélérer internet"], 
-    a: 1, 
-    e: "L'entier court est optimisé pour les valeurs numériques sans décimales de faible amplitude (ex: codes d'état)." 
-  },
-  { 
-    q: "Comment appelle-t-on le texte stocké dans une GDB qui conserve son emplacement et sa police ?", 
-    o: ["Étiquette", "Annotation", "Légende", "Bulle"], 
-    a: 1, 
-    e: "Contrairement aux étiquettes dynamiques, les annotations sont des entités stockées avec leurs propriétés graphiques." 
-  },
-  { 
-    q: "Peut-on stocker une 'Boîte à outils de géotraitement' dans une GDB mobile ?", 
-    o: ["Oui", "Non, elles ne sont pas prises en charge", "Seulement si elle est vide", "Seulement sur tablette"], 
-    a: 1, 
-    e: "Le cours note que les boîtes à outils ne sont pas prises en charge dans une géodatabase mobile." 
-  },
-  { 
-    q: "Quelle table système définit les relations entre les éléments (ex: quelle classe est dans quel dataset) ?", 
-    o: ["GDB_Items", "GDB_ItemRelationships", "GDB_ItemTypes", "SDE_Versions"], 
-    a: 1, 
-    e: "GDB_ItemRelationships contient les associations de structures entre les différents éléments." 
-  },
-  { 
-    q: "Le SGBD relationnel permet-il la sauvegarde et l'intégrité des données SIG ?", 
-    o: ["Non, c'est le rôle du disque dur", "Oui, c'est l'un des avantages des géodatabases d'entreprise", "Seulement si l'ordinateur est neuf", "Seulement pour les fichiers PDF"], 
-    a: 1, 
-    e: "Les GDB d'entreprise profitent des mécanismes de sauvegarde, de fiabilité et d'intégrité du SGBDR (PostgreSQL, Oracle, etc.)." 
-  },
-  { 
-    q: "Comment se fait la connexion à une géodatabase entreprise dans ArcGIS Pro ?", 
-    o: ["Via un câble USB", "Via un fichier de connexion (.sde) contenant les paramètres du serveur", "Via un mot de passe wifi", "Automatiquement sans rien faire"], 
-    a: 1, 
-    e: "On utilise un fichier de connexion qui stocke l'adresse du serveur, l'instance, et les identifiants." 
-  },
-  { 
-    q: "Peut-on utiliser SQL pour interroger une classe d'entités stockée dans un SGBD ?", 
-    o: ["Non, uniquement avec la souris", "Oui, notamment via des types spatiaux SQL natifs", "Seulement avec une licence Advanced", "Seulement le premier jour"], 
-    a: 1, 
-    e: "Le contenu des tables métiers, y compris la forme, est accessible via le langage SQL standard." 
-  },
-  { 
-    q: "À quoi servent les 'Pièces jointes' (Attachments) dans une géodatabase ?", 
-    o: ["À envoyer des e-mails", "À associer des fichiers externes (PDF, images) à des entités spécifiques", "À réparer les fichiers corrompus", "À changer le fond de carte"], 
-    a: 1, 
-    e: "Les pièces jointes permettent de lier physiquement des documents à des objets géographiques." 
-  },
-  { 
-    q: "Quel outil ArcGIS garantit qu'aucune perte de données n'a lieu lors d'un déplacement de GDB ?", 
-    o: ["Windows Explorer", "ArcGIS Catalog", "WinZip", "Google Drive"], 
-    a: 1, 
-    e: "Catalog gère les dépendances internes et les index, contrairement à l'explorateur de fichiers classique." 
-  },
-  { 
-    q: "Une géodatabase fichier peut-elle fonctionner sur Linux et Windows ?", 
-    o: ["Non, uniquement Windows", "Oui, c'est une solution portable fonctionnant sur tous les systèmes", "Seulement si on l'installe sur un serveur", "Seulement sur Mac"], 
-    a: 1, 
-    e: "Le cours précise que la GDB fichier fonctionne sur tous les systèmes d'exploitation." 
-  },
-  { 
-    q: "Que signifie l'acronyme SGBDR ?", 
-    o: ["Système de Gestion de Base de Données Relationnelle", "Serveur de Géographie Binaire de Données Rapides", "Stockage Global de Balises de Données Réelles", "Structure Géo-Binaire des Données de Réseau"], 
-    a: 0, 
-    e: "C'est le terme standard pour désigner les moteurs comme PostgreSQL, SQL Server ou Oracle." 
-  },
-  { q: "Dans PostgreSQL, que permet d'ajouter la cartouche spatiale PostGIS ?", o: ["Une interface graphique colorée", "Le support des types de données et fonctions spatiales (géométries)", "La possibilité d'imprimer en PDF", "Un antivirus intégré"], a: 1, e: "PostGIS transforme un SGBDR classique en SGBD spatial." },
-  { q: "Quelle manipulation sur le dossier 'lib' de PostgreSQL est requise pour ArcGIS ?", o: ["Le vider entièrement", "Y copier les librairies ST_GEOMETRY compatibles", "Le renommer en 'lib_old'", "Le compresser en .zip"], a: 1, e: "Le déploiement des DLL ou fichiers .so de ST_GEOMETRY dans le dossier lib est crucial pour l'interopérabilité." },
-  { q: "Lors de la création d'une GDB entreprise, à quoi sert le compte 'sde' ?", o: ["C'est le compte de l'utilisateur final", "C'est généralement le compte propriétaire des tables système de la géodatabase", "C'est un compte invité", "C'est le compte du support technique ESRI"], a: 1, e: "L'utilisateur 'sde' est par convention l'administrateur de la géodatabase." },
-  { q: "Peut-on stocker des tables non-spatiales dans une géodatabase d'entreprise ?", o: ["Non, uniquement du spatial", "Oui, et elles bénéficient de la gestion de la GDB si elles sont enregistrées", "Seulement si elles font moins de 1 Mo", "Seulement le premier jour"], a: 1, e: "Une GDB peut contenir des tables alphanumériques classiques." },
-  { q: "Quelle est la règle de compatibilité des versions de client et de géodatabase ?", o: ["Il n'y a aucune règle", "Les règles de compatibilité s'appliquent dès que la base contient des tables système de GDB", "Le client doit toujours être plus ancien que la base", "La base doit être mise à jour tous les matins"], a: 1, e: "ArcGIS vérifie la version des tables système pour autoriser la connexion." },
-  { q: "Dans PostgreSQL, quel outil permet de créer la base de données physique avant d'y injecter la GDB ?", o: ["ArcGIS Pro", "pgAdmin ou SQL Shell (psql)", "Windows Explorer", "Excel"], a: 1, e: "La base de données hôte est créée avec les outils natifs de PostgreSQL." },
-  { q: "Comment ArcGIS Pro identifie-t-il une base de données comme étant une 'géodatabase' ?", o: ["Par le nom de la base", "Par la présence des tables GDB_Items et consort", "Par la couleur de l'icône", "Par la présence d'un fichier .jpg"], a: 1, e: "C'est le schéma système (le référentiel) qui définit la GDB." },
-  { q: "Peut-on connecter ArcGIS Pro à une base PostgreSQL sans que ce soit une géodatabase ?", o: ["Non", "Oui, mais uniquement en lecture seule ou via SQL pour les données simples", "Seulement si PostGIS est désinstallé", "Seulement via un câble USB"], a: 1, e: "On peut se connecter à des bases de données simples, mais sans les fonctionnalités avancées de la GDB." },
-  { q: "Que se passe-t-il si la version de PostgreSQL n'est pas supportée par votre version d'ArcGIS ?", o: ["La base explose", "La connexion échouera ou sera instable", "Le logiciel passera en anglais", "Rien du tout"], a: 1, e: "La matrice de compatibilité ESRI/SGBD doit être scrupuleusement respectée." },
-  { q: "À quoi sert l'outil de géotraitement 'Créer une géodatabase d'entreprise' ?", o: ["À dessiner des cartes", "À injecter le schéma système (référentiel) dans une base SQL existante", "À installer PostgreSQL sur l'ordinateur", "À envoyer un e-mail au DBA"], a: 1, e: "Cet outil crée les tables système nécessaires au fonctionnement de la GDB." },
-  { q: "Quel port est utilisé par défaut pour se connecter à PostgreSQL ?", o: ["80", "5432", "1521", "3306"], a: 1, e: "5432 est le port standard de PostgreSQL (mentionné indirectement via les procédures de connexion)." },
-  { q: "Dans une GDB multi-utilisateur, que permet le 'traducteur' ?", o: ["De traduire le SIG en 50 langues", "De convertir les actions graphiques en requêtes SQL performantes", "De traduire les adresses en coordonnées", "De changer le format des images"], a: 1, e: "Le traducteur fait le pont entre le clic utilisateur et la requête SQL." },
-  { q: "Quelle est l'utilité des 'Vues de bases de données' (Database Views) ?", o: ["C'est pour regarder la base en 3D", "Présenter des données filtrées ou jointes comme une table unique", "Supprimer les données inutiles", "Changer le mot de passe"], a: 1, e: "Les vues simplifient l'accès aux données complexes pour l'utilisateur final." },
-  { q: "Qu'est-ce qu'une 'Couche de requête' ?", o: ["Une couche de peinture", "Une couche dont la source est une requête SQL définie dans ArcGIS Pro", "Une couche qui demande l'autorisation avant de s'afficher", "Un format de fichier .txt"], a: 1, e: "Elle permet d'afficher dynamiquement le résultat d'un SQL complexe." },
-  { q: "Où sont stockées les métadonnées dans une géodatabase entreprise ?", o: ["Dans un dossier sur le bureau", "Dans les tables système (souvent GDB_Items ou tables XML)", "Sur le site internet d'ESRI", "Elles ne sont pas stockées"], a: 1, e: "Le référentiel stocke les structures et les métadonnées associées." },
-  { q: "Peut-on faire une jointure entre deux tables de deux bases PostgreSQL différentes ?", o: ["Non", "Oui, via des mécanismes comme les vues ou les couches de requêtes spécifiques", "Seulement avec une clé USB", "Seulement en format papier"], a: 1, e: "Les outils ArcGIS permettent d'associer des données de sources disparates." },
-  { q: "Quel est l'intérêt du type de stockage spatial 'natif' du SGBD ?", o: ["Il est plus joli", "Il permet d'utiliser les fonctions spatiales SQL standard (ex: ST_Intersects)", "Il prend plus de place", "Il est moins sécurisé"], a: 1, e: "Le stockage natif permet aux outils tiers et au SQL d'interagir avec la géométrie." },
-  { q: "Quelle est la limite de stockage d'une GDB d'entreprise ?", o: ["10 Go", "2 To", "Illimitée (limitée uniquement par le SGBD et le matériel)", "256 To"], a: 2, e: "Contrairement aux GDB fichiers ou mobiles, les GDB d'entreprise n'ont pas de limite logicielle fixe." },
-  { q: "Combien d'utilisateurs peuvent éditer simultanément une GDB d'entreprise ?", o: ["Un seul", "Dix au maximum", "Un grand nombre (grâce au versionnement)", "Zéro"], a: 2, e: "C'est l'un des piliers des GDB multi-utilisateurs." },
-  { q: "Que signifie 'Transactions longues' ?", o: ["Des ventes qui durent longtemps", "Des sessions de mise à jour s'étendant sur plusieurs jours sans verrouiller les autres utilisateurs", "Une connexion internet lente", "Le temps de chargement d'une carte"], a: 1, e: "Le versionnement permet de travailler longtemps sur des données sans bloquer la base." },
-  { q: "Quelle extension est nécessaire pour les 'Réseaux de transport' ?", o: ["3D Analyst", "Network Analyst", "Spatial Analyst", "Aeronautical Analyst"], a: 1, e: "Network Analyst est l'extension dédiée aux calculs d'itinéraires et réseaux." },
-  { q: "Peut-on stocker des scripts Python dans une GDB ?", o: ["Non", "Oui, au sein de boîtes à outils de géotraitement stockées dans la GDB", "Seulement si le script fait moins de 10 lignes", "Seulement sur Mac"], a: 1, e: "Les GDB (sauf mobiles) peuvent contenir des Toolboxes (boîtes à outils)." },
-  { q: "Quel type de champ est idéal pour stocker l'historique d'une modification ?", o: ["Texte", "Date", "Entier", "BLOB"], a: 1, e: "Le champ Date est essentiel pour le suivi temporel et l'archivage." },
-  { q: "Que contient le fichier 'keycodes' ?", o: ["Les mots de passe des utilisateurs", "La licence d'activation pour ArcGIS Server/GDB entreprise", "Le code source du logiciel", "Une liste d'adresses IP"], a: 1, e: "C'est le fichier qui prouve au SGBD que vous avez le droit de créer une GDB entreprise." },
-  { q: "Dans PostgreSQL, que fait la commande 'CREATE EXTENSION postgis;' ?", o: ["Elle crée une nouvelle carte", "Elle active les fonctionnalités spatiales dans la base courante", "Elle ferme la base", "Elle installe ArcGIS Pro"], a: 1, e: "C'est la commande SQL pour activer PostGIS." },
-  { q: "Que se passe-t-il si vous déplacez manuellement un fichier du dossier .gdb ?", o: ["La GDB devient plus rapide", "Vous risquez de corrompre définitivement la géodatabase", "Windows vous félicite", "Rien"], a: 1, e: "L'intégrité de la GDB fichier repose sur l'ensemble de ses fichiers internes." },
-  { q: "Qu'est-ce qu'un 'Jeu de données thématique' ?", o: ["Un livre de géographie", "Un Feature Dataset regroupant des classes ayant un lien (ex: Réseau Eau)", "Une image satellite", "Un type de couleur"], a: 1, e: "Il organise les données par thème métier." },
-  { q: "Le format SQLite est utilisé par quel type de GDB ?", o: ["Fichier", "Entreprise", "Mobile", "Personnelle"], a: 2, e: "La GDB mobile est un fichier SQLite unique." },
-  { q: "Quelle est la taille maximale d'un nom de champ dans une GDB (généralement) ?", o: ["10 caractères", "31 à 64 selon le SGBD", "Illimitée", "5 caractères"], a: 1, e: "Les limites dépendent du SGBDR sous-jacent (ex: 63 pour PostgreSQL)." },
-  { q: "Pourquoi compresse-t-on une géodatabase d'entreprise ?", o: ["Pour gagner de la place", "Pour fusionner les tables de modification (A et D) avec la table de base et améliorer les performances", "Pour la mettre dans un mail", "Pour changer le mot de passe"], a: 1, e: "La compression en versionnement nettoie les états inutiles et réduit la taille des tables." },
-  { q: "À quoi sert la 'Maintenance des statistiques' ?", o: ["À savoir combien de personnes utilisent le SIG", "À aider l'optimiseur du SGBD à choisir le chemin le plus rapide pour les requêtes", "À calculer la moyenne des altitudes", "À faire des graphiques"], a: 1, e: "Les statistiques à jour permettent au moteur SQL d'être performant." },
-  { q: "Quel privilège permet uniquement de voir les données sans les modifier ?", o: ["SELECT", "UPDATE", "DELETE", "INSERT"], a: 0, e: "SELECT est le privilège de lecture seule." },
-  { q: "Quel privilège permet d'ajouter de nouvelles entités ?", o: ["SELECT", "INSERT", "DROP", "ALTER"], a: 1, e: "INSERT permet la création de nouveaux enregistrements." },
-  { q: "Que signifie 'Droit de propriété' (Ownership) sur une table ?", o: ["L'utilisateur qui a créé la table peut la modifier ou la supprimer", "L'utilisateur peut prêter sa table", "La table appartient à ESRI", "La table est publique"], a: 0, e: "Le propriétaire (owner) possède tous les droits sur l'objet créé." },
-  { q: "Comment retirer un droit à un utilisateur en SQL ?", o: ["GIVE", "REVOKE", "TAKE", "DELETE"], a: 1, e: "REVOKE est la commande inverse de GRANT." },
-  { q: "Qu'est-ce qu'un 'Rôle' dans un SGBD ?", o: ["Le titre de l'employé", "Un groupe de privilèges que l'on peut attribuer à plusieurs utilisateurs", "Une fonction Python", "Une icône sur la carte"], a: 1, e: "Les rôles simplifient la gestion des droits (ex: Rôle 'Lecteur')." },
-  { q: "Dans PostgreSQL, qu'est-ce qu'un 'Schéma' ?", o: ["Un dessin", "Un espace logique (conteneur) à l'intérieur d'une base de données", "Le plan du bâtiment", "Un type de donnée"], a: 1, e: "Les objets sont souvent organisés par schéma (ex: schéma 'public' ou 'sde')." },
-  { q: "Quelle est l'utilité de l'index spatial ?", o: ["Accélérer les recherches basées sur la localisation", "Trier les noms par ordre alphabétique", "Calculer la somme des populations", "Décorer la base de données"], a: 0, e: "L'index spatial est vital pour les performances de rendu et de sélection géographique." },
-  { q: "Quelle commande permet de mettre à jour les statistiques dans PostgreSQL ?", o: ["CLEAN", "ANALYZE", "REFRESH", "UPDATE"], a: 1, e: "ANALYZE met à jour les statistiques d'utilisation des tables." },
-  { q: "Que fait l'opération de 'Reconstruction d'index' ?", o: ["Elle supprime les données", "Elle réorganise physiquement l'index pour plus de rapidité", "Elle change le nom de la table", "Elle crée une nouvelle carte"], a: 1, e: "Utile après de gros chargements de données." },
-  { q: "Qu'est-ce que le 'Versionnement' ?", o: ["Le numéro de mise à jour du logiciel", "Un mécanisme permettant des modifications isolées sans modifier la table de base immédiatement", "Une sauvegarde sur CD-ROM", "Un type de fichier image"], a: 1, e: "C'est la base du travail collaboratif multi-utilisateur." },
-  { q: "Quelle table contient les géométries en stockage ST_GEOMETRY ?", o: ["La table métier dans la colonne shape", "Un fichier .shp sur le disque", "Une table cachée nommée 'SECRET'", "Le registre Windows"], a: 0, e: "La géométrie est une colonne comme une autre dans la table métier." },
-  { q: "Le format 'Mosaïque' est-il géré en GDB d'entreprise ?", o: ["Non", "Oui, c'est le mode recommandé pour les gros volumes raster", "Seulement sur Oracle", "Seulement avec un plugin"], a: 1, e: "Les mosaïques en SGBD sont très performantes pour l'imagerie." },
-  { q: "Peut-on limiter l'accès à certaines colonnes d'une table ?", o: ["Non, c'est tout ou rien", "Oui, via les privilèges du SGBD ou des vues", "Seulement pour les noms", "Seulement le vendredi"], a: 1, e: "La sécurité peut être fine (au niveau de la ligne ou de la colonne via des vues)." },
-  { q: "Quel est l'impact d'un trop grand nombre de versions non compressées ?", o: ["La base devient plus rapide", "Les performances se dégradent fortement (ralentissement)", "La base change de couleur", "Rien"], a: 1, e: "L'accumulation d'états dans les tables A et D ralentit les requêtes." },
-  { q: "Que signifie 'SDE' historiquement ?", o: ["Spatial Data Engine", "Super Data Entry", "Simple Data ESRI", "Software Data Engine"], a: 0, e: "Le moteur de données spatiales d'ESRI." },
-  { q: "Comment assurer la haute disponibilité d'une GDB entreprise ?", o: ["En éteignant le serveur la nuit", "En utilisant les mécanismes de réplication ou de clustering du SGBD", "En faisant des copies sur clé USB", "En imprimant les données"], a: 1, e: "On s'appuie sur la robustesse du SGBD choisi." },
-  { q: "Quelle est la fréquence recommandée pour la maintenance (backup/stats) ?", o: ["Une fois par an", "Quotidienne ou hebdomadaire selon l'activité", "Jamais", "Toutes les heures"], a: 1, e: "Une GDB vivante nécessite un entretien régulier." },
-  { q: "Peut-on transformer une GDB fichier en GDB entreprise ?", o: ["Non", "Oui, en chargeant les données de l'une vers l'autre via ArcGIS Pro", "Seulement en changeant l'extension .gdb en .sde", "Seulement avec un convertisseur en ligne"], a: 1, e: "Le chargement de données est l'opération standard de migration." },
-  { q: "Quel est le principal risque d'une base de données sans administrateur (DBA) ?", o: ["La base devient trop belle", "Perte de données, corruption ou performances catastrophiques", "Le logiciel devient gratuit", "Aucun risque"], a: 1, e: "La gestion professionnelle est indispensable pour une GDB d'entreprise." },
-  { q: "Quel est l'objectif principal de la maintenance de la géodatabase ?", o: ["Changer les fonds de carte", "Optimiser les performances et garantir l'intégrité des données", "Réduire le salaire du DBA", "Installer des jeux vidéo"], a: 1, e: "La maintenance prévient la dégradation des temps de réponse." },
-  { q: "Qu'est-ce que l'archivage dans une GDB entreprise ?", o: ["Placer les données dans un dossier .zip", "Conserver l'historique de toutes les modifications dans des tables spécifiques", "Supprimer les vieilles données", "Envoyer les données sur un serveur distant"], a: 1, e: "L'archivage permet de 'remonter le temps' sur l'état d'une entité." },
-  { q: "Quelle opération doit être faite avant de compresser une géodatabase versionnée ?", o: ["Supprimer toutes les données", "Réconcilier et réinjecter (Post) les versions vers la version Default", "Éteindre le serveur SGBD", "Changer de mot de passe"], a: 1, e: "La compression est efficace si les versions ont été fusionnées préalablement." },
-  { q: "Dans ArcGIS Pro, que permet l'outil 'Statistiques de base de données' ?", o: ["Compter le nombre de clics", "Mettre à jour les statistiques du SGBD pour l'optimiseur de requêtes", "Savoir qui est l'utilisateur le plus actif", "Calculer le prix de la base"], a: 1, e: "C'est un outil de maintenance essentiel accessible au Chef de Projet." },
-  { q: "Comment s'appelle l'identifiant permanent d'une entité utilisé pour l'archivage ?", o: ["ObjectID", "GDB_ARCHIVE_OID", "GlobalID", "Name"], a: 2, e: "Le GlobalID est souvent utilisé pour lier les archives à l'entité vivante car il ne change jamais." },
-  { q: "Qu'est-ce qu'une 'Jointure spatiale' ?", o: ["Associer deux tables par un code commun", "Associer deux couches selon leur position géographique (intersection, proximité)", "Coller deux cartes ensemble", "Un type de soudure"], a: 1, e: "La jointure spatiale est un outil puissant d'analyse SIG." },
-  { q: "Pourquoi utiliser des 'Domaines' dans une GDB ?", o: ["Pour acheter des noms de sites internet", "Pour contraindre les valeurs saisies à une liste prédéfinie (intégrité)", "Pour délimiter le terrain", "Pour choisir la couleur du texte"], a: 1, e: "Les domaines (listes déroulantes) limitent les erreurs de saisie." },
-  { q: "Qu'est-ce qu'un 'Domaine de plage' ?", o: ["Un terrain au bord de mer", "Une contrainte imposant une valeur entre un minimum et un maximum (ex: 0 à 100)", "Une liste de noms de villes", "Un type de raster"], a: 1, e: "Utile pour des données numériques comme des diamètres ou des pressions." },
-  { q: "Dans PostgreSQL, comment s'appelle l'extension pour gérer les données raster ?", o: ["PostGIS_Raster", "ImageMagick", "ArcRaster", "PixelDB"], a: 0, e: "PostGIS inclut un module pour le stockage des pixels." },
-  { q: "Quel est l'avantage des 'Jeux de classes d'entités' pour un Chef de Projet ?", o: ["C'est plus joli", "Permet d'appliquer un système de coordonnées unique à tout un groupe de couches", "Réduit la taille des fichiers", "Empêche la suppression"], a: 1, e: "Cela garantit la cohérence spatiale d'un projet." },
-  { q: "Comment partager une GDB entreprise avec des utilisateurs externes sans accès direct au SGBD ?", o: ["Leur donner le mot de passe 'sde'", "Publier les données sous forme de Services Web (ArcGIS Enterprise)", "Envoyer le serveur par la poste", "Faire une capture d'écran"], a: 1, e: "Les services web (REST) sont la méthode standard de diffusion sécurisée." },
-  { q: "Qu'est-ce que le 'Géoréférencement' ?", o: ["L'achat d'un GPS", "L'action de donner une position géographique à une image ou un plan CAO", "Le nom d'un logiciel", "La liste des pays du monde"], a: 1, e: "Indispensable avant d'intégrer des plans non calés dans la GDB." },
-  { q: "Peut-on utiliser une GDB fichier pour du webmapping intensif ?", o: ["Oui, sans problème", "Non, elle n'est pas conçue pour de nombreux accès concurrents via le web (préférer l'entreprise)", "Seulement si le serveur est puissant", "Seulement avec Google Chrome"], a: 1, e: "La GDB d'entreprise est requise pour les performances web à grande échelle." },
-  { q: "Que contient la table 'GDB_ServiceItems' ?", o: ["La liste des repas servis", "Des informations sur les services de géodatabase", "Les codes de réduction ESRI", "Rien"], a: 1, e: "C'est une table système liée à la gestion des services." },
-  { q: "Comment s'appelle l'opération de vérification des erreurs topologiques ?", o: ["Le nettoyage", "La validation de la topologie", "Le scan", "Le debug"], a: 1, e: "Valider la topologie permet de lister les erreurs (chevauchements, vides)." },
-  { q: "Qu'est-ce qu'une 'Relation de classe' ?", o: ["Un cours à l'école", "Une association stockée entre deux tables (1-N ou M-N) avec maintien de l'intégrité", "Un lien hypertexte", "Un type de dossier"], a: 1, e: "Les Relationship Classes sont plus puissantes que les jointures simples." },
-  { q: "Quel outil permet de charger des millions d'entités rapidement ?", o: ["Le copier-coller", "L'outil 'Charger des données' (Append) ou le 'Bulk Load'", "La saisie manuelle", "L'envoi par e-mail"], a: 1, e: "Le chargement en masse est optimisé pour la performance." },
-  { q: "Pourquoi un Chef de Projet doit-il surveiller les fichiers '.lock' ?", o: ["Parce qu'ils sont dangereux", "Pour identifier qui utilise ou bloque un jeu de données dans une GDB fichier", "Pour libérer de la mémoire RAM", "Pour crypter les données"], a: 1, e: "Les verrous indiquent l'utilisation en cours." },
-  { q: "Quelle est la différence entre 'Jointure' et 'Relation' ?", o: ["Aucune", "La jointure est physique/virtuelle pour l'affichage, la relation définit un lien logique durable", "La jointure est pour les points, la relation pour les lignes", "La jointure est payante"], a: 1, e: "Les relations sont stockées dans la GDB et gèrent mieux les liens complexes." },
-  { q: "Peut-on faire du SQL sur une GDB fichier ?", o: ["Non", "Oui, de manière limitée via l'API File Geodatabase ou ArcGIS Pro", "Seulement avec Excel", "Seulement sur Linux"], a: 1, e: "L'accès SQL est possible mais restreint par rapport à un vrai SGBDR." },
-  { q: "Quel est le rôle du 'Service de géodatabase' ?", o: ["Réparer les ordinateurs", "Gérer les requêtes entre le client et le SGBD (historiquement ArcSDE)", "Vendre des licences", "Afficher l'heure"], a: 1, e: "Aujourd'hui, ce rôle est intégré au client et au serveur SGBD." },
-  { q: "Que signifie 'Schéma Read-Only' ?", o: ["On ne peut que lire les données", "On ne peut lire que le dimanche", "Les données sont invisibles", "Les données sont cryptées"], a: 0, e: "C'est un mode de sécurité pour protéger les données de référence." },
-  { q: "Comment gérer les photos de terrain dans une GDB ?", o: ["Les coller sur l'écran", "Utiliser le type BLOB ou les 'Pièces jointes' (Attachments)", "Les transformer en texte", "Les stocker sur Instagram"], a: 1, e: "Les pièces jointes sont la méthode standard pour lier des médias aux entités." },
-  { q: "Qu'est-ce qu'un 'MNT' dans une GDB ?", o: ["Mon Nom de Table", "Modèle Numérique de Terrain", "Mise à Niveau Technique", "Multi-Nœuds de Transport"], a: 1, e: "Le MNT est souvent stocké sous forme de raster ou de TIN." },
-  { q: "Quel outil ArcGIS Pro permet de voir l'historique d'une GDB ?", o: ["Le journal des modifications", "La fenêtre d'archivage", "L'historique internet", "Le panneau de configuration"], a: 1, e: "Si l'archivage est activé, on peut naviguer dans le temps." },
-  { q: "Pourquoi éviter de mettre des espaces dans les noms de tables ?", o: ["C'est interdit par la loi", "Cela complique les requêtes SQL et peut causer des erreurs", "Cela prend trop de place", "C'est une question de mode"], a: 1, e: "Les standards de nommage SGBD proscrivent les espaces et caractères spéciaux." },
-  { q: "Que signifie 'Réparer la géométrie' ?", o: ["Changer la couleur", "Corriger les erreurs de tracé (ex: auto-intersections) qui bloquent les calculs", "Supprimer la couche", "Agrandir la carte"], a: 1, e: "Une géométrie invalide peut faire planter une requête spatiale." },
-  { q: "Quel est l'intérêt d'une GDB 'Template' ?", o: ["Pour faire de la décoration", "Pour réutiliser une structure de données vide mais normée sur plusieurs projets", "Pour gagner de l'argent", "C'est un modèle de lettre"], a: 1, e: "Indispensable pour la standardisation des données dans une organisation." },
-  { q: "Comment s'appelle l'extension spatiale native de SQL Server ?", o: ["Geometry et Geography", "SpatialSQL", "SQLGIS", "SDE_Type"], a: 0, e: "SQL Server possède ses propres types spatiaux reconnus par ArcGIS." },
-  { q: "Peut-on exporter une GDB d'entreprise vers un document XML ?", o: ["Non", "Oui, pour sauvegarder ou transférer uniquement la structure (schéma)", "Seulement si on a internet", "Seulement via Python"], a: 1, e: "Le Workspace XML est idéal pour cloner des structures." },
-  { q: "Qu'est-ce qu'une 'Clé Primaire' ?", o: ["La clé pour ouvrir le bureau", "Un champ qui identifie de manière unique chaque ligne (ex: ObjectID)", "Le mot de passe de la base", "Le nom de la base"], a: 1, e: "Essentiel pour les jointures et l'intégrité." },
-  { q: "Qu'est-ce qu'une 'Clé Étrangère' ?", o: ["Une clé qui vient d'un autre pays", "Un champ dans une table qui fait référence à la clé primaire d'une autre table", "Un mot de passe invité", "Une clé USB"], a: 1, e: "C'est la base des relations entre tables." },
-  { q: "Peut-on versionner une GDB fichier ?", o: ["Oui", "Non, le versionnement est réservé aux GDB d'entreprise", "Seulement avec une extension payante", "Seulement sur Windows 11"], a: 1, e: "La GDB fichier ne supporte pas le versionnement multi-utilisateur." },
-  { q: "Quel est le rôle du Chef de Projet Géomatique dans la gestion de la GDB ?", o: ["Nettoyer les serveurs", "Définir l'architecture, les normes de saisie et veiller à la maintenance", "Installer Windows sur les postes", "Vendre des licences"], a: 1, e: "C'est un rôle de coordinateur stratégique et technique." },
-  { q: "Que signifie l'acronyme SIG ?", o: ["Système d'Information Géographique", "Service d'Imagerie Globale", "Suivi des Informations de Géologie", "Structure d'Intégration Géométrique"], a: 0, e: "Le concept global englobant les logiciels, données et méthodes." },
-  { q: "Comment s'appelle le blog francophone de référence sur ESRI cité dans le cours ?", o: ["SIG Passion", "ArcOrama (par Gaëtan Lavenu)", "Geoblog", "Le Monde du SIG"], a: 1, e: "ArcOrama est la ressource incontournable pour les actualités ESRI." },
-  { q: "Quelle commande SQL permet d'ajouter un champ à une table existante ?", o: ["ADD FIELD", "ALTER TABLE ADD COLUMN", "MODIFY TABLE", "NEW COLUMN"], a: 1, e: "C'est la syntaxe SQL standard utilisée par le traducteur." },
-  { q: "Que fait l'outil 'Compacter' (Compact) sur une GDB fichier ?", o: ["Elle la compresse en .zip", "Elle réorganise les fichiers pour récupérer l'espace vide après suppressions", "Elle réduit la taille des images", "Elle la ferme"], a: 1, e: "À faire régulièrement pour éviter que la GDB fichier ne 'gonfle' inutilement." },
-  { q: "Peut-on mettre des index sur des champs de texte ?", o: ["Non, uniquement sur les chiffres", "Oui, pour accélérer les recherches de noms ou de codes", "Seulement si le texte est court", "Seulement le premier jour"], a: 1, e: "Les index ne sont pas que spatiaux." },
-  { q: "Quelle est la règle d'or en cas de corruption de GDB ?", o: ["Pleurer", "Toujours avoir une sauvegarde (Backup) à jour", "Réinstaller ArcGIS Pro", "Changer d'ordinateur"], a: 1, e: "La sauvegarde est la seule garantie réelle contre la perte de données." },
-  { q: "Qu'est-ce que 'ST_GEOMETRY' ?", o: ["Une marque de voiture", "Un type de stockage spatial propriétaire ESRI disponible en SQL", "Un satellite", "Une fonction mathématique"], a: 1, e: "Il permet de stocker et d'interroger les géométries en SQL." },
-  { q: "Dans ArcGIS Pro, que signifie le point rouge sur une couche ?", o: ["La couche est très importante", "La source de données est cassée (problème de chemin ou connexion)", "La couche est en train de brûler", "C'est une donnée confidentielle"], a: 1, e: "Il faut souvent réparer le lien vers la GDB." },
-  { q: "Peut-on utiliser ArcGIS Pro sans géodatabase ?", o: ["Non", "Oui, mais vous perdez la majorité des fonctions de gestion et d'analyse avancées", "Seulement pour les photos", "Seulement avec une licence gratuite"], a: 1, e: "La GDB est le cœur de l'écosystème ArcGIS." },
-  { q: "Quel est le coût d'une base de données PostgreSQL ?", o: ["Très cher", "Gratuit (Open Source)", "100€ par mois", "Dépendant du nombre de cartes"], a: 1, e: "PostgreSQL est gratuit, ce qui réduit les coûts d'infrastructure." },
-  { q: "Pourquoi le Chef de Projet doit-il documenter le schéma de la GDB ?", o: ["Pour passer le temps", "Pour que l'équipe comprenne la structure et les relations entre les données", "Pour faire plaisir à ESRI", "C'est inutile"], a: 1, e: "La documentation est la clé de la pérennité d'un projet SIG." },
-  { q: "Quelle est la fonction d'un 'Alias' de champ ?", o: ["Cacher le vrai nom", "Donner un nom lisible et compréhensible à un champ technique (ex: 'NOM_COMM' -> 'Nom de la commune')", "Changer le type de donnée", "Crypter le champ"], a: 1, e: "L'alias améliore l'expérience utilisateur." },
-  { q: "Que signifie 'ETL' en géomatique ?", o: ["Extract, Transform, Load", "Espace de Travail Local", "Ensemble de Tables de Lignes", "Édition de Traitement de Liaison"], a: 0, e: "Processus de migration de données (ex: de Excel vers GDB)." },
-  { q: "Quel est l'outil ETL intégré par excellence dans ArcGIS ?", o: ["Excel", "Data Interoperability (basé sur FME)", "Paint", "Word"], a: 1, e: "Il permet de lire et transformer des centaines de formats." },
-  { q: "Quel est le dernier conseil de Jérôme Fuseau pour réussir ?", o: ["Se reposer", "Consulter les ressources en ligne ESRI et pratiquer les exercices", "Acheter un nouveau PC", "Apprendre le japonais"], a: 1, e: "La pratique et la veille documentaire sont essentielles." },
-  { q: "Félicitations, vous avez fini le QCM ! Quelle est la prochaine étape ?", o: ["Tout oublier", "Réviser les points faibles identifiés", "Désinstaller ArcGIS", "Partir en vacances"], a: 1, e: "L'examen demande une maîtrise globale de ces concepts." }
-    ];
 
-    let current = 0;
+<script>
+const examData = [
+  {
+    id: 1,
+    q: "Quelles entités sont considérées comme une 'administration' au sens du CRPA (Loi Open Data) ?",
+    o: [
+      "L'État et ses ministères",
+      "Les collectivités territoriales (Mairies, Régions...)",
+      "Une entreprise privée sans mission de service public",
+      "Les organismes de droit privé chargés d'une mission de service public (ex: SNCF, EDF)"
+    ],
+    a: [0, 1, 3],
+    e: "L'administration au sens de la loi inclut tout organisme gérant un service public, même s'il est de droit privé."
+  },
+  {
+    id: 2,
+    q: "Quelle est la différence fondamentale entre une 'donnée' et une 'information' ?",
+    o: [
+      "La donnée est brute (ex: un pixel, une coordonnée)",
+      "L'information est une donnée interprétée et contextualisée",
+      "Il n'y a aucune différence, ce sont des synonymes exacts",
+      "La donnée est numérique, l'information est toujours sur papier"
+    ],
+    a: [0, 1],
+    e: "Une donnée brute sans contexte (ex: '42') ne devient une information que lorsqu'elle est liée à un sens (ex: '42 km/h')."
+  },
+  {
+    id: 3,
+    q: "Selon la loi Lemaire (2016), quel principe régit l'ouverture des données publiques ?",
+    o: [
+      "L'ouverture par défaut (Open by default)",
+      "L'ouverture uniquement sur demande écrite",
+      "La gratuité totale pour les réutilisations commerciales",
+      "L'interdiction de publier des données géographiques"
+    ],
+    a: [0, 2],
+    e: "La loi pour une République Numérique impose l'ouverture par défaut et la gratuité (sauf exceptions de redevances très encadrées)."
+  },
+  {
+    id: 4,
+    q: "Quelles données sont EXCLUES de l'Open Data obligatoire sans anonymisation préalable ?",
+    o: [
+      "Les données protégées par le secret de la défense nationale",
+      "Les données comportant des noms et prénoms de personnes physiques",
+      "Les horaires de bus",
+      "Les secrets industriels et commerciaux"
+    ],
+    a: [0, 1, 3],
+    e: "La vie privée et les secrets d'État ou commerciaux priment sur l'obligation d'ouverture."
+  },
+  {
+    id: 5,
+    q: "Dans une géodatabase d'entreprise (SDE), quel est le rôle de la table 'SDE_LAYERS' ?",
+    o: [
+      "Stocker les noms des utilisateurs",
+      "Référencer toutes les colonnes spatiales et leurs propriétés (SRID, type...)",
+      "Stocker les photos des parcelles",
+      "Gérer les mots de passe"
+    ],
+    a: [1],
+    e: "C'est la table pivot qui fait le lien entre une table SQL classique et sa dimension géographique reconnue par ArcGIS."
+  },
+  {
+    id: 6,
+    q: "Pourquoi le type 'ST_GEOMETRY' d'ESRI est-il préféré au format binaire propriétaire (BLOB) dans PostgreSQL ?",
+    o: [
+      "Il permet l'utilisation de fonctions SQL spatiales directement en base",
+      "Il est plus léger de 50%",
+      "Il est le seul compatible avec Windows",
+      "Il permet l'interopérabilité avec d'autres outils SQL"
+    ],
+    a: [0, 3],
+    e: "ST_GEOMETRY rend la donnée 'lisible' par le moteur SQL sans passer par une application cliente propriétaire."
+  },
+  {
+    id: 7,
+    q: "Lors d'un chargement massif de données dans PostgreSQL, quelle commande optimise les futures requêtes ?",
+    o: [
+      "SELECT *",
+      "VACUUM ANALYZE",
+      "DELETE FROM",
+      "REINDEX"
+    ],
+    a: [1],
+    e: "VACUUM ANALYZE nettoie les lignes mortes et met à jour les statistiques de l'optimiseur de requêtes."
+  },
+  {
+    id: 8,
+    q: "Qu'est-ce qu'une 'transaction longue' dans une géodatabase versionnée ?",
+    o: [
+      "Une requête SQL qui dure plus d'une heure",
+      "Un cycle de modification s'étalant sur plusieurs jours sans verrouillage des tables de base",
+      "Le temps d'importation d'un raster",
+      "Un transfert de données entre deux serveurs"
+    ],
+    a: [1],
+    e: "Le versionnement permet de modifier des données pendant des jours dans une version isolée avant de les réinjecter (Post) dans la base commune."
+  },
+  {
+    id: 9,
+    q: "Quel est l'avantage majeur du format GeoPackage (.gpkg) ?",
+    o: [
+      "Il appartient à Microsoft",
+      "C'est un standard OGC basé sur SQLite, interopérable (QGIS, ArcGIS, GDAL)",
+      "Il ne permet pas de stocker de tables attributaires",
+      "Il remplace obligatoirement PostgreSQL"
+    ],
+    a: [1],
+    e: "Le GeoPackage est le format moderne d'échange universel, contrairement au Shapefile qui est techniquement obsolète."
+  },
+  {
+    id: 10,
+    q: "Quelle est la limite de stockage d'une Géodatabase Fichier (File GDB) par défaut ?",
+    o: [
+      "2 Go",
+      "1 To par table",
+      "256 To",
+      "Illimitée"
+    ],
+    a: [1],
+    e: "Une File GDB supporte 1 To par table par défaut, extensible à 256 To pour les très gros volumes."
+  },
+  {
+    id: 11,
+    q: "Dans le RGPD, que signifie le principe de 'Minimisation' ?",
+    o: [
+      "Compresser les bases de données pour gagner de la place",
+      "Ne collecter que les données strictement nécessaires à la finalité",
+      "Réduire la taille des polices de caractères",
+      "Supprimer les données au bout de 24h"
+    ],
+    a: [1],
+    e: "On ne doit pas collecter de données 'au cas où' ; elles doivent avoir une utilité immédiate et justifiée."
+  },
+  {
+    id: 12,
+    q: "Qu'est-ce qu'un 'Identifiant Stable' pour une donnée Open Data ?",
+    o: [
+      "Un ID qui change à chaque mise à jour",
+      "Une URL ou un code (ex: code INSEE) qui ne change pas dans le temps",
+      "Le nom de l'agent qui a saisi la donnée",
+      "Un mot de passe"
+    ],
+    a: [1],
+    e: "La stabilité des identifiants est cruciale pour que les réutilisateurs puissent croiser les données sans rupture de lien."
+  },
+  {
+    id: 13,
+    q: "Le type 'GUID' est indispensable si :",
+    o: [
+      "On travaille sur une seule base isolée",
+      "On effectue de la réplication de données entre plusieurs bases distantes",
+      "On veut trier les données par ordre alphabétique",
+      "On utilise uniquement Excel"
+    ],
+    a: [1],
+    e: "Le GUID garantit l'unicité mondiale de l'ID, évitant les doublons lors de la fusion de deux bases produites séparément."
+  },
+  {
+    id: 14,
+    q: "Quelle table système ESRI gère la hiérarchie (ex: quel Feature Class est dans quel Dataset) ?",
+    o: [
+      "GDB_ITEMS",
+      "GDB_ITEMRELATIONSHIPS",
+      "SDE_LAYERS",
+      "SDE_GEOMETRY_COLUMNS"
+    ],
+    a: [1],
+    e: "GDB_ITEMRELATIONSHIPS stocke les liens logiques entre les objets de la géodatabase."
+  },
+  {
+    id: 15,
+    q: "Une 'Vue spatiale' (Database View) est utile pour :",
+    o: [
+      "Accélérer l'affichage des rasters",
+      "Présenter une jointure complexe entre deux tables sans dupliquer la donnée physique",
+      "Remplacer les sauvegardes",
+      "Masquer des colonnes sensibles à certains utilisateurs"
+    ],
+    a: [1, 3],
+    e: "La vue est une requête stockée qui permet de simplifier ou sécuriser l'accès aux tables réelles."
+  },
+  {
+    id: 16,
+    q: "Que se passe-t-il lors d'une 'Compression' d'une GDB d'entreprise ?",
+    o: [
+      "Les fichiers sont zippés",
+      "Les états non référencés des tables A (Adds) et D (Deletes) sont supprimés et fusionnés avec la table de base",
+      "La résolution des images est diminuée",
+      "Les utilisateurs sont déconnectés de force"
+    ],
+    a: [1],
+    e: "La compression réduit la taille des tables de versionnement et maintient les performances du SGBD."
+  },
+  {
+    id: 17,
+    q: "Quelle est la définition d'un 'Standard' par rapport à une 'Norme' ?",
+    o: [
+      "Le standard est forcément gratuit",
+      "La norme est édictée par un organisme officiel (ex: ISO, AFNOR)",
+      "Le standard est une pratique de fait (ex: format ESRI)",
+      "C'est exactement la même chose"
+    ],
+    a: [1, 2],
+    e: "Une norme est légale/officielle, un standard peut être industriel (de fait)."
+  },
+  {
+    id: 18,
+    q: "Quel privilège PostgreSQL permet de vider une table instantanément sans logger chaque ligne ?",
+    o: [
+      "DELETE",
+      "TRUNCATE",
+      "DROP",
+      "UPDATE"
+    ],
+    a: [1],
+    e: "TRUNCATE est beaucoup plus rapide que DELETE car il réinitialise la table au niveau du stockage."
+  },
+  {
+    id: 19,
+    q: "Qu'est-ce qu'une 'Donnée Pivot' dans un SIG ?",
+    o: [
+      "Une donnée qui peut tourner sur elle-même",
+      "Une donnée de référence commune à plusieurs métiers (ex: le Cadastre ou l'Adresse)",
+      "Une donnée qui ne sert à rien",
+      "Un index spatial"
+    ],
+    a: [1],
+    e: "Le pivot permet l'interopérabilité entre les différents services d'une collectivité."
+  },
+  {
+    id: 20,
+    q: "Quelle licence Open Data impose de citer l'auteur mais autorise la revente ?",
+    o: [
+      "Licence Ouverte (Etalab)",
+      "Creative Commons BY",
+      "LPR (Licence Publique Restreinte)",
+      "ODbL (Open Database License)"
+    ],
+    a: [0, 1],
+    e: "La Licence Ouverte et CC-BY sont très permissives, l'obligation principale étant la citation de la source."
+  },
+  {
+    id: 21,
+    q: "Dans ArcGIS, quel outil permet de transformer une table SQL 'brute' en objet SIG ?",
+    o: [
+      "La suppression de la table",
+      "L'inscription dans la géodatabase (Register with Geodatabase)",
+      "Le renommage de la table en 'SDE_...'",
+      "L'export en PDF"
+    ],
+    a: [1],
+    e: "L'inscription ajoute les colonnes et métadonnées système nécessaires pour gérer l'objet via ArcGIS."
+  },
+  {
+    id: 22,
+    q: "Quel est le risque majeur d'un 'Index Spatial' mal configuré ?",
+    o: [
+      "Les données sont effacées",
+      "L'affichage de la carte devient extrêmement lent",
+      "Les couleurs changent",
+      "La base de données s'arrête"
+    ],
+    a: [1],
+    e: "L'index spatial agit comme un index de livre ; s'il est absent ou corrompu, le logiciel doit scanner toute la base pour trouver un point."
+  },
+  {
+    id: 23,
+    q: "La directive européenne INSPIRE concerne :",
+    o: [
+      "La protection des données bancaires",
+      "L'interopérabilité des données environnementales en Europe",
+      "Le prix de l'électricité",
+      "La cybersécurité des mairies"
+    ],
+    a: [1],
+    e: "INSPIRE impose des formats et métadonnées standards pour faciliter le partage des données géographiques environnementales."
+  },
+  {
+    id: 24,
+    q: "Que signifie 'API' ?",
+    o: [
+      "Application Programming Interface",
+      "Administration Publique Intégrée",
+      "Accès Privé aux Informations",
+      "Analyse de Pixel Informatisée"
+    ],
+    a: [0],
+    e: "Une API permet à deux logiciels (ex: un site web et une base de données) de communiquer de façon automatisée."
+  },
+  {
+    id: 25,
+    q: "Dans PostgreSQL, quel port est utilisé par défaut ?",
+    o: [
+      "80",
+      "5432",
+      "1521",
+      "443"
+    ],
+    a: [1],
+    e: "5432 est le port standard de PostgreSQL."
+  },
+  {
+    id: 26,
+    q: "Un 'Domaine de valeurs' dans une GDB sert à :",
+    o: [
+      "Définir le propriétaire de la donnée",
+      "Contraindre la saisie via une liste déroulante ou une plage de valeurs",
+      "Acheter un nom de domaine internet",
+      "Sécuriser la base avec un mot de passe"
+    ],
+    a: [1],
+    e: "Les domaines garantissent l'intégrité des données en évitant les fautes de frappe (ex: 'En service' vs 'Enservce')."
+  },
+  {
+    id: 27,
+    q: "Le principe de 'Souveraineté des données' implique :",
+    o: [
+      "Que les données soient stockées sur le territoire national ou européen",
+      "Que les données appartiennent au Roi",
+      "Que les données soient chiffrées en 128 bits",
+      "L'utilisation exclusive de logiciels libres"
+    ],
+    a: [0],
+    e: "C'est la capacité d'un État à garder le contrôle sur les données de ses citoyens (Cloud souverain)."
+  },
+  {
+    id: 28,
+    q: "Quelle est la principale faiblesse du format Shapefile ?",
+    o: [
+      "Il est trop récent",
+      "Noms de colonnes limités à 10 caractères",
+      "Pas de gestion native du stockage des caractères spéciaux (UTF-8) complexe",
+      "Taille limite de 2 Go"
+    ],
+    a: [1, 2, 3],
+    e: "Le shapefile est un format des années 90 avec de nombreuses limitations techniques."
+  },
+  {
+    id: 29,
+    q: "Qu'est-ce qu'un 'Alias' de champ ?",
+    o: [
+      "Un nom d'utilisateur",
+      "Un nom d'affichage convivial différent du nom technique de la colonne",
+      "Une copie de la donnée",
+      "Un virus"
+    ],
+    a: [1],
+    e: "L'alias permet d'afficher 'Date de pose' au lieu du technique 'DT_POSE_INST'."
+  },
+  {
+    id: 30,
+    q: "Le format 'GeoJSON' est principalement utilisé pour :",
+    o: [
+      "L'impression papier",
+      "Les applications web et les échanges légers de données",
+      "Le stockage de rasters haute résolution",
+      "Le versionnement lourd"
+    ],
+    a: [1],
+    e: "Le GeoJSON est le format favori des développeurs web pour sa lisibilité en JavaScript."
+  },
+  {
+    id: 31,
+    q: "Que permet de faire 'l'Authentification Système' (OS Auth) dans une connexion SDE ?",
+    o: [
+      "Se connecter avec son compte Windows sans retaper de mot de passe",
+      "Laisser n'importe qui accéder à la base",
+      "Utiliser Linux uniquement",
+      "Chiffrer le disque dur"
+    ],
+    a: [0],
+    e: "Le SGBD fait confiance à l'identification préalable faite par le système d'exploitation."
+  },
+  {
+    id: 32,
+    q: "Dans une collectivité, qui est le 'DPO' ?",
+    o: [
+      "Le Directeur de la Police de l'Ouest",
+      "Le Délégué à la Protection des Données (garant du RGPD)",
+      "Le Responsable du SIG",
+      "Un logiciel de dessin"
+    ],
+    a: [1],
+    e: "Le DPO (Data Protection Officer) veille à la conformité de l'usage des données personnelles."
+  },
+  {
+    id: 33,
+    q: "Quelle est la différence entre un 'Join' et une 'Relationship Class' ?",
+    o: [
+      "Le Join est temporaire (mémoire), la Relationship Class est stockée en base",
+      "Il n'y a aucune différence",
+      "Le Join ne fonctionne que sur les points",
+      "La Relationship Class est plus rapide"
+    ],
+    a: [0],
+    e: "La classe de relation est un objet de schéma permanent défini dans la géodatabase."
+  },
+  {
+    id: 34,
+    q: "Le format de fichier '.aprx' correspond à :",
+    o: [
+      "Une couche de données",
+      "Un projet ArcGIS Pro",
+      "Une sauvegarde de base de données",
+      "Une image satellite"
+    ],
+    a: [1],
+    e: "C'est l'équivalent du .mxd pour ArcGIS Pro."
+  },
+  {
+    id: 35,
+    q: "Quelle commande SQL permet d'ajouter un utilisateur dans PostgreSQL ?",
+    o: [
+      "ADD USER",
+      "CREATE ROLE",
+      "INSERT INTO USERS",
+      "NEW USER"
+    ],
+    a: [1],
+    e: "Dans PostgreSQL, un utilisateur est techniquement un 'Role' avec l'attribut LOGIN."
+  },
+  {
+    id: 36,
+    q: "Que signifie 'ETL' ?",
+    o: [
+      "Extract, Transform, Load",
+      "Échange de Tables Libres",
+      "Envoi Temps-réel Local",
+      "Expertise Territoriale Logistique"
+    ],
+    a: [0],
+    e: "Les outils ETL (ex: FME) servent à manipuler et déplacer les données d'un format à un autre."
+  },
+  {
+    id: 37,
+    q: "Qu'est-ce que le 'Schéma' d'une base de données ?",
+    o: [
+      "Un dessin de la base",
+      "La structure logique (tables, champs, types, relations)",
+      "Le mot de passe administrateur",
+      "Le nom du serveur"
+    ],
+    a: [1],
+    e: "Le schéma est le 'plan de construction' de la base."
+  },
+  {
+    id: 38,
+    q: "Une 'Méta-donnée', c'est :",
+    o: [
+      "Une donnée très grosse",
+      "Une donnée sur une donnée (date de création, auteur, précision)",
+      "Une donnée supprimée",
+      "Le nom du logiciel"
+    ],
+    a: [1],
+    e: "C'est la carte d'identité de la donnée."
+  },
+  {
+    id: 39,
+    q: "L'anonymisation 'irréversible' signifie :",
+    o: [
+      "Qu'on a caché le nom avec un feutre",
+      "Qu'il est impossible de retrouver l'identité de la personne, même avec des recoupements",
+      "Qu'on a supprimé le fichier",
+      "Qu'on a changé le nom en majuscules"
+    ],
+    a: [1],
+    e: "Si l'on peut réidentifier la personne, c'est de la pseudonymisation, pas de l'anonymisation."
+  },
+  {
+    id: 40,
+    q: "Dans ArcGIS Pro, que permet 'l'Analyse de topologie' ?",
+    o: [
+      "Calculer l'altitude",
+      "Vérifier les erreurs de saisie spatiale (ex: polygones qui se chevauchent)",
+      "Changer les couleurs",
+      "Mesurer des distances"
+    ],
+    a: [1],
+    e: "La topologie définit des règles de voisinage pour assurer la cohérence spatiale."
+  },
+  {
+    id: 41,
+    q: "Un SGBDR est dit 'Relationnel' car :",
+    o: [
+      "Il permet de lier des tables entre elles via des clés communes",
+      "Il a de bonnes relations avec l'utilisateur",
+      "Il fonctionne en réseau",
+      "Il utilise uniquement des chiffres"
+    ],
+    a: [0],
+    e: "La relation est le concept mathématique derrière le lien entre les tables."
+  },
+  {
+    id: 42,
+    q: "Quelle est la fonction du 'Versionnement' ?",
+    o: [
+      "Changer la version du logiciel",
+      "Permettre à plusieurs utilisateurs de modifier les mêmes données simultanément sans se bloquer",
+      "Compter le nombre de couches",
+      "Faire des copies de sauvegarde toutes les heures"
+    ],
+    a: [1],
+    e: "Chaque utilisateur travaille sur sa propre 'branche' (version) avant de fusionner."
+  },
+  {
+    id: 43,
+    q: "Le format WFS (Web Feature Service) permet :",
+    o: [
+      "De voir uniquement une image de la carte",
+      "De télécharger et modifier les vecteurs (géométrie + attributs) via le web",
+      "D'imprimer des cartes",
+      "De stocker des fichiers Excel"
+    ],
+    a: [1],
+    e: "Contrairement au WMS (image), le WFS transmet la donnée brute."
+  },
+  {
+    id: 44,
+    q: "La 'Précision' d'une coordonnée GPS dépend :",
+    o: [
+      "Du nombre de décimales stockées",
+      "De la qualité du capteur et de la correction différentielle",
+      "Du prix du logiciel SIG",
+      "De la météo uniquement"
+    ],
+    a: [0, 1],
+    e: "Il faut distinguer la précision de mesure (terrain) et la précision de stockage (SGBD)."
+  },
+  {
+    id: 45,
+    q: "Dans PostgreSQL, que fait la commande 'GRANT SELECT ON table TO user' ?",
+    o: [
+      "Elle donne le droit de lire la table",
+      "Elle supprime la table",
+      "Elle donne le droit de modifier la table",
+      "Elle renomme l'utilisateur"
+    ],
+    a: [0],
+    e: "GRANT est la commande de gestion des privilèges."
+  },
+  {
+    id: 46,
+    q: "Qu'est-ce que le 'Shadow IT' dans une direction SIG ?",
+    o: [
+      "Le mode sombre du logiciel",
+      "L'utilisation de logiciels ou bases de données non validés par la DSI",
+      "La maintenance de nuit",
+      "Une attaque informatique"
+    ],
+    a: [1],
+    e: "Par exemple, un service qui gère ses propres données sur un vieux PC sous le bureau au lieu du serveur central."
+  },
+  {
+    id: 47,
+    q: "Le 'Cloud Computing' pour un SIG apporte :",
+    o: [
+      "La pluie sur la carte",
+      "La scalabilité (adaptation de la puissance) et l'accessibilité web",
+      "La disparition du besoin d'informaticiens",
+      "La gratuité totale"
+    ],
+    a: [1],
+    e: "Le cloud permet d'augmenter la puissance du serveur lors des pics de consultation."
+  },
+  {
+    id: 48,
+    q: "Une donnée 'Qualificative' est :",
+    o: [
+      "Un nombre (ex: 15.5)",
+      "Un état ou une catégorie (ex: 'Bon état', 'À remplacer')",
+      "Une coordonnée X,Y",
+      "Une date"
+    ],
+    a: [1],
+    e: "C'est une donnée descriptive, souvent stockée en texte ou via un code domaine."
+  },
+  {
+    id: 49,
+    q: "Le 'Big Data' se définit par les 3V :",
+    o: [
+      "Vitesse, Volume, Variété",
+      "Vente, Valeur, Vérité",
+      "Vecteur, Video, Virtuel",
+      "Vitesse, Vent, Vol"
+    ],
+    a: [0],
+    e: "C'est la définition classique des données massives."
+  },
+  {
+    id: 50,
+    q: "Quelle est la mission principale du 'Géomaticien' ?",
+    o: [
+      "Réparer les ordinateurs",
+      "Acquérir, traiter, analyser et diffuser l'information géographique",
+      "Faire uniquement de jolies cartes",
+      "Vendre des terrains"
+    ],
+    a: [1],
+    e: "La géomatique est la fusion de la géographie et de l'informatique."
+  },
+  {
+    id: 1,
+    q: "Quel est le rôle principal de l'utilisateur 'sde' dans une géodatabase d'entreprise ?",
+    o: [
+      "Administrateur système du serveur PostgreSQL",
+      "Propriétaire du schéma système et référentiel de la GDB",
+      "Utilisateur final chargé de la saisie des données",
+      "Compte générique pour tous les employés du SIG"
+    ],
+    a: [1],
+    e: "L'utilisateur 'sde' possède les tables système et procédures stockées qui font d'une base SQL une géodatabase ESRI."
+  },
+  {
+    id: 2,
+    q: "Quelle est la mission du DBA (Database Administrator) vis-à-vis du SIG ?",
+    o: [
+      "Dessiner les cartes dans ArcGIS Pro",
+      "Gérer l'instance SGBD, les sauvegardes et l'allocation des ressources disque",
+      "Créer les domaines de valeurs pour les techniciens",
+      "Installer ArcGIS Server sur les postes clients"
+    ],
+    a: [1],
+    e: "Le DBA gère l'infrastructure (le contenant), tandis que l'administrateur GDB gère l'intelligence métier (le contenu)."
+  },
+  {
+    id: 3,
+    q: "Lorsqu'un utilisateur crée une classe d'entités, qui en est le 'Schema Owner' (Propriétaire) ?",
+    o: [
+      "L'utilisateur 'sde'",
+      "L'utilisateur qui a créé la table",
+      "Le DBA (postgres)",
+      "Le premier utilisateur qui modifie la donnée"
+    ],
+    a: [1],
+    e: "Dans une GDB d'entreprise, celui qui crée l'objet en possède la structure et doit donner les droits aux autres."
+  },
+  {
+    id: 4,
+    q: "Quel privilège SQL est indispensable à l'utilisateur 'sde' pour mettre à niveau la géodatabase ?",
+    o: [
+      "SELECT uniquement",
+      "SUPERUSER (ou au moins les droits de création d'extensions)",
+      "USAGE sur le schéma public",
+      "Aucun, ArcGIS Pro s'en occupe tout seul"
+    ],
+    a: [1],
+    e: "La mise à jour du schéma système (Upgrade) nécessite des privilèges élevés pour modifier les fonctions et types spatiaux."
+  },
+  {
+    id: 5,
+    q: "Pourquoi est-il déconseillé de charger des données métier sous le compte 'sde' ?",
+    o: [
+      "Parce que c'est impossible techniquement",
+      "Pour séparer les tables système des données métier et éviter les corruptions de schéma",
+      "Parce que le compte 'sde' est limité à 10 tables",
+      "Parce que cela coûte plus cher en licence"
+    ],
+    a: [1],
+    e: "Le schéma 'sde' doit rester 'propre' pour faciliter les montées de version et la maintenance du logiciel."
+  },
+  {
+    id: 6,
+    q: "Comment un utilisateur A peut-il voir les données appartenant à l'utilisateur B ?",
+    o: [
+      "Il doit connaître le mot de passe de l'utilisateur B",
+      "L'utilisateur B doit lui accorder le privilège 'SELECT' via ArcGIS Pro",
+      "L'utilisateur A doit devenir administrateur de la base",
+      "C'est automatique pour tous les utilisateurs de la GDB"
+    ],
+    a: [1],
+    e: "La sécurité est granulaire : chaque propriétaire de données gère les droits (Grant/Revoke) sur ses propres tables."
+  },
+  {
+    id: 7,
+    q: "Quel est l'avantage de l'authentification système (OS Auth) pour les utilisateurs ?",
+    o: [
+      "Le mot de passe est '123456' par défaut",
+      "L'utilisateur est reconnu via sa session Windows/LDAP (Single Sign-On)",
+      "La connexion est plus lente mais plus sûre",
+      "Il n'y a plus besoin de compte dans la base de données"
+    ],
+    a: [1],
+    e: "L'OS Auth évite de stocker des mots de passe dans les fichiers de connexion (.sde) et simplifie la gestion des départs/arrivées."
+  },
+  {
+    id: 8,
+    q: "Que se passe-t-il si un utilisateur tente de supprimer une table qu'il ne possède pas ?",
+    o: [
+      "La table est supprimée si l'utilisateur est dans le même service",
+      "SQL renvoie une erreur d'autorisation (Permission Denied)",
+      "La table est déplacée dans la corbeille",
+      "L'utilisateur 'sde' reçoit un email de validation"
+    ],
+    a: [1],
+    e: "Seul le propriétaire de l'objet ou un SuperUser peut supprimer (DROP) un objet en base de données."
+  },
+  {
+    id: 9,
+    q: "Quel rôle joue le compte 'postgres' (sous PostgreSQL) vis-à-vis de la GDB ?",
+    o: [
+      "C'est le compte de l'utilisateur final",
+      "C'est le SuperUtilisateur racine capable de créer le rôle 'sde' et la base de données",
+      "C'est un virus",
+      "C'est le compte utilisé pour publier des services web"
+    ],
+    a: [1],
+    e: "Le compte 'postgres' est le DBA suprême qui installe l'infrastructure initiale."
+  },
+  {
+    id: 10,
+    q: "Dans une organisation, quel profil est chargé de créer les versions (Versionnement) ?",
+    o: [
+      "Le DBA uniquement",
+      "L'administrateur de la GDB ou les éditeurs autorisés",
+      "L'utilisateur 'Guest'",
+      "Microsoft Windows"
+    ],
+    a: [1],
+    e: "La gestion des versions (Parent, Child, Default) est une tâche de gestion de workflow SIG."
+  },
+  {
+    id: 11,
+    q: "Qu'est-ce qu'un 'Rôle' dans PostgreSQL ?",
+    o: [
+      "Un personnage de jeu vidéo",
+      "Un conteneur de privilèges pouvant être attribué à un ou plusieurs utilisateurs",
+      "Le nom de la machine serveur",
+      "Une commande pour trier les données"
+    ],
+    a: [1],
+    e: "Les rôles permettent de gérer les droits par groupe (ex: Rôle 'LECTURE_URBA') plutôt que par individu."
+  },
+  {
+    id: 12,
+    q: "Le compte 'sde' peut-il réinitialiser le mot de passe d'un utilisateur métier ?",
+    o: [
+      "Oui, il a tous les droits sur les utilisateurs",
+      "Non, seul un utilisateur avec le privilège CREATEROLE ou le DBA peut le faire",
+      "Seulement si l'utilisateur est déconnecté",
+      "Oui, via l'outil 'Compacter'"
+    ],
+    a: [1],
+    e: "La gestion des identifiants est une tâche de niveau SGBD (DBA), pas nécessairement SIG (SDE)."
+  },
+  {
+    id: 13,
+    q: "Pourquoi l'administrateur GDB doit-il surveiller la table 'SDE_PROCESS_INFORMATION' ?",
+    o: [
+      "Pour voir le contenu des cartes",
+      "Pour identifier les sessions actives et les éventuels verrous bloquants",
+      "Pour modifier les géométries",
+      "Pour calculer le salaire des agents"
+    ],
+    a: [1],
+    e: "Cette table liste les connexions actives et aide à diagnostiquer pourquoi une table est verrouillée."
+  },
+  {
+    id: 14,
+    q: "Quel est l'impact de la suppression d'un utilisateur SQL qui possède des données ?",
+    o: [
+      "Les données sont transférées à 'sde'",
+      "La suppression échoue car l'utilisateur possède encore des objets (dépendances)",
+      "Les données sont supprimées automatiquement",
+      "La base de données devient illisible"
+    ],
+    a: [1],
+    e: "Il faut d'abord transférer la propriété des tables (REASSIGN OWNED) ou les supprimer avant de pouvoir supprimer l'utilisateur."
+  },
+  {
+    id: 15,
+    q: "Dans une architecture multi-utilisateurs, que signifie 'Le verrouillage au niveau de la ligne' ?",
+    o: [
+      "Toute la base est bloquée pendant une édition",
+      "Seule l'entité en cours de modification est verrouillée pour les autres éditeurs",
+      "L'utilisateur doit fermer ArcGIS Pro pour enregistrer",
+      "Les lignes deviennent rouges sur la carte"
+    ],
+    a: [1],
+    e: "Le SGBD moderne permet une édition concurrente fine en ne bloquant que le minimum de données possible."
+  },
+  {
+    id: 16,
+    q: "L'outil 'Synchroniser les privilèges' est utile quand :",
+    o: [
+      "On change de version d'ArcGIS Pro",
+      "On a modifié des droits au niveau SQL et on veut qu'ArcGIS les reconnaisse proprement",
+      "On a perdu sa connexion internet",
+      "On veut fusionner deux géodatabases"
+    ],
+    a: [1],
+    e: "Il assure la cohérence entre les permissions du SGBD et le comportement de l'interface ArcGIS."
+  },
+  {
+    id: 17,
+    q: "Quel est le risque si trop d'utilisateurs se connectent avec le même compte 'TECH_SIG' ?",
+    o: [
+      "La base va exploser",
+      "Impossibilité de savoir qui a modifié quoi (perte de traçabilité)",
+      "Le prix de la licence augmente",
+      "La souris devient lente"
+    ],
+    a: [1],
+    e: "L'utilisation de comptes partagés est une mauvaise pratique car elle empêche l'audit des modifications (Editor Tracking)."
+  },
+  {
+    id: 18,
+    q: "Le compte 'sde' est-il obligatoire pour faire du SIG en entreprise ?",
+    o: [
+      "Non, on peut utiliser des Shapefiles",
+      "Oui, si l'on veut utiliser les fonctionnalités avancées d'une Géodatabase d'Entreprise ESRI",
+      "Seulement si l'on travaille sur Mac",
+      "Uniquement pour les données 3D"
+    ],
+    a: [1],
+    e: "Sans le schéma système 'sde', une base SQL n'est pas reconnue comme une géodatabase par ArcGIS."
+  },
+  {
+    id: 19,
+    q: "Quelle commande SQL permet à un DBA de voir tous les schémas de la base ?",
+    o: [
+      "SELECT * FROM all_schemas;",
+      "\\dn (dans psql) ou consultation de pg_namespace",
+      "SHOW SCHEMAS;",
+      "LOOK AT TABLES;"
+    ],
+    a: [1],
+    e: "Les vues systèmes de PostgreSQL (ou raccourcis psql) permettent de piloter l'organisation de la base."
+  },
+  {
+    id: 20,
+    q: "Qui est responsable de la création du fichier de connexion (.sde) ?",
+    o: [
+      "L'utilisateur final (sur son poste) ou l'administrateur pour diffusion",
+      "Le serveur PostgreSQL automatiquement",
+      "L'IGN",
+      "Microsoft Office"
+    ],
+    a: [0],
+    e: "Le fichier .sde stocke les paramètres saisis par l'utilisateur pour rejoindre le serveur."
+  }
+];
+
+let current = 0;
 const userAnswers = new Array(examData.length).fill(null);
 
-
-
-/* =========================
-   FONCTION MÉLANGE TABLEAU
-   ========================= */
-
+/* Mélange tableau */
 function shuffleArray(array) {
-
   for (let i = array.length - 1; i > 0; i--) {
-
     const j = Math.floor(Math.random() * (i + 1));
-
     [array[i], array[j]] = [array[j], array[i]];
-
   }
-
 }
-
-
-
-/* =========================
-   MÉLANGE QUESTIONS + RÉPONSES
-   ========================= */
 
 function shuffleQuizData() {
-
   examData.forEach(q => {
-
-    const correctText = q.o[q.a];
-
+    // Shuffle options
+    const correctTexts = q.a.map(i => q.o[i]);
     shuffleArray(q.o);
-
-    q.a = q.o.indexOf(correctText);
-
+    q.a = correctTexts.map(txt => q.o.indexOf(txt));
   });
-
   shuffleArray(examData);
-
 }
 
-
-
-/* =========================
-   INITIALISATION QUIZ
-   ========================= */
-
+/* Initialisation quiz */
 function initQuiz() {
-
   const wrapper = document.getElementById('questions-wrapper');
-
   examData.forEach((item, idx) => {
-
     const div = document.createElement('div');
-
     div.className = `question-container ${idx === 0 ? 'active' : ''}`;
-
     div.id = `q-${idx}`;
-
     div.innerHTML = `
       <div class="question-text">${idx + 1}. ${item.q}</div>
-
       <div class="options-list">
-        ${item.o.map((opt, i) =>
-          `<div class="option-item" onclick="handleSelect(${idx}, ${i}, this)">${opt}</div>`
-        ).join('')}
+        ${item.o.map((opt, i) => `<div class="option-item" onclick="handleSelect(${idx}, ${i}, this)">${opt}</div>`).join('')}
       </div>
-
+      <button onclick="validateQuestion(${idx})" style="margin-top:10px;">Valider la question</button>
       <div class="explanation-box" id="exp-${idx}">
         <div style="font-weight:bold; color:#1e3a8a; font-size:0.8rem;">💡 ANALYSE</div>
         <div>${item.e}</div>
       </div>
     `;
-
     wrapper.appendChild(div);
-
   });
-
 }
 
-
-
-/* =========================
-   GESTION RÉPONSE UTILISATEUR
-   ========================= */
-
+/* Gestion sélection */
 window.handleSelect = function(qIdx, oIdx, el) {
+  if (!Array.isArray(userAnswers[qIdx])) userAnswers[qIdx] = [];
+  // Toggle sélection
+  if (userAnswers[qIdx].includes(oIdx)) {
+    userAnswers[qIdx] = userAnswers[qIdx].filter(i => i !== oIdx);
+    el.classList.remove("selected");
+  } else {
+    userAnswers[qIdx].push(oIdx);
+    el.classList.add("selected");
+  }
+};
 
+/* Validation question */
+function validateQuestion(qIdx) {
   const options = document.querySelectorAll(`#q-${qIdx} .option-item`);
-
-  options.forEach(o => o.classList.remove("correct","wrong"));
-
-  userAnswers[qIdx] = oIdx;
-
   const correct = examData[qIdx].a;
 
-  if (oIdx === correct) {
-
-    el.classList.add('correct');
-
-  } else {
-
-    el.classList.add('wrong');
-
-    options[correct].classList.add('correct');
-
-  }
+  options.forEach((o, i) => {
+    if (correct.includes(i)) o.classList.add('correct');
+    else if (userAnswers[qIdx]?.includes(i)) o.classList.add('wrong');
+  });
 
   document.getElementById(`exp-${qIdx}`).style.display = 'block';
-
 }
 
-
-
-/* =========================
-   NAVIGATION QUESTIONS
-   ========================= */
-
+/* Navigation */
 window.move = function(dir) {
-
   const containers = document.querySelectorAll('.question-container');
-
   containers[current].classList.remove('active');
-
   current += dir;
-
-  if (current >= examData.length) {
-
-    finish();
-
-    return;
-
-  }
-
+  if (current >= examData.length) { finish(); return; }
   containers[current].classList.add('active');
-
   updateUI();
+};
 
-}
-
-
-
-/* =========================
-   UI
-   ========================= */
-
+/* UI */
 function updateUI() {
-
-  document.getElementById('counter').innerText =
-    `Question ${current + 1} / ${examData.length}`;
-
+  document.getElementById('counter').innerText = `Question ${current + 1} / ${examData.length}`;
   document.getElementById('prev-btn').disabled = current === 0;
-
-  document.getElementById('next-btn').innerText =
-    (current === examData.length - 1) ? "Terminer" : "Suivant";
-
-  document.getElementById('progress-fill-quiz').style.width =
-    `${((current + 1) / examData.length) * 100}%`;
-
+  document.getElementById('next-btn').innerText = (current === examData.length - 1) ? "Terminer" : "Suivant";
+  document.getElementById('progress-fill-quiz').style.width = `${((current + 1)/examData.length)*100}%`;
 }
 
-
-
-/* =========================
-   FIN DU QUIZ
-   ========================= */
-
+/* Fin du quiz */
 function finish() {
-
   document.getElementById('quiz-ui').style.display = 'none';
-
   document.getElementById('final-screen').style.display = 'block';
 
-
   let score = 0;
-
   examData.forEach((q,i)=>{
-    if(userAnswers[i] === q.a) score++;
+    const user = userAnswers[i] || [];
+    const correct = q.a;
+    if (user.length === correct.length && user.every(ans => correct.includes(ans))) score++;
   });
 
   const pct = Math.round((score / examData.length) * 100);
-
   document.getElementById('score-display').innerText = `${pct}%`;
-
   document.getElementById('feedback-msg').innerText =
-    pct >= 70
-      ? "Félicitations ! Expert en métadonnées !"
-      : "Pas mal, encore un peu de révision sur l'ISO 19115.";
-
+    pct >= 70 ? "Félicitations ! Expert en métadonnées !" : "Pas mal, encore un peu de révision sur l'ISO 19115.";
 }
 
-
-
-/* =========================
-   LANCEMENT
-   ========================= */
-
+/* Lancement */
 shuffleQuizData();
-
 initQuiz();
-
 updateUI();
 </script>
               
