@@ -1,0 +1,1531 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Thomas - Mon Portefeuille Géomatique</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../overrides/style.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Thomas";
+        var mkdocs_page_input_path = "thomas.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Mon Portefeuille Géomatique
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">ACCEUIL</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../format/">FORMATS</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../gdal/">GDAL</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../metadonnee/">METADONNES</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../vrt/">VRT</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../source/">SOURCES</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../note/">INTEROPERABILITE</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../bash/">BASH</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../admin_BDD/">ADMIN BDD</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../esri/">QCM ESRI</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../juridique/">Revision Aspect juridiques</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="../qualite">QUALITE</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="../revision">REVISION</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="../standard">STANDARDS</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="../questioncours">GENERAL</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="../stephane">STEPHANE</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href=".">THOMAS</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Mon Portefeuille Géomatique</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Thomas</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+<div class="progress-container"><div class="progress-bar" id="myBar"></div></div>
+
+                <div class="container-quiz">
+    <div id="quiz-ui">
+        <h1>Examen de Synthèse : Questions du cours </h1>
+        <div class="progress-bar-quiz"><div id="progress-fill-quiz"></div></div>
+        <div id="questions-wrapper"></div>
+        <div class="nav-footer">
+            <button id="prev-btn" onclick="move(-1)" disabled>Précédent</button>
+            <span id="counter" style="font-weight: 600; color: #64748b;">Question 1 / 50</span>
+            <button id="next-btn" onclick="move(1)">Suivant</button>
+        </div>
+    </div>
+
+    <div id="final-screen">
+        <h1>Résultats de l'évaluation</h1>
+        <div class="score-circle" id="score-display">0%</div>
+        <p id="feedback-msg" style="font-size: 1.1rem; margin-bottom: 30px;"></p>
+        <button onclick="location.reload()">Recommencer l'examen</button>
+    </div>
+</div>
+
+<style>
+/* -- Styles inchangés, identiques à ton code original -- */
+.container-quiz { max-width: 100%; margin: 20px auto; background: white; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0; }
+#quiz-ui h1 { color: #1e3a8a; text-align: center; font-size: 1.5rem; border: none; }
+.progress-bar-quiz { height: 8px; background: #e2e8f0; border-radius: 4px; margin-bottom: 30px; overflow: hidden; }
+#progress-fill-quiz { height: 100%; background: #3b82f6; width: 2%; transition: width 0.3s; }
+.question-container { display: none; }
+.question-container.active { display: block; animation: fadeIn 0.4s; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.question-text { font-size: 1.1rem; font-weight: 700; margin-bottom: 20px; color: #0f172a; }
+.option-item { background: #fff; border: 2px solid #e2e8f0; margin-bottom: 10px; padding: 12px; border-radius: 8px; cursor: pointer; }
+.option-item:hover { border-color: #3b82f6; background: #f0f7ff; }
+.option-item.correct { border-color: #10b981; background: #ecfdf5; color: #065f46; font-weight: 600; }
+.option-item.wrong { border-color: #ef4444; background: #fef2f2; color: #991b1b; }
+.option-item.selected { border-color: #3b82f6; background: #e0f2fe; }
+.explanation-box { margin-top: 20px; padding: 15px; border-radius: 8px; background: #f1f5f9; border-left: 6px solid #3b82f6; display: none; }
+.nav-footer { margin-top: 30px; display: flex; justify-content: space-between; align-items: center; }
+#final-screen { display: none; text-align: center; }
+.score-circle { width: 100px; height: 100px; border-radius: 50%; border: 5px solid #1e3a8a; margin: 20px auto; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 900; }
+</style>
+
+<script>
+const examData = [
+  {
+    "id": 1,
+    "q": "Que signifie étymologiquement le terme 'métadonnée' ?",
+    "o": [
+      "Une donnée de grande taille (mégadonnée)",
+      "Une donnée à propos d'une donnée",
+      "Une donnée stockée dans le cloud",
+      "Une donnée auto-référencée"
+    ],
+    "a": [1, 3],
+    "e": "Le préfixe grec 'meta' indique l'auto-référence ; il s'agit d'une donnée servant à définir ou décrire une autre donnée."
+  },
+  {
+    "id": 2,
+    "q": "Quels sont les trois niveaux de contenu des métadonnées décrits dans le cours ?",
+    "o": [
+      "La découverte (identifier les ressources)",
+      "Le stockage (gérer le format)",
+      "L'exploration (évaluer la pertinence avant usage)",
+      "L'exploitation (informations utiles au bon usage)"
+    ],
+    "a": [0, 2, 3],
+    "e": "Le cours distingue la découverte (minimum d'info), l'exploration (choix précis) et l'exploitation (intégration technique)."
+  },
+  {
+    "id": 3,
+    "q": "Quelles questions basiques une métadonnée doit-elle permettre de résoudre ?",
+    "o": [
+      "Quoi et Qui ?",
+      "Où et Quand ?",
+      "Combien ça coûte ?",
+      "Pourquoi et Comment ?"
+    ],
+    "a": [0, 1, 3],
+    "e": "Les métadonnées répondent aux 6 questions : quoi, qui, où, quand, pourquoi et comment."
+  },
+  {
+    "id": 4,
+    "q": "Quel standard ISO normalise spécifiquement le 'contenu' des métadonnées géographiques ?",
+    "o": [
+      "ISO 19139",
+      "ISO 9001",
+      "ISO 19115",
+      "ISO 19110"
+    ],
+    "a": [2],
+    "e": "L'ISO 19115 est le standard de référence pour le contenu des métadonnées sur l'information géographique."
+  },
+  {
+    "id": 5,
+    "q": "Quelle est la fonction principale du standard ISO 19139 ?",
+    "o": [
+      "Définir les thèmes de données",
+      "Normaliser la syntaxe XML pour implémenter l'ISO 19115",
+      "Gérer les droits d'auteur",
+      "Remplacer la directive INSPIRE"
+    ],
+    "a": [1],
+    "e": "L'ISO 19139 est l'implémentation XML de l'ISO 19115."
+  },
+  {
+    "id": 6,
+    "q": "Qu'est-ce que le 'Profil ISO Core' ?",
+    "o": [
+      "Une version payante de la norme",
+      "Un noyau de 22 éléments essentiels du standard ISO 19115",
+      "Le code source du logiciel QGIS",
+      "Un groupe d'experts européens"
+    ],
+    "a": [1],
+    "e": "Le profil Core comporte 22 éléments (7 obligatoires et 15 optionnels) constituant le noyau du standard."
+  },
+  {
+    "id": 7,
+    "q": "Qu'est-ce que le standard CS-W (Catalog Service for the Web) ?",
+    "o": [
+      "Un format de compression d'images",
+      "Un protocole pour interroger et lire un catalogue en ligne",
+      "Un logiciel de dessin",
+      "Un standard de l'OGC (Open Geospatial Consortium)"
+    ],
+    "a": [1, 3],
+    "e": "Le CS-W est un standard de l'OGC permettant l'interopérabilité des catalogues de métadonnées."
+  },
+  {
+    "id": 8,
+    "q": "Quels sont les objectifs de la directive européenne INSPIRE (2007) ?",
+    "o": [
+      "Obliger à créer des métadonnées harmonisées",
+      "Interdire le partage des données privées",
+      "Faciliter l'usage des données géographiques liées à l'environnement",
+      "Taxer les producteurs de données"
+    ],
+    "a": [0, 2],
+    "e": "INSPIRE institue une obligation de métadonnées harmonisées et libres d'accès pour l'environnement."
+  },
+  {
+    "id": 9,
+    "q": "Dans le modèle RDF (Resource Description Framework), qu'est-ce qu'un triplet ?",
+    "o": [
+      "Une base de données avec 3 tables",
+      "Une association Sujet / Prédicat / Objet",
+      "Un fichier XML compressé trois fois",
+      "Le langage de base du Web Sémantique"
+    ],
+    "a": [1, 3],
+    "e": "Le RDF repose sur des triplets (Sujet, Prédicat, Objet) pour décrire des ressources sur le web."
+  },
+  {
+    "id": 10,
+    "q": "Quelle est l'ambition principale du format DCAT ?",
+    "o": [
+      "Remplacer le format Shapefile",
+      "Faciliter l'interopérabilité entre les catalogues sur le Web",
+      "Dessiner des cartes 3D",
+      "Standardiser les métadonnées pour l'Open Data"
+    ],
+    "a": [1, 3],
+    "e": "DCAT (Data Catalog Vocabulary) vise l'interopérabilité des catalogues de données, notamment dans l'Open Data."
+  },
+  {
+    "id": 11,
+    "q": "Qu'est-ce que le 'moissonnage' de catalogues ?",
+    "o": [
+      "La suppression des données obsolètes",
+      "La collecte automatisée des métadonnées d'un catalogue par un autre",
+      "L'impression papier d'un catalogue",
+      "Une technique de mise à jour des coordonnées GPS"
+    ],
+    "a": [1],
+    "e": "Le moissonnage permet à des portails nationaux (ex: data.gouv.fr) de collecter les fiches de catalogues locaux."
+  },
+  {
+    "id": 12,
+    "q": "Quel logiciel est une solution de catalogage Open Source de référence pour les SIG ?",
+    "o": [
+      "Photoshop",
+      "GeoNetwork",
+      "Excel",
+      "CKAN"
+    ],
+    "a": [1, 3],
+    "e": "GeoNetwork est orienté SIG/INSPIRE, tandis que CKAN est très utilisé pour l'Open Data."
+  },
+  {
+    "id": 13,
+    "q": "Dans QGIS, où peut-on éditer les métadonnées d'une couche ?",
+    "o": [
+      "Dans les propriétés de la couche",
+      "Uniquement via un plugin externe",
+      "Dans le menu 'Vecteur'",
+      "Dans le panneau 'Explorateur'"
+    ],
+    "a": [0],
+    "e": "QGIS intègre nativement un éditeur de métadonnées dans les propriétés de chaque couche."
+  },
+  {
+    "id": 14,
+    "q": "Quel format de fichier QGIS utilise-t-il pour stocker les métadonnées d'une couche ?",
+    "o": [
+      ".qgs",
+      ".qmd",
+      ".txt",
+      ".xml"
+    ],
+    "a": [1],
+    "e": "Les fiches de métadonnées peuvent être enregistrées au format .qmd au niveau des couches fichiers."
+  },
+  {
+    "id": 15,
+    "q": "Qu'est-ce que le 'Rectangle de délimitation géographique' dans une fiche de métadonnée ?",
+    "o": [
+      "La taille de l'écran de l'utilisateur",
+      "L'étendue spatiale de la ressource (Nord, Sud, Est, Ouest)",
+      "Le logo de l'organisme",
+      "L'emprise exprimée en degrés décimaux"
+    ],
+    "a": [1, 3],
+    "e": "C'est l'emprise géographique de la donnée, définie par les longitudes et latitudes extrêmes."
+  },
+  {
+    "id": 16,
+    "q": "Quelle information trouve-t-on dans la rubrique 'Généalogie' d'une métadonnée ?",
+    "o": [
+      "Le nom des parents du créateur",
+      "L'historique des traitements et la qualité des sources",
+      "La liste des versions logicielles utilisées",
+      "L'arbre généalogique de l'entreprise"
+    ],
+    "a": [1],
+    "e": "La généalogie décrit l'historique du processus de production et les sources utilisées."
+  },
+  {
+    "id": 17,
+    "q": "Que contient l'élément de métadonnée 'Contraintes' ?",
+    "o": [
+      "La liste des erreurs de géométrie",
+      "Les limitations d'accès public",
+      "Les conditions applicables à l'utilisation (ex: licence)",
+      "Le poids du fichier en Mo"
+    ],
+    "a": [1, 2],
+    "e": "Cette rubrique précise les restrictions légales et les conditions d'usage (Open Licence, Creative Commons, etc.)."
+  },
+  {
+    "id": 18,
+    "q": "Le standard ISO 19110 concerne :",
+    "o": [
+      "Le catalogage des attributs (dictionnaire de données)",
+      "La projection Lambert 93",
+      "Le format XML",
+      "La gestion des mots-clés"
+    ],
+    "a": [0],
+    "e": "L'ISO 19110 définit la structure des catalogues d'attributs (description des champs de la table attributaire)."
+  },
+  {
+    "id": 19,
+    "q": "Qu'est-ce que le Dublin Core ?",
+    "o": [
+      "Un processeur très puissant",
+      "Un standard de métadonnées simple et plat",
+      "Une marque de GPS",
+      "Un format orienté 'bibliothèque' et web"
+    ],
+    "a": [1, 3],
+    "e": "Le Dublin Core est un standard de métadonnées généraliste et simplifié, contrairement à l'ISO 19115 plus complexe."
+  },
+  {
+    "id": 20,
+    "q": "Quels sont les avantages de l'Open Data pour une administration ?",
+    "o": [
+      "Améliorer la transparence",
+      "Vendre les données plus cher",
+      "Favoriser l'innovation économique",
+      "Éviter la duplication des efforts en interne"
+    ],
+    "a": [0, 2, 3],
+    "e": "L'Open Data favorise la transparence, l'innovation et l'efficacité administrative."
+  },
+  {
+    "id": 21,
+    "q": "Le plugin 'PgMetadata' pour QGIS permet de :",
+    "o": [
+      "Stocker les métadonnées directement dans PostgreSQL/PostGIS",
+      "Supprimer les doublons dans une table",
+      "Exporter en format DCAT, HTML ou PDF",
+      "Accélérer les requêtes SQL"
+    ],
+    "a": [0, 2],
+    "e": "PgMetadata gère les métadonnées au sein de la base de données spatiale et permet divers exports."
+  },
+  {
+    "id": 22,
+    "q": "Qu'est-ce que l'identificateur de ressource unique (URI) ?",
+    "o": [
+      "Le numéro de téléphone du producteur",
+      "Une valeur identifiant la ressource de manière unique (code + espace de noms)",
+      "L'adresse IP du serveur",
+      "Le nom du fichier sur le disque"
+    ],
+    "a": [1],
+    "e": "L'URI permet d'identifier formellement et de manière pérenne un jeu de données."
+  },
+  {
+    "id": 23,
+    "q": "Quelle organisation française anime les groupes de travail sur les métadonnées géographiques ?",
+    "o": [
+      "La gendarmerie nationale",
+      "Le CNIG (Conseil National de l'Information Géopolitique)",
+      "Le CNIG (Conseil National de l'Information Géolocalisé)",
+      "La DGME"
+    ],
+    "a": [2],
+    "e": "Le CNIG est l'instance de coordination de l'information géographique en France."
+  },
+  {
+    "id": 24,
+    "q": "Qu'est-ce qu'un service 'WMS' selon la classification INSPIRE ?",
+    "o": [
+      "Un service de téléchargement",
+      "Un service de consultation (visualisation)",
+      "Un service de recherche",
+      "Un service de transformation"
+    ],
+    "a": [1],
+    "e": "Le Web Map Service (WMS) est classé comme un service de consultation."
+  },
+  {
+    "id": 25,
+    "q": "Qu'est-ce qu'un service 'WFS' selon la classification INSPIRE ?",
+    "o": [
+      "Un service de consultation",
+      "Un service de téléchargement",
+      "Un service d'impression",
+      "Un service de géotraitement"
+    ],
+    "a": [1],
+    "e": "Le Web Feature Service (WFS) permet de récupérer les données vectorielles brutes, c'est un service de téléchargement."
+  },
+  {
+    "id": 26,
+    "q": "Pourquoi normaliser la forme des métadonnées ?",
+    "o": [
+      "Pour que ce soit plus joli",
+      "Pour faciliter l'interprétation par les machines",
+      "Pour assurer l'interopérabilité entre différents outils",
+      "Pour complexifier le travail des géomaticiens"
+    ],
+    "a": [1, 2],
+    "e": "La normalisation permet aux logiciels de lire et d'échanger des métadonnées sans erreur."
+  },
+  {
+    "id": 27,
+    "q": "Que signifie l'acronyme OGC ?",
+    "o": [
+      "Organisation des Géomaticiens Chercheurs",
+      "Open Geospatial Consortium",
+      "Office du Géo-Codage",
+      "Organisme de Gestion Cartographique"
+    ],
+    "a": [1],
+    "e": "L'OGC est l'organisme international qui définit les standards ouverts pour l'information géographique."
+  },
+  {
+    "id": 28,
+    "q": "Dans une fiche INSPIRE, la 'résolution spatiale' peut s'exprimer par :",
+    "o": [
+      "Une échelle équivalente (ex: 1/25000)",
+      "La couleur des pixels",
+      "Une distance de résolution (ex: 50 cm)",
+      "La date de prise de vue"
+    ],
+    "a": [0, 2],
+    "e": "La résolution se définit par l'échelle (pour les cartes) ou la taille du pixel/distance (pour les données maillées)."
+  },
+  {
+    "id": 29,
+    "q": "Quel est le rôle du 'Point de contact' dans les métadonnées ?",
+    "o": [
+      "Indiquer l'emplacement physique du serveur",
+      "Fournir une adresse e-mail pour contacter l'organisation responsable",
+      "Donner le nom de l'informaticien de garde",
+      "Préciser le rôle de la partie responsable (producteur, diffuseur...)"
+    ],
+    "a": [1, 3],
+    "e": "Il permet d'identifier qui gère la donnée et quel est son rôle (auteur, distributeur, etc.)."
+  },
+  {
+    "id": 30,
+    "q": "Quelle est la principale différence entre un catalogue Open Data et un catalogue INSPIRE ?",
+    "o": [
+      "L'un est bleu, l'autre est vert",
+      "INSPIRE est plus complexe et riche en métadonnées techniques",
+      "L'Open Data est plus simple et orienté grand public",
+      "Il n'y a aucune différence technique"
+    ],
+    "a": [1, 2],
+    "e": "Les catalogues SIG (INSPIRE) gèrent des métadonnées normées très détaillées, l'Open Data vise la simplicité."
+  },
+  {
+    "id": 31,
+    "q": "Qu'est-ce que l'outil 'uData' ?",
+    "o": [
+      "Un capteur GPS",
+      "La plateforme derrière data.gouv.fr",
+      "Un logiciel de CAO",
+      "Une solution dédiée à l'Open Data"
+    ],
+    "a": [1, 3],
+    "e": "uData est le moteur open source développé par Etalab pour les portails de données ouvertes."
+  },
+  {
+    "id": 32,
+    "q": "Une métadonnée 'orpheline' est une métadonnée :",
+    "o": [
+      "Dont la donnée associée a été supprimée ou perdue",
+      "Qui n'a pas d'auteur",
+      "Qui n'est pas au format XML",
+      "Qui est stockée sur une clé USB"
+    ],
+    "a": [0],
+    "e": "C'est une fiche qui décrit une ressource qui n'existe plus ou n'est plus accessible."
+  },
+  {
+    "id": 33,
+    "q": "Le format XML se caractérise par :",
+    "o": [
+      "Une structure de balises",
+      "Un langage propriétaire payant",
+      "La possibilité d'être interprété par de nombreux outils",
+      "Une impossibilité d'être lu par un humain"
+    ],
+    "a": [0, 2],
+    "e": "Le XML est un langage standardisé, simple et configurable utilisant des balises."
+  },
+  {
+    "id": 34,
+    "q": "Quelle est la validité temporelle d'une métadonnée ?",
+    "o": [
+      "Elle est valable à vie",
+      "Elle doit être mise à jour dès que la donnée change substantiellement",
+      "Elle expire après 2 ans",
+      "Elle mentionne la 'date des métadonnées' pour indiquer sa fraîcheur"
+    ],
+    "a": [1, 3],
+    "e": "La métadonnée doit refléter l'état réel de la donnée et possède sa propre date de mise à jour."
+  },
+  {
+    "id": 35,
+    "q": "La directive INSPIRE s'applique :",
+    "o": [
+      "Uniquement à la France",
+      "À tous les pays de l'Union Européenne",
+      "Aux données environnementales listées dans 34 thèmes",
+      "Uniquement aux entreprises privées"
+    ],
+    "a": [1, 2],
+    "e": "INSPIRE concerne les autorités publiques des pays membres de l'UE et couvre 34 thèmes spatiaux."
+  },
+  {
+    "id": 36,
+    "q": "L'interopérabilité, c'est :",
+    "o": [
+      "La capacité de deux systèmes à échanger et utiliser des informations",
+      "Le fait de travailler dans le même bureau",
+      "L'utilisation exclusive de logiciels Microsoft",
+      "Un synonyme de 'connexion internet'"
+    ],
+    "a": [0],
+    "e": "C'est l'enjeu majeur des standards : permettre à des outils différents de communiquer."
+  },
+  {
+    "id": 37,
+    "q": "Qu'est-ce que le 'GEME' ?",
+    "o": [
+      "Un type de fichier image",
+      "Un thésaurus de mots-clés environnementaux (GEMET)",
+      "Un logiciel de cartographie",
+      "Une norme de sécurité"
+    ],
+    "a": [1],
+    "e": "Le GEMET est souvent recommandé pour choisir des mots-clés harmonisés dans INSPIRE."
+  },
+  {
+    "id": 38,
+    "q": "Quelle est l'utilité des métadonnées pour le 'producteur' lui-même ?",
+    "o": [
+      "Garantir la valeur et la pérennité de son patrimoine",
+      "Éviter de refaire deux fois la même donnée",
+      "Gagner de l'argent grâce aux pubs",
+      "Maintenir la mémoire interne de l'organisme"
+    ],
+    "a": [0, 1, 3],
+    "e": "Elles assurent la préservation de la connaissance et optimisent la gestion interne."
+  },
+  {
+    "id": 39,
+    "q": "L'élément 'Qualité et Validité' inclut :",
+    "o": [
+      "La précision géométrique",
+      "Le nom du serveur web",
+      "La cohérence logique",
+      "L'exhaustivité"
+    ],
+    "a": [0, 2, 3],
+    "e": "La qualité évalue si la donnée est complète, logiquement correcte et précise."
+  },
+  {
+    "id": 40,
+    "q": "Quel élément permet d'indiquer si la donnée est payante ?",
+    "o": [
+      "Le titre",
+      "Conditions applicables à l'accès et à l'utilisation",
+      "Le format du fichier",
+      "Le point de contact"
+    ],
+    "a": [1],
+    "e": "Les informations sur les frais éventuels doivent figurer dans les conditions d'accès."
+  },
+  {
+    "id": 41,
+    "q": "Le moissonnage par 'CSW' permet de récupérer :",
+    "o": [
+      "Les pixels des images",
+      "Les fiches de métadonnées uniquement",
+      "Les mots de passe des utilisateurs",
+      "La structure de la base de données"
+    ],
+    "a": [1],
+    "e": "Le CSW est dédié à l'échange de catalogues de métadonnées, pas des données elles-mêmes."
+  },
+  {
+    "id": 42,
+    "q": "Qu'est-ce que 'GeoDCAT-AP' ?",
+    "o": [
+      "Un nouveau logiciel de saisie",
+      "Une extension géospatiale du profil DCAT",
+      "Une loi française",
+      "Un format de coordonnées"
+    ],
+    "a": [1],
+    "e": "C'est un profil d'application pour décrire les jeux de données géographiques dans les portails de données généralistes."
+  },
+  {
+    "id": 43,
+    "q": "Que signifie 'Data-viz' ?",
+    "o": [
+      "La protection des données",
+      "La visualisation graphique des données",
+      "La numérisation des données papier",
+      "Une marque de serveur"
+    ],
+    "a": [1],
+    "e": "La dataviz permet de transformer des données brutes en graphiques ou cartes interactives compréhensibles."
+  },
+  {
+    "id": 44,
+    "q": "Pourquoi la métadonnée traduit-elle une volonté de 'gouvernance' ?",
+    "o": [
+      "Parce qu'elle définit qui a le droit de faire quoi",
+      "Parce qu'elle impose des règles de saisie",
+      "Parce qu'elle permet de piloter le patrimoine de données",
+      "Parce qu'elle est rédigée par le gouvernement"
+    ],
+    "a": [0, 1, 2],
+    "e": "La gouvernance de la donnée passe par sa description, sa qualification et la gestion des droits associés."
+  },
+  {
+    "id": 45,
+    "q": "Quel organisme a créé le logiciel REPORTS (fin des années 90) ?",
+    "o": [
+      "Google",
+      "Le CERTU (pour le CNIG)",
+      "L'IGN",
+      "Microsoft"
+    ],
+    "a": [1],
+    "e": "Le CERTU a développé REPORTS, l'un des premiers outils libres pour gérer les métadonnées en France."
+  },
+  {
+    "id": 46,
+    "q": "L'élément 'Catégorie thématique' est :",
+    "o": [
+      "Un texte libre laissé au choix de l'auteur",
+      "Une liste fermée (codelist) internationale",
+      "Obligatoire pour faciliter la recherche",
+      "Inutile depuis l'arrivée de Google"
+    ],
+    "a": [1, 2],
+    "e": "L'usage d'une liste fermée garantit que les données sont classées de la même manière partout."
+  },
+  {
+    "id": 47,
+    "q": "Le format RDF est-il un format de fichier ?",
+    "o": [
+      "Oui, comme le .exe",
+      "Non, c'est un modèle de données",
+      "C'est un synonyme de XML",
+      "Il peut être représenté en XML, JSON-LD ou Turtle"
+    ],
+    "a": [1, 3],
+    "e": "RDF est un modèle conceptuel qui peut s'exprimer sous différentes formes techniques."
+  },
+  {
+    "id": 48,
+    "q": "Dans QGIS, un fichier .shp peut être accompagné d'un fichier .qmd.",
+    "o": [
+      "Vrai",
+      "Faux"
+    ],
+    "a": [0],
+    "e": "Le .qmd contient les métadonnées spécifiques au logiciel QGIS pour cette couche."
+  },
+  {
+    "id": 49,
+    "q": "Quel site permet de consulter des archives de données ouvertes en France ?",
+    "o": [
+      "facebook.com",
+      "files.opendatarchives.fr",
+      "leboncoin.fr",
+      "data.gouv.fr"
+    ],
+    "a": [1],
+    "e": "Ce site permet de retrouver des jeux de données historiques qui ne sont plus forcément en ligne."
+  },
+  {
+    "id": 50,
+    "q": "La conclusion du cours souligne que les normes sont :",
+    "o": [
+      "Figées pour les 50 prochaines années",
+      "En évolution rapide",
+      "Un frein au partage",
+      "Nécessaires pour l'utilisation et le partage"
+    ],
+    "a": [1, 3],
+    "e": "Les standards évoluent vite (ISO vers DCAT) mais sont indispensables au partage."
+  },
+  {
+    "id": 1,
+    "q": "Que signifie l'acronyme CLI dans le contexte informatique ?",
+    "o": [
+      "Common Language Interface",
+      "Command Line Interface",
+      "Computer Logical Instruction",
+      "Le mode console (ligne de commande)"
+    ],
+    "a": [1, 3],
+    "e": "CLI désigne l'interface en ligne de commande, souvent opposée à l'interface graphique (GUI)."
+  },
+  {
+    "id": 2,
+    "q": "Sur Windows, quel shell est particulièrement recommandé pour les géomaticiens selon le cours ?",
+    "o": [
+      "Invite de commande Windows (cmd)",
+      "PowerShell",
+      "OSGeo4W Shell",
+      "Git Bash"
+    ],
+    "a": [2],
+    "e": "OSGeo4W Shell est l'environnement privilégié pour manipuler les outils SIG open source sous Windows."
+  },
+  {
+    "id": 3,
+    "q": "Quelle commande CLI permet de connaître le répertoire où l'on se trouve actuellement ?",
+    "o": [
+      "ls",
+      "cd",
+      "pwd",
+      "mkdir"
+    ],
+    "a": [2],
+    "e": "pwd signifie 'print working directory' (afficher le répertoire de travail)."
+  },
+  {
+    "id": 4,
+    "q": "Que fait la commande 'cd ../' dans une console ?",
+    "o": [
+      "Elle ferme la console",
+      "Elle remonte d'un niveau dans l'arborescence des dossiers",
+      "Elle change de disque dur",
+      "Elle crée un dossier nommé '..'"
+    ],
+    "a": [1],
+    "e": "La commande 'cd' sert à changer de répertoire ; '..' symbolise le répertoire parent."
+  },
+  {
+    "id": 5,
+    "q": "Parmi ces commandes de base, lesquelles servent à manipuler des fichiers ou dossiers ?",
+    "o": [
+      "cp (copy)",
+      "mv (move)",
+      "rm (remove)",
+      "psql"
+    ],
+    "a": [0, 1, 2],
+    "e": "cp, mv et rm sont des commandes systèmes pour copier, déplacer/renommer et supprimer."
+  },
+  {
+    "id": 6,
+    "q": "Qu'est-ce que 'psql' ?",
+    "o": [
+      "Un serveur de base de données",
+      "Le client en ligne de commande de PostgreSQL",
+      "Une interface graphique comme PGAdmin",
+      "Un outil pour exécuter des scripts SQL"
+    ],
+    "a": [1, 3],
+    "e": "psql est l'utilitaire CLI permettant d'interagir avec un serveur PostgreSQL."
+  },
+  {
+    "id": 7,
+    "q": "Dans la commande 'psql -U postgres -d ma_base', que signifie l'option -U ?",
+    "o": [
+      "L'URL du serveur",
+      "L'identifiant de l'utilisateur (User)",
+      "L'unité de stockage",
+      "L'urgence de la connexion"
+    ],
+    "a": [1],
+    "e": "-U permet de spécifier le nom de l'utilisateur pour la connexion."
+  },
+  {
+    "id": 8,
+    "q": "Quelle commande interne à psql permet de lister toutes les bases de données du serveur ?",
+    "o": [
+      "\\dt",
+      "\\l",
+      "\\c",
+      "\\d"
+    ],
+    "a": [1],
+    "e": "\\l (list) affiche l'ensemble des bases de données disponibles sur le serveur."
+  },
+  {
+    "id": 9,
+    "q": "Comment se connecte-t-on à une base de données spécifique une fois psql lancé ?",
+    "o": [
+      "\\connect nom_base",
+      "\\c nom_base",
+      "cd nom_base",
+      "go nom_base"
+    ],
+    "a": [0, 1],
+    "e": "\\c ou \\connect permet de basculer sur une autre base de données."
+  },
+  {
+    "id": 10,
+    "q": "Quelle commande psql est utilisée pour voir la structure (colonnes, types) d'une table ?",
+    "o": [
+      "\\dt",
+      "\\d nom_table",
+      "\\dv",
+      "SELECT *"
+    ],
+    "a": [1],
+    "e": "\\d suivi du nom de la table affiche la description détaillée de sa structure."
+  },
+  {
+    "id": 11,
+    "q": "Pour exécuter un script SQL stocké dans un fichier externe depuis psql, on utilise :",
+    "o": [
+      "\\e",
+      "\\i chemin_fichier.sql",
+      "\\script",
+      "\\run"
+    ],
+    "a": [1],
+    "e": "\\i (include) permet d'importer et d'exécuter le contenu d'un fichier .sql."
+  },
+  {
+    "id": 12,
+    "q": "La commande '\\dt' dans psql permet de :",
+    "o": [
+      "Supprimer une table (drop table)",
+      "Lister les tables de la base actuelle",
+      "Lister les types de données",
+      "Afficher la date et l'heure"
+    ],
+    "a": [1],
+    "e": "\\dt liste les tables (display tables) présentes dans le schéma courant."
+  },
+  {
+    "id": 13,
+    "q": "Quels paramètres sont nécessaires pour une connexion psql complète à un serveur distant ?",
+    "o": [
+      "L'hôte (-h)",
+      "Le port (-p)",
+      "L'utilisateur (-U)",
+      "La base de données (-d)"
+    ],
+    "a": [0, 1, 2, 3],
+    "e": "Pour se connecter à distance, il faut préciser l'adresse du serveur, le port (souvent 5432), l'utilisateur et la base cible."
+  },
+  {
+    "id": 14,
+    "q": "Que signifie le prompt 'postgres=#' ?",
+    "o": [
+      "Que vous avez une erreur de syntaxe",
+      "Que vous êtes connecté à la base 'postgres' en tant que super-utilisateur",
+      "Que le serveur est éteint",
+      "Que vous devez entrer votre mot de passe"
+    ],
+    "a": [1],
+    "e": "Le nom avant le '=' indique la base actuelle, et le '#' indique généralement un statut de super-utilisateur (privilèges élevés)."
+  },
+  {
+    "id": 15,
+    "q": "Pourquoi psql est-il considéré comme un outil essentiel ?",
+    "o": [
+      "Il est plus léger que les interfaces graphiques",
+      "Il permet d'automatiser des tâches via des scripts",
+      "Il est disponible sur presque tous les serveurs PostgreSQL",
+      "Il est le seul moyen de supprimer une base"
+    ],
+    "a": [0, 1, 2],
+    "e": "Sa flexibilité, sa puissance et sa présence quasi-systématique en font l'outil de base de tout administrateur de données."
+  },
+  {
+    "id": 1,
+    "q": "Quelle est la distinction principale entre GDAL et OGR ?",
+    "o": [
+      "GDAL est pour les données raster, OGR pour les données vectorielles",
+      "GDAL est payant, OGR est gratuit",
+      "GDAL est pour Windows, OGR pour Linux",
+      "Il n'y a aucune différence, ce sont deux noms pour le même outil"
+    ],
+    "a": [0],
+    "e": "Historiquement, GDAL (Geospatial Data Abstraction Library) gérait les rasters et OGR (OpenGIS Simple Features Reference Implementation) gérait les vecteurs. Aujourd'hui, ils font partie du même projet."
+  },
+  {
+    "id": 2,
+    "q": "Sous quelle licence la bibliothèque GDAL/OGR est-elle distribuée ?",
+    "o": [
+      "Licence Microsoft Propriétaire",
+      "Licence X/MIT style Open Source",
+      "Licence Creative Commons BY-SA",
+      "Licence Apache 2.0"
+    ],
+    "a": [1],
+    "e": "GDAL/OGR est distribué sous une licence libre de style X/MIT par la fondation OSGeo."
+  },
+  {
+    "id": 3,
+    "q": "Lequel de ces formats est une exception notable difficilement gérée par OGR selon le cours ?",
+    "o": [
+      "GeoPackage (.gpkg)",
+      "ESRI Shapefile (.shp)",
+      "AutoCAD (.dwg/.dxf)",
+      "PostGIS"
+    ],
+    "a": [2],
+    "e": "Le cours mentionne AutoCAD comme une exception notable parmi les formats vectoriels courants."
+  },
+  {
+    "id": 4,
+    "q": "Quel utilitaire est utilisé pour obtenir des informations détaillées sur un fichier vectoriel ?",
+    "o": [
+      "gdalinfo",
+      "ogrinfo",
+      "ogr2ogr",
+      "gdal_translate"
+    ],
+    "a": [1],
+    "e": "ogrinfo est l'équivalent de gdalinfo mais dédié aux fichiers de données vectorielles."
+  },
+  {
+    "id": 5,
+    "q": "Quel est l'outil 'couteau-suisse' pour convertir, reprojeter et transformer des données vecteurs ?",
+    "o": [
+      "ogrindex",
+      "ogrinfo",
+      "ogr2ogr",
+      "gdalwarp"
+    ],
+    "a": [2],
+    "e": "ogr2ogr est l'outil fondamental pour la conversion, la reprojection et le filtrage de données vectorielles."
+  },
+  {
+    "id": 6,
+    "q": "Parmi ces capacités, lesquelles sont offertes par l'outil ogr2ogr ?",
+    "o": [
+      "Reprojection de données (changement de système de coordonnées)",
+      "Sélections attributaires (via SQL)",
+      "Sélections spatiales",
+      "Modification physique de la carte papier"
+    ],
+    "a": [0, 1, 2],
+    "e": "ogr2ogr est extrêmement puissant : il permet de filtrer les données (attributs/espace) et de changer leur projection lors de la conversion."
+  },
+  {
+    "id": 7,
+    "q": "À quoi sert l'outil 'ogrindex' ?",
+    "o": [
+      "À compter le nombre d'objets dans une couche",
+      "À créer un index de tuile pour optimiser le chargement (ex: MapServer)",
+      "À classer les fichiers par ordre alphabétique",
+      "À générer une légende automatique"
+    ],
+    "a": [1],
+    "e": "ogrindex crée un index de tuiles (tile index), ce qui permet à des serveurs cartographiques comme MapServer de charger plus rapidement les zones demandées."
+  },
+  {
+    "id": 8,
+    "q": "Est-il possible d'utiliser du langage SQL avec les outils OGR ?",
+    "o": [
+      "Oui, pour effectuer des requêtes complexes sur les données",
+      "Non, le SQL est réservé aux bases de données comme PostgreSQL",
+      "Uniquement si les données sont déjà dans une base de données",
+      "Oui, mais seulement avec le format GeoPackage"
+    ],
+    "a": [0],
+    "e": "OGR permet d'utiliser une syntaxe SQL (soit OGR SQL, soit SQLite) pour filtrer ou joindre des données, même sur des formats fichiers comme le Shapefile."
+  },
+  {
+    "id": 9,
+    "q": "GDAL/OGR est intégré dans quels types de logiciels ?",
+    "o": [
+      "Logiciels SIG Libres (QGIS, gvSIG...)",
+      "Logiciels de traitement de texte (Word)",
+      "Systèmes commerciaux propriétaires (pour assurer la compatibilité)",
+      "Navigateurs web (via des extensions ou serveurs)"
+    ],
+    "a": [0, 2],
+    "e": "GDAL/OGR est un pilier du monde SIG ; il est utilisé par QGIS mais aussi par de nombreux logiciels propriétaires pour lire les formats standards."
+  },
+  {
+    "id": 10,
+    "q": "Dans quels langages de programmation peut-on utiliser la bibliothèque GDAL ?",
+    "o": [
+      "C et C++",
+      "Python",
+      "Java",
+      "R"
+    ],
+    "a": [0, 1, 2, 3],
+    "e": "GDAL propose des 'bindings' (liaisons) pour presque tous les langages de programmation courants utilisés en science de la donnée et géomatique."
+  },
+  {
+    "id": 1,
+    "q": "Quelle est la différence fondamentale entre compatibilité et interopérabilité ?",
+    "o": [
+      "La compatibilité est transversale, l'interopérabilité est verticale",
+      "La compatibilité est une notion verticale (environnement donné), l'interopérabilité est transversale (communication entre outils)",
+      "Il n'y a aucune différence, ce sont des synonymes",
+      "L'interopérabilité ne concerne que le matériel, la compatibilité le logiciel"
+    ],
+    "a": [1],
+    "e": "La compatibilité permet à un outil de fonctionner dans un cadre précis, tandis que l'interopérabilité permet à des systèmes disparates de dialoguer sans restriction."
+  },
+  {
+    "id": 2,
+    "q": "Qu'est-ce qu'un 'langage pivot' dans un contexte d'échange de données ?",
+    "o": [
+      "Un langage de programmation très rapide",
+      "Un traducteur humain spécialisé en SIG",
+      "Un langage universel s'appuyant sur un standard reconnu pour limiter l'effort de traduction",
+      "Le nom du dernier standard de l'OGC"
+    ],
+    "a": [2],
+    "e": "Le langage pivot sert d'intermédiaire universel pour faciliter les échanges entre des systèmes qui utilisent des formats différents à l'origine."
+  },
+  {
+    "id": 3,
+    "q": "Quels sont les trois piliers de l'interopérabilité en géomatique selon le cours ?",
+    "o": [
+      "Sémantique (sens et structure)",
+      "Financière (coût des logiciels)",
+      "Géographique (systèmes géodésiques uniformes)",
+      "Standards et spécifications (OGC/ISO)"
+    ],
+    "a": [0, 2, 3],
+    "e": "L'interopérabilité repose sur la compréhension du sens (sémantique), la cohérence spatiale (géographique) et l'usage de normes communes."
+  },
+  {
+    "id": 4,
+    "q": "Quel est le rôle principal de l'organisation ISO / TC 211 ?",
+    "o": [
+      "Vendre des logiciels SIG",
+      "Produire des normes internationales pour l'information géographique numérique",
+      "Réparer des satellites GPS",
+      "Gérer le cadastre français"
+    ],
+    "a": [1],
+    "e": "L'ISO/TC 211 est le comité technique chargé de la normalisation mondiale dans le domaine de l'information géographique."
+  },
+  {
+    "id": 5,
+    "q": "Quelle est la mission de l'Open Geospatial Consortium (OGC) ?",
+    "o": [
+      "Développer des standards ouverts pour garantir l'interopérabilité",
+      "Remplacer l'organisation ISO",
+      "Favoriser la coopération entre développeurs, fournisseurs et utilisateurs",
+      "Interdire l'usage des formats propriétaires"
+    ],
+    "a": [0, 2],
+    "e": "Fondé en 1994, l'OGC est une organisation à but non lucratif dédiée à la création de standards ouverts en géomatique."
+  },
+  {
+    "id": 6,
+    "q": "Que signifie l'acronyme FAIR dans la gestion des données ?",
+    "o": [
+      "Fast, Accurate, Intelligent, Robust",
+      "Findable, Accessible, Interoperable, Reusable",
+      "Format, Archive, Index, Restore",
+      "File, Access, Information, Research"
+    ],
+    "a": [1],
+    "e": "Le principe FAIR définit les critères pour une donnée bien gérée : Trouvable, Accessible, Interopérable et Réutilisable."
+  },
+  {
+    "id": 7,
+    "q": "Parmi ces protocoles de Web Services, lesquels sont des standards de l'OGC ?",
+    "o": [
+      "WMS (Web Map Service)",
+      "HTTP (Hyper Text Transfer Protocol)",
+      "WFS (Web Feature Service)",
+      "WPS (Web Processing Service)"
+    ],
+    "a": [0, 2, 3],
+    "e": "WMS, WFS et WPS sont des standards OGC. HTTP est le protocole de transport utilisé par ces services."
+  },
+  {
+    "id": 8,
+    "q": "Quelle est la différence entre WMS et WMTS ?",
+    "o": [
+      "Le WMS envoie des fichiers Excel, le WMTS des images",
+      "Le WMS génère des cartes à la volée, le WMTS utilise des tuiles pré-calculées pour plus de rapidité",
+      "Le WMTS est plus ancien que le WMS",
+      "Le WMTS permet la saisie de données"
+    ],
+    "a": [1],
+    "e": "Le WMTS (Web Map Tile Service) améliore les performances en servant des images découpées en tuiles stockées en cache."
+  },
+  {
+    "id": 9,
+    "q": "Quels formats de fichiers locaux sont cités comme étant des standards OGC ?",
+    "o": [
+      "GeoPackage (GPKG)",
+      "GML (Geography Markup Language)",
+      "Shapefile (SHP)",
+      "KML (Keyhole Markup Language)"
+    ],
+    "a": [0, 1, 3],
+    "e": "GPKG, GML et KML sont des standards OGC. Le Shapefile est un format propriétaire d'Esri, bien que très répandu."
+  },
+  {
+    "id": 10,
+    "q": "Que signifie l'acronyme ETL ?",
+    "o": [
+      "Extract, Transform, Load",
+      "Espace, Temps, Localisation",
+      "Electronic Transfer Language",
+      "Execute, Transmit, Link"
+    ],
+    "a": [0],
+    "e": "L'ETL désigne le processus d'Extraction des données, leur Transformation (nettoyage, filtrage) et leur Chargement dans une base cible."
+  },
+  {
+    "id": 11,
+    "q": "Qu'est-ce qu'un 'Spatial ETL' (ou GTL) ?",
+    "o": [
+      "Un logiciel de dessin",
+      "Un ETL capable de manipuler les géométries et les systèmes de coordonnées",
+      "Un satellite de transfert de données",
+      "Un outil uniquement dédié à la suppression des données"
+    ],
+    "a": [1],
+    "e": "Un ETL spatial permet d'appliquer des transformations spécifiques aux données géographiques (reprojection, calculs spatiaux)."
+  },
+  {
+    "id": 12,
+    "q": "Parmi ces opérations, lesquelles font partie de la phase 'Transform' d'un ETL ?",
+    "o": [
+      "Le nettoyage des données",
+      "La reprojection (changement de système de coordonnées)",
+      "La connexion physique au serveur",
+      "Le filtrage des attributs"
+    ],
+    "a": [0, 1, 3],
+    "e": "La transformation regroupe toutes les manipulations modifiant la structure ou le contenu de la donnée avant son import."
+  },
+  {
+    "id": 13,
+    "q": "Qu'est-ce que le 'Géocodage' dans un processus ETL ?",
+    "o": [
+      "Crypter les données pour la sécurité",
+      "Convertir des attributs tabulaires (ex: adresses) en données spatiales (points)",
+      "Changer la couleur d'une carte",
+      "Vérifier si un fichier est corrompu"
+    ],
+    "a": [1],
+    "e": "Le géocodage transforme une information textuelle (adresse, ville) en coordonnées géographiques exploitables dans un SIG."
+  },
+  {
+    "id": 14,
+    "q": "Le standard GML (Geography Markup Language) est souvent utilisé comme :",
+    "o": [
+      "Logiciel de visualisation",
+      "Format d'échange normalisé (langage pivot)",
+      "Système d'exploitation",
+      "Pilote d'imprimante"
+    ],
+    "a": [1],
+    "e": "Le GML est un format basé sur XML conçu par l'OGC pour le transfert et le stockage d'informations géographiques."
+  },
+  {
+    "id": 15,
+    "q": "Dans le cycle de vie de la donnée, quand l'interopérabilité intervient-elle ?",
+    "o": [
+      "Uniquement à la création de la donnée",
+      "Uniquement lors de l'archivage",
+      "À tout moment du cycle de vie",
+      "Seulement si on utilise des logiciels gratuits"
+    ],
+    "a": [2],
+    "e": "L'interopérabilité est un enjeu permanent, de l'acquisition à la diffusion en passant par le traitement."
+  },
+  {
+    "id": 1,
+    "q": "Selon le schéma du cycle de vie de la donnée, quelle étape suit immédiatement l'Acquisition ?",
+    "o": [
+      "La Planification",
+      "La Vérification (Cercle vertueux)",
+      "L'Archivage",
+      "La Réutilisation"
+    ],
+    "a": [1],
+    "e": "Après l'acquisition (saisie, photo-interprétation), la donnée entre dans un cercle vertueux de vérification et de validation."
+  },
+  {
+    "id": 2,
+    "q": "Dans le 'Cycle de vie rempli', quel élément central est lié à toutes les étapes de mise à jour et de catalogage ?",
+    "o": [
+      "Le budget du projet",
+      "Les Métadonnées",
+      "Le logiciel QGIS",
+      "Le serveur web"
+    ],
+    "a": [1],
+    "e": "Les métadonnées sont le pivot central permettant d'assurer la traçabilité et la compréhension de la donnée tout au long de son cycle."
+  },
+  {
+    "id": 3,
+    "q": "Que signifie l'acronyme PAQ cité dans la phase de planification ?",
+    "o": [
+      "Petit Aperçu de Qualité",
+      "Plan d'Assurance Qualité",
+      "Protocole d'Acquisition Quotidien",
+      "Partage d'Accès Qualifié"
+    ],
+    "a": [1],
+    "e": "Le PAQ est un document de planification essentiel pour définir les méthodes de travail et les exigences de qualité du projet."
+  },
+  {
+    "id": 4,
+    "q": "La phase de 'Gouvernance' doit définir quels rôles ?",
+    "o": [
+      "Qui met à jour ?",
+      "Qui vérifie ?",
+      "Qui valide ?",
+      "Qui achète le café ?"
+    ],
+    "a": [0, 1, 2],
+    "e": "La gouvernance établit une méthode de travail en clarifiant les responsabilités sur le cycle de vie."
+  },
+  {
+    "id": 5,
+    "q": "Quels types d'analyses sont cités avant la production d'un résultat final ?",
+    "o": [
+      "Analyse spatiale",
+      "Modélisation de phénomène",
+      "Analyse des données",
+      "Analyse sanguine"
+    ],
+    "a": [0, 1, 2],
+    "e": "L'analyse et la modélisation sont nécessaires pour décrire un résultat avant de passer à la phase de communication/diffusion."
+  },
+  {
+    "id": 6,
+    "q": "Quels composants techniques sont nécessaires pour une 'diffusion web' moderne ?",
+    "o": [
+      "Serveur de base de données",
+      "Serveur cartographique",
+      "Un catalogue de données",
+      "Une connexion Wi-Fi uniquement"
+    ],
+    "a": [0, 1, 2],
+    "e": "La diffusion web repose sur une infrastructure composée de serveurs (DB, carto, web), de librairies et d'un catalogue."
+  },
+  {
+    "id": 7,
+    "q": "Dans le schéma, quelle étape boucle le cycle pour revenir à la Planification ?",
+    "o": [
+      "La Validation",
+      "L'Archivage",
+      "La Saisie",
+      "L'ETL"
+    ],
+    "a": [1],
+    "e": "L'archivage clôture une phase du cycle tout en permettant de planifier les cycles futurs."
+  },
+  {
+    "id": 8,
+    "q": "Qu'est-ce qui caractérise le 'cercle vertueux' de la donnée dans le schéma ?",
+    "o": [
+      "L'acquisition rapide sans contrôle",
+      "Le duo Vérification / Validation",
+      "Le passage par un ETL manuel ou automatisé",
+      "La suppression des données inutiles"
+    ],
+    "a": [1, 2],
+    "e": "Ce cercle garantit la fiabilité de la donnée via des contrôles de qualité (manuels ou ETL) et une validation finale."
+  },
+  {
+    "id": 9,
+    "q": "Selon le document, à quel moment sont engagés les choix de diffusion ?",
+    "o": [
+      "À la toute fin du projet",
+      "Pendant la phase d'évaluation du besoin (Planification)",
+      "Uniquement si le client le demande",
+      "Au moment de la saisie GPS"
+    ],
+    "a": [1],
+    "e": "Tout projet moderne anticipe la diffusion dès la phase de planification et d'évaluation du besoin."
+  },
+  {
+    "id": 10,
+    "q": "L'étape de 'Réutilisation' peut se faire :",
+    "o": [
+      "Uniquement à l'extérieur de l'organisme",
+      "En interne au sein d'autres projets",
+      "Via une mise à jour / diffusion",
+      "Jamais, une donnée ne sert qu'une fois"
+    ],
+    "a": [1, 2],
+    "e": "La réutilisation est une force du cycle de vie, que ce soit pour des besoins internes ou pour alimenter de nouveaux flux de diffusion."
+  }
+];
+
+// Variables
+let current = 0;
+const userAnswers = new Array(examData.length).fill(null);
+
+/* Mélange tableau */
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
+
+function shuffleQuizData() {
+  examData.forEach(q => {
+    // Shuffle options
+    const correctTexts = q.a.map(i => q.o[i]);
+    shuffleArray(q.o);
+    q.a = correctTexts.map(txt => q.o.indexOf(txt));
+  });
+  shuffleArray(examData);
+}
+
+/* Initialisation quiz */
+function initQuiz() {
+  const wrapper = document.getElementById('questions-wrapper');
+  examData.forEach((item, idx) => {
+    const div = document.createElement('div');
+    div.className = `question-container ${idx === 0 ? 'active' : ''}`;
+    div.id = `q-${idx}`;
+    div.innerHTML = `
+      <div class="question-text">${idx + 1}. ${item.q}</div>
+      <div class="options-list">
+        ${item.o.map((opt, i) => `<div class="option-item" onclick="handleSelect(${idx}, ${i}, this)">${opt}</div>`).join('')}
+      </div>
+      <button onclick="validateQuestion(${idx})" style="margin-top:10px;">Valider la question</button>
+      <div class="explanation-box" id="exp-${idx}">
+        <div style="font-weight:bold; color:#1e3a8a; font-size:0.8rem;">💡 ANALYSE</div>
+        <div>${item.e}</div>
+      </div>
+    `;
+    wrapper.appendChild(div);
+  });
+}
+
+/* Gestion sélection */
+window.handleSelect = function(qIdx, oIdx, el) {
+  if (!Array.isArray(userAnswers[qIdx])) userAnswers[qIdx] = [];
+  // Toggle sélection
+  if (userAnswers[qIdx].includes(oIdx)) {
+    userAnswers[qIdx] = userAnswers[qIdx].filter(i => i !== oIdx);
+    el.classList.remove("selected");
+  } else {
+    userAnswers[qIdx].push(oIdx);
+    el.classList.add("selected");
+  }
+};
+
+/* Validation question */
+function validateQuestion(qIdx) {
+  const options = document.querySelectorAll(`#q-${qIdx} .option-item`);
+  const correct = examData[qIdx].a;
+
+  options.forEach((o, i) => {
+    if (correct.includes(i)) o.classList.add('correct');
+    else if (userAnswers[qIdx]?.includes(i)) o.classList.add('wrong');
+  });
+
+  document.getElementById(`exp-${qIdx}`).style.display = 'block';
+}
+
+/* Navigation */
+window.move = function(dir) {
+  const containers = document.querySelectorAll('.question-container');
+  containers[current].classList.remove('active');
+  current += dir;
+  if (current >= examData.length) { finish(); return; }
+  containers[current].classList.add('active');
+  updateUI();
+};
+
+/* UI */
+function updateUI() {
+  document.getElementById('counter').innerText = `Question ${current + 1} / ${examData.length}`;
+  document.getElementById('prev-btn').disabled = current === 0;
+  document.getElementById('next-btn').innerText = (current === examData.length - 1) ? "Terminer" : "Suivant";
+  document.getElementById('progress-fill-quiz').style.width = `${((current + 1)/examData.length)*100}%`;
+}
+
+/* Fin du quiz */
+function finish() {
+  document.getElementById('quiz-ui').style.display = 'none';
+  document.getElementById('final-screen').style.display = 'block';
+
+  let score = 0;
+  examData.forEach((q,i)=>{
+    const user = userAnswers[i] || [];
+    const correct = q.a;
+    if (user.length === correct.length && user.every(ans => correct.includes(ans))) score++;
+  });
+
+  const pct = Math.round((score / examData.length) * 100);
+  document.getElementById('score-display').innerText = `${pct}%`;
+  document.getElementById('feedback-msg').innerText =
+    pct >= 70 ? "Félicitations ! Expert en métadonnées !" : "Pas mal, encore un peu de révision sur l'ISO 19115.";
+}
+
+/* Lancement */
+shuffleQuizData();
+initQuiz();
+updateUI();
+</script>
+              
+
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../overrides/script.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
