@@ -1373,6 +1373,318 @@ const examData = [
     ],
     "a": [1, 2],
     "e": "La réutilisation est une force du cycle de vie, que ce soit pour des besoins internes ou pour alimenter de nouveaux flux de diffusion."
+  },
+  {
+    "id": 1,
+    "q": "Quelle commande Linux permet d'afficher les 10 premières lignes d'un fichier CSV volumineux sans l'ouvrir entièrement ?",
+    "o": [
+      "cat",
+      "head",
+      "tail",
+      "more"
+    ],
+    "a": [1],
+    "e": "La commande 'head' est idéale pour inspecter le début d'un fichier lourd sans saturer la mémoire vive."
+  },
+  {
+    "id": 2,
+    "q": "Comment créer une arborescence complète de dossiers (ex: projet/data/shp) en une seule commande ?",
+    "o": [
+      "mkdir projet/data/shp",
+      "mkdir -p projet/data/shp",
+      "mkdir -r projet/data/shp",
+      "make dir projet/data/shp"
+    ],
+    "a": [1],
+    "e": "L'option -p (parents) permet de créer les répertoires parents s'ils n'existent pas déjà."
+  },
+  {
+    "id": 4,
+    "q": "Quelle commande shell permet de changer les droits d'un fichier pour le rendre lisible et modifiable par tout le monde ?",
+    "o": [
+      "chown 777",
+      "chmod 777",
+      "rights 777",
+      "sudo 777"
+    ],
+    "a": [1],
+    "e": "chmod (change mode) modifie les permissions. 777 donne tous les droits (lecture, écriture, exécution) à tous."
+  },
+  {
+    "id": 6,
+    "q": "Quelle commande Linux permet de rechercher un mot spécifique (ex: 'SRID') à l'intérieur de plusieurs fichiers texte ?",
+    "o": [
+      "find",
+      "grep",
+      "search",
+      "locate"
+    ],
+    "a": [1],
+    "e": "Grep est l'outil de recherche de motifs textuels par excellence sous Linux."
+  },
+  {
+    "id": 7,
+    "q": "Dans psql, quelle métacommande permet de lister uniquement les vues (views) de la base ?",
+    "o": [
+      "\\dt",
+      "\\dv",
+      "\\dn",
+      "\\ds"
+    ],
+    "a": [1],
+    "e": "\\dv (display views) filtre la liste pour n'afficher que les vues."
+  },
+  {
+    "id": 9,
+    "q": "Dans psql, à quoi sert la commande '\\dn' ?",
+    "o": [
+      "Lister les noms de colonnes",
+      "Lister les schémas de la base de données",
+      "Lister les types de données",
+      "Se déconnecter"
+    ],
+    "a": [1],
+    "e": "\\dn liste les 'namespaces', qui correspondent aux schémas dans PostgreSQL."
+  },
+  {
+    "id": 11,
+    "q": "Dans psql, comment éditer une requête complexe dans votre éditeur de texte favori (ex: Vim, Notepad++) avant de l'exécuter ?",
+    "o": [
+      "\\edit",
+      "\\e",
+      "\\i",
+      "Ctrl + E"
+    ],
+    "a": [0, 1],
+    "e": "\\e ouvre l'éditeur système par défaut pour rédiger la requête."
+  },
+  {
+    "id": 12,
+    "q": "Comment forcer l'arrêt d'un processus Linux qui ne répond plus ?",
+    "o": [
+      "stop",
+      "kill -9 [ID_PROCESSUS]",
+      "exit -f",
+      "rm process"
+    ],
+    "a": [1],
+    "e": "'kill -9' envoie un signal d'arrêt immédiat et non négociable au processus."
+  },
+  {
+    "id": 13,
+    "q": "Dans psql, quelle commande permet d'obtenir l'aide sur la syntaxe d'une commande SQL spécifique (ex: CREATE TABLE) ?",
+    "o": [
+      "\\help",
+      "\\h",
+      "\\?",
+      "man sql"
+    ],
+    "a": [0, 1],
+    "e": "\\h (ou \\help) fournit l'aide sur les commandes SQL, tandis que \\? fournit l'aide sur les commandes psql (\\d, \\c, etc.)."
+  },
+  {
+    "id": 14,
+    "q": "Que fait la commande 'touch' en ligne de commande ?",
+    "o": [
+      "Elle ouvre un fichier",
+      "Elle crée un fichier vide ou met à jour sa date de modification",
+      "Elle supprime les virus",
+      "Elle teste la connexion réseau"
+    ],
+    "a": [1],
+    "e": "Touch est souvent utilisée pour créer rapidement un fichier texte vide."
+  },
+  {
+    "id": 15,
+    "q": "Dans psql, comment lister tous les utilisateurs (rôles) et leurs privilèges ?",
+    "o": [
+      "\\du",
+      "\\dp",
+      "\\dr",
+      "SELECT users"
+    ],
+    "a": [0],
+    "e": "\\du (display users) liste les rôles définis sur l'instance PostgreSQL."
+  },
+  {
+    "id": 16,
+    "q": "Quelle commande permet de surveiller en temps réel l'ajout de lignes dans un fichier de log (ex: postgresql.log) ?",
+    "o": [
+      "cat",
+      "watch",
+      "tail -f",
+      "live"
+    ],
+    "a": [2],
+    "e": "L'option -f (follow) de 'tail' permet de voir les nouvelles lignes s'afficher au fur et à mesure de leur écriture."
+  },
+  {
+    "id": 17,
+    "q": "Dans psql, comment rediriger le résultat d'une requête SQL directement dans un fichier CSV sur le disque ?",
+    "o": [
+      "\\o fichier.csv",
+      "\\copy",
+      "\\w fichier.csv",
+      "SAVE TO"
+    ],
+    "a": [0, 1],
+    "e": "\\o (output) redirige tous les résultats suivants vers un fichier. La commande \\copy est plus spécifique pour l'export structuré."
+  },
+  {
+    "id": 18,
+    "q": "Comment afficher l'historique des dernières commandes tapées dans le terminal Linux ?",
+    "o": [
+      "last",
+      "history",
+      "prev",
+      "\\h"
+    ],
+    "a": [1],
+    "e": "La commande 'history' liste les commandes précédentes, ce qui est utile pour retrouver une syntaxe complexe."
+  },
+  {
+    "id": 19,
+    "q": "Dans psql, que fait la commande '\\q' ?",
+    "o": [
+      "Exécute une Query (requête)",
+      "Quitte le client psql",
+      "Annule la transaction en cours",
+      "Supprime (Query) la table"
+    ],
+    "a": [1],
+    "e": "\\q (quit) permet de sortir proprement de l'interface psql."
+  },
+  {
+    "id": 20,
+    "q": "Quelle commande permet de connaître la version de PostgreSQL installée via la console ?",
+    "o": [
+      "psql --version",
+      "postgres -V",
+      "SELECT version(); (dans psql)",
+      "version -all"
+    ],
+    "a": [0, 1, 2],
+    "e": "Plusieurs méthodes existent : l'option --version sur les binaires ou la fonction SQL interne version()."
+  },
+  {
+    "id": 1,
+    "q": "Quel est le fichier de configuration principal où l'on définit les paramètres de performance (ex: shared_buffers) ?",
+    "o": [
+      "pg_hba.conf",
+      "postgresql.conf",
+      "pg_ident.conf",
+      "postmaster.opts"
+    ],
+    "a": [1],
+    "e": "postgresql.conf est le fichier central contenant tous les paramètres de réglage du serveur (mémoire, ports, logs, etc.)."
+  },
+  {
+    "id": 2,
+    "q": "Dans quel fichier gère-t-on les autorisations d'accès au serveur (adresses IP autorisées, méthodes d'authentification) ?",
+    "o": [
+      "pg_auth.conf",
+      "pg_hba.conf",
+      "access.conf",
+      "postgresql.conf"
+    ],
+    "a": [1],
+    "e": "pg_hba.conf (Host-Based Authentication) définit qui peut se connecter, d'où, et comment (mot de passe, trust, md5...)."
+  },
+  {
+    "id": 3,
+    "q": "Que signifie l'abréviation 'HBA' dans 'pg_hba.conf' ?",
+    "o": [
+      "High Business Availability",
+      "Host-Based Authentication",
+      "Hyper-Binary Access",
+      "Hidden Base Administrator"
+    ],
+    "a": [1],
+    "e": "Il s'agit de l'authentification basée sur l'hôte, car le fichier filtre les connexions selon l'origine (hôte) du client."
+  },
+  {
+    "id": 4,
+    "q": "Quel paramètre dans postgresql.conf doit être modifié pour permettre au serveur d'écouter toutes les interfaces réseau (pas seulement localhost) ?",
+    "o": [
+      "port = 5432",
+      "listen_addresses = '*'",
+      "max_connections = 100",
+      "external_access = on"
+    ],
+    "a": [1],
+    "e": "Par défaut, PostgreSQL n'écoute que sur 'localhost'. Pour ouvrir l'accès au réseau, il faut modifier 'listen_addresses'."
+  },
+  {
+    "id": 5,
+    "q": "Dans pg_hba.conf, que permet la méthode d'authentification 'trust' ?",
+    "o": [
+      "Demander un mot de passe crypté",
+      "Autoriser la connexion sans aucun mot de passe",
+      "Utiliser le certificat SSL de l'utilisateur",
+      "Bloquer toutes les connexions par sécurité"
+    ],
+    "a": [1],
+    "e": "La méthode 'trust' permet de se connecter sans mot de passe. Elle est à utiliser avec une extrême prudence, généralement limitée au 'localhost'."
+  },
+  {
+    "id": 6,
+    "q": "Comment appliquer une modification faite dans postgresql.conf sans redémarrer complètement le service (si le paramètre le permet) ?",
+    "o": [
+      "En supprimant le fichier postmaster.pid",
+      "En exécutant la commande SQL 'SELECT pg_reload_conf();'",
+      "En redémarrant l'ordinateur",
+      "C'est impossible, un redémarrage est toujours requis"
+    ],
+    "a": [1],
+    "e": "pg_reload_conf() permet de recharger les fichiers de configuration sans interrompre les connexions actives (SIGHUP)."
+  },
+  {
+    "id": 7,
+    "q": "À quoi sert le fichier 'pg_ident.conf' ?",
+    "o": [
+      "À stocker les mots de passe des utilisateurs",
+      "À faire correspondre des noms d'utilisateurs système (OS) à des rôles PostgreSQL",
+      "À définir l'identifiant unique du serveur",
+      "À lister les extensions installées"
+    ],
+    "a": [1],
+    "e": "Il est utilisé pour le 'mapping' d'utilisateurs, par exemple pour autoriser un utilisateur Linux nommé 'geo_user' à se connecter en tant que rôle 'postgres'."
+  },
+  {
+    "id": 8,
+    "q": "Quel fichier indique l'emplacement actuel du répertoire de données (DATADIR) sous Linux (systèmes Debian/Ubuntu) ?",
+    "o": [
+      "postgresql.conf",
+      "/etc/postgresql/XX/main/postgresql.conf",
+      "vars.sh",
+      "postmaster.opts"
+    ],
+    "a": [1],
+    "e": "Sur les distributions de type Debian, la configuration est séparée des données. Le fichier postgresql.conf contient le paramètre 'data_directory'."
+  },
+  {
+    "id": 9,
+    "q": "Quel est l'effet immédiat d'une erreur de syntaxe dans le fichier pg_hba.conf ?",
+    "o": [
+      "PostgreSQL ignore la ligne erronée",
+      "Le serveur risque de refuser toutes les nouvelles connexions ou de ne pas redémarrer",
+      "Le serveur corrige l'erreur automatiquement",
+      "Les données sont supprimées"
+    ],
+    "a": [1],
+    "e": "Une erreur dans pg_hba.conf peut bloquer l'accès au serveur ou empêcher son lancement au prochain redémarrage."
+  },
+  {
+    "id": 10,
+    "q": "Dans postgresql.conf, quel paramètre contrôle la quantité de mémoire dédiée aux tris et aux jointures complexes ?",
+    "o": [
+      "shared_buffers",
+      "work_mem",
+      "maintenance_work_mem",
+      "temp_buffers"
+    ],
+    "a": [1],
+    "e": "work_mem définit la mémoire utilisée pour chaque opération de tri ou table de hachage avant d'écrire sur le disque."
   }
 ];
 
